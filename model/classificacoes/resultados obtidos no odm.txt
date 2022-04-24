@@ -1,0 +1,86 @@
+Classification considering the hyper-parameters:
+
+nog - number of groups
+spr - samples per group
+nof - number of features
+noss - number of slided samples
+
+
+----------------------------------------------------
+CA - Classification accuracy:
+The proportion of correctly classified examples
+
+====================================================
+Resultado 1
+====================================================
+nog = 20
+spr = 1024
+nof = 3
+noss = 1024
+
+Modelos:
+neural_net_trained_model_1: 		CA =  0.914
+naive_bayes_trained_model_1:    	CA =  0.590
+svm_trained_model_1:            	CA =  0.457
+logistic_regression_trained_model_1: 	CA =  0.594
+tree_trained_model_1: 			CA =  0.959
+
+
+
+
+====================================================
+Resultado 2
+====================================================
+nog = 15
+spr = 1024
+nof = 3
+noss = 1024
+
+
+
+Modelos:
+neural_net_trained_model_2: 		CA = 0.854
+naive_bayes_trained_model_2:		CA = 0.581
+svm_trained_model_2:			CA = 0.434
+logistic_regression_trained_model_2:	CA = 0.588
+tree_trained_model_2:			CA = 0.962
+
+
+
+
+====================================================
+Resultado 3
+====================================================
+nog = 15
+spr = 1024
+nof = 3
+noss = 512
+
+
+
+Modelos:
+neural_net_trained_model_3: 		CA = 0.979
+naive_bayes_trained_model_3:		CA = 0.715
+svm_trained_model_3:			CA = 0.389
+logistic_regression_trained_model_3:	CA = 0.715
+tree_trained_model_3:			CA = 0.965
+
+
+
+
+====================================================
+Resultado 4
+====================================================
+nog = 20
+spr = 1024
+nof = 3
+noss = 256
+
+
+
+Modelos:
+neural_net_trained_model_4: 		CA = 0.936
+naive_bayes_trained_model_4:		CA = 0.624
+svm_trained_model_4:			CA = 0.528
+logistic_regression_trained_model_4:	CA = 0.792
+tree_trained_model_4:			CA = 0.969
