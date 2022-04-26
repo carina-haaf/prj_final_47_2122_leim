@@ -6,31 +6,38 @@ nof - number of features
 noss - number of slided samples
 
 
-----------------------------------------------------
+--------------------------------------------------------------------------------------------------------
 CA - Classification accuracy:
-The proportion of correctly classified examples
-
-====================================================
+Corresponde à percentagem de exemplos bem classificados
+========================================================================================================
 Resultado 1
-====================================================
+========================================================================================================
 nog = 20
 spr = 1024
 nof = 3
 noss = 1024
 
-Modelos:
+MODELOS TREINADOS:
 neural_net_trained_model_1: 		CA =  0.914
 naive_bayes_trained_model_1:    	CA =  0.590
 svm_trained_model_1:            	CA =  0.457
 logistic_regression_trained_model_1: 	CA =  0.594
 tree_trained_model_1: 			CA =  0.959
+Áudios utilizados no processo de treino dos modelos: 0-2, 34-36
 
 
+TESTE COM OS MODELOS TREINADOS (sobre dados novos):
+neural_net_trained_model_3: 		CA = 0.664
+naive_bayes_trained_model_3:		CA = 0.714
+svm_trained_model_3:			CA = 0.342
+logistic_regression_trained_model_3:	CA = 0.624
+tree_trained_model_3:			CA = 0.682
+Áudios utilizados no processo de classificação: 37-38
 
 
-====================================================
+========================================================================================================
 Resultado 2
-====================================================
+========================================================================================================
 nog = 15
 spr = 1024
 nof = 3
@@ -38,19 +45,18 @@ noss = 1024
 
 
 
-Modelos:
+MODELOS TREINADOS (treino e classificação sobre os mesmos dados):
 neural_net_trained_model_2: 		CA = 0.854
 naive_bayes_trained_model_2:		CA = 0.581
 svm_trained_model_2:			CA = 0.434
 logistic_regression_trained_model_2:	CA = 0.588
 tree_trained_model_2:			CA = 0.962
+Áudios utilizados no processo de treino dos modelos: 0-2, 34-36
 
 
-
-
-====================================================
+========================================================================================================
 Resultado 3
-====================================================
+========================================================================================================
 nog = 15
 spr = 1024
 nof = 3
@@ -58,19 +64,27 @@ noss = 512
 
 
 
-Modelos:
+MODELOS TREINADOS (treino e classificação sobre os mesmos dados):
 neural_net_trained_model_3: 		CA = 0.979
 naive_bayes_trained_model_3:		CA = 0.715
 svm_trained_model_3:			CA = 0.389
 logistic_regression_trained_model_3:	CA = 0.715
 tree_trained_model_3:			CA = 0.965
+Áudios utilizados no processo de treino dos modelos: 0-2, 34-36
 
 
+TESTE COM OS MODELOS TREINADOS (sobre dados novos):
+neural_net_trained_model_3: 		CA = 0.882
+naive_bayes_trained_model_3:		CA = 0.884
+svm_trained_model_3:			CA = 0.724
+logistic_regression_trained_model_3:	CA = 0.841
+tree_trained_model_3:			CA = 0.879
+Áudios utilizados no processo de classificação: 37-38
 
 
-====================================================
+========================================================================================================
 Resultado 4
-====================================================
+========================================================================================================
 nog = 20
 spr = 1024
 nof = 3
@@ -78,9 +92,11 @@ noss = 256
 
 
 
-Modelos:
+MODELOS TREINADOS (treino e classificação sobre os mesmos dados):
 neural_net_trained_model_4: 		CA = 0.936
 naive_bayes_trained_model_4:		CA = 0.624
 svm_trained_model_4:			CA = 0.528
 logistic_regression_trained_model_4:	CA = 0.792
 tree_trained_model_4:			CA = 0.969
+Áudios utilizados no processo de treino dos modelos: 0-2, 34-36
+
