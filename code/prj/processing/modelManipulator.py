@@ -12,12 +12,21 @@ Methods to create, train and evaluate models
 
 
 def construct(nr_features, nr_groups, debug=False):
-
+    """
     model = tf.keras.models.Sequential()
     model.add(tf.keras.layers.Dense(10, activation='relu', kernel_initializer='he_normal',
                                     input_shape=(nr_features*nr_groups,)))
     model.add(tf.keras.layers.Dense(8, activation='relu', kernel_initializer='he_normal'))
-    model.add(tf.keras.layers.Dense(3, activation='softmax'))
+    model.add(tf.keras.layers.Dense(3, activation='relu'))
+    model.add(tf.keras.layers.Dense(1, activation='sigmoid'))
+
+    """
+
+
+
+    model = tf.keras.models.Sequential()
+    model.add(tf.keras.layers.Dense(30, input_dim=nr_features*nr_groups, activation='relu'))
+    model.add(tf.keras.layers.Dense(30, activation='relu'))
     model.add(tf.keras.layers.Dense(1))
 
     if debug:

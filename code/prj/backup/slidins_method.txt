@@ -1,0 +1,10 @@
+nog = 20
+spg = 1024
+noss = 4096
+
+
+for i in range(0, 1279782, noss):
+
+    ini_idx = i
+    final_idx = i + nog*spg
+    print("ini: ", ini_idx, "   fin: ", final_idx)

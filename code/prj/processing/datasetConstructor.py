@@ -149,7 +149,7 @@ def get_features(data, nr_groups, nr_samples_per_group, nr_shifted_samples, samp
 
     # nr_shifted_samples must be a multiple of nr_samples_per_group
     shift_nr = int(nr_shifted_samples/nr_samples_per_group)
-    f1 = onset_feature.window(size=nr_groups, shift=shift_nr, drop_remainder=True)
+    f1 = onset_feature.window(size=nr_groups, shift=shift_nr, drop_remainder=True) # deliza entre 1 e N - verificar
     f2 = rms_feature.window(size=nr_groups, shift=shift_nr, drop_remainder=True)
     f3 = specflux_feature.window(size=nr_groups, shift=shift_nr, drop_remainder=True)
 
@@ -195,28 +195,17 @@ def get_data_features(data, vd_index, nr_groups, nr_samples_per_group, nr_shifte
         file_rows.append(feature_arr)
 
 
-def construct(rel_path_videos, nr_groups, nr_samples_per_group,
+def construct(paths, nr_groups, nr_samples_per_group,
                          nr_shifted_samples, features_file,
                          file_rows, sample_rate=44100):
 
-    """
-
-    :param rel_path_videos:
-    :param nr_groups:
-    :param nr_samples_per_group:
-    :param nr_shifted_samples:
-    :param features_file:
-    :param file_rows:
-    :param sample_rate:
-    :return:
-    """
-    files = np.array(list(os.listdir(rel_path_videos)))
+    files = np.array(list(os.listdir(paths[0])))
     for i in range(len(files)):
-        v = Video(rel_path_videos, files[i])
+        v = Video(paths[0], files[i])
         video = v.get_file()
         vd_idx = int(files[i].split(".")[0].split("_")[1][0:])
         print("Processing data from video number ", vd_idx, "...")
-        audio_path = "../audios/AUDIO_" + str(vd_idx) + ".wav"
+        audio_path = paths[1] + "/" + "AUDIO_" + str(vd_idx) + ".wav"
         video.audio.write_audiofile(audio_path, fps=sample_rate)
         y, sr = librosa.load(audio_path)
         get_data_features(y, vd_idx, nr_groups, nr_samples_per_group,

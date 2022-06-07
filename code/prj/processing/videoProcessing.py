@@ -96,15 +96,3 @@ for i in range(len(files)):
 
 """
 
-
-import numpy as np
-rel_path_videos = "../videos/test"
-files = np.array(list(os.listdir(rel_path_videos)))
-for i in range(len(files)):
-    v = Video(rel_path_videos, files[i])
-    video = v.get_file()
-    vd_idx = int(files[i].split(".")[0].split("_")[1][0:])
-    print("Processing data from video number ", vd_idx, "...")
-    audio_path = "../audios/AUDIO_" + str(vd_idx) + ".wav"
-    video.audio.write_audiofile(audio_path, fps=44100)
-

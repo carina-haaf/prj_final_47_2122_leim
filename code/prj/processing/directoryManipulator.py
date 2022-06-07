@@ -25,6 +25,8 @@ def clear_dir(abs_directory_path_to_dir):
     for file in os.listdir(abs_directory_path_to_dir):
         os.remove(os.path.join(abs_directory_path_to_dir, file))
 
+    print("All files from '" + abs_directory_path_to_dir + "' directory where deleted!")
+
 
 """
 # TEST ...
