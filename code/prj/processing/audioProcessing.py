@@ -5,32 +5,21 @@ import soundfile as sf
 
 
 class Audio:
-    def __init__(self, rel_path, file_name, sr):
-        self.rel_path = rel_path + "/" + file_name
-        self.abs_path = self.get_abs_path()
-        #print("PATH TODO: " + self.rel_path)
+    def __init__(self, audio_path, sr):
 
-        audioclip, sample_rate = librosa.load(self.rel_path, sr=sr)
+        audioclip, sample_rate = librosa.load(audio_path, sr=None)
+
         self.sample_rate = sample_rate
         self.y = audioclip
-
-    def get_rel_path(self):
-        return self.rel_path
-
-    def get_abs_path(self):
-        return os.path.abspath("../" + self.rel_path)
 
     def get_audio_data(self):
         return self.y
 
-    def get_audio_info(self):
-        return sf.info(self.rel_path)
-
     def get_sample_rate(self):
         return self.sample_rate
 
-    def write_audio(self, rel_path, file_name, y, sample_rate=44100):
-        sf.write(rel_path + "/" + file_name, y, sample_rate)
+    def write_audio(self, audio_path, y, sample_rate=44100):
+        sf.write(audio_path, y, sample_rate)
 
 
 
