@@ -1,0 +1,66 @@
+Hiper-parametros:
+
+nog = nr.de grupos
+spr = nr. de amostras por grupo
+nof = nr de caracetristicas
+noss = nr. de amostras deslizadas
+
+
+=====================================================================================================
+- video_1
+=====================================================================================================   
+   	* nog = 21
+   	* spr = 1024
+   	* nof = 3
+   	* noss = 1024
+
+	Estrutura do modelo:
+	- 63 neurónios na layer de input
+	- 2 hidden layers: uma com 63 neurónios e outra com 30 com funções de ativação "relu"
+	- 1 neurónio na layer de output com função de ativação "sigmoid"
+	- métricas utilizadas: accuracy e loss
+
+	Videos utilizados para treino: 44,45,46,47,48,49,50
+	Videos utilizados na classificação: 51
+
+
+=====================================================================================================
+- video_2
+=====================================================================================================
+   
+   	* nog = 21
+   	* spr = 1024
+   	* nof = 3
+   	* noss = 2048
+
+	Estrutura do modelo:
+	- 63 neurónios na layer de input
+	- 2 hidden layers: uma com 63 neurónios e outra com 30 com funções de ativação "relu"
+	- 1 neurónio na layer de output com função de ativação "sigmoid"
+	- métricas utilizadas: accuracy e loss
+
+	Videos utilizados para treino: 44,45,46,47,48,49,50
+	Videos utilizados na classificação: 51
+
+
+
+=====================================================================================================
+- video_3
+=====================================================================================================
+   
+   	* nog = 21
+   	* spr = 1024
+   	* nof = 3
+   	* noss = 1024
+
+	Estrutura do modelo:
+	- 63 neurónios na layer de input
+	- 2 hidden layers: uma com 63 neurónios e outra com 30 com funções de ativação "relu"
+	- 1 neurónio na layer de output com função de ativação "sigmoid"
+	- métricas utilizadas: accuracy e loss
+
+	Videos utilizados para treino: 0,1,2,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50
+	Videos utilizados na classificação: 51
+
+
+   
