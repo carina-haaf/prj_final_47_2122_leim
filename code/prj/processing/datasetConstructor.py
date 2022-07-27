@@ -2,6 +2,7 @@
 
 import librosa
 import tensorflow as tf
+import numpy as np
 
 from processing.videoProcessing import *
 from processing.processCsvFile import *
@@ -38,7 +39,7 @@ def get_range_label(ini_idx, final_idx, video_number):
 
         condition_1 = column[0] == "racket" or column[0] == "floor" or \
                       column[0] == "glass" or column[0] == "grid" or \
-                      column[0] == "net" or column[0] == "sel_warm_up"
+                      column[0] == "net" or column[0] == "self_warm_up"
 
         condition_2 = ini_idx >= first_sample and ini_idx <= last_sample
         # condition_3 = final_idx >= first_sample and final_idx <= last_sample
@@ -68,10 +69,11 @@ def generate_onset_array(arr, data_size, nog, spg):
     return onset_array
 
 
-def set_up_features_file(path):
+def create_file(path):
+
     features_file = CsvFile(path, "w")
-    features_file.write_lines_on_file([[""]])
-    features_file.clear_file()
+    # features_file.clear_file()
+    # features_file.write_lines_on_file([[""]])
 
     return features_file
 
@@ -130,9 +132,9 @@ def get_features(data, nr_groups, nr_samples_per_group, nr_shifted_samples, samp
     return f1, f2, f3
 
 
-def get_data_features(data, vd_index, nr_groups, nr_samples_per_group, nr_shifted_samples, file_rows, sample_rate):
-
-    arr_features_labels = np.array([])
+def get_data_features(data, vd_index, nr_groups, nr_samples_per_group, nr_shifted_samples, file_rows, non_ball_hit_vd_idx, sample_rate):
+    nr_ball_hits = 0
+    nr_non_ball_hits = 0
 
     # features
     f1, f2, f3 = get_features(data, nr_groups, nr_samples_per_group, nr_shifted_samples, sample_rate)
@@ -153,31 +155,60 @@ def get_data_features(data, vd_index, nr_groups, nr_samples_per_group, nr_shifte
         feature_arr = organize_feature_values(f1[j], f2[j], f3[j], is_ball_hit)
 
         # keep the features data on array
-        arr_features_labels = np.append(arr_features_labels, feature_arr)
-        file_rows.append(feature_arr)
 
+
+        if (is_ball_hit and vd_index not in non_ball_hit_vd_idx) or \
+                ((not is_ball_hit) and vd_index in non_ball_hit_vd_idx):
+            file_rows.append(feature_arr)
+
+        if is_ball_hit and vd_index not in non_ball_hit_vd_idx:
+            nr_ball_hits += 1
+
+        elif (not is_ball_hit) and vd_index in non_ball_hit_vd_idx:
+            nr_non_ball_hits += 1
+    """
+    # para efeitos de contagem de eventos (equilíbrio do dataset)
+    print("VIDEO: ", vd_index)
+    print("Nr. batidas de bolas:", nr_ball_hits)
+    print("Nr. NÃO batidas de bolas:", nr_non_ball_hits)
     # print("len(arr_features_labels): ", len(arr_features_labels))
+    
+    """
+
+    return nr_ball_hits, nr_non_ball_hits
+
 
 def construct(paths, nr_groups, nr_samples_per_group,
                          nr_shifted_samples, features_file,
                          file_rows, sample_rate=44100):
+
+    total_ball_hits = 0
+    total_non_ball_hits = 0
+
+    non_ball_hit_vd_idx = [35, 36, 37, 40, 47]
 
     files = np.array(list(os.listdir(paths[0])))
     for i in range(len(files)):
         v = Video(paths[0], files[i])
         video = v.get_file()
         vd_idx = int(files[i].split(".")[0].split("_")[1][0:])
-        #print("Processing data from video number ", vd_idx, "...")
+        print("Processing data from video number ", vd_idx, "...")
 
         audio_path = paths[1] + "/" + "AUDIO_" + str(vd_idx) + ".wav"
         video.audio.write_audiofile(audio_path, fps=sample_rate)
         y, sr = librosa.load(audio_path, sr=None)
         #print("y.shape: ", y.shape)
-        get_data_features(y, vd_idx, nr_groups, nr_samples_per_group,
-                        nr_shifted_samples,file_rows, sample_rate)
 
-        features_file.write_lines_on_file(file_rows)
+        nr_ball_hits, nr_non_ball_hits = get_data_features(y, vd_idx, nr_groups, nr_samples_per_group,
+                        nr_shifted_samples,file_rows, non_ball_hit_vd_idx, sample_rate)
 
+        total_ball_hits += nr_ball_hits
+        total_non_ball_hits += nr_non_ball_hits
+
+    features_file.write_lines_on_file(file_rows)
+
+    print("\n\nTotal ball hits: ", total_ball_hits)
+    print("Total NON ball hits: ", total_non_ball_hits)
 
 
 def get_features_and_label_values(dataset, debug=False):

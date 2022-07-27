@@ -1,6 +1,6 @@
 
 import csv
-import numpy as np
+import os
 
 """
 fazer as funções: 
@@ -21,8 +21,7 @@ class CsvFile:
             self.__header = header
         else:
             self.__header = None
-            self.write_lines_on_file([[""]])
-
+            # self.write_lines_on_file([[""]])
 
     def get_header_from_file(self):
         with open(self.path, "r") as file:
@@ -81,6 +80,15 @@ class CsvFile:
     def clear_file(self):
         with open(self.path, 'r+') as file:
             file.truncate(0)
+
+    @staticmethod
+    def remove_file(path):
+        #print("Path:" + path)
+        if os.path.exists(path) and os.path.isfile(path):
+            os.remove(path)
+            print("file '" + path +"' has been deleted")
+        else:
+            print("file '" + path + "' not found")
 
 
 """

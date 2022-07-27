@@ -4,7 +4,10 @@
 # =================================================================================
 from processing import datasetConstructor
 from processing.directoryManipulator import *
+from processing.processCsvFile import *
 
+
+# hyper parameters
 nog = 21  # number of groups
 spr = 1024  # samples per group
 nof = 3  # number of features
@@ -15,24 +18,20 @@ noss = 1024  # number of sifted samples
 # obter dataset para videos a serem utilizados no treino do modelo....
 # =================================================================================
 
-clear_dir("../audios/dataset/train")
+clear_dir("../audios")
 
 file_rows = list()
-features_file = datasetConstructor.set_up_features_file("processing/features_file.csv")
+CsvFile.remove_file("../processing/features_file.csv")
+features_file = datasetConstructor.create_file("processing/features_file.csv")
 
-paths_train = ["../videos/train", "../audios/dataset/train"]
+paths_train = ["../videos", "../audios"]
 datasetConstructor.construct(paths_train, nog, spr, noss, features_file, file_rows)
 
+#print("Lines: ", len(file_rows))
+#print("Columns: ", len(file_rows[0]))
 
-# =================================================================================
-# obter dataset para videos a serem classificados pelo modelo....
-# =================================================================================
 
-clear_dir("../audios/dataset/classification")
 
-file_rows = list()
-features_file = datasetConstructor.set_up_features_file("processing/features_classif_file.csv")
 
-paths_classification = ["../videos/classification", "../audios/dataset/classification"]
-datasetConstructor.construct(paths_classification, nog, spr, noss, features_file, file_rows)
+
 

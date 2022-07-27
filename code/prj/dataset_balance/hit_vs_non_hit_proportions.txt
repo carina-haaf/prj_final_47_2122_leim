@@ -1,0 +1,158 @@
+PROPORÇÃO BATIDA DE BOLA VS NÃO BATIDA DE BOLA
+
+Videos: 0,1,2,34-51,53-56 (25 vídoes)
+
+
+
+
+VIDEO:  0
+duração --> 00:01:00
+Nr. batidas de bolas: 508
+Nr. NÃO batidas de bolas: 754
+
+VIDEO:  1
+duração --> 00:00:36
+Nr. batidas de bolas: 206
+Nr. NÃO batidas de bolas: 539
+
+VIDEO:  2
+duração --> 00:00:27
+Nr. batidas de bolas: 148
+Nr. NÃO batidas de bolas: 403
+
+VIDEO:  34
+duração --> 00:00:59
+Nr. batidas de bolas: 259
+Nr. NÃO batidas de bolas: 981
+
+VIDEO:  35
+duração --> 00:00:59
+Nr. batidas de bolas: 0
+Nr. NÃO batidas de bolas: 1240
+
+VIDEO:  36
+duração --> 00:00:59
+Nr. batidas de bolas: 251
+Nr. NÃO batidas de bolas: 989
+
+VIDEO:  37
+duração --> 00:00:59
+Nr. batidas de bolas: 130
+Nr. NÃO batidas de bolas: 1110
+
+VIDEO:  38
+duração --> 00:00:59
+Nr. batidas de bolas: 340
+Nr. NÃO batidas de bolas: 900
+
+VIDEO:  39
+duração --> 00:00:59
+Nr. batidas de bolas: 100
+Nr. NÃO batidas de bolas: 1140
+
+VIDEO:  40
+duração --> 00:00:59
+Nr. batidas de bolas: 361
+Nr. NÃO batidas de bolas: 879
+
+VIDEO:  41
+duração --> 00:00:59
+Nr. batidas de bolas: 228
+Nr. NÃO batidas de bolas: 1012
+
+VIDEO:  42
+duração --> 00:00:59
+Nr. batidas de bolas: 208
+Nr. NÃO batidas de bolas: 1032
+
+VIDEO:  43
+duração --> 00:00:59
+Nr. batidas de bolas: 232
+Nr. NÃO batidas de bolas: 1008
+
+VIDEO:  44
+duração --> 00:00:59
+Nr. batidas de bolas: 302
+Nr. NÃO batidas de bolas: 938
+
+VIDEO:  45
+duração --> 00:00:59
+Nr. batidas de bolas: 212
+Nr. NÃO batidas de bolas: 1028
+
+VIDEO:  46
+duração --> 00:00:59
+Nr. batidas de bolas: 185
+Nr. NÃO batidas de bolas: 1055
+
+VIDEO:  47
+duração --> 00:00:59
+Nr. batidas de bolas: 0
+Nr. NÃO batidas de bolas: 1240
+
+VIDEO:  48
+duração --> 00:00:59
+Nr. batidas de bolas: 230
+Nr. NÃO batidas de bolas: 1010
+
+VIDEO:  49
+duração --> 00:00:59
+Nr. batidas de bolas: 235
+Nr. NÃO batidas de bolas: 1005
+
+VIDEO:  50
+duração --> 0min59s
+Nr. batidas de bolas: 369
+Nr. NÃO batidas de bolas: 871
+
+VIDEO:  51
+duração --> 00:00:59
+Nr. batidas de bolas: 217
+Nr. NÃO batidas de bolas: 1023
+
+VIDEO:  53
+duração --> 00:00:59
+Nr. batidas de bolas: 321
+Nr. NÃO batidas de bolas: 919
+
+VIDEO:  54
+duração --> 00:00:59
+Nr. batidas de bolas: 234
+Nr. NÃO batidas de bolas: 1006
+
+VIDEO:  55
+duração --> 00:00:59
+Nr. batidas de bolas: 201
+Nr. NÃO batidas de bolas: 1039
+
+VIDEO:  56
+duração --> 00:00:59
+Nr. batidas de bolas: 212
+Nr. NÃO batidas de bolas: 1028
+
+=================================================================
+Para os vídos etiquetados o nr. de batidas de bola é o seguinte
+Nr. total batidas de bola: 5689
+Nr. total de NÃO batidas de bola: 24149
+
+Proporção (batidas/NÃO batidas): 0.235 ~ 1/5
+
+
+=================================================================
+Equilibrar dataset
+São precisos cerca de 5600 exemplos de não batidas de bola
+
+Videos para considerar só as NÃO BATIDAS DE BOLA: 35, 36, 37, 40, 47
+Nr. NÃO batidas: 5458
+
+
+Videos para considerar só as BATIDAS DE BOLA: todos os outros
+Nr. batidas: 4947
+
+
+Deifença de cerca de 500 exemplos
+=================================================================
+
+
+
+

@@ -1,16 +1,10 @@
-import librosa
-import soundfile as sf
-from processing.directoryManipulator import *
+
+from processing.datasetConstructor import *
+
+file_rows = [[0,1,2], [3,4,5], [6,7,8]]
+features_file = create_file("processing/features_file.csv")
+
+features_file.write_lines_on_file(file_rows)
 
 
-dir = "../audios/classified_audios"
-clear_dir(dir)
 
-vd_idx = 51
-paths = ["../videos/classification", "../audios/dataset/classification"]
-audio_path = paths[1] + "/" + "AUDIO_" + str(vd_idx) + ".wav"
-
-path_filename = dir + "/" + "ewe.wav"
-audio_samples, sr = librosa.load(audio_path, sr=None)
-sf.write(path_filename, audio_samples[0:21504], sr)
-print(len(audio_samples))

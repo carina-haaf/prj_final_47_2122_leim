@@ -1,5 +1,5 @@
-﻿Type of hit on the ball;Side of the hit;First sample;Last Sample;Classification;Environment;Video Name
-self_warm_up;2;196267;205914;false;indoors;padel_34.mp4
+﻿hit_ball_type;hit_ball_side;hit_ball_sample_begin;hit_ball_sample_end;class;environment;video_name
+self_warm_up;2;196267;205914;false;indoor;padel_34.mp4
 self_warm_up;2;213134;222533;false;;
 self_warm_up;2;229355;240473;false;;
 self_warm_up;2;245661;255310;false;;

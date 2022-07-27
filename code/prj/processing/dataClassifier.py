@@ -29,7 +29,7 @@ def get_range_label(ini_idx, final_idx, video_number):
     return False
 
 
-def write_classified_audios(audio_samples, y_true_class, y_est_class, nr_groups, nr_samples_per_group, nr_sifted_samples):
+def write_classified_audios(audio_samples, y_true_class, y_est_class, nr_groups, nr_samples_per_group, nr_sifted_samples, vd_index):
     dir = "../audios/classified_audios"
     clear_dir(dir)
 
@@ -45,16 +45,16 @@ def write_classified_audios(audio_samples, y_true_class, y_est_class, nr_groups,
             idx = int(i / nr_sifted_samples)
 
             if y_est_class[idx] == 1 and y_true_class[idx] == 1:
-                file_name = "TP_" + str(ini_idx) + "_" + str(final_idx) + ".wav"
+                file_name = "VD_" + str(vd_index) +"_TP_" + str(ini_idx) + "_" + str(final_idx) + ".wav"
 
             elif y_est_class[idx] == 0 and y_true_class[idx] == 0:
-                file_name = "TN_" + str(ini_idx) + "_" + str(final_idx) + ".wav"
+                file_name = "VD_" + str(vd_index) +"_TN_" + str(ini_idx) + "_" + str(final_idx) + ".wav"
 
             elif y_est_class[idx] == 0 and y_true_class[idx] == 1:
-                file_name = "FN_" + str(ini_idx) + "_" + str(final_idx) + ".wav"
+                file_name = "VD_" + str(vd_index) +"_FN_" + str(ini_idx) + "_" + str(final_idx) + ".wav"
 
             elif y_est_class[idx] == 1 and y_true_class[idx] == 0:
-                file_name = "FP_" + str(ini_idx) + "_" + str(final_idx) + ".wav"
+                file_name = "VD_" + str(vd_index) +"_FP_" + str(ini_idx) + "_" + str(final_idx) + ".wav"
         
             mini_audio = audio_samples[ini_idx : final_idx]
 
@@ -78,7 +78,7 @@ def get_classified_audios(paths, nr_groups, nr_samples_per_group, nr_sifted_samp
         audio_path = paths[1] + "/" + "AUDIO_" + str(vd_idx) + ".wav"
 
         audio_samples, sr = librosa.load(audio_path, sr=None)
-        write_classified_audios(audio_samples, y_true_class, y_est_class, nr_groups, nr_samples_per_group, nr_sifted_samples)
+        write_classified_audios(audio_samples, y_true_class, y_est_class, nr_groups, nr_samples_per_group, nr_sifted_samples, vd_idx)
 
     print("Audio chunks created successfully.\n\n")
 
