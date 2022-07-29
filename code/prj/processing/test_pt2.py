@@ -10,13 +10,15 @@ from pandas import read_csv
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import classification_report
 
 from keras.models import Sequential
 from keras.layers import Dense
 import tensorflow as tf
+
+from sklearn.metrics import accuracy_score, precision_score, \
+                            recall_score, f1_score
 
 import time
 
@@ -36,7 +38,7 @@ dataset = read_csv("features_file.csv", header=None)
 X, Y = datasetConstructor.get_features_and_label_values(dataset, debug=True)
 
 # =================================================================================
-# Definição/ ccnstrução do modelo ...
+# Ccnstrução e compilação do modelo ...
 # =================================================================================
 
 model = Sequential()
@@ -44,86 +46,75 @@ model.add(Dense(30, input_dim=63, activation='relu'))
 model.add(Dense(30, activation='relu'))
 model.add(Dense(1, activation='sigmoid'))
 
-
 # =================================================================================
 # Compilação e treino do modelo ...
 # =================================================================================
 # mean_squared_error
-# binary_crossentropy
-# 1e-6, 1e-4, 1e-2
+# binary_crossentropy (# 1e-6, 1e-4, 1e-2)
+
 model.compile(loss='binary_crossentropy',
-              optimizer=tf.keras.optimizers.SGD(lr=1e-6, momentum=0.9),
+              optimizer='adam',
               metrics=['accuracy'])
-history = model.fit(X, Y, epochs=100, batch_size=20, verbose=2)
-plt.plot(history.history['accuracy'])
-plt.title('model accuracy')
-plt.ylabel('accuracy')
-plt.xlabel('epoch')
+
+list_score_metric = \
+  [
+    (accuracy_score, {}),
+    (precision_score, {"average":"weighted"}), #macro #micro #weighted
+    (recall_score, {"average":"weighted"}), #macro #micro #weighted
+    (f1_score, {"average":"weighted"}), #macro #micro #weighted
+  ]
+
+# define 10-fold cross validation test harness
+k_folds = 5
+seed = 42
+tt_split_indexes = datasetConstructor.stratified_fold_split(k_folds, seed=None)
+
+cvscores = []
+index = 0
+for train_index, test_index in tt_split_indexes.split(X, Y):
+
+    X_train, y_train = X[train_index], Y[train_index]
+    X_test, y_test = X[test_index], Y[test_index]
+
+    print(model.summary())
+    history = model.fit(X_train, y_train, epochs=100, batch_size=20, verbose=2)
+
+    y_predict = np.round_(model.predict(X_test ), 0)
+
+    print("Confusion Matrix: ")
+    print(confusion_matrix(y_test, y_predict))  # order matters! (actual, predicted)
+
+    print(classification_report(y_test, y_predict))
+
+    scores = model.evaluate(X_test, y_test, verbose=0)
+    print("%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
+    cvscores.append(scores[1] * 100)
+
+    index += 1
+    plt.plot(history.history['accuracy'], label='Test fold nr.' + str(index))
+    plt.title('model accuracy')
+    plt.ylabel('accuracy')
+    plt.xlabel('epoch')
+    plt.legend()
+
+print("%.2f%% (+/- %.2f%%)" % (np.mean(cvscores), np.std(cvscores)))
 plt.show()
 
+
 """
-# =================================================================================
-# Valores obtidos após classes estimadas ...
-# =================================================================================
-
-
-
-print("\n\n\n=================================================================================")
-print("\tEstimated classes values FOR NEW DATA...")
-print("=================================================================================")
-
-y_class_est = np.round_(model.predict(X_class), 0)
-
-print("'y_class_true' unique values: ", np.unique(y_class_true), "   len(y_class_true): ", len(y_class_true))
-print("'y_class_est' unique values: ", np.unique(y_class_est), "   len(y_class_est): ", len(y_class_est))
-
-
-
 # =================================================================================
 # Obtenção matriz de confusão para dados novos ...
 # =================================================================================
 
 print("\n\n\n=================================================================================")
-print("\tConfusion matrix for new data...")
+print("\tConfusion matrix for test fold...")
 print("=================================================================================")
 print(confusion_matrix(y_class_true, y_class_est))# order matters! (actual, predicted)
 #       o   1
 #  ô  [TN, FP]
 #  î  [FN, TP]
+"""
 
-
-# =================================================================================
-# Resumo da classificação ...
-# =================================================================================
-
-print("\n\n\n=================================================================================")
-print("\tClassification Report ...")
-print("=================================================================================")
-
-print(classification_report(y_class_true, y_class_est))
-
-
-print("\n\n\n=================================================================================")
-print("\tModel Evaluation ...")
-print("=================================================================================")
-print("Evaluate Model:\n", model.evaluate(X_class, y_class_true))
-
-
-# =================================================================================
-# Criar ficheiros .wav com os resultados da classificação sobre novos dados ...
-# =================================================================================
-
-print("\n\n\n=================================================================================")
-print("\tWrite audios with results ...")
-print("=================================================================================")
-
-nog = 21  # number of groups
-spr = 1024  # samples per group
-nof = 3  # number of features
-noss = 2048  # number of sifted samples
-
-paths_classification = ["../videos/classification", "../audios/dataset/classification"]
-dataClassifier.get_classified_audios(paths_classification, nog, spr, noss, y_class_true, y_class_est)
 
 # =================================================================================
 # Terminar contagem de tempo de processamento ...
@@ -132,4 +123,4 @@ dataClassifier.get_classified_audios(paths_classification, nog, spr, noss, y_cla
 end = time.time()
 dif = (end - start)/60
 print('Processing time: ', float("{0:.2f}".format(dif)))
-"""
+
