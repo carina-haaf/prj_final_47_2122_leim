@@ -8,11 +8,13 @@ from processing.videoProcessing import *
 from processing.processCsvFile import *
 
 from pandas import read_csv
+from sklearn.model_selection import StratifiedKFold
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 
-
 from processing.directoryManipulator import *
+
+
 
 """
 
@@ -185,7 +187,7 @@ def construct(paths, nr_groups, nr_samples_per_group,
     total_ball_hits = 0
     total_non_ball_hits = 0
 
-    non_ball_hit_vd_idx = [35, 36, 37, 40, 47]
+    non_ball_hit_vd_idx = [35, 36, 37, 40, 47, 52]
 
     files = np.array(list(os.listdir(paths[0])))
     for i in range(len(files)):
@@ -232,4 +234,15 @@ def get_train_and_test_sets(dataset, testSize=0.33, debug=False):
         print(X_train.shape, X_test.shape, y_train.shape, y_test.shape)
 
     return X_train, X_test, y_train, y_test
+
+
+def stratified_fold_split( k_folds, seed=None ):
+    # yields indices to random split of data into:
+    # - k consecutive folds (k_folds parameter)
+    # - each fold used once as validation; the k-1 remaining folds as training dataset
+    # - shuffle=True, so dataset is shuffled (random split) before building the folds
+    # - datasets preserve the percentage of samples for each class
+    tt_split_indexes = StratifiedKFold( n_splits=k_folds,
+                                      shuffle=True, random_state=seed )
+    return tt_split_indexes
 

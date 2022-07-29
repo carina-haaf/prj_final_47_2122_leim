@@ -29,7 +29,7 @@ start = time.time()
 print("The program is running...")
 
 # =================================================================================
-# Definição dos datasets de treino e teste ...
+# Definição do dataset ...
 # =================================================================================
 
 dataset = read_csv("features_file.csv", header=None)
