@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.7.22)  29 JUL 2022 21:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.7.22)  30 JUL 2022 01:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -503,43 +503,47 @@ l.37 \myPrefaceChapter{Abstract}
 
 ] (01_PRJ_cap_1_2_3.tex
 Cap\'{\i }tulo 1.
-[1
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1
 
 ]
+[2]
 
-LaTeX Warning: Citation `ciberduvidas' on page 2 undefined on input line 54.
+LaTeX Warning: Citation `ciberduvidas' on page 3 undefined on input line 58.
 
-[2] [3] [4
-
-]
+[3] [4]
 Cap\'{\i }tulo 2.
 
 LaTeX Warning: Citation `Elzinga_Mills_2011' on page 5 undefined on input line 
-123.
+127.
 
 
 LaTeX Warning: Citation `Boutilier_et_al_1995' on page 5 undefined on input lin
-e 123.
+e 127.
 
 
 LaTeX Warning: Citation `Bellifemine_et_al_2007' on page 5 undefined on input l
-ine 123.
+ine 127.
 
 
-LaTeX Warning: Citation `Wooldridge_2000' on page 5 undefined on input line 123
+LaTeX Warning: Citation `Wooldridge_2000' on page 5 undefined on input line 127
 .
 
 
 LaTeX Warning: Citation `Howard_Matheson_1984' on page 5 undefined on input lin
-e 123.
+e 127.
 
 
-LaTeX Warning: Citation `Python_2012' on page 5 undefined on input line 123.
+LaTeX Warning: Citation `Python_2012' on page 5 undefined on input line 127.
 
 
-LaTeX Warning: Citation `Marin_2006' on page 5 undefined on input line 123.
+LaTeX Warning: Citation `Marin_2006' on page 5 undefined on input line 127.
 
-[5] [6]
+[5
+
+] [6]
 Cap\'{\i }tulo 3.
 [7
 
@@ -602,7 +606,7 @@ X/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts
 ublic/amsfonts/cm/cmsl12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/
 amsfonts/cm/cmti10.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfon
 ts/cm/cmti12.pfb>
-Output written on 00_PRJ_main.pdf (34 pages, 317315 bytes).
+Output written on 00_PRJ_main.pdf (34 pages, 318876 bytes).
 PDF statistics:
  347 PDF objects out of 1000 (max. 8388607)
  59 named destinations out of 1000 (max. 500000)
