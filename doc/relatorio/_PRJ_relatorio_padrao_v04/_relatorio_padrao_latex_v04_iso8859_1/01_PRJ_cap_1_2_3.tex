@@ -17,13 +17,15 @@
 \label{ch:introducao}
 %%________________________________________________________________________
 
-A anotação de eventos sonoros em vídeo consiste no processo de análise do áudio extraído de um vídeo previamente gravado, no sentido de recolher informações relativas a possíveis eventos relevantes. Embora essa análise possa ter aplicações nas mais variadas componentes, este trabalho destina-se apenas à análise da componente desportiva, no sentido de fornecer a atletas e/ou treinadores um complemento no processo de treino na modalidade desportiva de padel.
+Para que a atividade desportiva  de um atleta, numa determinada modalidade, melhore é necessário que este seja monitorizado de uma perspetiva externa. Para esse efeito, é necessário que o atleta seja supervisionado durante a sua atividade física, ou que a última seja registada e posteriormente analisada (registo em papel ou em vídeo).
 
-A deteção e anotação de eventos sonoros potencialmente relevantes, ou seja, que despertam interesse, constitui uma tarefa complexa, já que envolve o processamento de um grande volume de dados (referenciar na bibliografia). Um grande volume de dados pressupõe um processamento em modo \textit{offline}, devido ao custo computacional associado.
+A anotação de eventos sonoros em vídeo consiste no processo de análise do áudio extraído de um vídeo previamente gravado, no sentido de recolher informações relativas a possíveis eventos relevantes. 
+
+A deteção e anotação de eventos sonoros potencialmente relevantes, constitui uma tarefa complexa, já que envolve o processamento de um grande volume de dados (referenciar na bibliografia). Um grande volume de dados pressupõe um processamento em modo \textit{offline}, devido ao custo computacional associado. Embora esse processamento possa ter aplicações nas mais variadas componentes, este trabalho destina-se apenas à análise da componente desportiva de padel, no sentido de fornecer a atletas e/ou treinadores um complemento no processo de treino.
 
 O padel é um deporto praticado com o auxílio de raquetes, jogado a pares, que se realiza num campo semelhante ao do ténis(referenciar na bibliografia). O campo é dividido por uma rede e encontra-se rodeado por paredes de vidro e redes metálicas. As suas dimensões são de 20 metros de comprimento por 10 de largura(referenciar na bibliografia).
 
-Neste sentido, pretende-se desenvolver uma ferramenta que auxilie na atividade desportiva do atleta ou na monitorização de quem o treina. A ferramenta processa o vídeo introduzido, realiza um processamento interno e devolve uma análise intensiva dos períodos onde existem eventos que possam interessar aos utilizadores, como por exemplo, períodos onde existem mais batidas de bola.
+Neste sentido, pretende-se desenvolver uma ferramenta que auxilie na atividade desportiva do atleta ou na monitorização de quem o treina. A aplicação processa o vídeo introduzido, realiza um processamento interno e devolve uma análise intensiva dos períodos onde existem eventos que possam interessar aos utilizadores, como por exemplo, períodos onde existem mais batidas de bola.
 
 
 
@@ -32,36 +34,13 @@ Neste sentido, pretende-se desenvolver uma ferramenta que auxilie na atividade d
 \label{sec:motivacao}
 %%________________________________________________________________________
 
+A aplicação em desenvolvimento implica que se implemente um sistema onde a máquina é capaz de reconhecer batidas de bola. No entanto, a forma como uma máquina reconhece um som difere de como esse mesmo som é percecionado pelo ouvido humano. O ouvido humano consegue fazer a distinção entre sons, considerando as características dos sons emitidos: duração, intensidade, timbre e tom (referenciar na bibliografia). 
 
+Pelo que, é necessário proporcionar à máquina a capacidade de reconhecer batidas de bola de forma semelhante à humana. Neste sentido, o que se pretende, é utilizar a máquina para simular o ouvido humano. Para esse efeito, far-se-á uso de aprendizagem automática. 
 
-A motivação é no fundo como é que o ML auxiliou no objetivo do trabalho, que é dar à máquina a capacidade reconhecer eventos relevantes (batidas de bola).
+A aprendizagem automática permitirá que o sistema em desenvolvimento receba como \textit{input} dados previamente tratados, com o objetivo de treinar um modelo capaz de identificar batidas de bola.
 
-Falar das ideias essenciais, no fundo o impacto das tecnologias na monitorização dos atletas na atividade desportiva de padel.
-
-Falar do que essas ideias acrescentam em relação ao que já existe disponível.
-
-Falar das contribuições do trabalho/ projeto (construção do dataset).
-
-\bigskip
-\bigskip
-\bigskip
-Tal como no resumo mas mais desenvolvido. O leitor quer construir rapidamente uma ideia sobre este trabalho. Em geral o leitor procura pontos de contacto entre este trabalho e os temas em que o próprio leitor trabalha ou que tem curiosidade em conhecer.  Conduza rapidamente o leitor para o essencial do seu trabalho e desperte a sua curiosidade alinhando de modo objetivo os contributos que este trabalho incorpora e que serão apresentados ao longo do texto.
-
-Aqui deve apresentar a motivação, as ideias essenciais, o modo como essas ideias se distinguem, o \aspas{valor acrescentado} dessas ideias face ao que atualmente existe, as principais contribuições do trabalho, o processo de desenvolvimento adotado, as validações e testes e uma apreciação global dos objetivos alcançados. Deve também ter uma breve descrição da estrutura do relatório.
-
-Este documento terá leitores com diferentes níveis de conhecimento dos temas que aqui abordar. No entanto admita que o seu público tem, como base comum, uma formação e uma \aspas{atitude} de Engenharia. Ou seja, o seu público está à espera de descrições objetivas, alternativas quantificadas, decisões fundamentadas, modelos aplicáveis em diferentes escalas, soluções com testes e análise de resultados. Em síntese, o seu leitor vai querer ver uma \aspas{construção} assente em princípios sólidos e com capacidade para se afirmar pela sua qualidade técnica.
-
-Este documento servirá de base a uma avaliação (\textit{a sua!}) num contexto de Engenharia. Escreva de modo simples, \eg, frases curtas são mais simples que longas, e garanta que o seu texto está livre de erros ortográficos.
-
-É também muito importante que adote regras de escrita para sinais de pontuação como aspas e plicas, e de estilo como itálico e negrito. Pode até apresentar, de modo muito sucinto (por exemplo no final deste capítulo) as regras que adotou. O mais importante é que siga essas regras de modo consistente ao longo de todo o documento.
-
-Em relação às regras de escrita e em geral para qualquer esclarecimento sobre a correta utilização da nossa Língua, deve recorrer ao excelente suporte da plataforma \textit{Ciberdúvidas da Língua Portuguesa} \cite{ciberduvidas}.
-
-O \LaTeX\ garante que todos os aspetos de forma do documento estão assegurados; pode focar-se exclusivamente no conteúdo e em expor as suas ideias de modo claro e correto.
-
-Caso utilize outro processador, ou editor, de texto deve ter muita atenção para garantir a correção de todos os aspeto de forma do documento. Por exemplo é usual os documentos apresentarem incorreções na formação de parágrafos, nos espaçamentos em torno de figuras e tabelas na numeração de figuras, tabelas e páginas e, entre as gralhas mais comuns estão ainda as incorreções na formação das referências bibliográficas. Evitar este tipo de gralha contribui para a qualidade final do seu trabalho.
-
-
+A identificação de padrões nos dados constitui uma forma de a máquina aprender a reconhecer os eventos relevantes ou batidas de bola. A implementação de uma sistema com estas particularidades constitui uma grande vantagem, já que permitirá obter uma análise mais detalhada de treinos ou jogos de padel aos utilizadores da ferramenta em questão.
 
 
 
@@ -70,27 +49,46 @@ Caso utilize outro processador, ou editor, de texto deve ter muita atenção para 
 \label{sec:procDesenvolvimento}
 %%________________________________________________________________________
 
-aqui devem ser colocadas as etapas adotadas para realizar o projeto?
-
-
-%%________________________________________________________________________
-\section{Objetivos}
-\label{sec:objetivos}
-%%________________________________________________________________________
-
-Falar dos principais objetivos do trabalho (resumidamente constitui o seguinte):
+O processo de reconhecimento batidas de bola, requer um trabalho adicional correspondente à etiquetação prévia de eventos presentes no áudio. Ou seja, para que a máquina possa aprender o que é uma batida de bola, é necessário que se \aspas{diga} à mesma em que instantes de tempo ocorrem batidas de bola. Assim, esta adquire a capacidade de distinguir eventos correspondentes a batidas de bola, de eventos que não correspondem a batidas de bola. Os dados serão colocados numa estrutura de dados denominada \textit{dataset}. O processo de construção do \textit{dataset} envolve os seguintes passos:
 
 \begin{itemize}
 \item
-Criação do dataset
+Extração do áudio a partir do vídeo -- corresponde à conversão do vídeo no áudio correspondente; 
 
 \item
-Construção do modelo/ classificador
+Anotação dos eventos relevantes presentes no áudio -- refere-se à etiquetação de batidas de bola no áudio obtido no ponto anterior; 
+
 \item
-Processo de classificação com dados novos
+Extração das características do áudio -- refere-se à obtenção de padrões no áudio que possam identificar potenciais batidas de bola;
+
 \item
-Implementação de uma interface com os resultados da classificação
+Junção dos dados resultantes dos dois pontos anteriores.
 \end{itemize}
+
+Após a obtenção do \textit{dataset}, estes dados são submetidos a um algoritmo , neste caso, uma rede neuronal. A rede neuronal recebe o \textit{dataset} e identifica no mesmo, padrões com o intuito de reconhecer os eventos associados a esses padrões(referenciar bibliografia). Os eventos em contexto, são batidas de bola (na raquete, no chão, nas paredes de vidro, entre outras).
+
+A aplicação do algoritmo sobre os dados denomina-se modelo ou classificador. O treino do modelo terá como principal objetivo, reconhecer as batidas de bola. Depois do processo de treino, o classificador deve ser capaz de \aspas{dizer} que tipo de evento ocorre num dado instante de tempo, tendo em conta os padrões encontrados nos dados. 
+
+Tendo construído o modelo, o passo seguinte corresponde a introduzir novos dados (nunca antes processados pelo modelo), classificá-los e, posteriormente o sistema efetuará estatísticas acerca dos resultados retornados pelo modelo. As estatísticas referem-se por exemplo, a períodos de tempo onde o modelo identifica mais batidas de bola e poderão ter mais relevância para os utilizadores.
+
+
+%%________________________________________________________________________
+\section{Validação e Testes}
+\label{sec:validacaoetestes}
+%%________________________________________________________________________
+
+(o que deve se colocado aqui na realidade?)
+
+
+
+%%________________________________________________________________________
+\section{Apreciação Global dos Objetivos Alcançados}
+\label{sec:validacaoetestes}
+%%________________________________________________________________________
+
+Fazer uma apreciação global dos resultados alcançados (como está no Resumo e Abstract).
+
+Falar um pouco sobre os resultados obtidos em termos de percentagens e a forma como o sistema se comporta face a novos dados de input.
 
 
 
@@ -99,7 +97,27 @@ Implementação de uma interface com os resultados da classificação
 \label{sec:procDesenvolvimento}
 %%________________________________________________________________________
 
-Falar do que cada um dos capítulos aborda
+O relatório está organizado da seguinte forma:
+
+\begin{itemize}
+\item
+O Capítulo 1 introduz o conceito de anotação de eventos sonoros em vídeo na modalidade desportiva de padel. Na secção de Motivação, é abordada a intenção de utilizar a aprendizagem automática para reconhecer padrões identificativos de batidas de bola. O processo de desenvolvimento descreve, de forma geral, as etapas para desenvolvimento da aplicação, dando algum destaque à construção do \textit{dataset} como trabalho adicional. De seguida, é realizada uma apreciação global dos resultados obtidos.
+
+\item
+O trabalho relacionado analisado durante o desenvolvimento do trabalho é descrito no Capítulo 2, que se centra no uso da inteligência artificial para reconhecer eventos em desporto.
+
+\item
+O Capítulo 3 divide-se em três componentes: requisitos; fundamentos e abordagem. A primeira componente refere-se aos requisitos funcionais e não funcionais (atributos) do sistema e aos casos de utilização. Na secção de Fundamentos \ref{sec:fundamentos} são abordados os conceitos relacionados com áudio, bem como a inteligência artificial. São também abordadas as tecnologias utilizadas. Por último, na secção Abordagem \ref{sec:abordagem} são abordados os métodos através dos quais se obteve o \textit{dataset}, bem como os algoritmos utilizados para treinar o modelo (conceitos de aprendizagem automática e redes neuronais).
+
+\item
+(Falar do capítulo 4)
+
+\item
+(Falar do capítulo 5)
+
+\item
+(Falar do capítulo 6)
+\end{itemize}
 
 
 
@@ -141,6 +159,16 @@ Para fazer referência a um trabalho é necessário seguir as boas regras (sintátic
 
 O modelo deve ser independente de linguagens de programação ou bibliotecas, mas devem ser fornecidos argumentos que sustentem a escolhas ou adoção das tecnologias utilizadas. O modelo proposto é composto por: requisitos; fundamentos; abordagem; implementação.
 
+A figura que se segue refere-se ao processo de obtenção do \textit{dataset}. 
+Para além de tabelas pode também precisar de apresentar figuras. Por exemplo, a figura \ref{fig:umafigura} descreve \ldots
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=10cm]{./dataset_construction}
+\caption{Processo de obtenção do dataset.}
+\label{fig:obtencaododataset}
+\end{figure}
+
+
 \bigskip
 Aqui mostra um caminho que inicia com requisitos (\cf, secção \ref{sec:requisitos}), passa pela aplicação dos fundamentos (\cf, secção \ref{sec:fundamentos}) e continua até conseguir transmitir uma visão clara e um formalismo com nível de detalhe adequado a um leitor que tenha um perfil (competência técnica) idêntico ao seu.
 
@@ -157,6 +185,34 @@ O modelo aqui proposto deve ser (tanto quanto possível) independente de tecnolog
 Aqui o essencial (e se aplicável) dos requisitos funcionais, não funcionais e modelo de casos de utilização. Aqui deve também apresentar matriz para decisão sobre prioridade dos casos de utilização (se aplicável) \ldots
 
 Deve apresentar de forma \aspas{moderada} o resultado da fase avaliação de requisitos. A informação de maior detalhe (\eg, diagramas UML demasiado detalhados) deve ser colocada em apêndice.
+
+
+%%________________________________________________________________________
+\subsection{Requisitos Funcionais}
+\label{sec:requisitosfuncionais}
+%%________________________________________________________________________
+
+(Requisitos Funcionais aqui)
+
+
+
+%%________________________________________________________________________
+\subsection{Requisitos Não Funcionais}
+\label{sec:requisitosnaofuncionais}
+%%________________________________________________________________________
+
+(Requisitos Não Funcionais aqui)
+
+
+
+%%________________________________________________________________________
+\subsection{Casos de Utilização}
+\label{sec:casosdeutilizacao}
+%%________________________________________________________________________
+
+(Casos de utilização aqui)
+
+
 
 
 %%________________________________________________________________________

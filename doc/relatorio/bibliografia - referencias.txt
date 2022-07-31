@@ -13,5 +13,22 @@ https://padelpro.pt/2019/05/21/padel-o-que-e/
 
 MOTIVAÇÃO
 
+- Forma como o ouvido humano perceciona os sons
+https://mundoeducacao.uol.com.br/fisica/a-sensibilidade-auditiva.htm
+https://www.cognifit.com/pt/habilidade-cognitiva/percepcao-auditiva
+https://brasilescola.uol.com.br/fisica/intensidade-timbre-altura.htm#:~:text=O%20timbre%20%C3%A9%20a%20caracter%C3%ADstica,produ%C3%A7%C3%A3o%20de%20um%20som%20caracter%C3%ADstico.
+
+- Evolução de machine learning e dif. entre machine learning e deep learning
+https://www.sas.com/pt_br/insights/analytics/machine-learning.html
 
 
+
+PROCESSO DE DESENVOLVIMENTO
+- O que é uma rede neuronal
+https://www.ibm.com/cloud/learn/neural-networks
+
+- Machine Learning vs. Rede Neuronal
+https://www.educba.com/machine-learning-vs-neural-network/
+
+- IA vs. Machine Learning (não foi usado para o relatório ainda mas pode ser colocado numa possível secção de "Conceitos") 
+https://www.analyticsinsight.net/the-difference-between-artificial-intelligence-and-machine-learning/#:~:text=Artificial%20intelligence%20is%20a%20technology,humans%20to%20solve%20complex%20problems.

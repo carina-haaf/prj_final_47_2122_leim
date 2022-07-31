@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.7.22)  30 JUL 2022 01:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.7.22)  31 JUL 2022 23:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -383,6 +383,9 @@ File: l3backend-pdftex.def 2022-07-01 L3 backend support: PDF output (pdfTeX)
 (00_PRJ_main.aux (00a_PRJ_resumo_abstract.aux) (00b_PRJ_agradecimentos.aux)
 (00c_PRJ_dedicatoria.aux)
 
+LaTeX Warning: Label `sec:validacaoetestes' multiply defined.
+
+
 LaTeX Warning: Label `sec:procDesenvolvimento' multiply defined.
 
 )
@@ -434,7 +437,7 @@ Package hyperref Info: Link coloring OFF on input line 124.
 \@outlinefile=\write3
 \openout3 = `00_PRJ_main.out'.
 
-<./fig_logo_ISEL.png, id=87, 464.4552pt x 456.7464pt>
+<./fig_logo_ISEL.png, id=115, 464.4552pt x 456.7464pt>
 File: ./fig_logo_ISEL.png Graphic file (type png)
 <use ./fig_logo_ISEL.png>
 Package pdftex.def Info: ./fig_logo_ISEL.png  used on input line 130.
@@ -503,55 +506,31 @@ l.37 \myPrefaceChapter{Abstract}
 
 ] (01_PRJ_cap_1_2_3.tex
 Cap\'{\i }tulo 1.
+[1
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [1
-
-]
-[2]
-
-LaTeX Warning: Citation `ciberduvidas' on page 3 undefined on input line 58.
+] [2]
+Overfull \hbox (25.99376pt too wide) in paragraph at lines 85--85
+[]\OT1/cmr/bx/n/17.28 Aprecia^^Xc~ao Glo-bal dos Ob-je-ti-vos Al-can^^Xcados 
+ []
 
 [3] [4]
 Cap\'{\i }tulo 2.
-
-LaTeX Warning: Citation `Elzinga_Mills_2011' on page 5 undefined on input line 
-127.
-
-
-LaTeX Warning: Citation `Boutilier_et_al_1995' on page 5 undefined on input lin
-e 127.
-
-
-LaTeX Warning: Citation `Bellifemine_et_al_2007' on page 5 undefined on input l
-ine 127.
-
-
-LaTeX Warning: Citation `Wooldridge_2000' on page 5 undefined on input line 127
-.
-
-
-LaTeX Warning: Citation `Howard_Matheson_1984' on page 5 undefined on input lin
-e 127.
-
-
-LaTeX Warning: Citation `Python_2012' on page 5 undefined on input line 127.
-
-
-LaTeX Warning: Citation `Marin_2006' on page 5 undefined on input line 127.
-
 [5
 
 ] [6]
 Cap\'{\i }tulo 3.
+<./dataset_construction.png, id=269, 540.21825pt x 370.38374pt>
+File: ./dataset_construction.png Graphic file (type png)
+<use ./dataset_construction.png>
+Package pdftex.def Info: ./dataset_construction.png  used on input line 166.
+(pdftex.def)             Requested size: 284.52756pt x 195.08734pt.
 [7
 
-]) (01_PRJ_cap_4_5_6.tex [8]
-Cap\'{\i }tulo 4.
-[9
+ <./dataset_construction.png>] [8]) (01_PRJ_cap_4_5_6.tex [9] [10
 
-] [10
+]
+Cap\'{\i }tulo 4.
+[11] [12
 
 ]
 Cap\'{\i }tulo 5.
@@ -559,41 +538,48 @@ File: ./fig_logo_ISEL.png Graphic file (type png)
 <use ./fig_logo_ISEL.png>
 Package pdftex.def Info: ./fig_logo_ISEL.png  used on input line 57.
 (pdftex.def)             Requested size: 56.9055pt x 55.95714pt.
-[11] [12
+[13] [14
 
 ]
 Cap\'{\i }tulo 6.
-) (02_PRJ_cap_apendice.tex [13] [14
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 84.
+
+) (02_PRJ_cap_apendice.tex [15] [16
 
 ]
 Ap\^endice A.
-[15] [16
+[17] [18
 
 ]
 Ap\^endice B.
-) [17] [18
+) [19] [20
 
-]
-No file 00_PRJ_main.bbl.
-(00_PRJ_main.aux (00a_PRJ_resumo_abstract.aux) (00b_PRJ_agradecimentos.aux)
-(00c_PRJ_dedicatoria.aux))
+] (00_PRJ_main.bbl
+Underfull \hbox (badness 1142) in paragraph at lines 37--41
+[]\OT1/cmr/m/n/12 Wooldridge, M. (2000).  \OT1/cmr/m/it/12 Re-a-so-ning About R
+a-ti-o-nal
+ []
 
-LaTeX Warning: There were undefined references.
+) [21
 
+] (00_PRJ_main.aux (00a_PRJ_resumo_abstract.aux)
+(00b_PRJ_agradecimentos.aux) (00c_PRJ_dedicatoria.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `00_PRJ_main.out' has not changed.
-(rerunfilecheck)             Checksum: 54D317E542B0FB89A757400CA7A1BA85;2696.
+(rerunfilecheck)             Checksum: 2E69029AEA76D6B8ADE397AF4535602A;3938.
  ) 
 Here is how much of TeX's memory you used:
- 12080 strings out of 478338
- 195800 string characters out of 2843735
- 509204 words of memory out of 3000000
- 30240 multiletter control sequences out of 15000+600000
- 476472 words of font info for 52 fonts, out of 8000000 for 9000
+ 12140 strings out of 478338
+ 197052 string characters out of 2843735
+ 509964 words of memory out of 3000000
+ 30278 multiletter control sequences out of 15000+600000
+ 477246 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,12n,77p,987b,614s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 72i,13n,77p,987b,614s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\carin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmbx12.pf
 b><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><D:
@@ -605,10 +591,11 @@ X/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts
 /type1/public/amsfonts/cm/cmr8.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/p
 ublic/amsfonts/cm/cmsl12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/
 amsfonts/cm/cmti10.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfon
-ts/cm/cmti12.pfb>
-Output written on 00_PRJ_main.pdf (34 pages, 318876 bytes).
+ts/cm/cmti12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/
+cmtt12.pfb>
+Output written on 00_PRJ_main.pdf (37 pages, 461672 bytes).
 PDF statistics:
- 347 PDF objects out of 1000 (max. 8388607)
- 59 named destinations out of 1000 (max. 500000)
- 174 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 428 PDF objects out of 1000 (max. 8388607)
+ 77 named destinations out of 1000 (max. 500000)
+ 235 words of extra memory for PDF output out of 10000 (max. 10000000)
 
