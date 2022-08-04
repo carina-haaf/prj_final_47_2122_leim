@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.7.22)  31 JUL 2022 23:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.7.22)  4 AUG 2022 01:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -383,10 +383,7 @@ File: l3backend-pdftex.def 2022-07-01 L3 backend support: PDF output (pdfTeX)
 (00_PRJ_main.aux (00a_PRJ_resumo_abstract.aux) (00b_PRJ_agradecimentos.aux)
 (00c_PRJ_dedicatoria.aux)
 
-LaTeX Warning: Label `sec:validacaoetestes' multiply defined.
-
-
-LaTeX Warning: Label `sec:procDesenvolvimento' multiply defined.
+LaTeX Warning: Label `sec:abordagem' multiply defined.
 
 )
 \openout1 = `00_PRJ_main.aux'.
@@ -437,7 +434,7 @@ Package hyperref Info: Link coloring OFF on input line 124.
 \@outlinefile=\write3
 \openout3 = `00_PRJ_main.out'.
 
-<./fig_logo_ISEL.png, id=115, 464.4552pt x 456.7464pt>
+<./fig_logo_ISEL.png, id=147, 464.4552pt x 456.7464pt>
 File: ./fig_logo_ISEL.png Graphic file (type png)
 <use ./fig_logo_ISEL.png>
 Package pdftex.def Info: ./fig_logo_ISEL.png  used on input line 130.
@@ -458,7 +455,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.37 \myPrefaceChapter{Abstract}
+l.30 \myPrefaceChapter{Abstract}
                                  [1
 
 
@@ -506,96 +503,165 @@ l.37 \myPrefaceChapter{Abstract}
 
 ] (01_PRJ_cap_1_2_3.tex
 Cap\'{\i }tulo 1.
+<./padel_court_racket_version.png, id=269, 82.50826pt x 128.8815pt>
+File: ./padel_court_racket_version.png Graphic file (type png)
+<use ./padel_court_racket_version.png>
+Package pdftex.def Info: ./padel_court_racket_version.png  used on input line 2
+6.
+(pdftex.def)             Requested size: 56.9055pt x 88.88899pt.
 [1
 
-] [2]
-Overfull \hbox (25.99376pt too wide) in paragraph at lines 85--85
-[]\OT1/cmr/bx/n/17.28 Aprecia^^Xc~ao Glo-bal dos Ob-je-ti-vos Al-can^^Xcados 
- []
-
-[3] [4]
-Cap\'{\i }tulo 2.
-[5
-
-] [6]
-Cap\'{\i }tulo 3.
-<./dataset_construction.png, id=269, 540.21825pt x 370.38374pt>
-File: ./dataset_construction.png Graphic file (type png)
-<use ./dataset_construction.png>
-Package pdftex.def Info: ./dataset_construction.png  used on input line 166.
-(pdftex.def)             Requested size: 284.52756pt x 195.08734pt.
-[7
-
- <./dataset_construction.png>] [8]) (01_PRJ_cap_4_5_6.tex [9] [10
+ <./padel_court_racket_version.png>] [2] [3] [4] [5] [6
 
 ]
-Cap\'{\i }tulo 4.
+Cap\'{\i }tulo 2.
+[7]
+Overfull \hbox (54.894pt too wide) in paragraph at lines 190--191
+\OT1/cmr/m/n/12 ad-qui-rem para re-a-li-zar de-ter-mi-na-das ta-re-fas de forma
+ au-tom^^Satica [[]].
+ []
+
+
+Overfull \hbox (5.8709pt too wide) in paragraph at lines 193--194
+[]\OT1/cmr/m/n/12 De acordo com [[]], exis-tem tr^es ti-pos de apren-di-za-gem 
+au-tom^^Satica: 
+ []
+
+[8] [9]
+Overfull \hbox (16.13525pt too wide) in paragraph at lines 229--230
+\OT1/cmr/m/n/12 cen-trada ou ^^Ra in-ten-si-dade m^^Sedia do si-nal numa de-ter
+-mi-nada \OT1/cmr/m/it/12 frame \OT1/cmr/m/n/12 [[]]. 
+ []
+
+<./audio_features.png, id=334, 462.528pt x 346.896pt>
+File: ./audio_features.png Graphic file (type png)
+<use ./audio_features.png>
+Package pdftex.def Info: ./audio_features.png  used on input line 235.
+(pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10 <./audio_features.png>]
+
+LaTeX Warning: Reference `sec:fundamentos' on page 11 undefined on input line 2
+82.
+
 [11] [12
 
 ]
+Cap\'{\i }tulo 3.
+[13] [14]
+Cap\'{\i }tulo 4.
+
+LaTeX Warning: Reference `sec:fundamentos' on page 15 undefined on input line 3
+33.
+
+[15
+
+] [16]) (01_PRJ_cap_4_5_6.tex [17] [18
+
+]
 Cap\'{\i }tulo 5.
-File: ./fig_logo_ISEL.png Graphic file (type png)
-<use ./fig_logo_ISEL.png>
-Package pdftex.def Info: ./fig_logo_ISEL.png  used on input line 57.
-(pdftex.def)             Requested size: 56.9055pt x 55.95714pt.
-[13] [14
+[19] [20
 
 ]
 Cap\'{\i }tulo 6.
 
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 84.
+LaTeX Warning: Reference `sec:fundamentos' on page 21 undefined on input line 3
+5.
 
-) (02_PRJ_cap_apendice.tex [15] [16
+File: ./fig_logo_ISEL.png Graphic file (type png)
+<use ./fig_logo_ISEL.png>
+Package pdftex.def Info: ./fig_logo_ISEL.png  used on input line 57.
+(pdftex.def)             Requested size: 56.9055pt x 55.95714pt.
+[21] [22
+
+]
+Cap\'{\i }tulo 7.
+) (02_PRJ_cap_apendice.tex [23] [24
 
 ]
 Ap\^endice A.
-[17] [18
+[25] [26
 
 ]
 Ap\^endice B.
-) [19] [20
+) [27] [28
 
-] (00_PRJ_main.bbl
-Underfull \hbox (badness 1142) in paragraph at lines 37--41
+] (00_PRJ_main.bbl [29
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 55--59
+\OT1/cmtt/m/n/12 eng . libretexts . org / Bookshelves / Electrical _ Engineerin
+g / Signal _
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--59
+\OT1/cmtt/m/n/12 Processing _ and _ Modeling / Signals _ and _ Systems _ (Baran
+iuk _ et _ al .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--65
+\OT1/cmtt/m/n/12 / / eng . libretexts . org / Bookshelves / Electrical _ Engine
+ering /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--65
+\OT1/cmtt/m/n/12 Signal _ Processing _ and _ Modeling / Signals _ and _ Systems
+ _ (Baraniuk _
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--65
+\OT1/cmtt/m/n/12 et _ al . ) / 10 % 3A _ Sampling _ and _ Reconstruction / 10 .
+ 03 % 3A _ Signal _
+ []
+
+[30]
+Underfull \hbox (badness 1142) in paragraph at lines 111--115
 []\OT1/cmr/m/n/12 Wooldridge, M. (2000).  \OT1/cmr/m/it/12 Re-a-so-ning About R
 a-ti-o-nal
  []
 
-) [21
-
-] (00_PRJ_main.aux (00a_PRJ_resumo_abstract.aux)
+) [31] (00_PRJ_main.aux (00a_PRJ_resumo_abstract.aux)
 (00b_PRJ_agradecimentos.aux) (00c_PRJ_dedicatoria.aux))
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `00_PRJ_main.out' has not changed.
-(rerunfilecheck)             Checksum: 2E69029AEA76D6B8ADE397AF4535602A;3938.
+(rerunfilecheck)             Checksum: 695C9CB25FE9953090987C2002E61849;5068.
  ) 
 Here is how much of TeX's memory you used:
- 12140 strings out of 478338
- 197052 string characters out of 2843735
- 509964 words of memory out of 3000000
- 30278 multiletter control sequences out of 15000+600000
- 477246 words of font info for 55 fonts, out of 8000000 for 9000
+ 12219 strings out of 478338
+ 198532 string characters out of 2843735
+ 512234 words of memory out of 3000000
+ 30322 multiletter control sequences out of 15000+600000
+ 477605 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,13n,77p,987b,614s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 72i,12n,77p,1054b,571s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\carin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmbx12.pf
-b><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><D:
-/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/isel/
-LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/isel/LEIM/P
-RJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><D:/isel/LEIM/PRJ_2122
-SV/LaTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/isel/LEIM/PRJ_2122SV/LaTe
-X/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts
-/type1/public/amsfonts/cm/cmr8.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/p
-ublic/amsfonts/cm/cmsl12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/
-amsfonts/cm/cmti10.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfon
-ts/cm/cmti12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/
-cmtt12.pfb>
-Output written on 00_PRJ_main.pdf (37 pages, 461672 bytes).
+b><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><D
+:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><D:/ise
+l/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/isel/LEIM
+/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/isel/LEIM/PRJ_2
+122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><D:/isel/LEIM/PRJ_2122SV/L
+aTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fo
+nts/type1/public/amsfonts/cm/cmr12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/typ
+e1/public/amsfonts/cm/cmr8.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/publi
+c/amsfonts/cm/cmsl12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsf
+onts/cm/cmti10.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/c
+m/cmti12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmtt
+12.pfb>
+Output written on 00_PRJ_main.pdf (47 pages, 445752 bytes).
 PDF statistics:
- 428 PDF objects out of 1000 (max. 8388607)
- 77 named destinations out of 1000 (max. 500000)
- 235 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 561 PDF objects out of 1000 (max. 8388607)
+ 110 named destinations out of 1000 (max. 500000)
+ 304 words of extra memory for PDF output out of 10000 (max. 10000000)
 

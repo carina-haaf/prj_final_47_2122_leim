@@ -19,14 +19,18 @@
 
 Para que a atividade desportiva  de um atleta, numa determinada modalidade, melhore é necessário que este seja monitorizado de uma perspetiva externa. Para esse efeito, é necessário que o atleta seja supervisionado durante a sua atividade física, ou que a última seja registada e posteriormente analisada (registo em papel ou em vídeo).
 
-A anotação de eventos sonoros em vídeo consiste no processo de análise do áudio extraído de um vídeo previamente gravado, no sentido de recolher informações relativas a possíveis eventos relevantes. 
+A anotação de eventos sonoros em vídeo consiste no processo de análise do áudio extraído de um vídeo previamente gravado, no sentido de recolher informações relativas a possíveis eventos relevantes. Este processo, constitui uma tarefa complexa, já que envolve o processamento sobre séries temporais, a partir das quais se podem extrair características e identificar os eventos. Embora esse processamento possa ter aplicações nas mais variadas componentes, este trabalho destina-se apenas à análise da componente desportiva de padel, no sentido de fornecer a atletas e/ou treinadores um complemento no processo de treino. Neste sentido, os eventos sonoros a considerar são batidas de bola em raquetes de padel \cite{courel2019exploring}. A figura que se segue, corresponde à raquete e bola utilizadas no desporto de padel:
 
-A deteção e anotação de eventos sonoros potencialmente relevantes, constitui uma tarefa complexa, já que envolve o processamento de um grande volume de dados (referenciar na bibliografia). Um grande volume de dados pressupõe um processamento em modo \textit{offline}, devido ao custo computacional associado. Embora esse processamento possa ter aplicações nas mais variadas componentes, este trabalho destina-se apenas à análise da componente desportiva de padel, no sentido de fornecer a atletas e/ou treinadores um complemento no processo de treino.
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=2cm]{./padel_court_racket_version}
+\caption{Raquete e bola de padel}
+\label{fig:raqueteeboladepadel}
+\end{figure}
 
-O padel é um deporto praticado com o auxílio de raquetes, jogado a pares, que se realiza num campo semelhante ao do ténis(referenciar na bibliografia). O campo é dividido por uma rede e encontra-se rodeado por paredes de vidro e redes metálicas. As suas dimensões são de 20 metros de comprimento por 10 de largura(referenciar na bibliografia).
+Uma figura com mais detalhe encontra-se disponível no Capítulo \ref{ch:umDetalheAdicional}, na qual se observam as dimensões do campo onde esta modalidade desportiva é realizada. O desporto de padel pode ser praticado em ambiente interior (\textit{indoor}) ou exterior (\textit{outdoor}). No entanto, este trabalho analisa apenas vídeos em ambiente \textit{indoor}.
 
-Neste sentido, pretende-se desenvolver uma ferramenta que auxilie na atividade desportiva do atleta ou na monitorização de quem o treina. A aplicação processa o vídeo introduzido, realiza um processamento interno e devolve uma análise intensiva dos períodos onde existem eventos que possam interessar aos utilizadores, como por exemplo, períodos onde existem mais batidas de bola.
-
+É ainda importante referir que, dada a complexidade de todo o processamento a realizar, bem como o volume de dados e o custo computacional associado, o primeiro será realizado em modo \textit{offline}.
 
 
 %%________________________________________________________________________
@@ -34,26 +38,33 @@ Neste sentido, pretende-se desenvolver uma ferramenta que auxilie na atividade d
 \label{sec:motivacao}
 %%________________________________________________________________________
 
-A aplicação em desenvolvimento implica que se implemente um sistema onde a máquina é capaz de reconhecer batidas de bola. No entanto, a forma como uma máquina reconhece um som difere de como esse mesmo som é percecionado pelo ouvido humano. O ouvido humano consegue fazer a distinção entre sons, considerando as características dos sons emitidos: duração, intensidade, timbre e tom (referenciar na bibliografia). 
+A aplicação em desenvolvimento implica que se implemente um sistema onde a máquina é capaz de reconhecer batidas de bola. No entanto, a forma como uma máquina reconhece um som difere de como esse mesmo som é percecionado pelo ouvido humano. De acordo com \cite{national2004hearing}, o ouvido humano consegue fazer a distinção entre sons, considerando as características dos sons emitidos: duração, intensidade, tom, entre outras. 
 
 Pelo que, é necessário proporcionar à máquina a capacidade de reconhecer batidas de bola de forma semelhante à humana. Neste sentido, o que se pretende, é utilizar a máquina para simular o ouvido humano. Para esse efeito, far-se-á uso de aprendizagem automática. 
 
-A aprendizagem automática permitirá que o sistema em desenvolvimento receba como \textit{input} dados previamente tratados, com o objetivo de treinar um modelo capaz de identificar batidas de bola.
+%%A aprendizagem automática permite aplicar algoritmos aos dados recebidos pela máquina, e reconhecer nestes, padrões identificativos de batidas de bola. Neste sentido, o reconhecimento de padrões nos dados constitui uma forma de a máquina aprender a identificar os eventos relevantes ou batidas de bola. %%
 
-A identificação de padrões nos dados constitui uma forma de a máquina aprender a reconhecer os eventos relevantes ou batidas de bola. A implementação de uma sistema com estas particularidades constitui uma grande vantagem, já que permitirá obter uma análise mais detalhada de treinos ou jogos de padel aos utilizadores da ferramenta em questão.
+A aprendizagem automática permite aplicar algoritmos aos dados recebidos pela máquina, e reconhecer nestes as batidas de bola.
+
+
+Antes do processo de aprendizagem, não existindo dados relativos aos eventos pretendidos, ou que estejam etiquetados nas condições desejadas, procedeu-se à construção de um \textit{dataset} de raiz.
+
+Neste sentido, pretende-se desenvolver uma ferramenta que auxilie na atividade desportiva do atleta ou na monitorização de quem o treina. A aplicação processa o vídeo introduzido, realiza um processamento interno e devolve uma análise intensiva dos períodos onde existem eventos que possam interessar aos utilizadores, como por exemplo, períodos onde existem mais batidas de bola. Esta aplicação disponibiliza ainda uma interface, que permite que o utilizador participe no processo de anotação dos eventos (validando os resultados devolvidos pelo classificador), o que poderá contribuir numa perspetiva futura, para aumentar o \textit{dataset} e melhorar a construção do modelo.
 
 
 
 %%________________________________________________________________________
-\section{Processo de Desenvolvimento}
-\label{sec:procDesenvolvimento}
+\section{Principais Contributos}
+\label{sec:principaiscontributos}
 %%________________________________________________________________________
 
-O processo de reconhecimento batidas de bola, requer um trabalho adicional correspondente à etiquetação prévia de eventos presentes no áudio. Ou seja, para que a máquina possa aprender o que é uma batida de bola, é necessário que se \aspas{diga} à mesma em que instantes de tempo ocorrem batidas de bola. Assim, esta adquire a capacidade de distinguir eventos correspondentes a batidas de bola, de eventos que não correspondem a batidas de bola. Os dados serão colocados numa estrutura de dados denominada \textit{dataset}. O processo de construção do \textit{dataset} envolve os seguintes passos:
+Os contributos do sistema em desenvolvimento dividem-se em três componentes: a criação do \textit{dataset}; a construção de um modelo; elaboração de uma interface que auxilia no processo de criação do \textit{dataset}. Nesta secção será feita uma descrição geral dessas três componentes.
+
+Os dados serão colocados numa estrutura de dados denominada \textit{dataset}. O processo de construção do \textit{dataset} envolve os seguintes passos:
 
 \begin{itemize}
 \item
-Extração do áudio a partir do vídeo -- corresponde à conversão do vídeo no áudio correspondente; 
+Extração do áudio a partir do vídeo -- resume-se à conversão do vídeo no áudio correspondente; 
 
 \item
 Anotação dos eventos relevantes presentes no áudio -- refere-se à etiquetação de batidas de bola no áudio obtido no ponto anterior; 
@@ -65,11 +76,31 @@ Extração das características do áudio -- refere-se à obtenção de padrões no áudi
 Junção dos dados resultantes dos dois pontos anteriores.
 \end{itemize}
 
-Após a obtenção do \textit{dataset}, estes dados são submetidos a um algoritmo , neste caso, uma rede neuronal. A rede neuronal recebe o \textit{dataset} e identifica no mesmo, padrões com o intuito de reconhecer os eventos associados a esses padrões(referenciar bibliografia). Os eventos em contexto, são batidas de bola (na raquete, no chão, nas paredes de vidro, entre outras).
 
-A aplicação do algoritmo sobre os dados denomina-se modelo ou classificador. O treino do modelo terá como principal objetivo, reconhecer as batidas de bola. Depois do processo de treino, o classificador deve ser capaz de \aspas{dizer} que tipo de evento ocorre num dado instante de tempo, tendo em conta os padrões encontrados nos dados. 
 
-Tendo construído o modelo, o passo seguinte corresponde a introduzir novos dados (nunca antes processados pelo modelo), classificá-los e, posteriormente o sistema efetuará estatísticas acerca dos resultados retornados pelo modelo. As estatísticas referem-se por exemplo, a períodos de tempo onde o modelo identifica mais batidas de bola e poderão ter mais relevância para os utilizadores.
+O \textit{dataset} é introduzido num algoritmo de dados que identifica batidas de bola. O processo de construção do modelo pode ser descrito da seguinte forma:
+
+\begin{itemize}
+\item
+Escolha do algoritmo de aprendizagem automática -- escolha do algoritmo que melhor se adequa ao reconhecimento de batidas de bola;
+
+\item
+Escolha dos hiper-parâmetros que produzem os melhores resultados no treino do modelo;
+
+\item
+Aplicação de validação cruzada, no sentido de avaliar o desempenho do modelo em construção, fazendo uso de todo o \textit{dataset} disponível.
+\end{itemize}
+
+
+O sistema em desenvolvimento permitirá também que o utilizador valide os resultados devolvidos pelo classificador, o que poderá constribuir para melhorar a qualidade do próprio modelo e do \textit{dataset}:
+
+\begin{itemize}
+\item
+Disponibilizar numa interface, os resultados (em termos de eventos) retornados pelo classificador, evidenciando a série temporal e onde ocorrem os eventos correspondentes a batidas de bola;
+
+\item
+Nessa mesma interface disponibilizar a opção de validar os eventos considerados pelo modelo como sendo ou não batidas de bola.
+\end{itemize}
 
 
 %%________________________________________________________________________
@@ -77,37 +108,32 @@ Tendo construído o modelo, o passo seguinte corresponde a introduzir novos dados
 \label{sec:validacaoetestes}
 %%________________________________________________________________________
 
-(o que deve se colocado aqui na realidade?)
-
-
-
-%%________________________________________________________________________
-\section{Apreciação Global dos Objetivos Alcançados}
-\label{sec:validacaoetestes}
-%%________________________________________________________________________
-
-Fazer uma apreciação global dos resultados alcançados (como está no Resumo e Abstract).
+Validação e testes sobre o classificador: avaliação do classificador (validação cruzada)
+Validação e testes sobre a ferramenta final (testes de usabilidade)
 
 Falar um pouco sobre os resultados obtidos em termos de percentagens e a forma como o sistema se comporta face a novos dados de input.
 
+Fazer uma apreciação global dos resultados alcançados (como está no Resumo e Abstract).
 
 
 %%________________________________________________________________________
 \section{Estrutura do Relatório}
-\label{sec:procDesenvolvimento}
+\label{sec:estruturadorelatorio}
 %%________________________________________________________________________
 
 O relatório está organizado da seguinte forma:
 
+(A descrição dos capítulos não precisa de ser muito detalhada. Deve se ser o mais resumida possível.)
+
 \begin{itemize}
 \item
-O Capítulo 1 introduz o conceito de anotação de eventos sonoros em vídeo na modalidade desportiva de padel. Na secção de Motivação, é abordada a intenção de utilizar a aprendizagem automática para reconhecer padrões identificativos de batidas de bola. O processo de desenvolvimento descreve, de forma geral, as etapas para desenvolvimento da aplicação, dando algum destaque à construção do \textit{dataset} como trabalho adicional. De seguida, é realizada uma apreciação global dos resultados obtidos.
+O Capítulo 1 é introduzida a intenção de utilizar a aprendizagem automática para reconhecer padrões identificativos de batidas de bola em jogos/ treinos de padel. Neste capítulo, são também enunciados os principais contributos da aplicação em desenvolvimento. No final, é realizada uma apreciação global dos resultados obtidos.
 
 \item
-O trabalho relacionado analisado durante o desenvolvimento do trabalho é descrito no Capítulo 2, que se centra no uso da inteligência artificial para reconhecer eventos em desporto.
+O Capítulo 2 descreve e faz referência a trabalhos relacionados com o trabalho corrente. Estes trabalhos que foram sendo analisados durante o desenvolvimento do trabalho e baseiam-se também no uso da inteligência artificial para reconhecer eventos em modalidades desportivas.
 
 \item
-O Capítulo 3 divide-se em três componentes: requisitos; fundamentos e abordagem. A primeira componente refere-se aos requisitos funcionais e não funcionais (atributos) do sistema e aos casos de utilização. Na secção de Fundamentos \ref{sec:fundamentos} são abordados os conceitos relacionados com áudio, bem como a inteligência artificial. São também abordadas as tecnologias utilizadas. Por último, na secção Abordagem \ref{sec:abordagem} são abordados os métodos através dos quais se obteve o \textit{dataset}, bem como os algoritmos utilizados para treinar o modelo (conceitos de aprendizagem automática e redes neuronais).
+O Capítulo 3 visa apresentar uma análise geral dos requisitos do sistema e a abordagem considerada para desenvolver a aplicação.
 
 \item
 (Falar do capítulo 4)
@@ -122,9 +148,169 @@ O Capítulo 3 divide-se em três componentes: requisitos; fundamentos e abordagem.
 
 
 %%________________________________________________________________________
+\chapter{Fundamentos}
+\label{ch:fundamentos}
+%%________________________________________________________________________
+
+Neste capítulo serão abordados os conceitos de carácter teórico, que sustentam o trabalho realizado.
+
+
+%%________________________________________________________________________
+\section{Conceitos de Processamento de Sinais}
+\label{sec:processamentodesinal}
+%%________________________________________________________________________
+
+De acordo com \cite{sampaio2006analise}, um sinal corresponde a uma grandeza física que varia ao longo do tempo. Um sinal pode também ser descrito como uma série temporal. Em termos matemáticos, um sinal varia em função de uma  ou mais variáveis, que podem ser contínuas (valores contínuos) ou discretas (valores discretos). Neste sentido, podemos ter dois tipos de sinais: contínuos ou discretos. Neste trabalho, serão analisados apenas sinais discretos, uma vez que se pretende realizar processamento sobre áudio, que foi previamente amostrado numa determinada frequência (a abordar na secção seguinte, ).
+O presente trabalho também efetuará a análise de sinais no domínio do tempo e no domínio da frequência. 
+
+
+%%________________________________________________________________________
+\subsection{Amostragem}
+\label{sec:amostragem}
+%%________________________________________________________________________
+
+O processo de amostragem refere-se à conversão de um sinal contínuo, num sinal discreto. Este algoritmo escolhe pontos equi-espaçados do sinal contínuo para gerar os pontos do sinal discreto \cite{eng_libretexts_sampling}. O sinal (discreto) obtido evolui, no domínio do tempo, em função de amostras ou valores discretos, e não de valores contínuos. 
+
+O intervalo entre as amostras denomina-se período de amostragem e é dado em segundos(s). O inverso deste valor corresponde à frequência de amostragem, e refere-se ao número de amostras que ocorre no sinal a cada segundo. A frequência de amostragem é dada em Hertz(Hz). Neste algoritmo de amostragem, é removida informação do sinal original (contínuo), que em parte pode ser recuperada no processo inverso com o auxílio da interpolação ou reconstrução do sinal \cite{eng_libretexts_reconstruction}. O ouvido humano deteta sons na gama de frequências compreendida entre 20Hz e 20kHz. Neste sentido e de acordo com o teorema de \textit{Nyquist} \cite{evianyquist}, é necessário que a frequência de amostragem dos sons que chegam ao aparelho auditivo humano sejam amostrados a uma frequencia duas vezes igual ou superior a 20kHz. A frequência de amostragem a ser considerada neste projeto é 44100Hz, que é o valor padrão, tendo em conta a gama de frequência do ouvido humano. 
+
+
+%%________________________________________________________________________
+\subsection{Transformada de Fourier}
+\label{sec:transformadadefourier}
+%%________________________________________________________________________
+
+A transformada de Fourier ou Fourier Transform (FT), é uma função matemática que decompõe um sinal nas várias frequências ou sinusóides constituintes \cite{SEMMLOW201281}. Assim, o sinal de entrada é um sinal no domínio do tempo, ao passo que o sinal de saída é um sinal no domínio da frequência ou espetro. Um caso particular da transformada de Fourier é a transformada de Fourier a curto prazo (STFT), que divide o sinal em grupos de amostras sobre os quais aplica a transformada de Fourier. A transformada de Fourier é útil para verificar, por exemplo, em que zonas do espetro, existe mais ou menos energia concentrada.
+
+
+%%________________________________________________________________________
+\section{Conceitos de Aprendizagem Automática}
+\label{sec:aprendizagemauto}
+%%________________________________________________________________________
+
+A aprendizagem automática ou \textit{Machine Learning} (ML) é ramo da inteligência artificial, que se refere à capacidade que os sistemas computacionais adquirem para realizar determinadas tarefas de forma automática \cite{janiesch2021machine}. Esses sistemas aprendem a resolver uma determinada tarefa, recorrendo à análise de padrões existentes em dados específicos do problema a resolver.  Ao analisarem esses dados, é construído um modelo, que, a grosso modo, correspondem ao \aspas{cérebro} do sistema computacional, e o auxilia na resolução da tarefa, para a qual foi designado.
+
+
+De acordo com \cite{sah2020machine}, existem três tipos de aprendizagem automática:
+
+\begin{itemize}
+\item
+Aprendizagem Supervisionada -- tipo de aprendizagem em que os dados de \textit{input} utilizados para o processo de treino do algoritmo, contêm as características e a classe correspondente;
+
+\item
+Aprendizagem Não Supervisionada -- tipo de aprendizagem em que os dados de \textit{input} utilizados para o processo de treino do algoritmo, contêm apenas as características;
+
+\item
+Aprendizagem por Reforço -- tipo de aprendizagem utilizado quando o sistema computacional tem como objetivo realizar uma tarefa que envolve uma sequência de decisões. O sistema ganha reforços positivos ou negativos, mediante a ação realizada.
+
+\end{itemize}
+
+No caso deste trabalho, a aprendizagem automática irá permitir aplicar algoritmos aos dados recebidos pela máquina, e reconhecer nestes, padrões identificativos de batidas de bola. Pelo que, o reconhecimento de padrões nos dados constitui uma forma de a máquina aprender a identificar os eventos relevantes ou batidas de bola. O tipo de aprendizagem automática a considerar será a supervisionada.
+
+
+%%________________________________________________________________________
+\subsection{\textit{Dataset}}
+\label{sec:dataset}
+%%________________________________________________________________________
+
+Um \textit{dataset} corresponde a um conjunto de dados, que é utilizado para treinar ou ensinar algoritmos de inteligência artificial a resolver tarefas \cite{digital_house_2022}. Um \textit{dataset} é constituído por características e classes. Esta estrutura de dados é organizada em forma de tabela (com colunas e linhas). Cada linha corresponde a um exemplo ou observação, ao passo que cada uma das colunas (à exceção de uma delas, que corresponde à classe) representa uma característica.
+ 
+
+%%________________________________________________________________________
+\subsection{Características}
+\label{sec:caracteristicas}
+%%________________________________________________________________________
+
+As características correspondem a colunas no \textit{dataset}, pelo que são utilizadas como dados de \textit{input} para o treino do algoritmo ou modelo. 
+
+Neste trabalho, pretende-se extrair a partir do áudio, as seguintes características: deteção de picos (\textit{Onset}) e o valor eficaz (RMS).
+
+O \textit{Onset} divide-se em duas componentes: a deteção do início (\textit{Onset Detect}) e o fluxo espetral (\textit{Spectral Flux}). A primeira componente, tal como o nome idica, corresponde a detetar o instante em que se inicia um determinado som ou evento \cite{rosao2012onset}. Já a segunda corresponde a verificar variações no espetro do sinal, no sentido de encontrar diferenças entre \textit{frames} consecutivas, o que permite detetar também o início de um evento. O fluxo espetral pode também ser definido como uma medida do quão depressa o espetro de um sinal varia \cite{meyda_2022}.
+
+O valor eficaz ou \textit{Root Mean Square} (RMS) refere-se à energia média concentrada ou à intensidade média do sinal numa determinada \textit{frame}  \cite{room2021audio}.
+
+A figura abaixo constitui uma representação das três características enunciadas:
+
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=12cm]{./audio_features}
+\caption{Características (cima e meio) e áudio (baixo) correspondente.}
+\label{fig:features}
+\end{figure}
+
+Observando a figura acima, verifica-se que os picos  duas componentes do \textit{Onset}, bem como o RMS estão em concordância com o ínicio dos dos sons no áudio original. Espera-se que a máquina aprenda a identificar as batidas de bola considerando estas características.
+
+
+%%________________________________________________________________________
+\subsection{Classes}
+\label{sec:classes}
+%%________________________________________________________________________
+
+Os exemplos ou observações de um \textit{dataset} estão divididos em categorias. Essas categorias denominam-se classes. No caso da aprendizagem supervisionada, o algoritmo vai processando cada uma desses exemplos e faz a análise dos padrões encontrados nos dados. Depois de realizar essa análise, escolhe uma classe (\textit{output}), que pode estar correta ou não em relação à classe de \textit{input}. 
+Visto que este trabalho se destina ao reconhecimento de batidas de bola, serão apenas consideradas as classes batida de bola e não batida de bola. Neste sentido, o problema de classificação é binário.
+
+
+%%________________________________________________________________________
+\subsection{Desiquilíbrio no \textit{Dataset}}
+\label{sec:desiquilibrionodataset}
+%%________________________________________________________________________
+
+O desequilíbrio no \textit{dataset} ocorre quando existe uma diferença considerável no número de exemplos que existe nas categorias do conjunto de dados. Por outras palavras, existe desequilíbrio no dataset quando a distribuição de exemplos pelas classes é desigual \cite{badr2019having}. O processo de treino com dados, cuja distribuição é desigual, pode resultar na criação de um modelo que reconhece melhor certas classes em relação a outras.
+
+Ainda de acordo com \cite{badr2019having} e assumindo que se trata de um problema de classificação binário, é possível solucionar este problema das seguintes formas:
+
+\begin{itemize}
+\item
+Amostragem -- aumentar o número de exemplos da classe em minoria (sobre-amostragem) ou reduzir o número da classe em maioria, no sentido de obter uma proporção de 50:1 entre as classes.
+
+\item
+Juntar vários algoritmos de treino -- para obter um desempenho melhor, comparativamente à utilização de apenas um dos algoritmos.
+\end{itemize}
+
+
+%%________________________________________________________________________
+\subsection{Redes Neuronais}
+\label{sec:redesneuronais}
+%%________________________________________________________________________
+
+Uma rede neuronal ou \textit{Artificial Neural Network} (ANN) é um algoritmo ou técnica de aprendizagem automática que tem como objetivo imitar o cérebro humano, simulando a forma como os neurónios comunicam entre si \cite{burnsneural}, no sentido de realizar uma determinada tarefa. 
+
+Esta estrutura de dados está organizada em camadas, que são constituídas por neurónios. A primeira camada ou a camada de \textit{input}, tem a mesma quantidade de neurónios que o número de caracteríticas do \textit{dataset}. A última camada ou a camada de \textit{output} contém tantos neurónios quanto o número de classes ou categorias.
+Entre a camada de \textit{input} e a camada de \textit{output} existem uma ou mais camadas intermédias. O número de camadas, bem como o número de neurónios constituinte devem ser escolhidos com rigor, a fim de garantir que o modelo obtém a melhor classificação possível cite{krishnandetermine}.
+
+(https://medium.com/geekculture/introduction-to-neural-network-2f8b8221fbd3)
+acabar de escrever sobre o artigo do cite acima - tá no medium!
+
+(Redes Neuronais aqui)
+Falar do que é uma época
+Falar do que é o batch size
+Falar da função de ativação
+
+
+%%________________________________________________________________________
+\subsection{Árvore de Decisão}
+\label{sec:arvoredecisao}
+%%________________________________________________________________________
+
+(Árvore de Decisão aqui)
+
+
+
+
+Na secção de Fundamentos \ref{sec:fundamentos} são abordados os conceitos relacionados com processamento de áudio, bem como a inteligência artificial.
+
+
+Aqui o sustento formal (teórico / tecnológico) do trabalho realizado \ldots
+
+
+
+
+%%________________________________________________________________________
 \chapter{Trabalho Relacionado}
 \label{ch:trabalhoRelacionado}
 %%________________________________________________________________________
+
+Este capítulo faz referência a artigos e outros trabalhos de cariz técnico que se relacionam com o trabalho em desenvolvimento: uso de algoritmos de aprendizagem para reconhecimento de eventos em modalidades desportivas.
+
 
 No fundo, pegar nos artigos científicos e relacionar/ comparar com o que se pretende no trabalho: tecnologias utilizadas, métodos de desenvolvimento, área a que se aplica (desporto).
 
@@ -159,15 +345,6 @@ Para fazer referência a um trabalho é necessário seguir as boas regras (sintátic
 
 O modelo deve ser independente de linguagens de programação ou bibliotecas, mas devem ser fornecidos argumentos que sustentem a escolhas ou adoção das tecnologias utilizadas. O modelo proposto é composto por: requisitos; fundamentos; abordagem; implementação.
 
-A figura que se segue refere-se ao processo de obtenção do \textit{dataset}. 
-Para além de tabelas pode também precisar de apresentar figuras. Por exemplo, a figura \ref{fig:umafigura} descreve \ldots
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=10cm]{./dataset_construction}
-\caption{Processo de obtenção do dataset.}
-\label{fig:obtencaododataset}
-\end{figure}
-
 
 \bigskip
 Aqui mostra um caminho que inicia com requisitos (\cf, secção \ref{sec:requisitos}), passa pela aplicação dos fundamentos (\cf, secção \ref{sec:fundamentos}) e continua até conseguir transmitir uma visão clara e um formalismo com nível de detalhe adequado a um leitor que tenha um perfil (competência técnica) idêntico ao seu.
@@ -181,6 +358,7 @@ O modelo aqui proposto deve ser (tanto quanto possível) independente de tecnolog
 \section{Requisitos}
 \label{sec:requisitos}
 %%________________________________________________________________________
+
 
 Aqui o essencial (e se aplicável) dos requisitos funcionais, não funcionais e modelo de casos de utilização. Aqui deve também apresentar matriz para decisão sobre prioridade dos casos de utilização (se aplicável) \ldots
 
@@ -214,14 +392,14 @@ Deve apresentar de forma \aspas{moderada} o resultado da fase avaliação de requi
 
 
 
-
 %%________________________________________________________________________
-\section{Fundamentos}
-\label{sec:fundamentos}
+\section{Abordagem}
+\label{sec:abordagem}
 %%________________________________________________________________________
 
-Aqui o sustento formal (teórico / tecnológico) do trabalho realizado \ldots
+Neste secção far-se-á uma descrição das etapas constituintes destes trabalho e as abordagens utilizadas para as realizar. As principais etapas são: Construção do dataset; Construção de um classificador que reconhece batidas de bola; Criação de uma interface que contribui para aumentar o \textit{dataset}.
 
+ 
 
 %%________________________________________________________________________
 \section{Abordagem}
@@ -235,4 +413,9 @@ Aqui precisa de abordar tudo o que contribui para diferenciar o seu trabalho e q
 Lembre-se que a apresentação de um (ou mais) \textbf{exemplo(s) simples} é muito importante para que o leitor consiga seguir e compreender o seu trabalho.
 
 Tenha em atenção que um exemplo acompanhado por figuras ilustrativas será certamente analisado (de modo cuidado) pelos leitores do seu trabalho.
+
+(Deve-se explicar aqui toda a construção pormenorizada do dataset, correto?)
+
+(O processo de reconhecimento de batidas de bola, requer um trabalho adicional correspondente à etiquetação prévia de eventos presentes no áudio. Ou seja, para que a máquina possa aprender o que é uma batida de bola, é necessário que se \aspas{diga} à mesma em que instantes de tempo ocorrem batidas de bola. Assim, esta adquire a capacidade de distinguir eventos correspondentes a batidas de bola, de eventos que não correspondem a batidas de bola.)
+
 
