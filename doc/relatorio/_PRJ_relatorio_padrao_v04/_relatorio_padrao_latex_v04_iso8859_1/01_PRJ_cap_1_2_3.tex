@@ -58,7 +58,7 @@ Neste sentido, pretende-se desenvolver uma ferramenta que auxilie na atividade d
 \label{sec:principaiscontributos}
 %%________________________________________________________________________
 
-Os contributos do sistema em desenvolvimento dividem-se em três componentes: a criação do \textit{dataset}; a construção de um modelo; elaboração de uma interface que auxilia no processo de criação do \textit{dataset}. Nesta secção será feita uma descrição geral dessas três componentes.
+Os contributos do sistema em desenvolvimento dividem-se em três componentes: a criação do \textit{dataset}; a construção de um modelo; elaboração de uma interface que auxilia no processo de aumento do \textit{dataset}. Nesta secção será feita uma descrição geral dessas três componentes.
 
 Os dados serão colocados numa estrutura de dados denominada \textit{dataset}. O processo de construção do \textit{dataset} envolve os seguintes passos:
 
@@ -96,7 +96,7 @@ O sistema em desenvolvimento permitirá também que o utilizador valide os resulta
 
 \begin{itemize}
 \item
-Disponibilizar numa interface, os resultados (em termos de eventos) retornados pelo classificador, evidenciando a série temporal e onde ocorrem os eventos correspondentes a batidas de bola;
+Disponibilizar numa interface, os resultados (em termos de eventos) retornados pelo classificador, evidenciando na série temporal onde ocorrem os eventos correspondentes a batidas de bola;
 
 \item
 Nessa mesma interface disponibilizar a opção de validar os eventos considerados pelo modelo como sendo ou não batidas de bola.
@@ -224,7 +224,7 @@ As características correspondem a colunas no \textit{dataset} e representam os d
 
 Neste trabalho, pretende-se extrair a partir do áudio, as seguintes características: deteção de picos (\textit{Onset}) e o valor eficaz (RMS).
 
-O \textit{Onset} divide-se em duas componentes: a deteção do início (\textit{Onset Detect}) e o fluxo espetral (\textit{Spectral Flux}). A primeira componente, tal como o nome idica, corresponde a detetar o instante em que se inicia um determinado som ou evento \cite{rosao2012onset}. Já a segunda corresponde a verificar variações no espetro do sinal, no sentido de encontrar diferenças entre \textit{frames} consecutivas, o que permite detetar também o início de um evento. O fluxo espetral pode também ser definido como uma medida do quão depressa o espetro de um sinal varia \cite{meyda_2022}.
+O \textit{Onset} divide-se em duas componentes: a deteção do início (\textit{Onset Detect}) e o fluxo espetral (\textit{Spectral Flux}). A primeira componente, tal como o nome indica, corresponde a detetar o instante em que se inicia um determinado som ou evento \cite{rosao2012onset}. Já a segunda corresponde a verificar variações no espetro do sinal, no sentido de encontrar diferenças entre \textit{frames} consecutivas, o que permite detetar também o início de um evento. O fluxo espetral pode também ser definido como uma medida do quão depressa o espetro de um sinal varia \cite{meyda_2022}.
 
 O valor eficaz ou \textit{Root Mean Square} (RMS) refere-se à energia média concentrada ou à intensidade média do sinal numa determinada \textit{frame}  \cite{room2021audio}.
 
@@ -246,7 +246,7 @@ Observando a figura acima, verifica-se que os picos  duas componentes do \textit
 %%________________________________________________________________________
 
 Os exemplos ou observações de um \textit{dataset} estão divididos em categorias. Essas categorias denominam-se classes. No caso da aprendizagem supervisionada, o algoritmo vai processando cada uma desses exemplos e faz a análise dos padrões encontrados nos dados. Depois de realizar essa análise, escolhe uma classe (\textit{output}), que pode estar correta ou não em relação à classe de \textit{input} ou real.
-Visto que este trabalho se destina ao reconhecimento de batidas de bola, serão apenas consideradas as classes batida de bola e não batida de bola. Neste sentido, o problema de classificação é binário.
+Visto que este trabalho se destina ao reconhecimento de batidas de bola, serão apenas consideradas as classes: batida de bola e não batida de bola.
 
 
 %%________________________________________________________________________
@@ -276,6 +276,33 @@ De acordo com \cite{nyuytiymbiy2021parameters}, em aprendizagem automática, um h
 
 
 %%________________________________________________________________________
+\subsection{Classificação e Validação Cruzada}
+\label{sec:validacaocruzada}
+%%________________________________________________________________________
+
+O processo de classificação é utilizado pelos algoritmos de \textit{Machine Learning} para atribuir uma classe ou categoria a um conjunto de exemplos \cite{brownlee4types}. Ainda de acordo com a referência anterior, existem três tipos de classificação:
+
+\begin{itemize}
+\item
+Classificação Multi-Classe -- aplica-se a tarefas em que existem mais do que duas classes. Um exemplo não pode pertencer, simultanemente, a mais do que uma classe.
+
+\item
+Classificação Binária -- aplica-se a problemas em que existem apenas duas classes. Um exemplo não pode pertencer, simultanemente, a mais do que uma classe.
+
+\item
+Classificação Multi-Label -- aplica-se a problemas em que existem duas classes ou mais classes. Um exemplo pode pertencer, simultanemente, a mais do que uma classe.
+
+\end{itemize}
+
+Neste trabalho, o problema de classificação é binário, já que o sistema computacional deve apenas distinguir eventos que são batidas de bola de eventos que não o são.
+
+Em geral, num problema de classificação, os dados são divididos em treino e teste. O grupo de exemplos de treino é utilizado no processo de aprendizagem ou treino, ao passo que o  grupo de teste é utilizado no processo de classificação. Esta distribuição dos dados pode não ser sufuciente para que o modelo aprenda a generalizar, no caso de ter de analisar dados novos. Como solução, pode ser utilizada a validação cruzada.
+ 
+A validação cruzada é uma técnica utilizada para avaliar o desempenho de um modelo, quando analisa dados novos \cite{mohammed_cv_2020}. 
+
+
+
+%%________________________________________________________________________
 \subsection{Redes Neuronais}
 \label{sec:redesneuronais}
 %%________________________________________________________________________
@@ -296,32 +323,9 @@ Entre a camada de \textit{input} e a camada de \textit{output} existem uma ou ma
 
 O número de camadas, bem como o número de neurónios constituinte devem ser escolhidos com rigor, a fim de garantir que o modelo obtém a melhor classificação possível \cite{krishnandetermine}.
 
-No cérebro humano, os neurónios comunicam entre si mediante o envio de sinais elétricos. Já no caso das redes neuronais, os neurónios comunicam enviando o \textit{output} obtido para todos os outros neurónios nas camadas seguintes. Neste sentido, o \textit{output} de um neurónio constitui parte do \textit{input} da camada seguinte. 
+Tal como se verifica na figura \ref{fig:redeneuronal}, quando um neurónio recebe os vários \textit{inputs} (de outros neurónios), associa a cada um destes um peso, que vai atualizando ao longo do processo de aprendizagem \cite{medium_2019}. 
 
-Tal como se verifica na figura \ref{fig:redeneuronal}, quando um neurónio recebe os vários \textit{inputs} (de outros neurónios), associa a cada um destes um peso, que vai atualizando ao longo do processo de aprendizagem \cite{medium_2019}. Durante o processo de aprendizagem a rede neuronal memoriza os padrões nos dados  
-
-
-%%________________________________________________________________________
-\subsection{Árvore de Decisão}
-\label{sec:arvoredecisao}
-%%________________________________________________________________________
-
-(Árvore de Decisão aqui)
-
-
-Na secção de Fundamentos \ref{sec:fundamentos} são abordados os conceitos relacionados com processamento de áudio, bem como a inteligência artificial.
-
-
-Aqui o sustento formal (teórico / tecnológico) do trabalho realizado \ldots
-
-
-%%________________________________________________________________________
-\subsection{Classificação e Validação Cruzada}
-\label{sec:validacaocruzada}
-%%________________________________________________________________________
-
-(A validação cruzada constitui uma forma de avaliar o modelo criado)
-
+De acordo com \cite{baeldungnn2019}, durante a aprendizagem, os dados propagam-se ao longo da rede neuronal várias vezes. O processo de propagação de todos os dados ao longo da rede neuronal denomina-se época. Neste sentido, uma época corresponde a um ciclo de passagem de todos os dados do \textit{dataset} ao longo da rede neuronal. Uma época é realizada ao longo de várias iterações. Uma iteração é o número de grupos de dados (\textit{batches}), constituintes do \textit{dataset}, necessários para completar uma época. Pelo que, o (\textit{batch}) é o número de exemplos ou observações que atravessam a rede neuronal numa iteração. 
 
 
 %%________________________________________________________________________
@@ -363,53 +367,103 @@ Para fazer referência a um trabalho é necessário seguir as boas regras (sintátic
 \label{ch:modeloProposto}
 %%________________________________________________________________________
 
-O modelo deve ser independente de linguagens de programação ou bibliotecas, mas devem ser fornecidos argumentos que sustentem a escolhas ou adoção das tecnologias utilizadas. O modelo proposto é composto por: requisitos; fundamentos; abordagem; implementação.
-
-
-\bigskip
-Aqui mostra um caminho que inicia com requisitos (\cf, secção \ref{sec:requisitos}), passa pela aplicação dos fundamentos (\cf, secção \ref{sec:fundamentos}) e continua até conseguir transmitir uma visão clara e um formalismo com nível de detalhe adequado a um leitor que tenha um perfil (competência técnica) idêntico ao seu.
-
-Recorra, sempre que possível, a exemplos ilustrativos da utilização do seu modelo. Esses exemplos devem ajudar o leitor a compreender os aspetos mais específicos do seu trabalho.
-
-O modelo aqui proposto deve ser (tanto quanto possível) independente de tecnologias concretas (\eg, linguagens de programação ou bibliotecas). No entanto deve fornecer os argumentos que contribuam para justificar uma posterior escolha (adoção) de tecnologias.
-
+Neste capítulo, serão descritos os requisitos da ferramenta em desenvolvimento. De seguida, será feita uma descrição de qual a abordagem adotada para desenvolver o sistema. 
 
 %%________________________________________________________________________
 \section{Requisitos}
 \label{sec:requisitos}
 %%________________________________________________________________________
 
+A ferramenta em desenvolvimento destina-se a atletas ou treinadores que tenham como objetivo analisar os treinos. Do ponto de vista do utilizador, pretende-se desenvolver um sistema que reconheça os eventos correspondentes a batidas de bola, e que contribua para auxiliar o processo de classificação.
 
-Aqui o essencial (e se aplicável) dos requisitos funcionais, não funcionais e modelo de casos de utilização. Aqui deve também apresentar matriz para decisão sobre prioridade dos casos de utilização (se aplicável) \ldots
+Os requisitos do sistema podem ser funcionais e não funcionais. Os primeiros, que também podemos ser designados por funções de sistema, referem-se funcionalidades desempenhadas pelo sistema. Neste caso, os requisitos funcionais podem ainda ser divididos em dois grupos:
 
-Deve apresentar de forma \aspas{moderada} o resultado da fase avaliação de requisitos. A informação de maior detalhe (\eg, diagramas UML demasiado detalhados) deve ser colocada em apêndice.
+\begin{itemize}
 
+\item
+Grupo das funcionalidades associadas à construção do \textit{dataset};
 
-%%________________________________________________________________________
-\subsection{Requisitos Funcionais}
-\label{sec:requisitosfuncionais}
-%%________________________________________________________________________
-
-(Requisitos Funcionais aqui)
-
-
-
-%%________________________________________________________________________
-\subsection{Requisitos Não Funcionais}
-\label{sec:requisitosnaofuncionais}
-%%________________________________________________________________________
-
-(Requisitos Não Funcionais aqui)
+\item
+Grupo das funcionalidades associadas ao processo de classificação.
+\end{itemize} 
 
 
 
-%%________________________________________________________________________
-\subsection{Casos de Utilização}
-\label{sec:casosdeutilizacao}
-%%________________________________________________________________________
 
-(Casos de utilização aqui)
 
+A tabela \ref{tab:tabelarequisitosfuncdata} contém os requisitos funcionais que dizem respeito à criação do \textit{dataset}:
+
+
+\clearpage
+
+
+\begin{table}[h]
+		\begin{center}
+		
+		
+				\begin{tabular}{ | l | p{9cm} | l |}
+				\hline
+				\textbf{Requisito} & \textbf{Função} & \textbf{Categoria} \\ \hline
+				R1.1 & Extrair o áudio do vídeo & Invisível \\ \hline
+				R1.2 & Anotar as batidas de bola presentes no áudio (A) & Invisível \\ \hline
+				R1.3 & Extrair as caracteristicas do áudio (B) & Invisível \\ \hline
+				R1.4 & Combinação dos dois conjuntos A e B & Invisível \\ \hline
+				\end{tabular}
+				
+				
+		\caption{Requisitos funcionais do sistema em desenvolvimento para a construção do \textit{dataset}.}
+		\label{tab:tabelarequisitosfuncdata}
+				
+		\end{center}
+\end{table}	
+
+
+
+
+
+
+
+A tabela \ref{tab:tabelarequisitosfuncclass} contém os requisitos funcionais que dizem respeito ao processo de classificação:
+\begin{table}[h]
+		\begin{center}
+		
+		
+				\begin{tabular}{ | l | l | l |}
+				\hline
+				\textbf{Requisito} & \textbf{Função} & \textbf{Categoria} \\ \hline
+				R1.1 & Extrair o áudio do vídeo & Invisível \\ \hline
+				R1.2 & Extrair as características do áudio & Invisível \\ \hline
+				R1.3 & Aplicar o classificador & Invisível \\ \hline
+				R1.4 & Apresentar resultados dos eventos etiquetados & Invisível \\ \hline
+				\end{tabular}
+				
+				
+		\caption{Requisitos funcionais respeitantes ao processo de classificação.}
+		\label{tab:tabelarequisitosfuncclass}
+				
+		\end{center}
+\end{table}	
+
+Os requisitos não funcionais, também designados atributos do sistema, correspondem a algo que o sistema deve realizar. A tabela \ref{tab:tabelarequisitosnaofunc} representa os atributos não funcionais do sistema.
+
+
+\begin{table}[h]
+		\begin{center}
+		
+		
+				\begin{tabular}{ | l | p{6cm} | l |}
+				\hline
+				\textbf{Atributo} & \textbf{Detalhe/ Restrição Fronteira} & \textbf{Categoria} \\ \hline
+				Interação Homem-Máquina & Detalhe \newline Interface fácil de aprender a usar & Obrigatório \\ \hline
+				
+				\end{tabular}
+				
+				
+		\caption{Requisitos não funcionais do sistema.}
+		\label{tab:tabelarequisitosnaofunc}
+				
+		\end{center}
+\end{table}	
 
 
 %%________________________________________________________________________
@@ -417,14 +471,52 @@ Deve apresentar de forma \aspas{moderada} o resultado da fase avaliação de requi
 \label{sec:abordagem}
 %%________________________________________________________________________
 
-Neste secção far-se-á uma descrição das etapas constituintes destes trabalho e as abordagens utilizadas para as realizar. As principais etapas são: Construção do dataset; Construção de um classificador que reconhece batidas de bola; Criação de uma interface que contribui para aumentar o \textit{dataset}.
 
- 
+Neste secção será feita uma descrição detalhada da abordagem utilizada para realizar cada uma das etapas inerentes ao sistema em desenvolvimento. As etapas são as seguintes:
+
+\begin{itemize}
+
+\item
+Construção do \textit{dataset};
+
+\item
+Construção de um classificador que reconhece batidas de bola;
+
+\item
+Criação de uma interface que contribui para aumentar o \textit{dataset}.
+
+\end{itemize} 
+
 
 %%________________________________________________________________________
-\section{Abordagem}
-\label{sec:abordagem}
+\subsection{Construção do \textit{dataset}}
+\label{sec:construcaododataset}
 %%________________________________________________________________________
+
+(colocar aqui um esquema dos passos do processo de criação do dataset - ver os esquemas feitos pela Soraia)
+
+(Não esquecer que aqui primeiro escolheu-se o classificador, como auxílio do ODM
+
+Analisando os resultados no ODM, optou-se pelas redes redes neuronais
+
+Uso de validação cruzada para avaliar a qualidade do modelo
+
+%%________________________________________________________________________
+\subsection{Construção do classificador}
+\label{sec:onstrucaodoclassificador}
+%%________________________________________________________________________
+
+(colocar aqui um esquema dos passos no processso de classificação - ver os esquemas feitos pela Soraia)
+
+
+%%________________________________________________________________________
+\subsection{Criação da interface}
+\label{sec:criacaodainterface}
+%%________________________________________________________________________
+
+(colocar aqui uma imagem correspondente ao mockup correspondente ao design da app)
+
+
 
 Aqui explique as formulações, os métodos, os algoritmos e outros contributos que desenvolveu e que considera centrais ao seu trabalho.
 
