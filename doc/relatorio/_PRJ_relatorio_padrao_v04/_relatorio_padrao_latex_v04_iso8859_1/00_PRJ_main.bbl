@@ -15,6 +15,12 @@ Boutilier, C., Dearden, R., e Goldszmidt, M. (1995).
 \newblock Exploiting structure in policy construction.
 \newblock In {\em Proceedings of the IJCAI-95}, p. 1104--1111.
 
+\bibitem[Burns, 2022]{burnsneural}
+Burns, E. (2022).
+\newblock What is a neural network? explanation and examples.
+\newblock
+  \url{https://www.techtarget.com/searchenterpriseai/definition/neural-network}.
+
 \bibitem[Council et~al., 2004]{national2004hearing}
 Council, N.~R. et~al. (2004).
 \newblock Hearing loss: Determining eligibility for social security benefits.
@@ -51,6 +57,13 @@ Janiesch, C., Zschech, P., e Heinrich, K. (2021).
 \newblock Machine learning and deep learning.
 \newblock {\em Electronic Markets}, 31(3):685--695.
 
+\bibitem[Krishnan, 2021]{krishnandetermine}
+Krishnan, S. (2021).
+\newblock How to determine the number of layers and neurons in the hidden
+  layer.
+\newblock {\em URL: https://medium.
+  com/geekculture/introduction-to-neuralnetwork-2f8b8221fbd3}.
+
 \bibitem[LibreTexts, 2022a]{eng_libretexts_sampling}
 LibreTexts, E. (2022a).
 \newblock Signal sampling.
@@ -70,10 +83,22 @@ Marin, D. (2006).
 \newblock Technical report, Dept. Computer Science, Ecole Polytechnique,
   Universidad de Chile, TR/DCC-2006-8.
 
+\bibitem[Medium, 2019]{medium_2019}
+Medium (2019).
+\newblock A beginner intro to neural networks.
+\newblock
+  \url{https://purnasaigudikandula.medium.com/a-beginner-intro-to-neural-networks-543267bda3c8}.
+
 \bibitem[Meyda, 2022]{meyda_2022}
 Meyda (visitado em Jul.2022).
 \newblock Audio feature extraction for javascript.
 \newblock \url{https://meyda.js.org/audio-features.html}.
+
+\bibitem[Nyuytiymbiy, 2021]{nyuytiymbiy2021parameters}
+Nyuytiymbiy, K. (2021).
+\newblock Parameters and hyperparameters in machine learning and deep learning.
+\newblock {\em Medium. https://towardsdatascience.
+  com/parameters-and-hyperparameters-aa609601a9ac (April 22, 2021)}.
 
 \bibitem[Python3.2.3, 2012]{Python_2012}
 Python3.2.3 (2012).

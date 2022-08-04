@@ -187,7 +187,7 @@ A transformada de Fourier ou Fourier Transform (FT), é uma função matemática que
 \label{sec:aprendizagemauto}
 %%________________________________________________________________________
 
-A aprendizagem automática ou \textit{Machine Learning} (ML) é ramo da inteligência artificial, que se refere à capacidade que os sistemas computacionais adquirem para realizar determinadas tarefas de forma automática \cite{janiesch2021machine}. Esses sistemas aprendem a resolver uma determinada tarefa, recorrendo à análise de padrões existentes em dados específicos do problema a resolver.  Ao analisarem esses dados, é construído um modelo, que, a grosso modo, correspondem ao \aspas{cérebro} do sistema computacional, e o auxilia na resolução da tarefa, para a qual foi designado.
+A aprendizagem automática ou \textit{Machine Learning} (ML) é ramo da inteligência artificial, que se refere à capacidade que os sistemas computacionais adquirem para realizar determinadas tarefas de forma automática \cite{janiesch2021machine}. Esses sistemas aprendem a resolver uma determinada tarefa, recorrendo à análise de padrões existentes em dados específicos do problema a resolver.  Ao analisarem esses dados, é construído um modelo, que, a grosso modo, corresponde ao \aspas{cérebro} do sistema computacional, e o auxilia na resolução da tarefa, para a qual foi designado.
 
 
 De acordo com \cite{sah2020machine}, existem três tipos de aprendizagem automática:
@@ -220,7 +220,7 @@ Um \textit{dataset} corresponde a um conjunto de dados, que é utilizado para tre
 \label{sec:caracteristicas}
 %%________________________________________________________________________
 
-As características correspondem a colunas no \textit{dataset}, pelo que são utilizadas como dados de \textit{input} para o treino do algoritmo ou modelo. 
+As características correspondem a colunas no \textit{dataset} e representam os dados de \textit{input} utilizados para o treino do algoritmo ou modelo. 
 
 Neste trabalho, pretende-se extrair a partir do áudio, as seguintes características: deteção de picos (\textit{Onset}) e o valor eficaz (RMS).
 
@@ -237,7 +237,7 @@ A figura abaixo constitui uma representação das três características enunciadas:
 \label{fig:features}
 \end{figure}
 
-Observando a figura acima, verifica-se que os picos  duas componentes do \textit{Onset}, bem como o RMS estão em concordância com o ínicio dos dos sons no áudio original. Espera-se que a máquina aprenda a identificar as batidas de bola considerando estas características.
+Observando a figura acima, verifica-se que os picos  duas componentes do \textit{Onset}, bem como o RMS estão em concordância com o ínicio dos dos sons no áudio original. O gráfico representativo do fluxo espetral, aprensenta picos com maior amplitude, onde o áudio original tem mais intensidade. Espera-se que a máquina aprenda a identificar as batidas de bola considerando estas características.
 
 
 %%________________________________________________________________________
@@ -245,7 +245,7 @@ Observando a figura acima, verifica-se que os picos  duas componentes do \textit
 \label{sec:classes}
 %%________________________________________________________________________
 
-Os exemplos ou observações de um \textit{dataset} estão divididos em categorias. Essas categorias denominam-se classes. No caso da aprendizagem supervisionada, o algoritmo vai processando cada uma desses exemplos e faz a análise dos padrões encontrados nos dados. Depois de realizar essa análise, escolhe uma classe (\textit{output}), que pode estar correta ou não em relação à classe de \textit{input}. 
+Os exemplos ou observações de um \textit{dataset} estão divididos em categorias. Essas categorias denominam-se classes. No caso da aprendizagem supervisionada, o algoritmo vai processando cada uma desses exemplos e faz a análise dos padrões encontrados nos dados. Depois de realizar essa análise, escolhe uma classe (\textit{output}), que pode estar correta ou não em relação à classe de \textit{input} ou real.
 Visto que este trabalho se destina ao reconhecimento de batidas de bola, serão apenas consideradas as classes batida de bola e não batida de bola. Neste sentido, o problema de classificação é binário.
 
 
@@ -256,11 +256,11 @@ Visto que este trabalho se destina ao reconhecimento de batidas de bola, serão a
 
 O desequilíbrio no \textit{dataset} ocorre quando existe uma diferença considerável no número de exemplos que existe nas categorias do conjunto de dados. Por outras palavras, existe desequilíbrio no dataset quando a distribuição de exemplos pelas classes é desigual \cite{badr2019having}. O processo de treino com dados, cuja distribuição é desigual, pode resultar na criação de um modelo que reconhece melhor certas classes em relação a outras.
 
-Ainda de acordo com \cite{badr2019having} e assumindo que se trata de um problema de classificação binário, é possível solucionar este problema das seguintes formas:
+Ainda de acordo com \cite{badr2019having} e assumindo que se trata de um problema de classificação binária, é possível solucionar este problema das seguintes formas:
 
 \begin{itemize}
 \item
-Amostragem -- aumentar o número de exemplos da classe em minoria (sobre-amostragem) ou reduzir o número da classe em maioria, no sentido de obter uma proporção de 50:1 entre as classes.
+Amostragem -- aumentar o número de exemplos da classe em minoria (sobre-amostragem) ou reduzir o número da classe em maioria (sub-amostragem), no sentido de obter uma proporção de 50:1 entre as classes.
 
 \item
 Juntar vários algoritmos de treino -- para obter um desempenho melhor, comparativamente à utilização de apenas um dos algoritmos.
@@ -268,22 +268,37 @@ Juntar vários algoritmos de treino -- para obter um desempenho melhor, comparati
 
 
 %%________________________________________________________________________
+\subsection{Hiper-parâmetros}
+\label{sec:hiperparametros}
+%%________________________________________________________________________
+
+De acordo com \cite{nyuytiymbiy2021parameters}, em aprendizagem automática, um hiper-parâmetro constitui um valor utilizado pelo algoritmo ou modelo para controlar o processo de treino. Os hiper-parâmetros de um modelo não são utilizados diretamente no modelo, mas determinam os parâmetros internos utilizados diretamente. O prefixo \{hiper advém do facto de estes parâmetros serem os escolhidos para definir outros, sugerindo que estão num nível hierárquico superior.
+
+
+%%________________________________________________________________________
 \subsection{Redes Neuronais}
 \label{sec:redesneuronais}
 %%________________________________________________________________________
 
-Uma rede neuronal ou \textit{Artificial Neural Network} (ANN) é um algoritmo ou técnica de aprendizagem automática que tem como objetivo imitar o cérebro humano, simulando a forma como os neurónios comunicam entre si \cite{burnsneural}, no sentido de realizar uma determinada tarefa. 
+Uma rede neuronal ou \textit{Artificial Neural Network} (ANN) é um algoritmo ou técnica de aprendizagem automática que tem como objetivo imitar o cérebro humano na realização de uma determinada tarefa, simulando a forma como os neurónios comunicam entre si \cite{burnsneural}. 
 
-Esta estrutura de dados está organizada em camadas, que são constituídas por neurónios. A primeira camada ou a camada de \textit{input}, tem a mesma quantidade de neurónios que o número de caracteríticas do \textit{dataset}. A última camada ou a camada de \textit{output} contém tantos neurónios quanto o número de classes ou categorias.
-Entre a camada de \textit{input} e a camada de \textit{output} existem uma ou mais camadas intermédias. O número de camadas, bem como o número de neurónios constituinte devem ser escolhidos com rigor, a fim de garantir que o modelo obtém a melhor classificação possível cite{krishnandetermine}.
+À semelhança do cérebro humano, o neurónio é a unidade básica da rede neuronal. Um neurónio funciona como uma função que recebe um determinado \textit{input}, processa-o e devolve um \textit{output}. No capítulo \ref{ch:outroDetalheAdicional} encontra-se uma figura ilustrativa de um neurónio consituinte de uma rede neuronal.
 
-(https://medium.com/geekculture/introduction-to-neural-network-2f8b8221fbd3)
-acabar de escrever sobre o artigo do cite acima - tá no medium!
+Uma rede neuronal está organizada em camadas, que são constituídas por neurónios. A primeira camada ou a camada de \textit{input}, tem a mesma quantidade de neurónios que o número de caracteríticas do \textit{dataset}. A última camada ou a camada de \textit{output}, contém tantos neurónios quanto o número de classes ou categorias.
+Entre a camada de \textit{input} e a camada de \textit{output} existem uma ou mais camadas intermédias. A figura \ref{fig:redeneuronal} representa de uma rede neuronal, onde estão delimitadas as ligações entre os vários neurónios constituintes:
 
-(Redes Neuronais aqui)
-Falar do que é uma época
-Falar do que é o batch size
-Falar da função de ativação
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=8cm]{./NN}
+\caption{Representação típica de uma rede neuronal.}
+\label{fig:redeneuronal}
+\end{figure}
+
+O número de camadas, bem como o número de neurónios constituinte devem ser escolhidos com rigor, a fim de garantir que o modelo obtém a melhor classificação possível \cite{krishnandetermine}.
+
+No cérebro humano, os neurónios comunicam entre si mediante o envio de sinais elétricos. Já no caso das redes neuronais, os neurónios comunicam enviando o \textit{output} obtido para todos os outros neurónios nas camadas seguintes. Neste sentido, o \textit{output} de um neurónio constitui parte do \textit{input} da camada seguinte. 
+
+Tal como se verifica na figura \ref{fig:redeneuronal}, quando um neurónio recebe os vários \textit{inputs} (de outros neurónios), associa a cada um destes um peso, que vai atualizando ao longo do processo de aprendizagem \cite{medium_2019}. Durante o processo de aprendizagem a rede neuronal memoriza os padrões nos dados  
 
 
 %%________________________________________________________________________
@@ -294,13 +309,18 @@ Falar da função de ativação
 (Árvore de Decisão aqui)
 
 
-
-
 Na secção de Fundamentos \ref{sec:fundamentos} são abordados os conceitos relacionados com processamento de áudio, bem como a inteligência artificial.
 
 
 Aqui o sustento formal (teórico / tecnológico) do trabalho realizado \ldots
 
+
+%%________________________________________________________________________
+\subsection{Classificação e Validação Cruzada}
+\label{sec:validacaocruzada}
+%%________________________________________________________________________
+
+(A validação cruzada constitui uma forma de avaliar o modelo criado)
 
 
 
