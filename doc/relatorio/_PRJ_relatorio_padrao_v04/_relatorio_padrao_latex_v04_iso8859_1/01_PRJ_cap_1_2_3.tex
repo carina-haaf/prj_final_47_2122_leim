@@ -38,9 +38,7 @@ Uma figura com mais detalhe encontra-se disponível no Capítulo \ref{ch:umDetalhe
 \label{sec:motivacao}
 %%________________________________________________________________________
 
-A aplicação em desenvolvimento implica que se implemente um sistema onde a máquina é capaz de reconhecer batidas de bola. No entanto, a forma como uma máquina reconhece um som difere de como esse mesmo som é percecionado pelo ouvido humano. De acordo com \cite{national2004hearing}, o ouvido humano consegue fazer a distinção entre sons, considerando as características dos sons emitidos: duração, intensidade, tom, entre outras. 
-
-Pelo que, é necessário proporcionar à máquina a capacidade de reconhecer batidas de bola de forma semelhante à humana. Neste sentido, o que se pretende, é utilizar a máquina para simular o ouvido humano. Para esse efeito, far-se-á uso de aprendizagem automática. 
+A aplicação em desenvolvimento implica que se implemente um sistema onde a máquina é capaz de reconhecer batidas de bola. No entanto, a forma como uma máquina reconhece um som difere de como esse mesmo som é percecionado pelo ouvido humano. De acordo com \cite{national2004hearing}, o ouvido humano consegue fazer a distinção entre sons, considerando as características dos sons emitidos: duração, intensidade, tom, entre outras.  Pelo que, é necessário proporcionar à máquina a capacidade de reconhecer batidas de bola de forma semelhante à humana. Neste sentido, o que se pretende, é utilizar a máquina para simular o ouvido humano. Para esse efeito, far-se-á uso de aprendizagem automática. 
 
 %%A aprendizagem automática permite aplicar algoritmos aos dados recebidos pela máquina, e reconhecer nestes, padrões identificativos de batidas de bola. Neste sentido, o reconhecimento de padrões nos dados constitui uma forma de a máquina aprender a identificar os eventos relevantes ou batidas de bola. %%
 
@@ -237,8 +235,9 @@ A figura abaixo constitui uma representação das três características enunciadas:
 \label{fig:features}
 \end{figure}
 
-Observando a figura acima, verifica-se que os picos  duas componentes do \textit{Onset}, bem como o RMS estão em concordância com o ínicio dos dos sons no áudio original. O gráfico representativo do fluxo espetral, aprensenta picos com maior amplitude, onde o áudio original tem mais intensidade. Espera-se que a máquina aprenda a identificar as batidas de bola considerando estas características.
+Observando a figura acima, verifica-se que os picos  duas componentes do \textit{Onset}, bem como o RMS estão em concordância com o ínicio dos dos sons no áudio original. O gráfico representativo do fluxo espetral, apresenta picos com maior amplitude, onde o áudio original tem mais intensidade.
 
+As características enunciadas acima podem ser calculadas com o auxílio da biblioteca \href{https://librosa.org/doc/main/index.html#}{ \textbf{librosa} }.
 
 %%________________________________________________________________________
 \subsection{Classes}
@@ -376,7 +375,7 @@ Neste capítulo, serão descritos os requisitos da ferramenta em desenvolvimento. 
 
 A ferramenta em desenvolvimento destina-se a atletas ou treinadores que tenham como objetivo analisar os treinos. Do ponto de vista do utilizador, pretende-se desenvolver um sistema que reconheça os eventos correspondentes a batidas de bola, e que contribua para auxiliar o processo de classificação.
 
-Os requisitos do sistema podem ser funcionais e não funcionais. Os primeiros, que também podemos ser designados por funções de sistema, referem-se funcionalidades desempenhadas pelo sistema. Neste caso, os requisitos funcionais podem ainda ser divididos em dois grupos:
+Os requisitos do sistema podem ser funcionais e não funcionais. Os primeiros, que também podem ser designados por funções de sistema, referem-se a funcionalidades desempenhadas pelo sistema. Neste caso, os requisitos funcionais podem ainda ser divididos em dois grupos:
 
 \begin{itemize}
 
@@ -390,7 +389,7 @@ Grupo das funcionalidades associadas ao processo de classificação.
 
 
 
-
+\bigskip
 A tabela \ref{tab:tabelarequisitosfuncdata} contém os requisitos funcionais que dizem respeito à criação do \textit{dataset}:
 
 
@@ -421,8 +420,6 @@ A tabela \ref{tab:tabelarequisitosfuncdata} contém os requisitos funcionais que 
 
 
 
-
-
 A tabela \ref{tab:tabelarequisitosfuncclass} contém os requisitos funcionais que dizem respeito ao processo de classificação:
 \begin{table}[h]
 		\begin{center}
@@ -444,7 +441,10 @@ A tabela \ref{tab:tabelarequisitosfuncclass} contém os requisitos funcionais que
 		\end{center}
 \end{table}	
 
+Note-se que as funcionalidades enunciadas acima constituem grande parte dos contributos deste projeto (referidos na secção \ref{sec:principaiscontributos}).
+
 Os requisitos não funcionais, também designados atributos do sistema, correspondem a algo que o sistema deve realizar. A tabela \ref{tab:tabelarequisitosnaofunc} representa os atributos não funcionais do sistema.
+
 
 
 \begin{table}[h]
@@ -464,6 +464,9 @@ Os requisitos não funcionais, também designados atributos do sistema, correspond
 				
 		\end{center}
 \end{table}	
+\clearpage
+
+
 
 
 %%________________________________________________________________________
@@ -472,7 +475,7 @@ Os requisitos não funcionais, também designados atributos do sistema, correspond
 %%________________________________________________________________________
 
 
-Neste secção será feita uma descrição detalhada da abordagem utilizada para realizar cada uma das etapas inerentes ao sistema em desenvolvimento. As etapas são as seguintes:
+Neste secção será descrita a abordagem utilizada para realizar cada uma das etapas inerentes ao sistema em desenvolvimento. As etapas são as seguintes:
 
 \begin{itemize}
 
@@ -493,13 +496,72 @@ Criação de uma interface que contribui para aumentar o \textit{dataset}.
 \label{sec:construcaododataset}
 %%________________________________________________________________________
 
-(colocar aqui um esquema dos passos do processo de criação do dataset - ver os esquemas feitos pela Soraia)
+Tal como referido anteriormente, pretende-se, realizar processamento \textit{offline} sobre áudio com batidas de bola, e identificar em que instantes temporais estas ocorrem. Para esse efeito, é necessário numa fase inicial, criar um \textit{dataset}. O \textit{dataset} em questão, corresponde a um conjunto de dados com padrões identificativos desses eventos. 
 
-(Não esquecer que aqui primeiro escolheu-se o classificador, como auxílio do ODM
+Neste sentido, considerando uma matriz de características, \textit{X}, e o vetor de valores de classes correspondente, \textit{y}, o problema de classificação em questão tem como objetivo obter a função, \textit{f}, tal que:
 
-Analisando os resultados no ODM, optou-se pelas redes redes neuronais
 
-Uso de validação cruzada para avaliar a qualidade do modelo
+\begin{equation} 
+\label{eq:modelequation}
+ f(X)=y
+\end{equation}
+
+A função \textit{f} corresponde a um modelo que deve receber a matriz de características e, classificar de maneira correta cada um dos exemplos desse mesmo vetor. Esse modelo é treinado com o \textit{dataset}, que constitui uma forma de permitir que o primeiro seja capaz de reconhecer as batidas de bola.
+ 
+\bigskip
+\paragraph{\textbf{Obtenção da matriz de características -- \textit{X}}} \hspace{0pt} \\
+
+%%\noindent%% 
+A matriz \textit{X} é constituída por M linhas ou exemplos. Por sua vez, cada exemplo tem N colunas ou características, pelo que a matriz \textit{X} pode ser representada da seguinte forma:
+\clearpage
+
+\begin{figure}
+\[ 
+X_{m,n} = 
+ \begin{bmatrix}
+  X_{1,1} & X_{1,2} & \cdots & X_{1,n} \\
+  \vdots  & \vdots  & \ddots & \vdots  \\
+  X_{M,1} & X_{M,2} & \cdots & X_{M,N} 
+ \end{bmatrix}
+ \]
+\caption{Matriz de características.}
+\label{fig:matrizfeaturesv1}
+\end{figure}
+
+No sentido de obter as características ou padrões presentes no áudio (extraído do vídeo), será realizado um varrimento sobre o mesmo com uma janela fixa, ao longo de várias iterações. A dimensão desta janela é dada pela duração, em segundos, das batidas de bola (a abordar mais à frente). A frequência de amostragem a que o áudio é obtido é de 44100Hz. Pelo que, cada segundo no áudio corresponde a 44100 amostras. Desta forma, caso 
+
+
+O valor de N na figura \ref{fig:matrizfeaturesv1}, corresponde ao número de características abranjidas pela janela fixa. Este valor pode ser dado pela seguinte expressão:
+
+\begin{equation} 
+\label{eq:formulan}
+N=\frac{eventLength \times samplingRate}{shiftedSamples}
+\end{equation}
+
+onde na equação \textit{eventLength}, corresponde à duração de um evento ou batida de bola, \textit{samplingRate} é a frequência de amostragem (a que os áudios são obtidos), e \textit{shiftedSamples} refere-se ao número de amostras deslizadas a cada iteração do varrimento. Na figura \ref{tab:tabelaparamformuladen}, estão evidenciados os valores:
+
+\begin{table}[h]
+		\begin{center}
+				\begin{tabular}{ | c | c | c |} \hline
+				\textbf{\textit{eventLength}} & \textbf{\textit{shiftedSamples}} & \textbf{\textit{N}} \\ \hline
+						0.5 & 1024 & 22 \\ \hline
+						0.5 & 2048 & 11 \\ \hline
+						0.7 & 1024 & 30 \\ \hline
+						0.7 & 2048 & 15 \\ \hline
+						1.0 & 1024 & 43 \\ \hline
+						1.0 & 2048 & 22 \\ \hline
+				\end{tabular}
+				
+		\caption{Valores de duração (em segundos), amostras delizadas e N a considerar, para um valor de \textit{samplingRate} igual a 44100Hz.}
+		\label{tab:tabelaparamformuladen}
+				
+		\end{center}
+\end{table}	
+
+Na tabela imediatamente acima, verificam-se três valores de duração dos eventos (\aspas{\textit{eventLength}}). Este facto pode ser explicado pela variação da duração deste evento ao longo de áudio. Ou seja, podem ser verificadas batidas de bola com diferentes durações no áudio. No Capítulo de \ref{ch:validacaoTestes}, serão verificadas as combinações destes valores que produzem os melhores resultados no modelo. O áudio extraído do vídeo é amostrado a 44100Hz (secção \ref{sec:amostragem}). 
+
+ 
+
 
 %%________________________________________________________________________
 \subsection{Construção do classificador}
@@ -507,6 +569,11 @@ Uso de validação cruzada para avaliar a qualidade do modelo
 %%________________________________________________________________________
 
 (colocar aqui um esquema dos passos no processso de classificação - ver os esquemas feitos pela Soraia)
+(Não esquecer que aqui primeiro escolheu-se o classificador, como auxílio do ODM
+
+Analisando os resultados no ODM, optou-se pelas redes redes neuronais
+
+Uso de validação cruzada para avaliar a qualidade do modelo
 
 
 %%________________________________________________________________________

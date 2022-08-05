@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.7.22)  5 AUG 2022 00:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.7.22)  5 AUG 2022 20:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -396,52 +396,167 @@ LaTeX Warning: Command \@xhline  has changed.
 \rotheadsize=\dimen168
 \c@nlinenum=\count296
 \TeXr@lab=\toks31
-) (D:\isel\LEIM\PRJ_2122SV\LaTeX\tex/latex/l3backend\l3backend-pdftex.def
+) (D:\isel\LEIM\PRJ_2122SV\LaTeX\tex/latex/mathtools\mathtools.sty
+Package: mathtools 2022/06/29 v1.29 mathematical typesetting tools
+
+(D:\isel\LEIM\PRJ_2122SV\LaTeX\tex/latex/tools\calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count297
+\calc@Bcount=\count298
+\calc@Adimen=\dimen169
+\calc@Bdimen=\dimen170
+\calc@Askip=\skip67
+\calc@Bskip=\skip68
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count299
+\calc@Cskip=\skip69
+)
+(D:\isel\LEIM\PRJ_2122SV\LaTeX\tex/latex/mathtools\mhsetup.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+\g_MT_multlinerow_int=\count300
+\l_MT_multwidth_dim=\dimen171
+\origjot=\skip70
+\l_MT_shortvdotswithinadjustabove_dim=\dimen172
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen173
+\l_MT_above_intertext_sep=\dimen174
+\l_MT_below_intertext_sep=\dimen175
+\l_MT_above_shortintertext_sep=\dimen176
+\l_MT_below_shortintertext_sep=\dimen177
+\xmathstrut@box=\box59
+\xmathstrut@dim=\dimen178
+)
+(D:\isel\LEIM\PRJ_2122SV\LaTeX\tex/latex/tools\multicol.sty
+Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
+\c@tracingmulticols=\count301
+\mult@box=\box60
+\multicol@leftmargin=\dimen179
+\c@unbalance=\count302
+\c@collectmore=\count303
+\doublecol@number=\count304
+\multicoltolerance=\count305
+\multicolpretolerance=\count306
+\full@width=\dimen180
+\page@free=\dimen181
+\premulticols=\dimen182
+\postmulticols=\dimen183
+\multicolsep=\skip71
+\multicolbaselineskip=\skip72
+\partial@page=\box61
+\last@line=\box62
+\maxbalancingoverflow=\dimen184
+\mult@rightbox=\box63
+\mult@grightbox=\box64
+\mult@firstbox=\box65
+\mult@gfirstbox=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\c@minrows=\count307
+\c@columnbadness=\count308
+\c@finalcolumnbadness=\count309
+\last@try=\dimen185
+\multicolovershoot=\dimen186
+\multicolundershoot=\dimen187
+\mult@nat@firstbox=\box103
+\colbreak@box=\box104
+\mc@col@check@num=\count310
+)
+(D:\isel\LEIM\PRJ_2122SV\LaTeX\tex/latex/caption\caption.sty
+Package: caption 2022/03/01 v3.6b Customizing captions (AR)
+
+(D:\isel\LEIM\PRJ_2122SV\LaTeX\tex/latex/caption\caption3.sty
+Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
+\caption@tempdima=\dimen188
+\captionmargin=\dimen189
+\caption@leftmargin=\dimen190
+\caption@rightmargin=\dimen191
+\caption@width=\dimen192
+\caption@indent=\dimen193
+\caption@parindent=\dimen194
+\caption@hangindent=\dimen195
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count311
+\c@continuedfloat=\count312
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+)
+(D:\isel\LEIM\PRJ_2122SV\LaTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-07-01 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count297
-\l__pdf_internal_box=\box59
+\l__color_backend_stack_int=\count313
+\l__pdf_internal_box=\box105
 )
 (00_PRJ_main.aux (00a_PRJ_resumo_abstract.aux) (00b_PRJ_agradecimentos.aux)
-(00c_PRJ_dedicatoria.aux)
-
-LaTeX Warning: Label `sec:abordagem' multiply defined.
-
-
-LaTeX Warning: Label `sec:abordagem' multiply defined.
-
-)
+(00c_PRJ_dedicatoria.aux))
 \openout1 = `00_PRJ_main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 125.
-LaTeX Font Info:    ... okay on input line 125.
- (D:\isel\LEIM\PRJ_2122SV\LaTeX\tex/context/base/mkii\supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+
+(D:\isel\LEIM\PRJ_2122SV\LaTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count298
-\scratchdimen=\dimen169
-\scratchbox=\box60
-\nofMPsegments=\count299
-\nofMParguments=\count300
+\scratchcounter=\count314
+\scratchdimen=\dimen196
+\scratchbox=\box106
+\nofMPsegments=\count315
+\nofMParguments=\count316
 \everyMPshowfont=\toks32
-\MPscratchCnt=\count301
-\MPscratchDim=\dimen170
-\MPnumerator=\count302
-\makeMPintoPDFobject=\count303
+\MPscratchCnt=\count317
+\MPscratchDim=\dimen197
+\MPnumerator=\count318
+\makeMPintoPDFobject=\count319
 \everyMPtoPDFconversion=\toks33
 ) (D:\isel\LEIM\PRJ_2122SV\LaTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -451,17 +566,19 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (D:\isel\LEIM\PRJ_2122SV\LaTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-\c@lstlisting=\count304
-Package hyperref Info: Link coloring OFF on input line 125.
+\c@lstlisting=\count320
+Package hyperref Info: Link coloring OFF on input line 135.
 
 (00_PRJ_main.out) (00_PRJ_main.out)
 \@outlinefile=\write3
 \openout3 = `00_PRJ_main.out'.
 
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 <./fig_logo_ISEL.png, id=147, 464.4552pt x 456.7464pt>
 File: ./fig_logo_ISEL.png Graphic file (type png)
 <use ./fig_logo_ISEL.png>
-Package pdftex.def Info: ./fig_logo_ISEL.png  used on input line 131.
+Package pdftex.def Info: ./fig_logo_ISEL.png  used on input line 141.
 (pdftex.def)             Requested size: 49.79231pt x 48.95988pt.
  [1
 
@@ -527,7 +644,7 @@ l.41 \myPrefaceChapter{Abstract}
 
 ] (01_PRJ_cap_1_2_3.tex
 Cap\'{\i }tulo 1.
-<./padel_court_racket_version.png, id=280, 82.50826pt x 128.8815pt>
+<./padel_court_racket_version.png, id=288, 82.50826pt x 128.8815pt>
 File: ./padel_court_racket_version.png Graphic file (type png)
 <use ./padel_court_racket_version.png>
 Package pdftex.def Info: ./padel_court_racket_version.png  used on input line 2
@@ -540,45 +657,45 @@ Package pdftex.def Info: ./padel_court_racket_version.png  used on input line 2
 ]
 Cap\'{\i }tulo 2.
 [7]
-Overfull \hbox (54.894pt too wide) in paragraph at lines 190--191
+Overfull \hbox (54.894pt too wide) in paragraph at lines 188--189
 \OT1/cmr/m/n/12 ad-qui-rem para re-a-li-zar de-ter-mi-na-das ta-re-fas de forma
  au-tom^^Satica [[]].
  []
 
 
-Overfull \hbox (5.8709pt too wide) in paragraph at lines 193--194
+Overfull \hbox (5.8709pt too wide) in paragraph at lines 191--192
 []\OT1/cmr/m/n/12 De acordo com [[]], exis-tem tr^es ti-pos de apren-di-za-gem 
 au-tom^^Satica: 
  []
 
 [8] [9]
-Overfull \hbox (16.13525pt too wide) in paragraph at lines 229--230
+Overfull \hbox (16.13525pt too wide) in paragraph at lines 227--228
 \OT1/cmr/m/n/12 cen-trada ou ^^Ra in-ten-si-dade m^^Sedia do si-nal numa de-ter
 -mi-nada \OT1/cmr/m/it/12 frame \OT1/cmr/m/n/12 [[]]. 
  []
 
-<./audio_features.png, id=345, 462.528pt x 346.896pt>
+<./audio_features.png, id=353, 462.528pt x 346.896pt>
 File: ./audio_features.png Graphic file (type png)
 <use ./audio_features.png>
-Package pdftex.def Info: ./audio_features.png  used on input line 235.
+Package pdftex.def Info: ./audio_features.png  used on input line 233.
 (pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
 [10 <./audio_features.png>]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 2
-75.
+74.
 
 (D:\isel\LEIM\PRJ_2122SV\LaTeX\tex/latex/base\omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 275.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 274.
  [11] [12]
-<./NN.png, id=375, 344.487pt x 249.3315pt>
+<./NN.png, id=384, 344.487pt x 249.3315pt>
 File: ./NN.png Graphic file (type png)
 <use ./NN.png>
-Package pdftex.def Info: ./NN.png  used on input line 319.
+Package pdftex.def Info: ./NN.png  used on input line 318.
 (pdftex.def)             Requested size: 227.62204pt x 164.7457pt.
 
-Overfull \hbox (23.19989pt too wide) in paragraph at lines 328--329
+Overfull \hbox (23.19989pt too wide) in paragraph at lines 327--328
 []\OT1/cmr/m/n/12 De acordo com [[]], du-rante a apren-di-za-gem, os da-dos pro
 pagam-
  []
@@ -592,7 +709,7 @@ Cap\'{\i }tulo 4.
 [17
 
 ]
-Overfull \hbox (16.4026pt too wide) in paragraph at lines 404--412
+Overfull \hbox (16.4026pt too wide) in paragraph at lines 403--411
  [] 
  []
 
@@ -603,40 +720,49 @@ Overfull \hbox (17.72557pt too wide) in paragraph at lines 454--460
 
 [18
 
-] [19]) (01_PRJ_cap_4_5_6.tex [20]
-Cap\'{\i }tulo 5.
-[21
+]
+Underfull \hbox (badness 10000) in paragraph at lines 512--513
 
-] [22
+ []
+
+[19
+
+] [20
+
+]) (01_PRJ_cap_4_5_6.tex [21] [22
+
+]
+Cap\'{\i }tulo 5.
+[23] [24
 
 ]
 Cap\'{\i }tulo 6.
 
-LaTeX Warning: Reference `sec:fundamentos' on page 23 undefined on input line 3
+LaTeX Warning: Reference `sec:fundamentos' on page 25 undefined on input line 3
 5.
 
 File: ./fig_logo_ISEL.png Graphic file (type png)
 <use ./fig_logo_ISEL.png>
 Package pdftex.def Info: ./fig_logo_ISEL.png  used on input line 57.
 (pdftex.def)             Requested size: 56.9055pt x 55.95714pt.
-[23] [24
+[25] [26
 
 ]
 Cap\'{\i }tulo 7.
-) (02_PRJ_cap_apendice.tex [25] [26
+) (02_PRJ_cap_apendice.tex [27] [28
 
 ]
 Ap\^endice A.
-[27] [28
+[29] [30
 
 ]
 Ap\^endice B.
-<./NN_neuron_v2.png, id=482, 256.5585pt x 155.98276pt>
+<./NN_neuron_v2.png, id=507, 256.5585pt x 155.98276pt>
 File: ./NN_neuron_v2.png Graphic file (type png)
 <use ./NN_neuron_v2.png>
 Package pdftex.def Info: ./NN_neuron_v2.png  used on input line 45.
 (pdftex.def)             Requested size: 199.16928pt x 121.09483pt.
-) [29 <./NN_neuron_v2.png>] [30
+) [31 <./NN_neuron_v2.png>] [32
 
 ] (00_PRJ_main.bbl
 Underfull \hbox (badness 6094) in paragraph at lines 15--19
@@ -654,7 +780,7 @@ Underfull \hbox (badness 1221) in paragraph at lines 31--36
 []\OT1/cmr/m/n/12 Brownlee, J. (4).  Ty-pes of clas-si-fi-ca-tion tasks in ma-
  []
 
-[31
+[33
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 87--91
@@ -686,7 +812,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--97
  03 % 3A _ Signal _
  []
 
-[32]
+[34]
 Underfull \hbox (badness 10000) in paragraph at lines 106--110
 []\OT1/cmr/m/n/12 Medium (2019).  A be-gin-ner in-tro to neu-
  []
@@ -714,31 +840,22 @@ Underfull \hbox (badness 1142) in paragraph at lines 155--159
 a-ti-o-nal
  []
 
-) [33] (00_PRJ_main.aux (00a_PRJ_resumo_abstract.aux)
+) [35] (00_PRJ_main.aux (00a_PRJ_resumo_abstract.aux)
 (00b_PRJ_agradecimentos.aux) (00c_PRJ_dedicatoria.aux))
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
-
-Package rerunfilecheck Warning: File `00_PRJ_main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `00_PRJ_main.out':
-(rerunfilecheck)             Before: 7477C533DCF1FDD939C35F8B812199BD;5264
-(rerunfilecheck)             After:  A8BDACDA35107BF16582EFCB17263E04;5229.
+Package rerunfilecheck Info: File `00_PRJ_main.out' has not changed.
+(rerunfilecheck)             Checksum: D6C6AF9251D428953BAA46DC3C00710C;5231.
  ) 
 Here is how much of TeX's memory you used:
- 12518 strings out of 478338
- 202798 string characters out of 2843735
- 518649 words of memory out of 3000000
- 30596 multiletter control sequences out of 15000+600000
- 477605 words of font info for 56 fonts, out of 8000000 for 9000
+ 14580 strings out of 478338
+ 242323 string characters out of 2843735
+ 561169 words of memory out of 3000000
+ 32629 multiletter control sequences out of 15000+600000
+ 477964 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,13n,77p,1054b,589s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 72i,13n,77p,1054b,591s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\carin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmbx12.pf
 b><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><D
@@ -754,9 +871,9 @@ onts/cm/cmsy10.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/c
 m/cmti10.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmti
 12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb
 >
-Output written on 00_PRJ_main.pdf (49 pages, 611620 bytes).
+Output written on 00_PRJ_main.pdf (51 pages, 632306 bytes).
 PDF statistics:
- 620 PDF objects out of 1000 (max. 8388607)
- 124 named destinations out of 1000 (max. 500000)
+ 647 PDF objects out of 1000 (max. 8388607)
+ 134 named destinations out of 1000 (max. 500000)
  314 words of extra memory for PDF output out of 10000 (max. 10000000)
 
