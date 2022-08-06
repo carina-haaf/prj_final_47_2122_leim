@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.7.22)  6 AUG 2022 02:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.7.22)  6 AUG 2022 12:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -770,7 +770,7 @@ Ap\^endice A.
 
 ]
 Ap\^endice B.
-<./NN_neuron_v2.png, id=513, 256.5585pt x 155.98276pt>
+<./NN_neuron_v2.png, id=515, 256.5585pt x 155.98276pt>
 File: ./NN_neuron_v2.png Graphic file (type png)
 <use ./NN_neuron_v2.png>
 Package pdftex.def Info: ./NN_neuron_v2.png  used on input line 45.
@@ -862,10 +862,10 @@ Package rerunfilecheck Info: File `00_PRJ_main.out' has not changed.
 (rerunfilecheck)             Checksum: 37FFFA524BF029FCF1372B3237E86F6E;5231.
  ) 
 Here is how much of TeX's memory you used:
- 14587 strings out of 478338
- 242434 string characters out of 2843735
- 562276 words of memory out of 3000000
- 32632 multiletter control sequences out of 15000+600000
+ 14589 strings out of 478338
+ 242461 string characters out of 2843735
+ 562346 words of memory out of 3000000
+ 32633 multiletter control sequences out of 15000+600000
  477964 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,13n,77p,1091b,591s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -884,9 +884,9 @@ onts/cm/cmsy10.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/c
 m/cmti10.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmti
 12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb
 >
-Output written on 00_PRJ_main.pdf (52 pages, 634745 bytes).
+Output written on 00_PRJ_main.pdf (52 pages, 636572 bytes).
 PDF statistics:
- 657 PDF objects out of 1000 (max. 8388607)
- 138 named destinations out of 1000 (max. 500000)
+ 660 PDF objects out of 1000 (max. 8388607)
+ 139 named destinations out of 1000 (max. 500000)
  314 words of extra memory for PDF output out of 10000 (max. 10000000)
 

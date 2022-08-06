@@ -591,8 +591,14 @@ y =
 onde cada elemento corresponde à classe etiquetada.
 Para obtenção deste vetor, é necessário etiquetar o  áudio, a partir do qual se obtém a matriz de características, X. O processo resume-se a ouvir o áudio e anotar num ficheiro .csv, em que instantes de tempo (em termos de amostras) ocorrem batidas de bolas. 
 
-Note-se que apenas eventos correspondentes a batidas de bola são registados no ficheiro. Desta maneira, admite-se que os eventos que não são registados, são automaticamente interpretados como não sendo batidas de bola.
-Assim, cada um dos exemplos do vetor \textit{y} terá um valor que depende da expressão:
+Note-se que apenas eventos correspondentes a batidas de bola são registados no ficheiro. Desta maneira, admite-se que os eventos que não são registados, são interpretados como não sendo batidas de bola.
+Assim, cada um dos exemplos do vetor \textit{y} terá um valor dependente da expressão \ref{eq:formulay}:
+
+\begin{equation} 
+\label{eq:formulay}
+y = \begin{cases} \text{Ball hit } & \quad \forall X_{m,n} \text{:} X_{m,n} \in [\text{beginSample}, \text{endSample}] \\ 
+									\text{Non ball hit }  & \quad \forall X_{m,n} \text{:} X_{m,n} \notin [\text{beginSample}, \text{endSample}] \end{cases}
+\end{equation}
 
 
 %%________________________________________________________________________
