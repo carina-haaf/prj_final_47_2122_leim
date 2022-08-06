@@ -367,16 +367,16 @@ Para fazer referência a um trabalho é necessário seguir as boas regras (sintátic
 \label{ch:modeloProposto}
 %%________________________________________________________________________
 
-Neste capítulo, será realizada uma descrição geral de todo o sistema. De seguida, serão abordados os requisitos da ferramenta em desenvolvimento. A seguir, será feita uma descrição de qual a abordagem adotada para desenvolver o sistema. 
+Neste capítulo, serão descritos os requisitos da ferramenta em desenvolvimento. De seguida, será feita uma descrição de qual a abordagem adotada para desenvolver o sistema. 
 
 
 %%________________________________________________________________________
-\section{Descrição Geral do Sistema}
+\section{Descrição Geral do sistema}
 \label{sec:descricaogeral}
 %%________________________________________________________________________
 
 
-De forma geral, o funcionamento do sistema pode ser representado como se mostra na figura \ref{fig:systemscheme}:
+De forma geral, o sistema pode ser representado como se mostra na figura \ref{fig:systemscheme}:
 
 \begin{figure}[h]
    \centering
@@ -660,22 +660,14 @@ Tal como referido na secção \ref{sec:classifevalidacaocruzada}, um classificador
 
 No entanto antes de realizar o processo de classificação, é necessário definir qual a técnica de aprendizagem automática se deve utilizar. Para esse efeito, fez-se uso uso da ferramenta \href{https://orangedatamining.com/}{\textit{\textbf{Orange Data Mining}}} (ODM), que permite simular a aplicação de vários algoritmos aos dados, no sentido de verificar quais destas produzem os melhores resultados.
 
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=12cm]{./odm_results}
-\caption{Resultados da aplicação de vários algoritmos aos dados.}
-\label{fig:odmresults}
-\end{figure}
 
 
-A figura \ref{fig:odmresults} acima, contém os resultados referentes à aplicação de vários modelos a um conjunto de dados. No processo de treino é utilizada validação cruzada estratificada (\aspas{\textit{Stratified}}), em que os dados são divididos em 10 folds e é mantida a distribuição dos dados nos grupos. Os dados de \textit{input} são resultado da etiquetação e extração de características evidenciada na secção (referenciar secção da implementação onde está a construção do dataset). Esta figura sugere que as técnicas que produzem os melhores resultados são a árvore de decisão e as redes neuronais. A árvore de decisão produz os melhores resultados, particularmente a classificação e o erro associado. No entanto, as redes neuronais serão escolhidas em detrimento da árvore de decisão, já que constituem uma área da aprendizagem automática em evolução nos últimos anos (referenciar na bibliografia).
+(colocar aqui um esquema dos passos no processso de classificação - ver os esquemas feitos pela Soraia)
+(Não esquecer que aqui primeiro escolheu-se o classificador, como auxílio do ODM
 
-Para o processo de treino do modelo, será utilizado o \textit{package} \href{https://keras.io/about/}{\textit{\textbf{Keras}}}. Esta biblioteca disponibiliza uma interface em \textit{Python} para desenvolver e avaliar algoritmos de redes neuronais \cite{brownlee2020your}.
+Analisando os resultados no ODM, optou-se pelas redes redes neuronais
 
-Depois de escolhido o algoritmo e a API que permite criar o modelo, devem ser escolhidos os hiper-parâmetros que produzem os melhores resultados de classificação.
-
-No decurso da construção do classificador e para poder fazer uso de todo o \textit{dataset}, será utilizada a validação cruzada. Como referido no Capítulo \ref{sec:classifevalidacaocruzada}, a validação cruzada constitui também uma forma de verificar qual o desempenho ou qualidade do modelo.
-
+Uso de validação cruzada para avaliar a qualidade do modelo
 
 
 %%________________________________________________________________________
@@ -683,11 +675,20 @@ No decurso da construção do classificador e para poder fazer uso de todo o \text
 \label{sec:criacaodainterface}
 %%________________________________________________________________________
 
-A interface a desenvolver contém uma síntese dos eventos mais relevantes do ponto de vista do utilizador. Numa primeira fase, serão elaborados os \textit{mockups} que representam o \textit{design} das páginas \textit{web} a serem visualizadas pelo utilizador.
+(colocar aqui uma imagem correspondente ao mockup correspondente ao design da app)
 
 
 
+Aqui explique as formulações, os métodos, os algoritmos e outros contributos que desenvolveu e que considera centrais ao seu trabalho.
 
-%%(O processo de reconhecimento de batidas de bola, requer um trabalho adicional correspondente à etiquetação prévia de eventos presentes no áudio. Ou seja, para que a máquina possa aprender o que é uma batida de bola, é necessário que se \aspas{diga} à mesma em que instantes de tempo ocorrem batidas de bola. Assim, esta adquire a capacidade de distinguir eventos correspondentes a batidas de bola, de eventos que não correspondem a batidas de bola.)%%
+Aqui precisa de abordar tudo o que contribui para diferenciar o seu trabalho e que (na sua opinião) deve ser evidenciado e explicado de modo claro.
+
+Lembre-se que a apresentação de um (ou mais) \textbf{exemplo(s) simples} é muito importante para que o leitor consiga seguir e compreender o seu trabalho.
+
+Tenha em atenção que um exemplo acompanhado por figuras ilustrativas será certamente analisado (de modo cuidado) pelos leitores do seu trabalho.
+
+(Deve-se explicar aqui toda a construção pormenorizada do dataset, correto?)
+
+(O processo de reconhecimento de batidas de bola, requer um trabalho adicional correspondente à etiquetação prévia de eventos presentes no áudio. Ou seja, para que a máquina possa aprender o que é uma batida de bola, é necessário que se \aspas{diga} à mesma em que instantes de tempo ocorrem batidas de bola. Assim, esta adquire a capacidade de distinguir eventos correspondentes a batidas de bola, de eventos que não correspondem a batidas de bola.)
 
 

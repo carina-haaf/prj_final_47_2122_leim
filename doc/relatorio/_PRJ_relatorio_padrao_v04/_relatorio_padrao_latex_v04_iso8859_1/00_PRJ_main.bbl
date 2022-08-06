@@ -27,6 +27,11 @@ Boutilier, C., Dearden, R., e Goldszmidt, M. (1995).
 \newblock Exploiting structure in policy construction.
 \newblock In {\em Proceedings of the IJCAI-95}, p. 1104--1111.
 
+\bibitem[Brownlee, 2020]{brownlee2020your}
+Brownlee, J. (2020).
+\newblock Your first deep learning project in python with keras step-by-step.
+\newblock {\em Machine Learning Mastery}.
+
 \bibitem[Brownlee, 4]{brownlee4types}
 Brownlee, J. (4).
 \newblock Types of classification tasks in machine learning.

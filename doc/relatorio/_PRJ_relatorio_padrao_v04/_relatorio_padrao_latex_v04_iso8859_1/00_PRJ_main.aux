@@ -82,14 +82,14 @@
 \citation{mohammed_cv_2020}
 \citation{burnsneural}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2.6}Classifica\c c\~ao e Valida\c c\~ao Cruzada}{12}{subsection.2.2.6}\protected@file@percent }
-\newlabel{sec:validacaocruzada}{{2.2.6}{12}{Classificação e Validação Cruzada}{subsection.2.2.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.7}Redes Neuronais}{12}{subsection.2.2.7}\protected@file@percent }
-\newlabel{sec:redesneuronais}{{2.2.7}{12}{Redes Neuronais}{subsection.2.2.7}{}}
+\newlabel{sec:classifevalidacaocruzada}{{2.2.6}{12}{Classificação e Validação Cruzada}{subsection.2.2.6}{}}
 \citation{krishnandetermine}
 \citation{medium_2019}
-\citation{baeldungnn2019}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.7}Redes Neuronais}{13}{subsection.2.2.7}\protected@file@percent }
+\newlabel{sec:redesneuronais}{{2.2.7}{13}{Redes Neuronais}{subsection.2.2.7}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Representa\c c\~ao t\IeC {\'\i }pica de uma rede neuronal.\relax }}{13}{figure.caption.13}\protected@file@percent }
 \newlabel{fig:redeneuronal}{{2.2}{13}{Representação típica de uma rede neuronal.\relax }{figure.caption.13}{}}
+\citation{baeldungnn2019}
 \citation{Elzinga_Mills_2011}
 \citation{Boutilier_et_al_1995}
 \citation{Bellifemine_et_al_2007}
@@ -105,73 +105,84 @@
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{ch:modeloProposto}{{4}{17}{Modelo Proposto}{chapter.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Requisitos}{17}{section.4.1}\protected@file@percent }
-\newlabel{sec:requisitos}{{4.1}{17}{Requisitos}{section.4.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Requisitos funcionais do sistema em desenvolvimento para a constru\c c\~ao do \textit  {dataset}.\relax }}{18}{table.caption.14}\protected@file@percent }
-\newlabel{tab:tabelarequisitosfuncdata}{{4.1}{18}{Requisitos funcionais do sistema em desenvolvimento para a construção do \textit {dataset}.\relax }{table.caption.14}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Requisitos funcionais respeitantes ao processo de classifica\c c\~ao.\relax }}{18}{table.caption.15}\protected@file@percent }
-\newlabel{tab:tabelarequisitosfuncclass}{{4.2}{18}{Requisitos funcionais respeitantes ao processo de classificação.\relax }{table.caption.15}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Requisitos n\~ao funcionais do sistema.\relax }}{18}{table.caption.16}\protected@file@percent }
-\newlabel{tab:tabelarequisitosnaofunc}{{4.3}{18}{Requisitos não funcionais do sistema.\relax }{table.caption.16}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Abordagem}{19}{section.4.2}\protected@file@percent }
-\newlabel{sec:abordagem}{{4.2}{19}{Abordagem}{section.4.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Constru\c c\~ao do \textit  {dataset}}{19}{subsection.4.2.1}\protected@file@percent }
-\newlabel{sec:construcaododataset}{{4.2.1}{19}{Construção do \textit {dataset}}{subsection.4.2.1}{}}
-\newlabel{eq:modelequation}{{4.1}{19}{Construção do \textit {dataset}}{equation.4.2.1}{}}
-\@writefile{toc}{\contentsline {paragraph}{\textbf  {Obten\c c\~ao da matriz de caracter\IeC {\'\i }sticas -- \textit  {X}}}{19}{section*.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Descri\c c\~ao Geral do Sistema}{17}{section.4.1}\protected@file@percent }
+\newlabel{sec:descricaogeral}{{4.1}{17}{Descrição Geral do Sistema}{section.4.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Representa\c c\~ao geral da ferramenta em desenvolvimento.\relax }}{17}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:systemscheme}{{4.1}{17}{Representação geral da ferramenta em desenvolvimento.\relax }{figure.caption.14}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Requisitos}{18}{section.4.2}\protected@file@percent }
+\newlabel{sec:requisitos}{{4.2}{18}{Requisitos}{section.4.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Requisitos funcionais do sistema em desenvolvimento para a constru\c c\~ao do \textit  {dataset}.\relax }}{18}{table.caption.15}\protected@file@percent }
+\newlabel{tab:tabelarequisitosfuncdata}{{4.1}{18}{Requisitos funcionais do sistema em desenvolvimento para a construção do \textit {dataset}.\relax }{table.caption.15}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Requisitos funcionais respeitantes ao processo de classifica\c c\~ao.\relax }}{18}{table.caption.16}\protected@file@percent }
+\newlabel{tab:tabelarequisitosfuncclass}{{4.2}{18}{Requisitos funcionais respeitantes ao processo de classificação.\relax }{table.caption.16}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Requisitos n\~ao funcionais do sistema.\relax }}{19}{table.caption.17}\protected@file@percent }
+\newlabel{tab:tabelarequisitosnaofunc}{{4.3}{19}{Requisitos não funcionais do sistema.\relax }{table.caption.17}{}}
 \citation{mcfee2015librosa}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Matriz de caracter\IeC {\'\i }sticas.\relax }}{20}{figure.caption.18}\protected@file@percent }
-\newlabel{fig:matrizfeaturesv1}{{4.1}{20}{Matriz de características.\relax }{figure.caption.18}{}}
-\newlabel{eq:formulan}{{4.2}{20}{\textbf {Obtenção da matriz de características -- \textit {X}}}{equation.4.2.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces Valores de dura\c c\~ao (em segundos), amostras delizadas e N a considerar, para um valor de \textit  {samplingRate} igual a 44100Hz.\relax }}{21}{table.caption.19}\protected@file@percent }
-\newlabel{tab:tabelaparamformuladen}{{4.4}{21}{Valores de duração (em segundos), amostras delizadas e N a considerar, para um valor de \textit {samplingRate} igual a 44100Hz.\relax }{table.caption.19}{}}
-\@writefile{toc}{\contentsline {paragraph}{\textbf  {Obten\c c\~ao do vetor de classes -- \textit  {y}}}{21}{section*.20}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Vetor de classes.\relax }}{21}{figure.caption.21}\protected@file@percent }
-\newlabel{fig:matrizclasses}{{4.2}{21}{Vetor de classes.\relax }{figure.caption.21}{}}
-\newlabel{eq:formulay}{{4.3}{22}{\textbf {Obtenção do vetor de classes -- \textit {y}}}{equation.4.2.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Constru\c c\~ao do classificador}{22}{subsection.4.2.2}\protected@file@percent }
-\newlabel{sec:onstrucaodoclassificador}{{4.2.2}{22}{Construção do classificador}{subsection.4.2.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Cria\c c\~ao da interface}{22}{subsection.4.2.3}\protected@file@percent }
-\newlabel{sec:criacaodainterface}{{4.2.3}{22}{Criação da interface}{subsection.4.2.3}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Implementa\c c\~ao do Modelo}{23}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Abordagem}{20}{section.4.3}\protected@file@percent }
+\newlabel{sec:abordagem}{{4.3}{20}{Abordagem}{section.4.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Constru\c c\~ao do \textit  {dataset}}{20}{subsection.4.3.1}\protected@file@percent }
+\newlabel{sec:construcaododataset}{{4.3.1}{20}{Construção do \textit {dataset}}{subsection.4.3.1}{}}
+\newlabel{eq:modelequation}{{4.1}{20}{Construção do \textit {dataset}}{equation.4.3.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{\textbf  {Obten\c c\~ao da matriz de caracter\IeC {\'\i }sticas -- \textit  {X}}}{20}{section*.18}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Matriz de caracter\IeC {\'\i }sticas.\relax }}{21}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:matrizfeaturesv1}{{4.2}{21}{Matriz de características.\relax }{figure.caption.19}{}}
+\newlabel{eq:formulan}{{4.2}{21}{\textbf {Obtenção da matriz de características -- \textit {X}}}{equation.4.3.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces Valores de dura\c c\~ao (em segundos), amostras delizadas e N a considerar, para um valor de \textit  {samplingRate} igual a 44100Hz.\relax }}{22}{table.caption.20}\protected@file@percent }
+\newlabel{tab:tabelaparamformuladen}{{4.4}{22}{Valores de duração (em segundos), amostras delizadas e N a considerar, para um valor de \textit {samplingRate} igual a 44100Hz.\relax }{table.caption.20}{}}
+\@writefile{toc}{\contentsline {paragraph}{\textbf  {Obten\c c\~ao do vetor de classes -- \textit  {y}}}{22}{section*.21}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Vetor de classes.\relax }}{22}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:matrizclasses}{{4.3}{22}{Vetor de classes.\relax }{figure.caption.22}{}}
+\newlabel{eq:formulay}{{4.3}{23}{\textbf {Obtenção do vetor de classes -- \textit {y}}}{equation.4.3.3}{}}
+\@writefile{toc}{\contentsline {paragraph}{\textbf  {Cria\c c\~ao do \textit  {dataset}}}{23}{section*.23}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Matriz de caracter\IeC {\'\i }sticas.\relax }}{23}{figure.caption.24}\protected@file@percent }
+\newlabel{fig:matrizfeaturesv1}{{4.4}{23}{Matriz de características.\relax }{figure.caption.24}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Constru\c c\~ao do classificador}{23}{subsection.4.3.2}\protected@file@percent }
+\newlabel{sec:onstrucaodoclassificador}{{4.3.2}{23}{Construção do classificador}{subsection.4.3.2}{}}
+\citation{brownlee2020your}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Resultados da aplica\c c\~ao de v\'arios algoritmos aos dados.\relax }}{24}{figure.caption.25}\protected@file@percent }
+\newlabel{fig:odmresults}{{4.5}{24}{Resultados da aplicação de vários algoritmos aos dados.\relax }{figure.caption.25}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}Cria\c c\~ao da interface}{25}{subsection.4.3.3}\protected@file@percent }
+\newlabel{sec:criacaodainterface}{{4.3.3}{25}{Criação da interface}{subsection.4.3.3}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Implementa\c c\~ao do Modelo}{27}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ch:implementacaoDoModelo}{{5}{23}{Implementação do Modelo}{chapter.5}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Valida\c c\~ao e Testes}{25}{chapter.6}\protected@file@percent }
+\newlabel{ch:implementacaoDoModelo}{{5}{27}{Implementação do Modelo}{chapter.5}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Valida\c c\~ao e Testes}{29}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ch:validacaoTestes}{{6}{25}{Validação e Testes}{chapter.6}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Uma tabela\relax }}{25}{table.caption.22}\protected@file@percent }
-\newlabel{tab:umaTabela}{{6.1}{25}{Uma tabela\relax }{table.caption.22}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Uma figura\relax }}{25}{figure.caption.23}\protected@file@percent }
-\newlabel{fig:umafigura}{{6.1}{25}{Uma figura\relax }{figure.caption.23}{}}
-\@writefile{toc}{\contentsline {paragraph}{Aten\c c\~ao.}{25}{section*.24}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Conclus\~oes e Trabalho Futuro}{27}{chapter.7}\protected@file@percent }
+\newlabel{ch:validacaoTestes}{{6}{29}{Validação e Testes}{chapter.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Uma tabela\relax }}{29}{table.caption.26}\protected@file@percent }
+\newlabel{tab:umaTabela}{{6.1}{29}{Uma tabela\relax }{table.caption.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Uma figura\relax }}{29}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:umafigura}{{6.1}{29}{Uma figura\relax }{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {paragraph}{Aten\c c\~ao.}{29}{section*.28}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Conclus\~oes e Trabalho Futuro}{31}{chapter.7}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ch:conclusoesTrabalhoFuturo}{{7}{27}{Conclusões e Trabalho Futuro}{chapter.7}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Um Detalhe Adicional}{29}{appendix.A}\protected@file@percent }
+\newlabel{ch:conclusoesTrabalhoFuturo}{{7}{31}{Conclusões e Trabalho Futuro}{chapter.7}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Um Detalhe Adicional}{33}{appendix.A}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ch:umDetalheAdicional}{{A}{29}{Um Detalhe Adicional}{appendix.A}{}}
+\newlabel{ch:umDetalheAdicional}{{A}{33}{Um Detalhe Adicional}{appendix.A}{}}
 \bibstyle{apalikeMy}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}Outro Detalhe Adicional}{31}{appendix.B}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Outro Detalhe Adicional}{35}{appendix.B}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ch:outroDetalheAdicional}{{B}{31}{Outro Detalhe Adicional}{appendix.B}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.1}{\ignorespaces Representa\c c\~ao de um neur\'onio de uma rede neuronal.\relax }}{31}{figure.caption.25}\protected@file@percent }
-\newlabel{fig:neuroniodeumarn}{{B.1}{31}{Representação de um neurónio de uma rede neuronal.\relax }{figure.caption.25}{}}
+\newlabel{ch:outroDetalheAdicional}{{B}{35}{Outro Detalhe Adicional}{appendix.B}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.1}{\ignorespaces Representa\c c\~ao de um neur\'onio de uma rede neuronal.\relax }}{35}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:neuroniodeumarn}{{B.1}{35}{Representação de um neurónio de uma rede neuronal.\relax }{figure.caption.29}{}}
 \bibdata{Xbib}
 \bibcite{mohammed_cv_2020}{Alhamid, 2020}
 \bibcite{badr2019having}{Badr, 2019}
 \bibcite{baeldungnn2019}{Baeldung, 2022}
 \bibcite{Bellifemine_et_al_2007}{Bellifemine et~al., 2007}
 \bibcite{Boutilier_et_al_1995}{Boutilier et~al., 1995}
+\bibcite{brownlee2020your}{Brownlee, 2020}
 \bibcite{brownlee4types}{Brownlee, 4}
 \bibcite{burnsneural}{Burns, 2022}
 \bibcite{national2004hearing}{Council et~al., 2004}
+\@writefile{toc}{\contentsline {chapter}{Bibliografia}{37}{appendix*.30}\protected@file@percent }
 \bibcite{courel2019exploring}{Courel-Ib{\'a}{\~n}ez et~al., 2019}
-\@writefile{toc}{\contentsline {chapter}{Bibliografia}{33}{appendix*.26}\protected@file@percent }
 \bibcite{Elzinga_Mills_2011}{Elzinga e Mills, 2011}
 \bibcite{evianyquist}{Evia e Arnold, 2022}
 \bibcite{digital_house_2022}{House, 2022}
@@ -192,4 +203,4 @@
 \bibcite{sampaio2006analise}{SAMPAIO et~al., 2006}
 \bibcite{SEMMLOW201281}{Semmlow, 2012}
 \bibcite{Wooldridge_2000}{Wooldridge, 2000}
-\gdef \@abspage@last{52}
+\gdef \@abspage@last{56}
