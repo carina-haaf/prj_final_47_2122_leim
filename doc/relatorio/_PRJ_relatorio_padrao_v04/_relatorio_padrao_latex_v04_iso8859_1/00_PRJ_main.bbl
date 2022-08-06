@@ -102,6 +102,13 @@ Marin, D. (2006).
 \newblock Technical report, Dept. Computer Science, Ecole Polytechnique,
   Universidad de Chile, TR/DCC-2006-8.
 
+\bibitem[McFee et~al., 2015]{mcfee2015librosa}
+McFee, B., Raffel, C., Liang, D., Ellis, D.~P., McVicar, M., Battenberg, E., e
+  Nieto, O. (2015).
+\newblock librosa: Audio and music signal analysis in python.
+\newblock In {\em Proceedings of the 14th python in science conference},
+  volume~8, p. 18--25. Citeseer.
+
 \bibitem[Medium, 2019]{medium_2019}
 Medium (2019).
 \newblock A beginner intro to neural networks.

@@ -15,45 +15,45 @@ Warning--empty journal in national2004hearing
 Warning--empty journal in evianyquist
 Warning--empty school in rosao2012onset
 Warning--empty journal in sah2020machine
-You've used 28 entries,
+You've used 29 entries,
             1935 wiz_defined-function locations,
-            629 strings with 8251 characters,
-and the built_in function-call counts, 8839 in all, are:
-= -- 886
-> -- 279
-< -- 28
-+ -- 94
-- -- 85
-* -- 631
-:= -- 1615
-add.period$ -- 84
-call.type$ -- 28
-change.case$ -- 180
-chr.to.int$ -- 27
-cite$ -- 32
-duplicate$ -- 383
-empty$ -- 621
-format.name$ -- 120
-if$ -- 1717
+            636 strings with 8503 characters,
+and the built_in function-call counts, 9493 in all, are:
+= -- 950
+> -- 317
+< -- 30
++ -- 108
+- -- 99
+* -- 688
+:= -- 1720
+add.period$ -- 88
+call.type$ -- 29
+change.case$ -- 192
+chr.to.int$ -- 28
+cite$ -- 33
+duplicate$ -- 408
+empty$ -- 660
+format.name$ -- 135
+if$ -- 1852
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 19
-newline$ -- 140
-num.names$ -- 86
-pop$ -- 145
+missing$ -- 20
+newline$ -- 145
+num.names$ -- 89
+pop$ -- 159
 preamble$ -- 1
-purify$ -- 181
+purify$ -- 193
 quote$ -- 0
-skip$ -- 317
+skip$ -- 336
 stack$ -- 0
-substring$ -- 501
-swap$ -- 44
-text.length$ -- 5
+substring$ -- 537
+swap$ -- 53
+text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 164
+type$ -- 170
 warning$ -- 4
-while$ -- 70
+while$ -- 75
 width$ -- 0
-write$ -- 350
+write$ -- 365
 (There were 4 warnings)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.7.22)  5 AUG 2022 20:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.7.22)  6 AUG 2022 02:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -644,7 +644,7 @@ l.41 \myPrefaceChapter{Abstract}
 
 ] (01_PRJ_cap_1_2_3.tex
 Cap\'{\i }tulo 1.
-<./padel_court_racket_version.png, id=288, 82.50826pt x 128.8815pt>
+<./padel_court_racket_version.png, id=290, 82.50826pt x 128.8815pt>
 File: ./padel_court_racket_version.png Graphic file (type png)
 <use ./padel_court_racket_version.png>
 Package pdftex.def Info: ./padel_court_racket_version.png  used on input line 2
@@ -674,28 +674,32 @@ Overfull \hbox (16.13525pt too wide) in paragraph at lines 227--228
 -mi-nada \OT1/cmr/m/it/12 frame \OT1/cmr/m/n/12 [[]]. 
  []
 
-<./audio_features.png, id=353, 462.528pt x 346.896pt>
+<./audio_features.png, id=355, 462.528pt x 346.896pt>
 File: ./audio_features.png Graphic file (type png)
 <use ./audio_features.png>
 Package pdftex.def Info: ./audio_features.png  used on input line 233.
 (pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
+
+LaTeX Warning: Reference `mcfee2015librosa' on page 10 undefined on input line 
+241.
+
 [10 <./audio_features.png>]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 2
-74.
+75.
 
 (D:\isel\LEIM\PRJ_2122SV\LaTeX\tex/latex/base\omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 274.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 275.
  [11] [12]
-<./NN.png, id=384, 344.487pt x 249.3315pt>
+<./NN.png, id=386, 344.487pt x 249.3315pt>
 File: ./NN.png Graphic file (type png)
 <use ./NN.png>
-Package pdftex.def Info: ./NN.png  used on input line 318.
+Package pdftex.def Info: ./NN.png  used on input line 319.
 (pdftex.def)             Requested size: 227.62204pt x 164.7457pt.
 
-Overfull \hbox (23.19989pt too wide) in paragraph at lines 327--328
+Overfull \hbox (23.19989pt too wide) in paragraph at lines 328--329
 []\OT1/cmr/m/n/12 De acordo com [[]], du-rante a apren-di-za-gem, os da-dos pro
 pagam-
  []
@@ -709,31 +713,40 @@ Cap\'{\i }tulo 4.
 [17
 
 ]
-Overfull \hbox (16.4026pt too wide) in paragraph at lines 403--411
+Overfull \hbox (16.4026pt too wide) in paragraph at lines 404--412
  [] 
  []
 
 
-Overfull \hbox (17.72557pt too wide) in paragraph at lines 454--460
+Overfull \hbox (17.72557pt too wide) in paragraph at lines 455--461
  [] 
  []
 
 [18
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 512--513
+Underfull \hbox (badness 10000) in paragraph at lines 513--514
 
  []
 
 [19
 
-] [20
+]
 
-]) (01_PRJ_cap_4_5_6.tex [21] [22
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[20
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 571--572
+
+ []
+
+[21]) (01_PRJ_cap_4_5_6.tex [22]
 Cap\'{\i }tulo 5.
-[23] [24
+[23
+
+] [24
 
 ]
 Cap\'{\i }tulo 6.
@@ -757,7 +770,7 @@ Ap\^endice A.
 
 ]
 Ap\^endice B.
-<./NN_neuron_v2.png, id=507, 256.5585pt x 155.98276pt>
+<./NN_neuron_v2.png, id=513, 256.5585pt x 155.98276pt>
 File: ./NN_neuron_v2.png Graphic file (type png)
 <use ./NN_neuron_v2.png>
 Package pdftex.def Info: ./NN_neuron_v2.png  used on input line 45.
@@ -813,49 +826,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--97
  []
 
 [34]
-Underfull \hbox (badness 10000) in paragraph at lines 106--110
+Underfull \hbox (badness 10000) in paragraph at lines 113--117
 []\OT1/cmr/m/n/12 Medium (2019).  A be-gin-ner in-tro to neu-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--110
+Underfull \hbox (badness 10000) in paragraph at lines 113--117
 \OT1/cmr/m/n/12 ral networks.  []$\OT1/cmtt/m/n/12 https : / / purnasaigudikand
 ula . medium . com /
  []
 
 
-Underfull \hbox (badness 4072) in paragraph at lines 117--121
+Underfull \hbox (badness 4072) in paragraph at lines 124--128
 []\OT1/cmr/m/n/12 Nyuytiymbiy, K. (2021).  Pa-ra-me-ters and hy-
  []
 
 
-Underfull \hbox (badness 7869) in paragraph at lines 117--121
+Underfull \hbox (badness 7869) in paragraph at lines 124--128
 \OT1/cmr/m/n/12 per-pa-ra-me-ters in ma-chine le-ar-ning and deep le-ar-ning.  
 \OT1/cmr/m/it/12 Me-
  []
 
 
-Underfull \hbox (badness 1142) in paragraph at lines 155--159
+Underfull \hbox (badness 1142) in paragraph at lines 162--166
 []\OT1/cmr/m/n/12 Wooldridge, M. (2000).  \OT1/cmr/m/it/12 Re-a-so-ning About R
 a-ti-o-nal
  []
 
-) [35] (00_PRJ_main.aux (00a_PRJ_resumo_abstract.aux)
+[35]) [36] (00_PRJ_main.aux (00a_PRJ_resumo_abstract.aux)
 (00b_PRJ_agradecimentos.aux) (00c_PRJ_dedicatoria.aux))
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `00_PRJ_main.out' has not changed.
-(rerunfilecheck)             Checksum: D6C6AF9251D428953BAA46DC3C00710C;5231.
+(rerunfilecheck)             Checksum: 37FFFA524BF029FCF1372B3237E86F6E;5231.
  ) 
 Here is how much of TeX's memory you used:
- 14580 strings out of 478338
- 242323 string characters out of 2843735
- 561169 words of memory out of 3000000
- 32629 multiletter control sequences out of 15000+600000
+ 14587 strings out of 478338
+ 242434 string characters out of 2843735
+ 562276 words of memory out of 3000000
+ 32632 multiletter control sequences out of 15000+600000
  477964 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,13n,77p,1054b,591s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 72i,13n,77p,1091b,591s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\carin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmbx12.pf
 b><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><D
@@ -871,9 +884,9 @@ onts/cm/cmsy10.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/c
 m/cmti10.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmti
 12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb
 >
-Output written on 00_PRJ_main.pdf (51 pages, 632306 bytes).
+Output written on 00_PRJ_main.pdf (52 pages, 634745 bytes).
 PDF statistics:
- 647 PDF objects out of 1000 (max. 8388607)
- 134 named destinations out of 1000 (max. 500000)
+ 657 PDF objects out of 1000 (max. 8388607)
+ 138 named destinations out of 1000 (max. 500000)
  314 words of extra memory for PDF output out of 10000 (max. 10000000)
 
