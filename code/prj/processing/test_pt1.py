@@ -11,7 +11,7 @@ from processing.processCsvFile import *
 nog = 21  # number of groups
 spr = 1024  # samples per group
 nof = 3  # number of features
-noss = 1024  # number of sifted samples
+noss = 2048  # number of sifted samples
 
 
 # =================================================================================

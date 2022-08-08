@@ -116,6 +116,7 @@ def get_features(data, nr_groups, nr_samples_per_group, nr_shifted_samples, samp
     rms_feature = librosa.feature.rms(y=data, hop_length=nr_samples_per_group)[0]
     specflux_feature = librosa.onset.onset_strength(y=data, sr=sample_rate, hop_length=nr_samples_per_group)
 
+
     # windowing the data
     onset_feature = tf.data.Dataset.from_tensor_slices(onset_feature)
     rms_feature = tf.data.Dataset.from_tensor_slices(rms_feature)
@@ -123,7 +124,7 @@ def get_features(data, nr_groups, nr_samples_per_group, nr_shifted_samples, samp
 
 
     shift_nr = int(nr_shifted_samples/nr_samples_per_group)
-    f1 = onset_feature.window(size=nr_groups, shift=shift_nr, drop_remainder=True) # deliza entre 1 e N - verificar
+    f1 = onset_feature.window(size=nr_groups, shift=shift_nr, drop_remainder=True)
     f2 = rms_feature.window(size=nr_groups, shift=shift_nr, drop_remainder=True)
     f3 = specflux_feature.window(size=nr_groups, shift=shift_nr, drop_remainder=True)
 
@@ -157,12 +158,11 @@ def get_data_features(data, vd_index, nr_groups, nr_samples_per_group, nr_shifte
         feature_arr = organize_feature_values(f1[j], f2[j], f3[j], is_ball_hit)
 
         # keep the features data on array
-
-
         if (is_ball_hit and vd_index not in non_ball_hit_vd_idx) or \
                 ((not is_ball_hit) and vd_index in non_ball_hit_vd_idx):
             file_rows.append(feature_arr)
 
+        # counter of ball and non ball hits
         if is_ball_hit and vd_index not in non_ball_hit_vd_idx:
             nr_ball_hits += 1
 
