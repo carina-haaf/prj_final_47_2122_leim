@@ -3,24 +3,20 @@
 # imports...
 # =================================================================================
 
-from processing import dataClassifier
 from processing import datasetConstructor
+from processing import directoryManipulator
 
+import matplotlib.pyplot as plt
 from pandas import read_csv
 import numpy as np
-import matplotlib.pyplot as plt
+import time
+import os
 
-from sklearn.metrics import confusion_matrix
 from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
 
 from keras.models import Sequential
 from keras.layers import Dense
-import tensorflow as tf
-
-from sklearn.metrics import accuracy_score, precision_score, \
-                            recall_score, f1_score
-
-import time
 
 
 # =================================================================================
@@ -43,8 +39,9 @@ k_folds = 5
 tt_split_indexes = datasetConstructor.stratified_fold_split(k_folds, seed=None)
 
 cvscores = []
-index = 0
+nr_models = -1
 
+fig, ax = plt.subplots(nrows=1, ncols=2, sharex=True)
 for train_index, test_index in tt_split_indexes.split(X, Y):
 
     # =================================================================================
@@ -52,8 +49,8 @@ for train_index, test_index in tt_split_indexes.split(X, Y):
     # =================================================================================
 
     model = Sequential()
-    model.add(Dense(30, input_dim=63, activation='relu'))
-    model.add(Dense(30, activation='relu'))
+    model.add(Dense(15, input_dim=33, activation='relu'))
+    model.add(Dense(15, activation='relu'))
     model.add(Dense(1, activation='sigmoid'))
 
     # =================================================================================
@@ -69,11 +66,25 @@ for train_index, test_index in tt_split_indexes.split(X, Y):
 
     print("\n\nModel Summary: ")
     print(model.summary())
-    history = model.fit(X_train, y_train, epochs=120, batch_size=20, verbose=2)
+    history = model.fit(X_train, y_train, epochs=10, batch_size=33, verbose=2)
+
+    # save model
+    nr_models = directoryManipulator.get_nr_of_files("../models/constructed_models/")
+    model.save("../models/constructed_models/model_" + str(nr_models + 1))
 
     y_predict = model.predict(X_test)
     y_predict = np.where(y_predict > 0.5, 1, 0)
-    print("\n\nEstimated classes: ", y_predict)
+
+    print("\n\n# =================================================================================")
+    print("                         T R A I N I N G    R E S U L T S")
+    print("# =================================================================================")
+
+    best_training_score = max(history.history['accuracy'])
+    print("\n\nBest training score (model history): ", best_training_score)
+
+    print("\n\n# =================================================================================")
+    print("                         V A L I D A T I O N    R E S U L T S")
+    print("# =================================================================================")
 
     print("\n\nConfusion Matrix: ")
     print(confusion_matrix(y_test, y_predict))  # order matters! (actual, predicted)
@@ -81,36 +92,38 @@ for train_index, test_index in tt_split_indexes.split(X, Y):
     print("\n\nClassification Report: ")
     print(classification_report(y_test, y_predict))
 
-    scores = model.evaluate(X_test, y_test, verbose=0)
-    print("\n\n")
-    print("%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
-    cvscores.append(scores[1] * 100)
+    loss, accuracy = model.evaluate(X_test, y_test, batch_size=33, verbose=0)
+
+    cvscores.append(accuracy * 100)
+
+    print("\n\nEvaluation Matrics:")
+    print("Accuracy: ", accuracy)
+    print("Loss: ", loss)
 
     # =================================================================================
     # Display Graphs ...
     # =================================================================================
-    index += 1
-    plt.plot(history.history['accuracy'], label='Model nr.' + str(index))
-    plt.title('Model accuracy')
-    plt.ylabel('Accuracy')
-    plt.xlabel('Epoch')
-    plt.legend()
+
+    ax[0].plot(history.history['accuracy'], label='Model nr.' + str(nr_models + 1))
+    ax[0].legend(loc="lower right")
+    ax[0].set_title('Models Accuracy')
+    ax[0].set_xlabel('Epoch')
+    ax[0].set_ylabel('Accuracy')
+
+    ax[1].plot(history.history['loss'], label='Model nr.' + str(nr_models + 1))
+    ax[1].legend(loc="upper right")
+    ax[1].set_title('Models Loss')
+    ax[1].set_xlabel('Epoch')
+    ax[1].set_ylabel('Loss')
 
 
-
-print("%.2f%% (+/- %.2f%%)" % (np.mean(cvscores), np.std(cvscores)))
+nr_models = directoryManipulator.get_nr_of_files("../models/constructed_models/")
+fig.savefig('../models/models_graphs/models_' + str(nr_models - 4) + '_to_' + str(nr_models) + '.png')
+print("\n\n%.2f%% (+/- %.2f%%)" % (np.mean(cvscores), np.std(cvscores)))
 plt.show()
 
 
 """
-# =================================================================================
-# Obtenção matriz de confusão para dados novos ...
-# =================================================================================
-
-print("\n\n\n=================================================================================")
-print("\tConfusion matrix for test fold...")
-print("=================================================================================")
-print(confusion_matrix(y_class_true, y_class_est))# order matters! (actual, predicted)
 #       o   1
 #  ô  [TN, FP]
 #  î  [FN, TP]
@@ -122,6 +135,7 @@ print(confusion_matrix(y_class_true, y_class_est))# order matters! (actual, pred
 # =================================================================================
 
 end = time.time()
-dif = (end - start)/60
-print('Processing time: ', float("{0:.2f}".format(dif)))
+#  dif = (end - start)/60
+dif = end - start
+print('Processing time: ', np.round_(dif, 0), "seconds")
 

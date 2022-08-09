@@ -1,76 +1,103 @@
+# teste parecido com o test_pt2.py, mas neste caso carrega um modelo já treinado
+# =================================================================================
+# imports...
+# =================================================================================
 
-import librosa
-import tensorflow as tf
+from processing import datasetConstructor
+
+from pandas import read_csv
 import numpy as np
+import matplotlib.pyplot as plt
+
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+from sklearn.metrics import classification_report
+
+from keras.models import load_model
+
+import os
+import pickle
+
+import time
+
+# =================================================================================
+# Iniciar contagem de tempo de processamento ...
+# =================================================================================
+
+start = time.time()
+print("The program is running...")
+
+# =================================================================================
+# Definição do dataset ...
+# =================================================================================
+
+dataset = read_csv("features_file.csv", header=None)
+X, Y = datasetConstructor.get_features_and_label_values(dataset, debug=True)
 
 
+# define k-fold cross validation test harness
+k_folds = 6
+tt_split_indexes = datasetConstructor.stratified_fold_split(k_folds, seed=None)
 
+index = 1  # model index
 
-def generate_onset_array(arr, data_size, nog, spg):
+fig, ax = plt.subplots(nrows=1, ncols=2, sharex=True)
+for train_index, test_index in tt_split_indexes.split(X, Y):
 
-    arr_size = data_size / spg # nr of onsets
-    arr_size = int(arr_size) +1
-    onset_array = np.zeros(arr_size)
-    onset_array[arr] = 1
+    # Load model
+    model = load_model('../models/constructed_models/model_' + str(index))
+    model.summary()
 
-    return onset_array
+    X_train, y_train = X[train_index], Y[train_index]
+    X_test, y_test = X[test_index], Y[test_index]
 
+    print("\n\nModel Summary: ")
+    print(model.summary())
 
+    y_predict = model.predict(X_test)
+    y_predict = np.where(y_predict > 0.5, 1, 0)
 
+    print("\n\n# =================================================================================")
+    print("                         V A L I D A T I O N    R E S U L T S")
+    print("# =================================================================================")
 
-nog = 21  # number of groups
-spr = 1024  # samples per group
-nof = 3  # number of features
-noss = 1024  # number of sifted samples
+    print("\n\nConfusion Matrix: ")
+    print(confusion_matrix(y_test, y_predict))  # order matters! (actual, predicted)
 
+    print("\n\nClassification Report: ")
+    print(classification_report(y_test, y_predict))
 
+    loss, accuracy = model.evaluate(X_test, y_test, batch_size=33, verbose=0)
 
-audio_path = "../audios/dataset/classification/AUDIO_39.wav"
-data, sample_rate = librosa.load(audio_path)
-print("data.shape: ", data.shape)
-# calculate features
-onset_feature = librosa.onset.onset_detect(y=data, sr=sample_rate, hop_length=spr)
-onset_feature = generate_onset_array(onset_feature, len(data), nog, spr) # sets onsets indexes to 1 (where occured onset)
-rms_feature = librosa.feature.rms(y=data, hop_length=spr)[0]
-specflux_feature = librosa.onset.onset_strength(y=data, sr=sample_rate, hop_length=spr)
-
-print("onset_shape: ", onset_feature.shape, "   rms_shape: ", rms_feature.shape, "   specflux_shape: ", specflux_feature.shape)
-
-
-# windowing the data
-onset_feature = tf.data.Dataset.from_tensor_slices(onset_feature)
-rms_feature = tf.data.Dataset.from_tensor_slices(rms_feature)
-specflux_feature = tf.data.Dataset.from_tensor_slices(specflux_feature)
-print("onset_length: ", len(onset_feature), "   rms_length: ", len(rms_feature), "   specflux_length: ", len(specflux_feature))
-
-shift_nr = int(noss/spr)
-f1 = onset_feature.window(size=nog, shift=shift_nr, drop_remainder=True) # deliza entre 1 e N - verificar
-f2 = rms_feature.window(size=nog, shift=shift_nr, drop_remainder=True)
-f3 = specflux_feature.window(size=nog, shift=shift_nr, drop_remainder=True)
-
-f1 = f1.flat_map(lambda window: window.batch(nog))
-f2 = f2.flat_map(lambda window: window.batch(nog))
-f3 = f3.flat_map(lambda window: window.batch(nog))
-
-f1 = np.array(list(f1.as_numpy_iterator()))
-f2 = np.array(list(f2.as_numpy_iterator()))
-f3 = np.array(list(f3.as_numpy_iterator()))
-
-print("f1 final len", f1.shape)
-
-index = 0
-for j in range(len(f1)):  # f1, f2 and f3 have the same shape
-
-
-    # verify if it's ball hit
-    ini_idx = j * noss
-    final_idx = j * noss + (nog*spr)
-
-    if final_idx < data.shape[0]:
-        print("index: ", index)
-        print("ini_idx: ", ini_idx, "  final_idx: ", final_idx)# debug
-
-    else:
-        break
+    print("\n\nEvaluation Matrics:")
+    print("Accuracy: ", accuracy)
+    print("Loss: ", loss)
 
     index += 1
+
+
+
+
+"""
+# =================================================================================
+# Obtenção matriz de confusão para dados novos ...
+# =================================================================================
+
+print("\n\n\n=================================================================================")
+print("\tConfusion matrix for test fold...")
+print("=================================================================================")
+print(confusion_matrix(y_class_true, y_class_est))# order matters! (actual, predicted)
+#       o   1
+#  ô  [TN, FP]
+#  î  [FN, TP]
+"""
+
+
+# =================================================================================
+# Terminar contagem de tempo de processamento ...
+# =================================================================================
+
+end = time.time()
+#  dif = (end - start)/60
+dif = end - start
+print('Processing time: ', np.round_(dif, 0), "seconds")
+

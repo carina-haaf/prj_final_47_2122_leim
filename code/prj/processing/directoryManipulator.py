@@ -1,6 +1,7 @@
 
 import os
 import shutil
+import numpy as np
 
 """
 criar aqui funções que eliminam e criam directorias
@@ -26,6 +27,11 @@ def clear_dir(abs_directory_path_to_dir):
         os.remove(os.path.join(abs_directory_path_to_dir, file))
 
     print("All files from '" + abs_directory_path_to_dir + "' directory where deleted!")
+
+
+def get_nr_of_files(path_to_dir):
+    files = np.array(list(os.listdir(path_to_dir)))
+    return len(files)
 
 
 """

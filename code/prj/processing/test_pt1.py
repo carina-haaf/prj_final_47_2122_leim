@@ -8,8 +8,8 @@ from processing.processCsvFile import *
 
 
 # hyper parameters
-nog = 21  # number of groups
-spr = 1024  # samples per group
+nog = 11  # number of groups
+spr = 2048  # samples per group
 nof = 3  # number of features
 noss = 2048  # number of sifted samples
 
