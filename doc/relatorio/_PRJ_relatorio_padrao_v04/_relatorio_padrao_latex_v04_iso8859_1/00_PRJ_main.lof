@@ -2,19 +2,21 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Raquete e bola de padel\relax }}{1}{figure.caption.11}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Caracter\IeC {\'\i }sticas (cima e meio) e \'audio (baixo) correspondente.\relax }}{10}{figure.caption.12}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Representa\c c\~ao t\IeC {\'\i }pica de uma rede neuronal.\relax }}{13}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Caracter\IeC {\'\i }sticas (cima e meio) e \'audio (baixo) correspondente.\relax }}{7}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Representa\c c\~ao t\IeC {\'\i }pica de uma rede neuronal.\relax }}{9}{figure.caption.13}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Representa\c c\~ao geral da ferramenta em desenvolvimento.\relax }}{17}{figure.caption.14}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Matriz de caracter\IeC {\'\i }sticas.\relax }}{21}{figure.caption.19}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Vetor de classes.\relax }}{22}{figure.caption.22}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Matriz de caracter\IeC {\'\i }sticas.\relax }}{23}{figure.caption.24}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Resultados da aplica\c c\~ao de v\'arios algoritmos aos dados.\relax }}{24}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Sistema de anota\c c\~ao de eventos desejado.\relax }}{15}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Matriz de caracter\IeC {\'\i }sticas.\relax }}{18}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Vetor de classes.\relax }}{19}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Matriz de caracter\IeC {\'\i }sticas.\relax }}{20}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces \textit {Design} desejado da p\'agina \textit {web} 2.\relax }}{21}{figure.caption.25}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Processo detalhado de constru\c c\~ao do \textit {dataset}.\relax }}{23}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Resultados da aplica\c c\~ao de v\'arios algoritmos aos dados.\relax }}{25}{figure.caption.27}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Uma figura\relax }}{27}{figure.caption.29}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Uma figura\relax }}{29}{figure.caption.27}%
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Representa\c c\~ao de um neur\'onio de uma rede neuronal.\relax }}{35}{figure.caption.29}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Representa\c c\~ao de um neur\'onio de uma rede neuronal.\relax }}{33}{figure.caption.31}%

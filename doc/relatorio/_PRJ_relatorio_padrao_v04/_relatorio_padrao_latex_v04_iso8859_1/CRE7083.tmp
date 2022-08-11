@@ -83,8 +83,8 @@ Para verificar a qualidade do modelo é utilizada validação cruzada estratificada
 
 
 %%________________________________________________________________________
-\section{Desenvolvimento de uma Aplicação \textit{web}}
-\label{sec:criacaodaappv2}
+\section{Criação da interface}
+\label{sec:criacaodainterfacev2}
 %%________________________________________________________________________
 
 

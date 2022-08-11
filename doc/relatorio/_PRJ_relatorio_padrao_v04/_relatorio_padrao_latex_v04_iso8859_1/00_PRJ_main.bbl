@@ -1,5 +1,9 @@
 \begin{thebibliography}{}
 
+\bibitem[Adobe, 2013]{adobe2013adobe}
+Adobe, U. (2013).
+\newblock Adobe audition.
+
 \bibitem[Alhamid, 2020]{mohammed_cv_2020}
 Alhamid, M. (2020).
 \newblock What is cross-validation?
@@ -11,11 +15,11 @@ Badr, W. (2019).
 \newblock Having an imbalanced dataset? here is how you can fix it.
 \newblock {\em Towards Data Science}, 22.
 
-\bibitem[Baeldung, 2022]{baeldungnn2019}
-Baeldung (2022).
-\newblock The difference between epoch and iteration in neural networks.
+\bibitem[Baptista, 2019]{bruno_odm_2019}
+Baptista, B. (2019).
+\newblock Machine learning sem código.
 \newblock
-  \url{https://www.baeldung.com/cs/neural-networks-epoch-vs-iteration#3-batch}.
+  \url{https://medium.com/ensina-ai/machine-learning-sem-c%C3%B3digo-636d1a8f9081}.
 
 \bibitem[Bellifemine et~al., 2007]{Bellifemine_et_al_2007}
 Bellifemine, F.~L., Caire, G., e Greenwood, D. (2007).
@@ -27,10 +31,17 @@ Boutilier, C., Dearden, R., e Goldszmidt, M. (1995).
 \newblock Exploiting structure in policy construction.
 \newblock In {\em Proceedings of the IJCAI-95}, p. 1104--1111.
 
-\bibitem[Brownlee, 2020]{brownlee2020your}
+\bibitem[Brown, 2019]{brown2019digital}
+Brown, G. (2019).
+\newblock Digital audio basics: sample rate and bit depth.
+\newblock {\em Dostupno na: https://www. izotope.
+  com/en/learn/digital-audio-basics-sample-rate-and-bit-depth. html [15. rujna
+  2020.]}.
+
+\bibitem[Brownlee, 2020]{brownlee2020tour}
 Brownlee, J. (2020).
-\newblock Your first deep learning project in python with keras step-by-step.
-\newblock {\em Machine Learning Mastery}.
+\newblock Tour of evaluation metrics for imbalanced classification.
+\newblock {\em Vermont Victoria}.
 
 \bibitem[Brownlee, 4]{brownlee4types}
 Brownlee, J. (4).
@@ -38,12 +49,6 @@ Brownlee, J. (4).
 \newblock {\em Machine Learning Mastery, 4p. Available online at:
   https://machinelearningmastery. com/types-of-classification-in\~{}
   machine-learning (accessed November 25, 2021)}.
-
-\bibitem[Burns, 2022]{burnsneural}
-Burns, E. (2022).
-\newblock What is a neural network? explanation and examples.
-\newblock
-  \url{https://www.techtarget.com/searchenterpriseai/definition/neural-network}.
 
 \bibitem[Council et~al., 2004]{national2004hearing}
 Council, N.~R. et~al. (2004).
@@ -64,11 +69,6 @@ Elzinga, K. e Mills, D. (2011).
 \bibitem[Evia e Arnold, 2022]{evianyquist}
 Evia e Arnold (visitado em Jul.2022).
 \newblock Nyquist sampling theorem.
-
-\bibitem[House, 2022]{digital_house_2022}
-House, D. (2022).
-\newblock Datasets.
-\newblock \url{https://www.digitalhouse.com/br/blog/dataset/}.
 
 \bibitem[Howard e Matheson, 1984]{Howard_Matheson_1984}
 Howard, R. e Matheson, J. (1984).
@@ -136,6 +136,11 @@ Python3.2.3 (2012).
 \newblock Python programming language.
 \newblock \url{http://docs.python.org/py3k/}.
 
+\bibitem[Rauber, ]{rauberredes}
+Rauber, T.~W.
+\newblock Redes neuronais artificiais.
+\newblock {\em Documento de Apoio}.
+
 \bibitem[Room, 2021]{room2021audio}
 Room, C. (2021).
 \newblock Audio feature extraction.
@@ -150,8 +155,8 @@ Ros{\~a}o, C. M.~T. (2012).
 Sah, S. (2020).
 \newblock Machine learning: a review of learning types.
 
-\bibitem[SAMPAIO et~al., 2006]{sampaio2006analise}
-SAMPAIO, R., CATALDO, E., e BRAND{\~A}O, A. (2006).
+\bibitem[Sampaio et~al., 2006]{sampaio2006analise}
+Sampaio, R., Cataldo, E., e BRAND{\~A}O, A. (2006).
 \newblock An{\'a}lise e processamento de sinais.
 \newblock {\em Sociedade Brasileira de Matem{\'a}tica Aplicada e Computacional.
   S{\~a}o Paulo}.
