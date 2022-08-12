@@ -10,8 +10,6 @@
 %%________________________________________________________________________
 
 
-
-
 %%________________________________________________________________________
 \chapter{Implementação do Modelo}
 \label{ch:implementacaoDoModelo}
@@ -26,23 +24,20 @@ Este capítulo descreve todo o processo de implementação das etapas enunciadas na
 
 O processo de criação do \textit{dataset} pode ser representado pelo esquema que se encontra na figura \ref{fig:construcaodatasetdetalhe}. 
 
-Para simplificar o processo de anotação das batidas de bola, optou-se por segmentar o vídeo de longa duração em vídeos com 1 minuto. O processo de segmentação deu origem a cerca de 90 vídeos de curta duração. Para cada um desses vídeos, foram gerados os áudios correspondentes.
+À exceção da fase de anotação manual das batidas de bola (\aspas{\textit{Human ear annotation}}), todas as outras fases do esquema foram realizadas no ambiente de desenvolvimento \textit{Pycharm} que compila e executa código \textit{Python} \cite{jetbrains_pycharm_2022}.
+ 
+Para simplificar o processo de anotação das batidas de bola, optou-se por segmentar o vídeo de longa duração em vídeos com 1 minuto. O processo de segmentação deu origem a cerca de 90 vídeos de curta duração. Para cada um desses vídeos, foram gerados os áudios correspondentes. De todos os áudios gerados anotaram-se 24.
 
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=14cm]{./construct_dataset_scheme}
-\caption{Processo detalhado de construção do \textit{dataset}.}
-\label{fig:construcaodatasetdetalhe}
-\end{figure}
+A anotação das batidas de bola foi realizada com o auxílio da aplicação \textit{Adobe Audition} \cite{adobe2013adobe}. Esta ferramenta permite efetuar uma análise sobre áudio e verificar em que instantes ocorrem batidas de bola. A anotação é realizada num ficheiro \textit{Excel}, que posteriormente é convertido para \textit{CSV}.
 
-
-A anotação das batidas de bola foi realizada com o através da aplicação \textit{Adobe Audition} \cite{adobe2013adobe}. Esta ferramenta permite efetuar uma análise sobre áudio e verificar em que instantes ocorrem batidas de bola. A anotação é realizada num ficheiro \textit{Excel}, que posteriormente é convertido para \textit{CSV}.
-
-Cada evento está registado no ficheiro excel com seguintes dados:
+Cada evento está registado no ficheiro \textit{Excel} com seguintes dados:
 
 \begin{itemize}
 \item
-O intervalo de tempo em que ocorre a batida de bola (amostras inicial e final);
+O tipo de batida de bola (em raquete, no chão, na rede metálica, entre outros). Todos estes tipos pertencem à classe batida de bola;
+
+\item
+O intervalo de tempo em que ocorre a batida de bola (amostras inicial e final no áudio);
 
 \item
 O tipo de ambiente em que o treino é praticado (\textit{indoor} ou \textit{outdoor});
@@ -51,87 +46,66 @@ O tipo de ambiente em que o treino é praticado (\textit{indoor} ou \textit{outdo
 O lado do campo em que batida de bola ocorre.
 
 \end{itemize}
- 
-De salientar que para este projeto não serão considerados os fatores relativos ao tipo de ambiente onde o desporto é praticado e o lado do campo onde ocorrem as batidas de bola (reservados para trabalho futuro).
 
-Neste ponto, está a fase de anotação eventos completa. A seguir, temos a fase de Extração das características, que tem como principal objetivo retirar características relevantes de cada audio de 1minuto obtido na fase de conversão de audio para o caso de estudo, realizado através do pyhcharm. 
+O tipo de ambiente onde o desporto é praticado e o lado do campo onde ocorrem as batidas de bola serão apenas analisados em trabalho futuro.
 
-Como referido (secção abordagem: obtenção da matriz de caracteristicas) para percorrer as amostras de cada audio, foi necessário definir uma janela deslizante de dimensão fixa.
+Na fase de extração de características iterou-se apenas sobre cada um dos áudios anotados. Sobre estes áudios realizou-se o processo descrito na secção \ref{sec:construcaododataset} para obtenção da matriz de características.
 
+Na fase de \aspas{\textit{Labeling}} combinou-se a informação registada nos ficheiros \textit{CSV} (batidas de bola) com as características tal como se verifica na figura  \ref{fig:matrizfeaturesv2}, o que permitiu obter o \textit{dataset} a utilizar na contrução do modelo (\aspas{\textit{Input data}}). Este processo de etiquetação foi realizado com base na equação \ref{eq:formulan}.
 
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=14cm]{./construct_dataset_scheme}
+\caption{Processo detalhado de construção do \textit{dataset}.}
+\label{fig:construcaodatasetdetalhe}
+\end{figure}
 
-
-
+Considerando como primeira abordagem a primeira linha da tabela \ref{tab:tabelaparamformuladen}, o \textit{dataset} obtido contém cerca de 130 mil exemplos.
 
 %%________________________________________________________________________
 \section{Construção do Classificador}
 \label{sec:sec:construcaodoclassificadorv2}
 %%________________________________________________________________________
 
-A figura \ref{fig:odmresults} contém os resultados referentes à aplicação de vários algoritmos ao \textit{dataset} criado segundo a abordagem (\ref{sec:abordagem}) e de acordo com a implementação (\ref{ch:implementacaoDoModelo}).
+A construção do modelo pode ser descrita através da figura \ref{fig:resultadosalgoritmosaa}.
+
+Através da ferramenta \textit{Orange Data Mining} obtiveram-se os resultados que se encontram na figura \ref{fig:odmresults}.
+
+Esta figura contém os resultados referentes à aplicação de vários algoritmos ao \textit{dataset}.
+
+Para verificar a qualidade dos modelos é utilizada validação cruzada estratificada (\aspas{\textit{Stratified}}). Neste processo de validação os dados são divididos em 5 \textit{folds}. A figura \ref{fig:odmresults} sugere que os modelos que produzem os melhores resultados são o regressor logístico e a rede neuronal. O regressor logístico pode ser \aspas{visto} como uma rede neuronal com apenas uma camada intermédia \cite{datasciencecentral_lrnn_2019}. Pelo que neste trabalho será utilizada a rede neuronal como algoritmo de aprendizagem automática.
 
 \begin{figure}[h]
    \centering
-   \includegraphics[width=12cm]{./odm_results}
+   \includegraphics[width=12cm]{./odm_results_v2}
 \caption{Resultados da aplicação de vários algoritmos aos dados.}
 \label{fig:odmresults}
 \end{figure}
 
-Para verificar a qualidade do modelo é utilizada validação cruzada estratificada (\aspas{\textit{Stratified}}). Neste processo de validação os dados são divididos em 10 \textit{folds} e cada \textit{fold} contém a mesma percentagem de exemplos de cada classe. A figura \ref{fig:odmresults} sugere que as técnicas que produzem os melhores resultados são a árvore de decisão e as redes neuronais. A árvore de decisão produz os melhores resultados, particularmente a classificação e o erro associado. No entanto, neste trabalho serão usadas as redes neuronais artificiais.
+(Terminar racicínio relativo ao esquema da figura \ref{fig:construcaoclassif})
 
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=12cm]{./model_construction_scheme}
+\caption{Processo de construção do classificador.}
+\label{fig:construcaoclassif}
+\end{figure}
 
 
 
 %%________________________________________________________________________
-\section{Desenvolvimento de uma Aplicação \textit{web}}
+\section{Desenvolvimento da Aplicação \textit{web}}
 \label{sec:criacaodaappv2}
 %%________________________________________________________________________
 
-
-
-%%Implementação do modelo aqui \ldots; pode precisar de referir o capítulo \ref{ch:modeloProposto} \ldots
-
-%%Aqui identifica as opções teóricas e justifica as dependências tecnológicas assumidas neste projeto. Descreva com rigor formal e detalhe adequado e faça evidência de tudo o que foi proposto e desenvolvido especificamente no contexto deste projeto. Aqui a ênfase está naquilo que foi de facto concretizado neste projeto.
-
-%O leitor quer detalhes de concretização. Ele já está enquadrado no tema (\cf, capítulo \ref{ch:trabalhoRelacionado}), já conhece os aspetos mais abstratos do sua proposta (\cf, capítulo \ref{ch:modeloProposto}) e agora precisa de entender os detalhes para conseguir também interpretar as validações e testes que posteriormente (\cf, capítulo \ref{ch:validacaoTestes}) lhe irá apresentar.
-
-
-
-
+(Por fazer)
 
 %%________________________________________________________________________
 \chapter{Validação e Testes}
 \label{ch:validacaoTestes}
 %%________________________________________________________________________
 
-Validação e testes aqui \ldots; pode precisar de referir o capítulo \ref{ch:modeloProposto} ou alguma das suas secções, \eg, a secção \ref{sec:fundamentos} \ldots
-
-Pode precisar de apresentar tabelas. Por exemplo, a tabela \ref{tab:umaTabela} apresenta os dados obtidos na experiência \ldots
-\begin{table}[h]
-   \centering
-   \begin{tabular}{l|l|l|l}
-      $c_1$ & $c_2$ & $c_3$ & $\sum_{i=1} c_i$
-      \\
-      \hline \hline
-      $1$ & $2$ & $3$ & $6$
-      \\ \hline
-      $1.1$ & $2.2$ & $3.3$ & $6.6$
-      \\
-      \hline \hline
-   \end{tabular}
-\caption{Uma tabela}
-\label{tab:umaTabela}
-\end{table}
-
-Para além de tabelas pode também precisar de apresentar figuras. Por exemplo, a figura \ref{fig:umafigura} descreve \ldots
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=2cm]{./fig_logo_ISEL}
-\caption{Uma figura}
-\label{fig:umafigura}
-\end{figure}
-
-\paragraph{Atenção.} Todas as tabelas e figuras, \eg, diagramas, imagens ilustrativas da aplicação em funcionamento, têm que ser devidamente enquadradas no texto antes de serem apresentadas e esse enquadramento inclui uma explicação da imagem apresentada e eventuais conclusões (interpretações) a tirar dessa imagem.
+(Por fazer)
 
 
 %%________________________________________________________________________
@@ -139,12 +113,6 @@ Para além de tabelas pode também precisar de apresentar figuras. Por exemplo, a 
 \label{ch:conclusoesTrabalhoFuturo}
 %%________________________________________________________________________
 
-Conclusões e trabalho futuro aqui \ldots
-
-Quais as principais mensagens a transmitir ao leitor deste trabalho? O leitor está certamente interessado nos temas aqui abordados. Em geral procurará, neste projeto, pistas para algum outro objetivo. Assim, é muito importante que o leitor perceba rapidamente a relação entre este trabalho e o seu próprio (do leitor) objetivo.
-
-Aqui é o local próprio para condensar a experiência adquirida neste projeto e apresentá-la a outros (futuros leitores).
-
-O pressuposto é o de que de que este projeto é um \aspas{elemento vivo} que recorreu a outros elementos (\cf, capítulo \ref{ch:trabalhoRelacionado}) para ser construído e que poderá servir de suporte à construção de futuros projetos.
+(Por fazer)
 
 

@@ -21,16 +21,6 @@ Baptista, B. (2019).
 \newblock
   \url{https://medium.com/ensina-ai/machine-learning-sem-c%C3%B3digo-636d1a8f9081}.
 
-\bibitem[Bellifemine et~al., 2007]{Bellifemine_et_al_2007}
-Bellifemine, F.~L., Caire, G., e Greenwood, D. (2007).
-\newblock {\em Developing Multi-Agent Systems with {JADE}}.
-\newblock Wiley Series in Agent Technology. Wiley.
-
-\bibitem[Boutilier et~al., 1995]{Boutilier_et_al_1995}
-Boutilier, C., Dearden, R., e Goldszmidt, M. (1995).
-\newblock Exploiting structure in policy construction.
-\newblock In {\em Proceedings of the IJCAI-95}, p. 1104--1111.
-
 \bibitem[Brown, 2019]{brown2019digital}
 Brown, G. (2019).
 \newblock Digital audio basics: sample rate and bit depth.
@@ -43,8 +33,8 @@ Brownlee, J. (2020).
 \newblock Tour of evaluation metrics for imbalanced classification.
 \newblock {\em Vermont Victoria}.
 
-\bibitem[Brownlee, 4]{brownlee4types}
-Brownlee, J. (4).
+\bibitem[Brownlee, 2022]{brownlee4types}
+Brownlee, J. (2022).
 \newblock Types of classification tasks in machine learning.
 \newblock {\em Machine Learning Mastery, 4p. Available online at:
   https://machinelearningmastery. com/types-of-classification-in\~{}
@@ -61,25 +51,25 @@ Courel-Ib{\'a}{\~n}ez, J., Martinez, B. J. S.-A., e Mar{\'\i}n, D.~M. (2019).
 \newblock {\em The Journal of Strength \& Conditioning Research},
   33(7):1971--1977.
 
-\bibitem[Elzinga e Mills, 2011]{Elzinga_Mills_2011}
-Elzinga, K. e Mills, D. (2011).
-\newblock The lerner index of monopoly power: Origins and uses.
-\newblock {\em American Economic Review: Papers \& Proceedings}, 101(3).
+\bibitem[DataScienceCentral, 2019]{datasciencecentral_lrnn_2019}
+DataScienceCentral (2019).
+\newblock Logistic regression as a neural network.
+\newblock
+  \url{https://www.datasciencecentral.com/logistic-regression-as-a-neural-network/}.
 
 \bibitem[Evia e Arnold, 2022]{evianyquist}
 Evia e Arnold (visitado em Jul.2022).
 \newblock Nyquist sampling theorem.
 
-\bibitem[Howard e Matheson, 1984]{Howard_Matheson_1984}
-Howard, R. e Matheson, J. (1984).
-\newblock Influence diagrams.
-\newblock In {\em Readings on the Principles and Applications of Decision
-  Analysis}, volume~2, p. 721--762. Strategic Decision Group, Menlo Park, CA.
-
 \bibitem[Janiesch et~al., 2021]{janiesch2021machine}
 Janiesch, C., Zschech, P., e Heinrich, K. (2021).
 \newblock Machine learning and deep learning.
 \newblock {\em Electronic Markets}, 31(3):685--695.
+
+\bibitem[Jetbrains, 2022]{jetbrains_pycharm_2022}
+Jetbrains (2022).
+\newblock Pycharm.
+\newblock \url{https://www.jetbrains.com/pycharm/}.
 
 \bibitem[Krishnan, 2021]{krishnandetermine}
 Krishnan, S. (2021).
@@ -99,13 +89,6 @@ LibreTexts, E. (2022b).
 \newblock Signal sampling.
 \newblock
   \url{https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Signal_Processing_and_Modeling/Signals_and_Systems_(Baraniuk_et_al.)/10%3A_Sampling_and_Reconstruction/10.03%3A_Signal_Reconstruction}.
-
-\bibitem[Marin, 2006]{Marin_2006}
-Marin, D. (2006).
-\newblock A formalization of {RDF} (applications de la logique á la sémantique
-  du {Web}).
-\newblock Technical report, Dept. Computer Science, Ecole Polytechnique,
-  Universidad de Chile, TR/DCC-2006-8.
 
 \bibitem[McFee et~al., 2015]{mcfee2015librosa}
 McFee, B., Raffel, C., Liang, D., Ellis, D.~P., McVicar, M., Battenberg, E., e
@@ -131,15 +114,10 @@ Nyuytiymbiy, K. (2021).
 \newblock {\em Medium. https://towardsdatascience.
   com/parameters-and-hyperparameters-aa609601a9ac (April 22, 2021)}.
 
-\bibitem[Python3.2.3, 2012]{Python_2012}
-Python3.2.3 (2012).
-\newblock Python programming language.
-\newblock \url{http://docs.python.org/py3k/}.
-
-\bibitem[Rauber, ]{rauberredes}
-Rauber, T.~W.
+\bibitem[Rauber, 4]{rauberredes}
+Rauber, T.~W. (4).
 \newblock Redes neuronais artificiais.
-\newblock {\em Documento de Apoio}.
+\newblock {\em Documento de Apoio (visitado em Jul, 2022)}.
 
 \bibitem[Room, 2021]{room2021audio}
 Room, C. (2021).
@@ -168,10 +146,9 @@ Semmlow, J. (2012).
   (Second Edition)}, Biomedical Engineering, p. 81--129. Academic Press, second
   edition edition.
 
-\bibitem[Wooldridge, 2000]{Wooldridge_2000}
-Wooldridge, M. (2000).
-\newblock {\em Reasoning About Rational Agents}, cap.: Implementing Rational
-  Agents.
-\newblock The MIT Press.
+\bibitem[Tennisnerd, 2015]{tennisnerd_padel_2019}
+Tennisnerd (2015).
+\newblock What is padel tennis?
+\newblock \url{https://tennisnerd.net/padel/what-is-padel-tennis/15893}.
 
 \end{thebibliography}

@@ -19,19 +19,11 @@
 
 A atividade desportiva  de um atleta, numa determinada modalidade, deve ser monitorizada de uma perspetiva externa, no sentido de produzir melhores resultados. Para esse efeito, é necessário que o atleta seja supervisionado durante a sua atividade física, ou que a última seja registada e posteriormente analisada (registo em papel ou em vídeo).
 
-Neste trabalho, a anotação de eventos sonoros em vídeo refere-se ao processo de análise do áudio extraído de um vídeo previamente gravado, com o objetivo de recolher informações relativas a possíveis batidas de bola. O processamento sobre o áudio será realizado em modo \textit{offline}.
+Neste trabalho, a anotação de eventos sonoros em vídeo refere-se à análise do áudio extraído de um vídeo previamente gravado, com o objetivo de recolher informações relativas a possíveis batidas de bola. O processamento sobre o áudio será realizado em modo \textit{offline}.
 
-Este trabalho destina-se apenas à análise da componente desportiva de padel (\cite{courel2019exploring}), no sentido de fornecer a atletas e/ou treinadores um complemento no decurso do treino. A figura que se segue, corresponde à raquete e bola utilizadas no desporto de padel:
+Este trabalho destina-se à análise da componente desportiva de padel (\cite{courel2019exploring}), no sentido de fornecer a atletas e/ou treinadores um complemento no decurso do treino.
 
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=2cm]{./padel_court_racket_version}
-\caption{Raquete e bola de padel}
-\label{fig:raqueteeboladepadel}
-\end{figure}
-
-Uma figura com mais detalhe encontra-se disponível no Capítulo \ref{ch:umDetalheAdicional}, na qual se observam as dimensões do campo onde esta modalidade desportiva é realizada. O desporto de padel pode ser praticado em ambiente interior (\textit{indoor}) ou exterior (\textit{outdoor}). No entanto, este trabalho analisa apenas vídeos em ambiente \textit{indoor}.
-
+Uma figura referente ao campo onde este desporto é praticado e à raquete e bola utilizadas encontra-se disponível no Capítulo \ref{ch:umDetalheAdicional}, na qual se observam as dimensões do campo onde esta modalidade desportiva é realizada. O desporto de padel pode ser praticado em ambiente interior (\textit{indoor}) ou exterior (\textit{outdoor}). No entanto, este trabalho analisa apenas vídeos em ambiente \textit{indoor}.
 
 %%________________________________________________________________________
 \section{Motivação}
@@ -53,47 +45,18 @@ A aplicação em desenvolvimento disponibiliza ainda uma interface, que permite qu
 \label{sec:principaiscontributos}
 %%________________________________________________________________________
 
-Os contributos do sistema em desenvolvimento dividem-se em três componentes: a criação do \textit{dataset}; a construção de um modelo; desenvolvimento de uma plicação \textit{web} que auxilia no processo de aumento do \textit{dataset}. Nesta secção será feita uma descrição geral dessas três componentes.
-
-O processo de construção do \textit{dataset} envolve os seguintes passos:
+A realização deste trabalho terá os seguintes contributos:
 
 \begin{itemize}
 \item
-Extração do áudio a partir do vídeo -- resume-se à conversão do vídeo no áudio correspondente; 
+Disponibilizar de um \textit{dataset} construído de raiz;
 
 \item
-Anotação dos eventos relevantes presentes no áudio -- refere-se à etiquetação de batidas de bola no áudio obtido no ponto anterior; 
+Providenciar de um modelo que reconhece batidas de bola;
 
 \item
-Extração das características do áudio -- refere-se à obtenção de padrões no áudio que possam identificar potenciais batidas de bola;
+Proporcionar de uma aplicação \textit{web} que permite aumentar o \textit{dataset}.
 
-\item
-Junção dos dados resultantes dos dois pontos anteriores.
-\end{itemize}
-
-
-O processo de construção do modelo pode ser descrito da seguinte forma:
-
-\begin{itemize}
-\item
-Escolha do algoritmo de aprendizagem automática -- escolha do algoritmo que melhor se adequa ao reconhecimento de batidas de bola;
-
-\item
-Escolha dos hiper-parâmetros que produzem os melhores resultados no treino do modelo;
-
-\item
-Aplicação de validação cruzada, no sentido de avaliar o desempenho do modelo em construção, fazendo uso de todo o \textit{dataset} disponível.
-\end{itemize}
-
-
-O desenvolvemento da aplicação \textit{web} envolve a seguinte sequência de passos:
-
-\begin{itemize}
-\item
-Disponibilizar numa interface, os resultados (em termos de eventos) retornados pelo classificador, evidenciando na série temporal onde ocorrem os eventos correspondentes a batidas de bola;
-
-\item
-Nessa mesma interface disponibilizar a opção de validar os eventos considerados pelo modelo como sendo ou não batidas de bola.
 \end{itemize}
 
 
@@ -102,12 +65,9 @@ Nessa mesma interface disponibilizar a opção de validar os eventos considerados 
 \label{sec:validacaoetestes}
 %%________________________________________________________________________
 
-Validação e testes sobre o classificador: avaliação do classificador (validação cruzada)
-Validação e testes sobre a ferramenta final (testes de usabilidade)
+(A alterar depois de fazer o capítulo de validação e testes)
 
-Falar um pouco sobre os resultados obtidos em termos de percentagens e a forma como o sistema se comporta face a novos dados de input.
-
-Fazer uma apreciação global dos resultados alcançados (como está no Resumo e Abstract).
+%%Validação e testes sobre o classificador: avaliação do classificador (validação cruzada). Validação e testes sobre a ferramenta final (testes de usabilidade). Falar um pouco sobre os resultados obtidos em termos de percentagens e a forma como o sistema se comporta face a novos dados de input. Fazer uma apreciação global dos resultados alcançados (como está no Resumo e Abstract).
 
 
 %%________________________________________________________________________
@@ -121,22 +81,25 @@ O relatório está organizado da seguinte forma:
 
 \begin{itemize}
 \item
-O Capítulo 1 introduz a intenção de utilizar a aprendizagem automática para reconhecer padrões identificativos de batidas de bola em treinos de padel. Neste capítulo, são também enunciados os principais contributos da aplicação em desenvolvimento. No final, é realizada uma apreciação global dos resultados obtidos.
+O Capítulo 1 introduz a necessidade do uso da aprendizagem automática para reconhecer batidas de bola em vídeos de treinos de padel, enuncia os principais contributos da aplicação em desenvolvimento, e realiza uma apreciação global dos resultados obtidos.
 
 \item
-O Capítulo 3 descreve e faz referência a trabalhos relacionados com o trabalho corrente. Estes trabalhos foram sendo analisados durante o desenvolvimento do trabalho e baseiam-se também no uso da inteligência artificial para reconhecer eventos em modalidades desportivas.
+O Capítulo 2 faz referência a trabalhos relacionados com o trabalho corrente. Estes trabalhos foram sendo analisados durante o desenvolvimento do trabalho e baseiam-se também no uso de técnicas de aprendizagem automática para reconhecer eventos em modalidades desportivas.
 
 \item
-O Capítulo 4 visa apresentar uma análise geral dos requisitos do sistema e a abordagem considerada para satisfazer esses requisitos.
+O Capítulo 3 introduz alguns conceitos nos quais o trabalho em desenvolvimento se baseia: conceitos sobre processamento de sinal e de aprendizagem automática.
 
 \item
-(Falar do capítulo 5)
+O Capítulo 4 visa apresentar uma análise geral dos requisitos do sistema e a abordagem utilizada para satisfazer esses requisitos.
+
+\item
+O Capítulo 5 descreve todo o processo de concretização da solução abordada no capítulo anterior.
 
 \item
 (Falar do capítulo 6)
 
 \item
-(Falar do capítulo 7)
+(Falar do capítulo 7)  
 \end{itemize}
 
 
@@ -339,7 +302,7 @@ Em geral, num problema de classificação os dados são divididos em treino e teste
 
 Esta distribuição dos dados pode não ser suficiente para que o modelo aprenda a generalizar, ao analisar dados novos. Como solução, pode ser utilizada validação.
 
-Um caso particular da validação é a técnica de validação cruzada \cite{mohammed_cv_2020}. Esta técnica divide os dados em K grupos (\textit{folds}) e ao longo de K iterações treina K modelos diferentes onde K-1 \textit{folds} são utilizados para treino e um \textit{fold} é utilizado para validação.
+Um caso particular da validação é a técnica de validação cruzada \cite{mohammed_cv_2020}. Esta técnica divide os dados em K grupos (\textit{folds}) e ao longo de K iterações treina modelos diferentes onde K-1 \textit{folds} são utilizados para treino e um \textit{fold} é utilizado para validação.
 
 Neste trabalho, será utilizada a técnica de validação cruzada estratificada (\textit{Stratified K-Fold}) que permite manter a distribuição dos exemplos de cada classe nos \textit{folds}.
 
@@ -349,34 +312,7 @@ Neste trabalho, será utilizada a técnica de validação cruzada estratificada (\te
 \label{ch:trabalhoRelacionado}
 %%________________________________________________________________________
 
-Este capítulo faz referência a artigos e outros trabalhos de cariz técnico que se relacionam com o trabalho em desenvolvimento: uso de algoritmos de aprendizagem para reconhecimento de eventos em modalidades desportivas.
-
-
-No fundo, pegar nos artigos científicos e relacionar/ comparar com o que se pretende no trabalho: tecnologias utilizadas, métodos de desenvolvimento, área a que se aplica (desporto).
-
-Trabalho relacionado aqui \ldots
-
-Aqui terá certamente necessidade de citar (fazer referência) a vários trabalhos anteriormente publicados e que foi analisando ao longo de todo o seu projeto. Esses trabalhos devem ser apresentados com os seguintes objetivos essenciais:
-\begin{itemize}
-\item
-delimitar o contexto onde o seu projeto se insere,
-
-\item
-definir claramente os aspetos diferenciadores (inovadores) do seu projeto,
-
-\item
-identificar e caracterizar os pressupostos (teóricos ou tecnológicos) em que o projeto se baseia.
-\end{itemize}
-
-Cada trabalho a que fizer referência precisa de ser corretamente identificado. Essa identificação depende do tipo de publicação do trabalho. Um trabalho terá sido publicado em revista científica, \eg, \cite{Elzinga_Mills_2011}, outro em ata de conferência internacional, \eg, \cite{Boutilier_et_al_1995}, outro em livro, \eg, \cite{Bellifemine_et_al_2007}, ou apenas em capítulo de livro, \eg, \cite{Wooldridge_2000}, ou pode ainda incluído numa coleção, \eg, \cite{Howard_Matheson_1984} e há também a hipótese de ser uma \aspas{publicação de proveniência diversa}, como no caso em que o \aspas{o sítio na Internet} é a principal forma de publicação, \eg, \cite{Python_2012} e, por fim, a publicação pode ser um relatório técnico, \eg, \cite{Marin_2006}.
-
-Para conseguir lidar de forma adequada com as referências é importante construir um acervo e ter um mecanismo para geração automática (e correta) das referências que vai fazendo ao longo do texto.
-
-Atualmente, as publicações têm também informação sobre o modo como devem ser corretamente citadas; em geral essa informação segue o formato \textsc{Bib}\TeX.
-
-Para fazer referência a um trabalho é necessário seguir as boas regras (sintáticas) para uma citação correta, mas isso não é suficiente; falta a \aspas{semântica}. Ou seja, é também preciso descrever o essencial do trabalho que está a citar. É necessário explicar esse trabalho e enquadrá-lo, no texto, de modo a tornar clara a relação entre esse trabalho e o seu projeto.
-
-
+(Por fazer)
 
 %%________________________________________________________________________
 \chapter{Modelo Proposto}
@@ -392,7 +328,7 @@ Neste capítulo será realizada uma descrição geral do sistema desenvolvido, dos r
 %%________________________________________________________________________
 
 
-O funcionamento do sistema pode ser representado como se mostra na figura \ref{fig:systemscheme}. O sistema desenvolvido reconhece batidas de bola e permite auxiliar no processo de construção do dataset e, consequentemente no processo de melhoria do classificador.
+O funcionamento do sistema pode ser representado como se mostra na figura \ref{fig:systemscheme}. O sistema desenvolvido reconhece batidas de bola, permite auxiliar no processo de construção do dataset e, consequentemente no processo de melhoria de desempenho do classificador.
 
 \begin{figure}[h]
    \centering
@@ -515,9 +451,9 @@ O \textit{dataset} construído, corresponde a um conjunto de dados com padrões id
 \smallskip
 \smallskip
 \smallskip
-\noindent No processo de extração das características (enunciadas na secção \ref{sec:caracteristicas}) será realizado um varrimento sobre o áudio com uma janela fixa. Este processo é realizado ao longo de várias iterações, onde em cada iteração a janela desliza um número específico de amostras, a partir das quais são extraídas as características pretendidas. 
+\noindent No processo de extração das características (enunciadas na secção \ref{sec:caracteristicas}) é realizado um varrimento sobre o áudio com uma janela fixa. Este processo é realizado ao longo de várias iterações, onde em cada iteração a janela desliza um número específico de amostras, a partir das quais são extraídas as características pretendidas. 
 
-No cálculo dessas características, o \textit{package librosa} considera um salto (\aspas{\textit{hop}}) de 512 amostras. Pelo que, este módulo divide o sinal em segmentos, com 512 amostras de dimensão, e sobre cada um deles calcula o valor da característica \cite{mcfee2015librosa}. No entanto, podem ser escolhidos múltiplos do valor do salto como outras abordagens, no sentido de verificar que alterações produzem no desempenho do classificador. O mesmo se aplica ao tamanho da janela: uma batida de bola dura em média meio segundo, mas podem ser realizados experimentos com durações maiores (na tabela \ref{tab:tabelaparamformuladen}). Neste trabalho, como primeira abordagem, será considerada uma janela de 0.5 segundos e um salto de 1024 amostras.
+No cálculo dessas características, o \textit{package librosa} considera um salto (\aspas{\textit{hop}}) de 512 amostras. Pelo que, este módulo divide o sinal em segmentos, com 512 amostras de dimensão, e sobre cada um deles calcula o valor da característica \cite{mcfee2015librosa}. No entanto, podem ser escolhidos múltiplos do valor do salto como outras abordagens, no sentido de verificar que alterações produzem no desempenho do classificador. O mesmo se aplica ao tamanho da janela: uma batida de bola dura em média meio segundo, mas podem ser realizados experimentos com durações maiores (na tabela \ref{tab:tabelaparamformuladen}). Neste trabalho, como primeira abordagem, será considerada uma janela de 0.5 segundos e um salto de 512 amostras.
 
 A matriz \textit{X} é constituída por M linhas ou exemplos. Por sua vez, cada exemplo tem N colunas ou valores de características, pelo que a matriz \textit{X} pode ser representada na figura \ref{fig:matrizfeaturesv1} da seguinte forma:
 
@@ -542,7 +478,6 @@ X =
 
 
 O valor de N na figura \ref{fig:matrizfeaturesv1}, corresponde ao número de segmentos de amostras abranjidos pela janela fixa para uma característica. O valor de \textit{N} pode ser dado pela seguinte expressão:
-
 
 \begin{equation} 
 \label{eq:formulan}
@@ -640,7 +575,7 @@ O vídeo de \textit{input}, a partir do qual o \textit{dataset} foi construído é 
 
 %%________________________________________________________________________
 \subsection{Construção do Classificador}
-\label{sec:construcaodoclassificador}
+\label{sec:construcaodoclassificadorv1}
 %%________________________________________________________________________
 
 Antes de construir o classificador, foi necessário escolher o algoritmo de aprendizagem automática a utilizar. Para esse efeito, fez-se uso da ferramenta \textit{Orange Data Mining} -- ODM que permite simular a aplicação de vários algoritmos aos dados, no sentido de verificar quais destes produzem os melhores resultados \cite{bruno_odm_2019}.
@@ -648,12 +583,14 @@ Antes de construir o classificador, foi necessário escolher o algoritmo de apren
 A construção do classificador envolve também a escolha dos hiper-parâmetros que produzem os melhores resultados.
 
 %%________________________________________________________________________
-\subsection{Desenvolvimento de uma Aplicação \textit{web}}
+\subsection{Desenvolvimento da Aplicação \textit{web}}
 \label{sec:criacaodaapp}
 %%________________________________________________________________________
 
-A aplicação \textit{web} desenvolvida tem duas páginas: página (1) que permite escolher o vídeo sobre o qual se pretende visualizar os resultados; página (2) que permite visualizar os resultados devolvidos pelo classificador.
+A aplicação \textit{web} desenvolvida tem duas páginas: página (1) que permite escolher o vídeo sobre o qual se pretende visualizar os resultados; página (2) que permite visualizar os resultados devolvidos pelo classificador (para um determinado vídeo).
 O \textit{design} destas páginas encontra-se nas figuras \ref{} e \ref{fig:paginaweb2}. Todo o processamento efetuado sobre o áudio é realizado antes de mostrar os resultados nesta aplicação.
+
+(Colocar aqui o design da página 1).
 
 \begin{figure}[h]
    \centering
@@ -661,6 +598,4 @@ O \textit{design} destas páginas encontra-se nas figuras \ref{} e \ref{fig:pagin
 \caption{\textit{Design} desejado da página \textit{web} 2.}
 \label{fig:paginaweb2}
 \end{figure}
-
-
 
