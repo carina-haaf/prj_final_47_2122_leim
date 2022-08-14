@@ -16,12 +16,18 @@
 \myPrefaceChapter{Resumo}
 %%________________________________________________________________________
 
-O desempenho de um atleta, numa determinada modalidade desportiva, melhora quando este é acompanhado de uma perspetiva externa no decurso da sua atividade desportiva. Neste sentido, o atleta pode ser monitorizado por um treinador para atingir melhores resultados. Como complemento, é possível registar em vídeo e analisar posteriormente o desempenho do atleta.
+O desempenho de um atleta, numa determinada modalidade desportiva, melhora quando é acompanhado de uma perspetiva externa no decurso da sua atividade desportiva. O atleta pode ser monitorizado por um treinador para atingir melhores resultados. Como complemento, é possível registar em vídeo e analisar posteriormente o seu desempenho.
 Neste sentido, é vantajoso o desenvolvimento de uma ferramenta capaz de realizar essa análise externa. 
 
-A ferramenta desenvolvida neste projeto permite extrair e reconhecer batidas de bola em raquete (i.e. períodos em que ocorra uma maior troca de bolas) com base no vídeo da atividade desportiva do atleta (em treinos ou competições de padel /ténis). O processamento é realizado sobre o áudio extraído de um vídeo, e tem como objetivo a extração de padrões identificativos das batidas de bola, com o auxílio de técnicas de aprendizagem automática, baseadas em séries temporais. 
+A ferramenta desenvolvida neste projeto permite extrair e reconhecer batidas de bola em raquete com base no vídeo da atividade desportiva do atleta (em treinos ou competições de padel /ténis).
 
-No final, através de uma aplicação \textit{web}, são visualizados os resultados repeitantes aos instantes em que ocorrem batidas de bola, dando uma perspetiva mais abrangente e objetiva do desempenho do atleta. A ferramenta identifica corretamente cerca de 85\% dos eventos em análise, sendo necessários alguns ajustes para melhorar o processo de reconhecimento.
+Trata-se de um problema de classificação binário em que o sistema deve fazer a distinção entre batidas de bola e ruído. Estes eventos têm uma duração típica pré-determinada e a distinção entre eles foi feita com base nas características (\textit{Onset Detect}, \textit{Root Mean Square} e \textit{Spectral Flux}) identificadas no áudio através de técnicas de aprendizagem automática. 
+
+O \textit{dataset} utilizado no processo de aprendizagem foi construído de raiz e o desequilíbrio verificado neste conjunto de dados foi abordado através de um processo de sub-amostragem.
+
+Entre os vários métodos de aprendizagem automática analisados, escolheu-se a rede neuronal do tipo perceptrão multi-camada (\textit{Multi Layer Perceptron} - MLP) para realizar a discriminação entre os tipos de eventos mencionados. 
+
+No final, através de uma aplicação \textit{web}, são visualizados os resultados repeitantes aos instantes em que ocorrem batidas de bola, dando uma perspetiva mais abrangente e objetiva do desempenho do atleta. A ferramenta identifica corretamente cerca de 85\% dos eventos em análise.
 
 \bigskip 
 Os ensaios são realizados no Laboratório de Áudio e Acústica do ISEL, LAA.
@@ -44,7 +50,11 @@ Os ensaios são realizados no Laboratório de Áudio e Acústica do ISEL, LAA.
 In a given sport, the athlete's performance improves when he is supervised from an external perspective. In this scenario, the athlete can be supervised by a coach in order to achieve better results, or as a complement, it is possible to video record and analyze his performance afterwards.
 Thus, it is advantageous to develop a tool capable of performing this external analysis. 
 
-The tool developed in this project, allows extracting and recognizing relevant events (i.e., periods when a greater exchange of balls occurs) based on the video of the athlete's sport activity (in the padel/tennis sport activity). The processing is performed on the audio extracted from a video, and aims at extracting identifying patterns of the ball hits, with the help of automatic learning techniques based on time series. 
+This is a binary classification problem in which the system must distinguish between ball hits and noise. These events have a predetermined typical duration and this distinction was made based on the features (\textit{Onset Detect}, \textit{Root Mean Square} and \textit{Spectral Flux}) identified in the audio through machine learning techniques. 
+
+The \textit{dataset} used in the learning process was built from scratch and the imbalance found in this dataset was addressed through an oversampling process.
+
+Among the various machine learning methods analyzed, the multi-layer perceptron (MLP) was chosen to perform the discrimination between the mentioned event types. 
 
 At the end, through a \textit{web} application, the results relative to the instants in which ball hits occur are visualized, giving a more comprehensive and objective perspective of the athlete's performance. The tool correctly identifies about 85\% of the events under analysis, with some adjustments needed to improve the recognition process.
 

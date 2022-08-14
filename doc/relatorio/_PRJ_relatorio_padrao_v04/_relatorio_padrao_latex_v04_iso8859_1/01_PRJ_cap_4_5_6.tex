@@ -24,13 +24,13 @@ Este capítulo descreve todo o processo de implementação das etapas enunciadas na
 
 O processo de criação do \textit{dataset} pode ser representado pelo esquema que se encontra na figura \ref{fig:construcaodatasetdetalhe}. 
 
-À exceção da fase de anotação manual das batidas de bola (\aspas{\textit{Human ear annotation}}), todas as outras fases do esquema foram realizadas no ambiente de desenvolvimento \textit{Pycharm} que compila e executa código \textit{Python} \cite{jetbrains_pycharm_2022}.
+%%À exceção da fase de anotação manual das batidas de bola (\aspas{\textit{Human ear annotation}}), todas as outras fases do esquema foram realizadas no ambiente de desenvolvimento \textit{Pycharm} que compila e executa código \textit{Python} \cite{jetbrains_pycharm_2022}.
  
-Para simplificar o processo de anotação das batidas de bola, optou-se por segmentar o vídeo de longa duração em vídeos com 1 minuto. O processo de segmentação deu origem a cerca de 90 vídeos de curta duração. Para cada um desses vídeos, foram gerados os áudios correspondentes. De todos os áudios gerados anotaram-se 24.
+Para simplificar o processo de anotação das batidas de bola (\aspas{\textit{Human ear annotation}}), optou-se por segmentar o vídeo de longa duração em vídeos com 1 minuto. O processo de segmentação deu origem a cerca de 90 vídeos de curta duração. Para cada um desses vídeos, foram gerados os áudios correspondentes. Foram anotados 24 áudios.
 
 A anotação das batidas de bola foi realizada com o auxílio da aplicação \textit{Adobe Audition} \cite{adobe2013adobe}. Esta ferramenta permite efetuar uma análise sobre áudio e verificar em que instantes ocorrem batidas de bola. A anotação é realizada num ficheiro \textit{Excel}, que posteriormente é convertido para \textit{CSV}.
 
-Cada evento está registado no ficheiro \textit{Excel} com seguintes dados:
+Cada evento está registado no ficheiro \textit{Excel} com os seguintes dados:
 
 \begin{itemize}
 \item
@@ -47,9 +47,9 @@ O lado do campo em que batida de bola ocorre.
 
 \end{itemize}
 
-O tipo de ambiente onde o desporto é praticado e o lado do campo onde ocorrem as batidas de bola serão apenas analisados em trabalho futuro.
+O tipo de ambiente onde o desporto é praticado e o lado do campo onde ocorrem as batidas de bola estão fora do contexto do presente trabalho.
 
-Na fase de extração de características iterou-se apenas sobre cada um dos áudios anotados. Sobre estes áudios realizou-se o processo descrito na secção \ref{sec:construcaododataset} para obtenção da matriz de características.
+Na fase de extração de características iterou-se apenas sobre os áudios anotados. Sobre estes áudios realizou-se o processo descrito na secção \ref{sec:construcaododataset} para obtenção da matriz de características com o auxílio da biblioteca \textit{tensorflow}. Esta biblioteca permite realizar  indexação e varrimento sobre \textit{arrays} de forma simples.
 
 Na fase de \aspas{\textit{Labeling}} combinou-se a informação registada nos ficheiros \textit{CSV} (batidas de bola) com as características tal como se verifica na figura  \ref{fig:matrizfeaturesv2}, o que permitiu obter o \textit{dataset} a utilizar na contrução do modelo (\aspas{\textit{Input data}}). Este processo de etiquetação foi realizado com base na equação \ref{eq:formulan}.
 
@@ -60,36 +60,60 @@ Na fase de \aspas{\textit{Labeling}} combinou-se a informação registada nos fich
 \label{fig:construcaodatasetdetalhe}
 \end{figure}
 
-Considerando como primeira abordagem a primeira linha da tabela \ref{tab:tabelaparamformuladen}, o \textit{dataset} obtido contém cerca de 130 mil exemplos.
+Considerando como primeira abordagem a primeira linha da tabela \ref{tab:tabelaparamformuladen}, o \textit{dataset} obtido contém cerca de 65 mil exemplos.
 
 %%________________________________________________________________________
 \section{Construção do Classificador}
 \label{sec:sec:construcaodoclassificadorv2}
 %%________________________________________________________________________
 
-A construção do modelo pode ser descrita através da figura \ref{fig:resultadosalgoritmosaa}.
+A construção do modelo pode ser descrita através da figura \ref{fig:construcaoclassif}.
 
-Através da ferramenta \textit{Orange Data Mining} obtiveram-se os resultados que se encontram na figura \ref{fig:odmresults}.
+Através da ferramenta \textit{Orange Data Mining} obtiveram-se os resultados que se encontram na figura \ref{fig:odmresults}. Esta figura contém os resultados (independentes das classes) referentes à aplicação de vários algoritmos ao \textit{dataset} e sugere que os modelos que produzem os melhores resultados são o regressor logístico e a rede neuronal. Os valores das métricas de avaliação (\cf, \ref{sec:classifevalidacaocruzada}) estão acima dos 85\% e o erro (\aspas{\textit{LogLoss}}) associado à classificação é igual ou inferior 35\%.
 
-Esta figura contém os resultados referentes à aplicação de vários algoritmos ao \textit{dataset}.
+As figuras \ref{fig:odm_results_positives} e \ref{fig:odm_results_negatives} correspondem aos resultados para cada uma das classes (positivos e negativos). Observando separadamente estes resultados, verifica-se que a rede neuronal obtém os melhores resultados em termos de taxa de sucesso, média harmónica e erro associado. Por este motivo, a rede neuronal será a técnica de aprendizagem automática a utilizar para construir o classificador.
 
-Para verificar a qualidade dos modelos é utilizada validação cruzada estratificada (\aspas{\textit{Stratified}}). Neste processo de validação os dados são divididos em 5 \textit{folds}. A figura \ref{fig:odmresults} sugere que os modelos que produzem os melhores resultados são o regressor logístico e a rede neuronal. O regressor logístico pode ser \aspas{visto} como uma rede neuronal com apenas uma camada intermédia \cite{datasciencecentral_lrnn_2019}. Pelo que neste trabalho será utilizada a rede neuronal como algoritmo de aprendizagem automática.
+Devido a um desequilíbrio no \textit{dataset}, os valores obtidos no caso da classe dos positivos (batidas de bola) são menos eficientes. Como solução, será aplicada a técnica de sub-amostragem na qual se diminui o número de exemplos da classe dos negativos (ruído).
+
+%%O regressor logístico pode ser \aspas{visto} como uma rede neuronal com apenas uma camada escondida \cite{datasciencecentral_lrnn_2019}. Pelo que neste trabalho será utilizada a rede neuronal como método de aprendizagem automática.
+
+Para verificar a qualidade dos modelos é utilizada a partição estratificada (\aspas{\textit{Stratified}}). Neste processo de validação os dados são divididos em 5 \textit{folds}.
 
 \begin{figure}[h]
    \centering
-   \includegraphics[width=12cm]{./odm_results_v2}
-\caption{Resultados da aplicação de vários algoritmos aos dados.}
+   \includegraphics[width=12cm]{./odm_results_v3}
+\caption{Resultados (independentes das classes) da aplicação de vários algoritmos aos dados.}
 \label{fig:odmresults}
 \end{figure}
 
-(Terminar racicínio relativo ao esquema da figura \ref{fig:construcaoclassif})
+Para construir e treinar o modelo utilizou-se a biblioteca \textit{Python Keras}. Esta biblioteca usa internamente o módulo \textit{tensorflow} e permite criar modelos de aprendizagem automática de forma simples e flexível \cite{keras_aboutkeras_2022}. 
+
+A capacidade de generalizar do modelo foi verificada através do método de validação cruzada, \textit{Stratified KFold}. Os dados foram divididos em 5 \textit{folds}.
+
+Os hiper-parâmetros considerados foram os seguintes:
+
+\begin{itemize}
+\item
+Temporais -- duração da janela de dimensão fixa (\textit{eventLength}) e número de amostras deslizadas a cada iteração (\textit{hopLength});
+
+\item
+Na rede rede neuronal -- taxa de aprendizagem, método de otimização, número de épocas, número de \textit{batches}, número de camadas na rede e de neurónios em cada camada.
+
+\end{itemize}
+
+Os parâmetros temporais têm influência na estrutura do \textit{dataset} por isso também têm impacto na construção do modelo. Os parâmetros da rede neuronal têm impacto na forma como o modelo se ajusta aos dados recebidos.
+
+O objetivo é escolher os hiper-parâmetros do modelo que produzem os melhores resultados.
+
 
 \begin{figure}[h]
    \centering
-   \includegraphics[width=12cm]{./model_construction_scheme}
+   \includegraphics[width=12cm]{./model_construction_scheme_v2}
 \caption{Processo de construção do classificador.}
 \label{fig:construcaoclassif}
 \end{figure}
+
+(Na imagem trocar a etapa de validação cruzada com a definição e ajuste dos hiepr-parametros).
 
 
 

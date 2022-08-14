@@ -33,6 +33,11 @@ Brownlee, J. (2020).
 \newblock Tour of evaluation metrics for imbalanced classification.
 \newblock {\em Vermont Victoria}.
 
+\bibitem[Brownlee, 2021]{brownlee2021choose}
+Brownlee, J. (2021).
+\newblock How to choose an activation function for deep learning.
+\newblock {\em Machine Learning Mastery}.
+
 \bibitem[Brownlee, 2022]{brownlee4types}
 Brownlee, J. (2022).
 \newblock Types of classification tasks in machine learning.
@@ -51,14 +56,13 @@ Courel-Ib{\'a}{\~n}ez, J., Martinez, B. J. S.-A., e Mar{\'\i}n, D.~M. (2019).
 \newblock {\em The Journal of Strength \& Conditioning Research},
   33(7):1971--1977.
 
-\bibitem[DataScienceCentral, 2019]{datasciencecentral_lrnn_2019}
-DataScienceCentral (2019).
-\newblock Logistic regression as a neural network.
-\newblock
-  \url{https://www.datasciencecentral.com/logistic-regression-as-a-neural-network/}.
+\bibitem[Doshi, 2019]{doshi2019various}
+Doshi, S. (2019).
+\newblock Various optimization algorithms for training neural network.
+\newblock {\em Towards data science}, 13.
 
-\bibitem[Evia e Arnold, 2022]{evianyquist}
-Evia e Arnold (visitado em Jul.2022).
+\bibitem[Evia, 2022]{evianyquist}
+Evia, A. (visitado em Jul.2022).
 \newblock Nyquist sampling theorem.
 
 \bibitem[Janiesch et~al., 2021]{janiesch2021machine}
@@ -66,10 +70,10 @@ Janiesch, C., Zschech, P., e Heinrich, K. (2021).
 \newblock Machine learning and deep learning.
 \newblock {\em Electronic Markets}, 31(3):685--695.
 
-\bibitem[Jetbrains, 2022]{jetbrains_pycharm_2022}
-Jetbrains (2022).
-\newblock Pycharm.
-\newblock \url{https://www.jetbrains.com/pycharm/}.
+\bibitem[Keras, 2022]{keras_aboutkeras_2022}
+Keras (visitado em Ago, 2022).
+\newblock About keras.
+\newblock \url{https://keras.io/about/}.
 
 \bibitem[Krishnan, 2021]{krishnandetermine}
 Krishnan, S. (2021).
@@ -90,6 +94,12 @@ LibreTexts, E. (2022b).
 \newblock
   \url{https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Signal_Processing_and_Modeling/Signals_and_Systems_(Baraniuk_et_al.)/10%3A_Sampling_and_Reconstruction/10.03%3A_Signal_Reconstruction}.
 
+\bibitem[MachineLearning, 2017]{ml_harmonic_score_2017}
+MachineLearning (2017).
+\newblock Harmonic precision-recall mean (f1 score).
+\newblock
+  \url{https://machinelearning.wtf/terms/harmonic-precision-recall-mean-f1-score/}.
+
 \bibitem[McFee et~al., 2015]{mcfee2015librosa}
 McFee, B., Raffel, C., Liang, D., Ellis, D.~P., McVicar, M., Battenberg, E., e
   Nieto, O. (2015).
@@ -108,14 +118,19 @@ Meyda (visitado em Jul.2022).
 \newblock Audio feature extraction for javascript.
 \newblock \url{https://meyda.js.org/audio-features.html}.
 
+\bibitem[Muralidhar, 2021]{muralidhar2021stratified}
+Muralidhar, K. (2021).
+\newblock What is stratified cross-validation in machine learning?
+\newblock {\em Medium. Retrieved December}, 12:2021.
+
 \bibitem[Nyuytiymbiy, 2021]{nyuytiymbiy2021parameters}
 Nyuytiymbiy, K. (2021).
 \newblock Parameters and hyperparameters in machine learning and deep learning.
 \newblock {\em Medium. https://towardsdatascience.
   com/parameters-and-hyperparameters-aa609601a9ac (April 22, 2021)}.
 
-\bibitem[Rauber, 4]{rauberredes}
-Rauber, T.~W. (4).
+\bibitem[Rauber, 2022]{rauberredes}
+Rauber, T.~W. (visitado em Ago, 2022).
 \newblock Redes neuronais artificiais.
 \newblock {\em Documento de Apoio (visitado em Jul, 2022)}.
 

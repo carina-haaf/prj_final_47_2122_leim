@@ -17,28 +17,22 @@
 \label{ch:introducao}
 %%________________________________________________________________________
 
-A atividade desportiva  de um atleta, numa determinada modalidade, deve ser monitorizada de uma perspetiva externa, no sentido de produzir melhores resultados. Para esse efeito, é necessário que o atleta seja supervisionado durante a sua atividade física, ou que a última seja registada e posteriormente analisada (registo em papel ou em vídeo).
+A atividade desportiva  de um atleta, numa determinada modalidade, deve ser monitorizada de uma perspetiva externa, no sentido de produzir melhores resultados. Para esse efeito, é necessário que o atleta seja supervisionado durante a sua atividade física, ou que o seu treino seja registado (em papel ou vídeo) e posteriormente analisado.
 
-Neste trabalho, a anotação de eventos sonoros em vídeo refere-se à análise do áudio extraído de um vídeo previamente gravado, com o objetivo de recolher informações relativas a possíveis batidas de bola. O processamento sobre o áudio será realizado em modo \textit{offline}.
+Neste trabalho, a anotação de eventos sonoros em vídeo refere-se à análise do áudio extraído de um vídeo previamente gravado, com o objetivo de identificar cada instante em que ocrre uma batida de bola (tipo ténis) em raquete. O processamento sobre o áudio será realizado em modo \textit{offline}.
 
-Este trabalho destina-se à análise da componente desportiva de padel (\cite{courel2019exploring}), no sentido de fornecer a atletas e/ou treinadores um complemento no decurso do treino.
-
-Uma figura referente ao campo onde este desporto é praticado e à raquete e bola utilizadas encontra-se disponível no Capítulo \ref{ch:umDetalheAdicional}, na qual se observam as dimensões do campo onde esta modalidade desportiva é realizada. O desporto de padel pode ser praticado em ambiente interior (\textit{indoor}) ou exterior (\textit{outdoor}). No entanto, este trabalho analisa apenas vídeos em ambiente \textit{indoor}.
+Entre os vários desportos praticados, este trabalho foca-se na análise da componente desportiva de padel (\cite{courel2019exploring}), no sentido de fornecer a atletas e/ou treinadores um complemento no decurso do treino. Uma figura referente ao campo onde este desporto é praticado e à raquete e bola utilizadas encontra-se disponível no Capítulo \ref{ch:umDetalheAdicional}, na qual se observam as dimensões do campo onde esta modalidade desportiva é realizada. O desporto de padel pode ser praticado em ambiente interior (\textit{indoor}) ou exterior (\textit{outdoor}). Este trabalho analisa apenas vídeos em ambiente \textit{indoor}.
 
 %%________________________________________________________________________
 \section{Motivação}
 \label{sec:motivacao}
 %%________________________________________________________________________
 
-A aplicação em desenvolvimento implica que se implemente um sistema onde a máquina é capaz de reconhecer batidas de bola. No entanto, a forma como uma máquina reconhece um som difere de como esse mesmo som é percecionado pelo ouvido humano. O ouvido humano consegue fazer a distinção entre sons, considerando as características dos sons emitidos: duração, intensidade, tom, entre outras \cite{national2004hearing}.  Pelo que, é necessário proporcionar à máquina a capacidade de reconhecer batidas de bola de forma semelhante à humana. Para esse efeito, será utilizada a automática. 
+A aplicação em desenvolvimento implica que se implemente um sistema onde a máquina é capaz de reconhecer batidas de bola. No entanto, a forma como uma máquina reconhece um som difere de como esse mesmo som é percecionado pelo ouvido humano. O ouvido humano consegue fazer a distinção entre sons, considerando as características dos sons emitidos: duração, intensidade, tom, entre outras \cite{national2004hearing}. É necessário proporcionar à máquina a capacidade de reconhecer batidas de bola de forma semelhante à humana. Para esse efeito, será utilizada a aprendizagem automática. 
 
-A aprendizagem automática permite aplicar algoritmos aos dados recebidos pela máquina, e reconhecer nestes as batidas de bola.
-
-Antes do processo de aprendizagem, não existindo dados relativos aos eventos pretendidos, ou que estejam etiquetados nas condições desejadas, será construído um \textit{dataset} de raiz. Os dados constituintes do \textit{dataset} serão obtidos de vídeos amadores. 
+A aprendizagem automática permite identificar e reconhecer padrões identificativos de batidas de bola no \textit{dataset} fornecido.
 
 A aplicação em desenvolvimento disponibiliza ainda uma interface, que permite que o utilizador participe no processo de anotação dos eventos (validando os resultados devolvidos pelo classificador), o que poderá contribuir numa perspetiva futura, para aumentar o \textit{dataset} e melhorar deteção de batidas de bola.
-
-
 
 %%________________________________________________________________________
 \section{Principais Contributos}
@@ -49,7 +43,7 @@ A realização deste trabalho terá os seguintes contributos:
 
 \begin{itemize}
 \item
-Disponibilizar de um \textit{dataset} construído de raiz;
+Não existindo dados relativos a batidas de bola ou que estejam etiquetados nas condições desejadas, será construído um \textit{dataset} de raiz. Os dados constituintes do \textit{dataset} serão obtidos de vídeos amadores;
 
 \item
 Providenciar de um modelo que reconhece batidas de bola;
@@ -119,7 +113,7 @@ Neste capítulo serão abordados os conceitos de carácter teórico, que sustentam o
 
 Um sinal corresponde a uma grandeza física que varia ao longo do tempo. Em termos matemáticos, um sinal varia em função de uma ou mais variáveis, que podem ser contínuas (sinais contínuos) ou discretas (sinais discretos) \cite{sampaio2006analise}. 
 
-Neste trabalho, será feita uma análise sobre áudio que correspode a um sinal discreto no tempo.
+Neste trabalho, o áudio será extraído do vídeo através de um processo de amostragem e por isso correspode a um sinal discreto no tempo.
 
 
 %%________________________________________________________________________
@@ -127,7 +121,7 @@ Neste trabalho, será feita uma análise sobre áudio que correspode a um sinal dis
 \label{sec:amostragem}
 %%________________________________________________________________________
 
-O processo de amostragem converte um sinal contínuo num sinal discreto. Para isso, escolhe pontos equi-espaçados do sinal contínuo para gerar os pontos do sinal discreto \cite{eng_libretexts_sampling}. Cada um dos dos pontos escolhidos é designado por amostra. 
+O processo de amostragem converte um sinal contínuo num sinal discreto. Para isso, escolhe pontos equi-espaçados do sinal contínuo para gerar os pontos do sinal discreto. A amostragem de um sinal contínuo com um período específico permite obter um sinal discretizado no tempo \cite{eng_libretexts_sampling}. Cada um dos dos pontos resultantes é designado por amostra. 
 
 O intervalo entre as amostras consecutivas denomina-se período de amostragem e é dado em segundos(s). O inverso deste valor corresponde à frequência de amostragem, que é dada em \textit{Hertz}(Hz), e refere-se ao número de amostras que ocorre no sinal a cada segundo. A informação removida pelo processo de amostragem pode ser parcialmente recuperada através de interpolação ou reconstrução do sinal \cite{eng_libretexts_reconstruction}. 
 
@@ -178,7 +172,7 @@ As características enunciadas acima podem ser calculadas com o auxílio da biblio
 \label{sec:aprendizagemauto}
 %%________________________________________________________________________
 
-A aprendizagem automática (\textit{Machine Learning} - ML) é ramo da inteligência artificial que recorre à análise de grandes volumes de dados visando extrair padrões e representá-los num modelo \cite{janiesch2021machine}.
+A aprendizagem automática (\textit{Machine Learning} - ML) é ramo da inteligência artificial que recorre à análise de (grandes volumes de) dados visando extrair padrões e representá-los num modelo \cite{janiesch2021machine}.
 
 Existem três tipos de aprendizagem automática \cite{sah2020machine}:
 
@@ -212,7 +206,7 @@ Considerando uma matriz de características, \textit{X}, e o vetor de valores de 
  f(X)=y
 \end{equation}
 
-A função \textit{f} corresponde a um modelo que deve receber a matriz de características e, classificar de maneira correta cada um dos exemplos contituintes.
+A função \textit{f} corresponde a um modelo que deve receber a matriz de características e, classificar de maneira correta cada um dos seus exemplos.
  
 
 %%________________________________________________________________________
@@ -223,15 +217,18 @@ A função \textit{f} corresponde a um modelo que deve receber a matriz de caracte
 
 O desequilíbrio no \textit{dataset} ocorre quando a distribuição de exemplos pelas classes é desigual \cite{badr2019having}. Esse desequilíbrio pode resultar na construção de um modelo enviesado que reconhece melhor determinadas classes.
 
-Num problema de classificação binária o desequilíbrio pode abordar-se aumentando o número de exemplos da classe em minoria (sobre-amostragem) ou reduzindo o número da classe em maioria (sub-amostragem) \cite{badr2019having}.
+Num problema de classificação binária o desequilíbrio pode abordar-se aumentando o número de exemplos da classe em minoria (sobre-amostragem) ou reduzindo o número da classe em maioria (sub-amostragem) \cite{badr2019having}. 
 
+Neste trabalho será utilizada a técnica de sub-amostragem para equilibrar o \textit{dataset}.
 
 %%________________________________________________________________________
 \subsection{Hiper-parâmetros}
 \label{sec:hiperparametros}
 %%________________________________________________________________________
 
-Em aprendizagem automática, um hiper-parâmetro é um valor utilizado pelo modelo para controlar o processo de treino. Os hiper-parâmetros de um modelo não são utilizados diretamente no modelo, mas determinam os parâmetros internos utilizados diretamente \cite{nyuytiymbiy2021parameters}. O prefixo \aspas{hiper} advém do facto de estes parâmetros serem os escolhidos para definir outros, sugerindo que estão num nível hierárquico superior. 
+Em aprendizagem automática, um hiper-parâmetro é um valor utilizado pelo modelo para controlar o processo de treino. Os hiper-parâmetros de um modelo não são utilizados diretamente no modelo, mas determinam os parâmetros internos utilizados diretamente. O prefixo \aspas{hiper} advém do facto de estes parâmetros serem os escolhidos para definir outros, sugerindo que estão num nível hierárquico superior \cite{nyuytiymbiy2021parameters}. 
+
+(Falar dos hiper-parâmetros utilizados neste trabalho).
 
 
 %%________________________________________________________________________
@@ -239,12 +236,10 @@ Em aprendizagem automática, um hiper-parâmetro é um valor utilizado pelo modelo 
 \label{sec:redesneuronais}
 %%________________________________________________________________________
 
-Uma rede neuronal artificial (\textit{Artificial Neural Network} -- ANN) é uma técnica de aprendizagem automática que tem como inspiração a biologia humana e a forma como os neurónios comunicam entre si para compreender os dados percecionados \cite{rauberredes}.
+Uma rede neuronal artificial (\textit{Artificial Neural Network} -- ANN) é uma estrutura usada em métodos de aprendizagem automática que tem como inspiração a biologia humana e a forma como os neurónios comunicam entre si para compreender os dados percecionados \cite{rauberredes}.
 
-%À semelhança do cérebro humano, o neurónio é a unidade básica da rede neuronal. Um neurónio funciona como uma função que recebe um determinado \textit{input}, processa-o e devolve um \textit{output}. No capítulo \ref{ch:outroDetalheAdicional} encontra-se uma figura ilustrativa de um neurónio consituinte de uma rede neuronal.
-
-Uma rede neuronal está organizada em camadas, que são constituídas por unidades (nós). A primeira camada (de\textit{input}), tem um número de nós igual ao número de caracteríticas do \textit{dataset}. A última camada (de \textit{output}), possui um número de nós igual ao número de classes.
-Entre a camada de \textit{input} e a camada de \textit{output} existem uma ou mais camadas intermédias. A figura \ref{fig:redeneuronal} representa de uma rede neuronal, onde estão delimitadas as ligações entre os vários nós constituintes:
+Uma rede neuronal está organizada em camadas, que são constituídas por unidades (nós). A primeira camada (de \textit{input}), tem um número de nós igual ao número de caracteríticas do \textit{dataset}. A última camada (de \textit{output}), possui os nós que são usados para representar os valores da classe.
+Entre a camada de \textit{input} e a camada de \textit{output} existem uma ou mais camadas escondidas. A figura \ref{fig:redeneuronal} representa de uma rede neuronal, onde estão delimitadas as ligações entre os vários nós constituintes.
 
 \begin{figure}[h]
    \centering
@@ -257,7 +252,30 @@ O número de camadas, bem como o número de nós em cada camada são definidos com o
 
 Tal como se verifica na figura \ref{fig:redeneuronal}, cada nó recebe os valores de saída dos nós da camada anterior e associa-lhes um peso que é atualizado ao longo do processo de aprendizagem \cite{medium_2019}. 
 
+Os valores de saída são calculados com base numa fução de ativação que define a forma como os pesos a serem atualizados são calculados numa determinada camada da rede. Neste trabalho serão utilizadas as funções de ativação \cite{brownlee2021choose}:
+
+\begin{itemize}
+\item 
+ReLU (\textit{Rectified Linear Activation}) -- recebe um valor e devolve outro de acordo com a expressão \ref{eq:formulaReLU}. Pelo que valores negativos são mapeados no valor 0. Esta função será utilizada nas camadas escondidas.
+
+\begin{equation} 
+\label{eq:formulaReLU}
+\textit{outputValue}=\max{(0, \textit{inputValue})}
+\end{equation}
+
+\item 
+Sigmóide (\textit{Sigmoid}) -- recebe um valor e devolve outro no intervalo [0, 1] de acordo com a expressão \ref{eq:formulaSigmoid}. Esta função será utilizada na camada de \textit{output}.
+
+\begin{equation} 
+\label{eq:formulaSigmoid}
+outputValue=\frac{1}{1 + e^{-inputValue}}
+\end{equation}
+
+\end{itemize}
+
 O processo de aprendizagem é realizado ao longo de várias épocas. Uma época (\textit{epoch}) corresponde a um ciclo de passagem, pela rede neuronal, de todos os exemplos do \textit{dataset}. Uma época é constituída por várias iterações. Cada iteração corresponde a uma atualização de pesos após a passagem pela rede de um número pré-definido (\textit{batch}) de exemplos.
+
+O uso de métodos de otimização permite atualizar os pesos e a taxa de aprendizagem da rede neuronal de forma a reduzir o erro associado e aumentar a taxa de sucesso. Neste trabalho, será utilizado o método de otimização \textit{Adam} \cite{doshi2019various}.
 
 
 %%________________________________________________________________________
@@ -294,18 +312,17 @@ Precisão (\textit{Precision}) -- percentagem de exemplos que o classificador ind
 Cobertura (\textit{Recall}) -- percentagem de exemplos que pertencem a uma determinada classe e o classificador indicou como sendo dessa classe;
 
 \item
-\textit{F1-score} -- é a média harmónica entre a precisão e a cobertura.
+\textit{F1-score} -- corresponde à média harmónica entre a precisão e a cobertura \cite{ml_harmonic_score_2017}.
 
 \end{itemize}
 
-Em geral, num problema de classificação os dados são divididos em treino e teste. O grupo de exemplos de treino é utilizado no processo de aprendizagem, e o  grupo de teste é utilizado no processo de classificação. 
+Em geral, num problema de classificação os dados são divididos em treino e teste. O grupo de exemplos de treino é utilizado no processo de aprendizagem, e o  grupo de teste é utilizado no processo de classificação. Embora esta abordagem permita verificar como o classificador se comporta na predição sobre dados novos, tem como desvantagem a hipótese de existirem exemplos mais fáceis de identificar no conjunto de teste. Como solução pode ser utilizada validação cruzada.
 
-Esta distribuição dos dados pode não ser suficiente para que o modelo aprenda a generalizar, ao analisar dados novos. Como solução, pode ser utilizada validação.
+A validação cruzada é uma técnica que permite avaliar a capacidade de generalização de um classificador. Os dados são divididos em K partições (\textit{folds}) e ao longo de K iterações são treinados modelos diferentes, onde K-1 \textit{folds} são utilizados para treino e um \textit{fold} é utilizado para validação \cite{mohammed_cv_2020}.
 
-Um caso particular da validação é a técnica de validação cruzada \cite{mohammed_cv_2020}. Esta técnica divide os dados em K grupos (\textit{folds}) e ao longo de K iterações treina modelos diferentes onde K-1 \textit{folds} são utilizados para treino e um \textit{fold} é utilizado para validação.
+Dividir os dados em várias partições pode não ser suficiente, uma vez que a distribuição dos exemplos de cada classe pelos \textit{folds} pode não ser igual à original.
 
-Neste trabalho, será utilizada a técnica de validação cruzada estratificada (\textit{Stratified K-Fold}) que permite manter a distribuição dos exemplos de cada classe nos \textit{folds}.
-
+De forma a manter essa distribuição de exemplos de cada classe nos \textit{folds} será utilizada a técnica de validação, partição estratificada (\textit{Stratified K-Fold}) \cite{muralidhar2021stratified}.
 
 %%________________________________________________________________________
 \chapter{Trabalho Relacionado}
@@ -321,14 +338,12 @@ Neste trabalho, será utilizada a técnica de validação cruzada estratificada (\te
 
 Neste capítulo será realizada uma descrição geral do sistema desenvolvido, dos requisitos e da abordagem adotada para o desenvolver. 
 
-
 %%________________________________________________________________________
 \section{Descrição Geral do Sistema}
 \label{sec:descricaogeral}
 %%________________________________________________________________________
 
-
-O funcionamento do sistema pode ser representado como se mostra na figura \ref{fig:systemscheme}. O sistema desenvolvido reconhece batidas de bola, permite auxiliar no processo de construção do dataset e, consequentemente no processo de melhoria de desempenho do classificador.
+O sistema desenvolvido reconhece batidas de bola, permite auxiliar no processo de construção do dataset e, consequentemente no processo de melhoria de desempenho do classificador. O funcionamento do sistema pode ser representado como se mostra na figura \ref{fig:systemscheme}.
 
 \begin{figure}[h]
    \centering
@@ -343,7 +358,9 @@ O funcionamento do sistema pode ser representado como se mostra na figura \ref{f
 \label{sec:requisitos}
 %%________________________________________________________________________
 
-Os requisitos do sistema podem ser funcionais (funções de sistema) e não funcionais (atributos do sistema). As funções de sistema, referem-se a funcionalidades desempenhadas pelo sistema. Neste projeto, os requisitos funcionais foram organizados em dois grupos:
+Os requisitos do sistema podem ser categorizados como funcionais (funções de sistema) e não funcionais (atributos do sistema). As funções de sistema, referem-se a funcionalidades desempenhadas pelo sistema. Os atributos do sistema descrevem a forma como o sistema deve ser disponibilizado.
+
+Neste projeto, os requisitos funcionais foram organizados em dois grupos:
 
 \begin{itemize}
 
@@ -351,23 +368,22 @@ Os requisitos do sistema podem ser funcionais (funções de sistema) e não funcion
 Construção do \textit{dataset};
 
 \item
-Cinstrução do classificador.
+Construção do classificador.
 \end{itemize} 
 
 A tabela \ref{tab:tabelarequisitosfuncdata} contém os requisitos funcionais que dizem respeito à criação do \textit{dataset}:
-
 
 \begin{table}[h]
 		\begin{center}
 		
 		
-				\begin{tabular}{ | l | p{9cm} | l |}
+				\begin{tabular}{ | l | p{9cm} |}
 				\hline
-				\textbf{Requisito} & \textbf{Função} & \textbf{Categoria} \\ \hline
-				R1.1 & Extrair o áudio do vídeo & Invisível \\ \hline
-				R1.2 & Anotar as batidas de bola presentes no áudio (A) & Invisível \\ \hline
-				R1.3 & Extrair as caracteristicas do áudio (B) & Invisível \\ \hline
-				R1.4 & Combinação dos dois conjuntos A e B & Invisível \\ \hline
+				\textbf{Requisito} & \textbf{Função} \\ \hline
+				R1.1 & Extrair o áudio do vídeo \\ \hline
+				R1.2 & Anotar as batidas de bola presentes no áudio (A) \\ \hline
+				R1.3 & Extrair as caracteristicas do áudio (B) \\ \hline
+				R1.4 & Combinação dos dois conjuntos A e B \\ \hline
 				\end{tabular}
 				
 				
@@ -382,13 +398,13 @@ A tabela \ref{tab:tabelarequisitosfuncclass} contém os requisitos funcionais que
 		\begin{center}
 		
 		
-				\begin{tabular}{ | l | l | l |}
+				\begin{tabular}{ | l | l |}
 				\hline
-				\textbf{Requisito} & \textbf{Função} & \textbf{Categoria} \\ \hline
-				R1.1 & Extrair o áudio do vídeo & Invisível \\ \hline
-				R1.2 & Extrair as características do áudio & Invisível \\ \hline
-				R1.3 & Aplicar o classificador & Invisível \\ \hline
-				R1.4 & Apresentar resultados dos eventos etiquetados & Invisível \\ \hline
+				\textbf{Requisito} & \textbf{Função} \\ \hline
+				R1.1 & Extrair o áudio do vídeo \\ \hline
+				R1.2 & Extrair as características do áudio \\ \hline
+				R1.3 & Aplicar o classificador \\ \hline
+				R1.4 & Apresentar resultados dos eventos etiquetados \\ \hline
 				\end{tabular}
 				
 				
@@ -398,15 +414,15 @@ A tabela \ref{tab:tabelarequisitosfuncclass} contém os requisitos funcionais que
 		\end{center}
 \end{table}	
 
-Os atributos do sistema descrevem a forma como o sistema deve ser disponibilizado. A tabela \ref{tab:tabelarequisitosnaofunc} representa os atributos do sistema.
+A tabela \ref{tab:tabelarequisitosnaofunc} representa os atributos do sistema.
 
 \begin{table}[h]
 		\begin{center}	
 		
-				\begin{tabular}{ | l | p{6cm} | l |}
+				\begin{tabular}{ | l | p{6cm} |}
 				\hline
-				\textbf{Atributo} & \textbf{Detalhe/ Restrição Fronteira} & \textbf{Categoria} \\ \hline
-				Interação Homem-Máquina & Detalhe \newline Interface fácil de aprender a usar & Obrigatório \\ \hline
+				\textbf{Atributo} & \textbf{Detalhe/ Restrição Fronteira} \\ \hline
+				Interação Homem-Máquina & Detalhe \newline Interface fácil de aprender a usar \\ \hline
 				
 				\end{tabular}
 								
@@ -422,8 +438,7 @@ Os atributos do sistema descrevem a forma como o sistema deve ser disponibilizad
 \label{sec:abordagem}
 %%________________________________________________________________________
 
-
-Neste secção será descrita a abordagem utilizada para realizar cada uma das etapas inerentes ao sistema em desenvolvimento. As etapas são as seguintes:
+Nesta secção será descrita a abordagem utilizada para realizar cada uma das etapas inerentes ao sistema em desenvolvimento. As etapas são as seguintes:
 
 \begin{itemize}
 
@@ -451,9 +466,9 @@ O \textit{dataset} construído, corresponde a um conjunto de dados com padrões id
 \smallskip
 \smallskip
 \smallskip
-\noindent No processo de extração das características (enunciadas na secção \ref{sec:caracteristicas}) é realizado um varrimento sobre o áudio com uma janela fixa. Este processo é realizado ao longo de várias iterações, onde em cada iteração a janela desliza um número específico de amostras, a partir das quais são extraídas as características pretendidas. 
+\noindent No processo de extração das características (\cf, \ref{sec:caracteristicas}) é realizado um varrimento sobre o áudio com uma janela temporal de dimensão fixa. Este processo é realizado ao longo de várias iterações, onde em cada iteração a janela desliza um número específico de amostras, a partir das quais são extraídas as características pretendidas. 
 
-No cálculo dessas características, o \textit{package librosa} considera um salto (\aspas{\textit{hop}}) de 512 amostras. Pelo que, este módulo divide o sinal em segmentos, com 512 amostras de dimensão, e sobre cada um deles calcula o valor da característica \cite{mcfee2015librosa}. No entanto, podem ser escolhidos múltiplos do valor do salto como outras abordagens, no sentido de verificar que alterações produzem no desempenho do classificador. O mesmo se aplica ao tamanho da janela: uma batida de bola dura em média meio segundo, mas podem ser realizados experimentos com durações maiores (na tabela \ref{tab:tabelaparamformuladen}). Neste trabalho, como primeira abordagem, será considerada uma janela de 0.5 segundos e um salto de 512 amostras.
+No cálculo dessas características, o \textit{package librosa} considera um salto (\aspas{\textit{hop}}) de 512 amostras. Pelo que, este módulo divide o sinal em segmentos, com 512 amostras de dimensão, e sobre cada um deles calcula o valor da característica \cite{mcfee2015librosa}. No entanto, podem ser escolhidos múltiplos do valor do salto como outras abordagens, no sentido de verificar que alterações produzem no desempenho do classificador. O mesmo se aplica ao tamanho da janela: uma batida de bola dura em média meio segundo, mas podem ser realizados experimentos com durações maiores (na tabela \ref{tab:tabelaparamformuladen}). Neste trabalho, como primeira abordagem, será considerada uma janela de 0.5 segundos e um salto de 1024 amostras.
 
 A matriz \textit{X} é constituída por M linhas ou exemplos. Por sua vez, cada exemplo tem N colunas ou valores de características, pelo que a matriz \textit{X} pode ser representada na figura \ref{fig:matrizfeaturesv1} da seguinte forma:
 
@@ -477,28 +492,28 @@ X =
 \end{figure}
 
 
-O valor de N na figura \ref{fig:matrizfeaturesv1}, corresponde ao número de segmentos de amostras abranjidos pela janela fixa para uma característica. O valor de \textit{N} pode ser dado pela seguinte expressão:
+O valor de N na figura \ref{fig:matrizfeaturesv1}, corresponde ao número de segmentos de amostras abranjidos pela janela fixa para uma característica e pode ser dado pela seguinte expressão:
 
 \begin{equation} 
 \label{eq:formulan}
 N=\frac{eventLength \times samplingRate}{hopLength}
 \end{equation}
 
-onde na equação, \textit{eventLength} corresponde à duração de um evento ou batida de bola, \textit{samplingRate} é a frequência de amostragem (a que os áudios são obtidos), e \textit{hopLength} refere-se ao número de amostras deslizadas a cada iteração do varrimento. Na tabela \ref{tab:tabelaparamformuladen}, estão evidenciados os valores de N obtidos para as várias combinações de \textit{eventLength} e \textit{hopLength}:
+onde na equação, \textit{eventLength} é a duração de um evento, \textit{samplingRate} é a frequência de amostragem (a que os áudios são obtidos), e \textit{hopLength} refere-se ao número de amostras deslizadas a cada iteração do varrimento. Na tabela \ref{tab:tabelaparamformuladen}, estão evidenciados os valores de N obtidos para as várias combinações de \textit{eventLength} e \textit{hopLength}:
 
 \begin{table}[h]
 		\begin{center}
 				\begin{tabular}{ | c | c | c |} \hline
 				\textbf{\textit{eventLength}} & \textbf{\textit{hopLength}} & \textbf{\textit{N}} \\ \hline
-						0.5 & 512 & 43 \\ \hline
 						0.5 & 1024 & 22 \\ \hline
 						0.5 & 2048 & 11 \\ \hline
-						0.7 & 512 & 60 \\ \hline
+						0.5 & 4096 & 5 \\ \hline
 						0.7 & 1024 & 30 \\ \hline
 						0.7 & 2048 & 15 \\ \hline
-						1.0 & 512 & 86 \\ \hline
+						0.7 & 4096 & 8 \\ \hline
 						1.0 & 1024 & 43 \\ \hline
 						1.0 & 2048 & 22 \\ \hline
+						1.0 & 4096 & 11 \\ \hline
 				\end{tabular}
 				
 		\caption{Valores de duração (em segundos), amostras delizadas e N a considerar, para um valor de \textit{samplingRate} igual a 44100Hz.}
@@ -507,7 +522,7 @@ onde na equação, \textit{eventLength} corresponde à duração de um evento ou bati
 		\end{center}
 \end{table}	
 
-Voltando ao processo de deslizamento da janela e observando ainda a figura \ref{fig:matrizfeaturesv1}, a primeira iteração permite obter a primeira linha da matriz X. A segunda segunda iteração permite obter a segunda linha da matriz e, assim sucessivamente até à iteração M. Note-se que o valor de N, corresponde ao número de segmentos de amostras obtidos para uma característica. Por isso, caso se pretenda considerar as três características enunciadas na secção \ref{sec:caracteristicas}, o número de elementos em cada linha da matriz \textit{X}, é igual a três vezes o valor de N. 
+Observando ainda a figura \ref{fig:matrizfeaturesv1}, a primeira iteração do processo de varrimento permite obter a primeira linha da matriz X. A segunda segunda iteração permite obter a segunda linha da matriz e, assim sucessivamente até à iteração M. Note-se que o valor de N, corresponde ao número de segmentos de amostras obtidos para uma característica. Por isso, caso se pretenda considerar as três características enunciadas na secção \ref{sec:caracteristicas}, o número de elementos em cada linha da matriz \textit{X}, é igual a três vezes o valor de N. 
 
 \bigskip
 \paragraph{\textbf{Obtenção do vetor de classes -- \textit{y}}} \hspace{0pt} \\
@@ -531,36 +546,37 @@ y =
 
 
 onde cada elemento $y_i$ corresponde à classe etiquetada.
-Para obtenção deste vetor, é necessário etiquetar manualmente o  áudio. O processo resume-se a ouvir o áudio e anotar num ficheiro .csv, em que intervalos de tempo ocorrem batidas de bolas. 
+Para obtenção deste vetor, é necessário etiquetar manualmente o  áudio. O processo resume-se a ouvir o áudio e anotar num ficheiro (formato.csv), em que intervalos de tempo ocorrem batidas de bolas. 
 
 Note-se que apenas as batidas de bola são registadas no ficheiro. Por isso, todos os eventos que não são registados constituem ruído.
 Cada um dos exemplos, $y_i$, do vetor \textit{y} terá um valor dependente da expressão \ref{eq:formulay}:
 
 \begin{equation} 
 \label{eq:formulay}
-y_{i} = \begin{cases} \text{Ball hit } & \quad \forall X_{i} \text{:} X_{i} \in [\textit{beginSample}, \textit{endSample}] \\ 
-									\text{Non ball hit }  & \quad \forall X_{i} \text{:} X_{i} \notin [\textit{beginSample}, \textit{endSample}] \end{cases}
+y_{i} = \begin{cases} \text{ball-hit } & \quad \forall X_{i} \text{:} X_{i} \in [\textit{beginSample}, \textit{endSample}] \\ 
+									\text{noise }  & \quad \forall X_{i} \text{:} X_{i} \notin [\textit{beginSample}, \textit{endSample}] \end{cases}
 \end{equation}
 
-onde \textit{beginSample} é a amostra inicial do evento e \textit{endSample} corresponde à  amostra final constituinte desse mesmo evento.
+onde [\textit{beginSample}, \textit{endSample}] é o intervalo de tempo em que a batida de bola ocorre.
 
+%%onde \textit{beginSample} é a amostra inicial do evento e \textit{endSample} corresponde à  amostra final constituinte desse mesmo evento.
 
 \bigskip
 \paragraph{\textbf{Criação do \textit{dataset}}} \hspace{0pt} \\
 
-\noindent O processo de construção do \textit{dataset} refere-se à junção da matriz de características ao vetor de classes. A janela desliza ao longo do áudio por isso, um conjunto de exemplos ou instâncias, $X_i$, corresponderão a uma mesma classe, $y_i$, tal como se verifica na figura \ref{fig:matrizfeaturesv2}: 
+\noindent O processo de construção do \textit{dataset} refere-se à junção da matriz de características ao vetor de classes. A janela desliza ao longo do áudio por isso, um conjunto de exemplos ou instâncias, $X_i$, corresponderão a uma classe, $y_i$, tal como se verifica na figura \ref{fig:matrizfeaturesv2}: 
 
 \begin{figure}[h]
 \[ 
 X = 
  \begin{bmatrix}
   X_{1} & X_{2} & X_{3} & \cdots & X_{N} & y_{1} \\
-	X_{2} & X_{3} & X_{4} & \cdots & X_{N+1} & y_{1} \\
-	X_{3} & X_{4} & X_{5} & \cdots & X_{N+2} & y_{1} \\
+	X_{2} & X_{3} & X_{4} & \cdots & X_{N+1} & y_{2} \\
+	X_{3} & X_{4} & X_{5} & \cdots & X_{N+2} & y_{3} \\
   \vdots  & \vdots  & \vdots  & \ddots & \vdots  \\
-  X_{N-1} & X_{N} & X_{N+1} & \cdots & X_{2N-2} & y_{1} \\
-	X_{N} & X_{N+1} & X_{N+2} & \cdots & X_{2N-1} & y_{1} \\
-	X_{N+1} & X_{N+2} & X_{N+3} & \cdots & X_{2N} & y_{1} \\
+  X_{N-1} & X_{N} & X_{N+1} & \cdots & X_{2N-2} & y_{N-1} \\
+	X_{N} & X_{N+1} & X_{N+2} & \cdots & X_{2N-1} & y_{N} \\
+	X_{N+1} & X_{N+2} & X_{N+3} & \cdots & X_{2N} & y_{N+1} \\
 	\vdots  & \vdots  & \vdots  &  & \vdots & \vdots
  \end{bmatrix}
  \]
@@ -568,9 +584,9 @@ X =
 \label{fig:matrizfeaturesv2}
 \end{figure}
 
-As linhas ou instâncias seguintes, que não estão evidenciadas na matriz, estão associadas a outra classe e, assim sucessivamente.
+%%As linhas ou instâncias seguintes, que não estão evidenciadas na matriz, estão associadas a outra classe e, assim sucessivamente.
 
-O vídeo de \textit{input}, a partir do qual o \textit{dataset} foi construído é um vídeo obtido de forma não profissional e tem a duração de 1 hora e 32 minutos. O vídeo em questão constitui uma gravação de um treino realizado por um conjunto de atletas em ambiente \textit{indoor}.
+O vídeo de \textit{input}, a partir do qual o \textit{dataset} foi construído é um vídeo obtido de forma não profissional com uma duração de 1 hora e 32 minutos. e constitui uma gravação de um treino realizado por um conjunto de atletas em ambiente \textit{indoor}.
 
 
 %%________________________________________________________________________
@@ -578,9 +594,10 @@ O vídeo de \textit{input}, a partir do qual o \textit{dataset} foi construído é 
 \label{sec:construcaodoclassificadorv1}
 %%________________________________________________________________________
 
-Antes de construir o classificador, foi necessário escolher o algoritmo de aprendizagem automática a utilizar. Para esse efeito, fez-se uso da ferramenta \textit{Orange Data Mining} -- ODM que permite simular a aplicação de vários algoritmos aos dados, no sentido de verificar quais destes produzem os melhores resultados \cite{bruno_odm_2019}.
+A escolha do algoritmo de aprendizagem automática a utilizar foi realizada através da ferramenta \textit{Orange Data Mining} -- ODM. Esta ferramenta permite  aplicar de vários algoritmos aos dados, no sentido de verificar quais destes produzem os melhores resultados \cite{bruno_odm_2019}.
 
 A construção do classificador envolve também a escolha dos hiper-parâmetros que produzem os melhores resultados.
+
 
 %%________________________________________________________________________
 \subsection{Desenvolvimento da Aplicação \textit{web}}
@@ -588,7 +605,7 @@ A construção do classificador envolve também a escolha dos hiper-parâmetros que 
 %%________________________________________________________________________
 
 A aplicação \textit{web} desenvolvida tem duas páginas: página (1) que permite escolher o vídeo sobre o qual se pretende visualizar os resultados; página (2) que permite visualizar os resultados devolvidos pelo classificador (para um determinado vídeo).
-O \textit{design} destas páginas encontra-se nas figuras \ref{} e \ref{fig:paginaweb2}. Todo o processamento efetuado sobre o áudio é realizado antes de mostrar os resultados nesta aplicação.
+O \textit{design} destas páginas encontra-se nas figuras \ref{} e \ref{fig:paginaweb2}. Todo o processamento efetuado sobre o áudio é realizado antes de apresentar os resultados nesta aplicação.
 
 (Colocar aqui o design da página 1).
 
