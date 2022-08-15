@@ -23,8 +23,6 @@ Methods to create the dataset
 """
 
 
-
-
 def get_range_label(ini_idx, final_idx, video_number):
 
     # read the .csv file
@@ -168,6 +166,21 @@ def get_data_features(data, vd_index, nr_groups, nr_samples_per_group, nr_shifte
 
         elif (not is_ball_hit) and vd_index in non_ball_hit_vd_idx:
             nr_non_ball_hits += 1
+
+        """
+        # USAR NO CASO DO ODM
+        file_rows.append(feature_arr)
+        if is_ball_hit:
+            nr_ball_hits += 1
+
+        elif not is_ball_hit:
+            nr_non_ball_hits += 1
+        
+        """
+
+
+
+
     """
     # para efeitos de contagem de eventos (equilíbrio do dataset)
     print("VIDEO: ", vd_index)
@@ -180,6 +193,38 @@ def get_data_features(data, vd_index, nr_groups, nr_samples_per_group, nr_shifte
     return nr_ball_hits, nr_non_ball_hits
 
 
+def get_data_features_v2(data, vd_index, nr_groups, nr_samples_per_group, nr_shifted_samples, file_rows, sample_rate):
+    nr_ball_hits = 0
+    nr_non_ball_hits = 0
+
+    # features
+    f1, f2, f3 = get_features(data, nr_groups, nr_samples_per_group, nr_shifted_samples, sample_rate)
+    f1 = np.array(list(f1.as_numpy_iterator()))
+    f2 = np.array(list(f2.as_numpy_iterator()))
+    f3 = np.array(list(f3.as_numpy_iterator()))
+    # print("Shape f1: ", len(f1), "Shape f2: ", len(f2), "Shape f3: ", len(f3)) # debug
+
+    for j in range(len(f1)):  # f1, f2 and f3 have the same shape
+
+        # verify if it's ball hit
+        ini_idx = j * nr_shifted_samples
+        final_idx = j * nr_shifted_samples + (nr_groups*nr_samples_per_group)
+        is_ball_hit = get_range_label(ini_idx, final_idx, vd_index)
+        # print("ini_idx: ", ini_idx, "  final_idx: ", final_idx) # debug
+
+        # organize features and label in an array
+        feature_arr = organize_feature_values(f1[j], f2[j], f3[j], is_ball_hit)
+
+        file_rows.append(feature_arr)
+        if is_ball_hit:
+            nr_ball_hits += 1
+
+        elif not is_ball_hit:
+            nr_non_ball_hits += 1
+
+    return nr_ball_hits, nr_non_ball_hits
+
+
 def construct(paths, nr_groups, nr_samples_per_group,
                          nr_shifted_samples, features_file,
                          file_rows, sample_rate=44100):
@@ -188,6 +233,7 @@ def construct(paths, nr_groups, nr_samples_per_group,
     total_non_ball_hits = 0
 
     non_ball_hit_vd_idx = [35, 36, 37, 40, 47, 52]
+    # non_ball_hit_vd_idx = [] # ODM
 
     files = np.array(list(os.listdir(paths[0])))
     for i in range(len(files)):
@@ -199,10 +245,39 @@ def construct(paths, nr_groups, nr_samples_per_group,
         audio_path = paths[1] + "/" + "AUDIO_" + str(vd_idx) + ".wav"
         video.audio.write_audiofile(audio_path, fps=sample_rate)
         y, sr = librosa.load(audio_path, sr=None)
-        #print("y.shape: ", y.shape)
 
         nr_ball_hits, nr_non_ball_hits = get_data_features(y, vd_idx, nr_groups, nr_samples_per_group,
                         nr_shifted_samples,file_rows, non_ball_hit_vd_idx, sample_rate)
+
+        total_ball_hits += nr_ball_hits
+        total_non_ball_hits += nr_non_ball_hits
+
+    features_file.write_lines_on_file(file_rows)
+
+    print("\n\nTotal ball hits: ", total_ball_hits)
+    print("Total NON ball hits: ", total_non_ball_hits)
+
+
+def construct_v2(paths, nr_groups, nr_samples_per_group,
+                         nr_shifted_samples, features_file,
+                         file_rows, sample_rate=44100):
+
+    total_ball_hits = 0
+    total_non_ball_hits = 0
+
+    files = np.array(list(os.listdir(paths[0])))
+    for i in range(len(files)):
+        v = Video(paths[0], files[i])
+        video = v.get_file()
+        vd_idx = int(files[i].split(".")[0].split("_")[1][0:])
+        print("Processing data from video number ", vd_idx, "...")
+
+        audio_path = paths[1] + "/" + "AUDIO_" + str(vd_idx) + ".wav"
+        video.audio.write_audiofile(audio_path, fps=sample_rate)
+        y, sr = librosa.load(audio_path, sr=None)
+
+        nr_ball_hits, nr_non_ball_hits = get_data_features_v2(y, vd_idx, nr_groups, nr_samples_per_group,
+                        nr_shifted_samples,file_rows, sample_rate)
 
         total_ball_hits += nr_ball_hits
         total_non_ball_hits += nr_non_ball_hits

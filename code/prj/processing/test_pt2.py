@@ -18,6 +18,8 @@ from sklearn.metrics import confusion_matrix
 from keras.models import Sequential
 from keras.layers import Dense
 
+import tensorflow as tf
+
 
 # =================================================================================
 # Iniciar contagem de tempo de processamento ...
@@ -39,6 +41,7 @@ k_folds = 5
 tt_split_indexes = datasetConstructor.stratified_fold_split(k_folds, seed=None)
 
 cvscores = []
+losses = []
 nr_models = -1
 
 fig, ax = plt.subplots(nrows=1, ncols=2, sharex=True)
@@ -49,8 +52,8 @@ for train_index, test_index in tt_split_indexes.split(X, Y):
     # =================================================================================
 
     model = Sequential()
-    model.add(Dense(15, input_dim=33, activation='relu'))
-    model.add(Dense(15, activation='relu'))
+    model.add(Dense(35, input_dim=66, activation='relu'))
+    #model.add(Dense(18, activation='relu'))
     model.add(Dense(1, activation='sigmoid'))
 
     # =================================================================================
@@ -58,7 +61,7 @@ for train_index, test_index in tt_split_indexes.split(X, Y):
     # =================================================================================
 
     model.compile(loss='binary_crossentropy',
-                  optimizer='adam',
+                  optimizer=tf.keras.optimizers.Adam(learning_rate=0.1),
                   metrics=['accuracy'])
 
     X_train, y_train = X[train_index], Y[train_index]
@@ -66,7 +69,7 @@ for train_index, test_index in tt_split_indexes.split(X, Y):
 
     print("\n\nModel Summary: ")
     print(model.summary())
-    history = model.fit(X_train, y_train, epochs=10, batch_size=33, verbose=2)
+    history = model.fit(X_train, y_train, epochs=200, batch_size=512, verbose=2)
 
     # save model
     nr_models = directoryManipulator.get_nr_of_files("../models/constructed_models/")
@@ -92,9 +95,10 @@ for train_index, test_index in tt_split_indexes.split(X, Y):
     print("\n\nClassification Report: ")
     print(classification_report(y_test, y_predict))
 
-    loss, accuracy = model.evaluate(X_test, y_test, batch_size=33, verbose=0)
+    loss, accuracy = model.evaluate(X_test, y_test, verbose=0)
 
     cvscores.append(accuracy * 100)
+    losses.append(loss * 100)
 
     print("\n\nEvaluation Matrics:")
     print("Accuracy: ", accuracy)
@@ -119,8 +123,11 @@ for train_index, test_index in tt_split_indexes.split(X, Y):
 
 nr_models = directoryManipulator.get_nr_of_files("../models/constructed_models/")
 fig.savefig('../models/models_graphs/models_' + str(nr_models - 4) + '_to_' + str(nr_models) + '.png')
-print("\n\n%.2f%% (+/- %.2f%%)" % (np.mean(cvscores), np.std(cvscores)))
+print("\n\nAverage accuracy:%.2f%% (+/- %.2f%%)" % (np.mean(cvscores), np.std(cvscores)))
+print("Average accuracy:%.2f%% (+/- %.2f%%)" % (np.mean(losses), np.std(losses)))
 plt.show()
+
+
 
 
 """
@@ -137,5 +144,5 @@ plt.show()
 end = time.time()
 #  dif = (end - start)/60
 dif = end - start
-print('Processing time: ', np.round_(dif, 0), "seconds")
+print('\n\nProcessing time: ', np.round_(dif, 0), "seconds")
 
