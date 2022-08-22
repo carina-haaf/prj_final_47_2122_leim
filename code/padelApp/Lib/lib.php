@@ -9,61 +9,68 @@ function getDirNumberOfFiles($directory){
 }
 
 
-function getClassesName($directory_path){
+function get($directoryVideoPath, $desiredType="all"){
+    // abrir o ficheiro
+    $pathToDataClassesFile = $directoryVideoPath . "/clips_info.txt";
+    $myfile = fopen($pathToDataClassesFile, "r") or die("Unable to open file!");
     
-    $files = scandir($directory_path);
-    $classes = array();
-    for($i = 0; $i < getDirNumberOfFiles($directory_path); $i++){
-        $str = $files[$i];
-        $str2 = explode(".", $str )[0];
-        $str3 = explode("_", $str2 )[2];
+    //iterar sobre o ficheiro
+    while(!feof($myfile)) {
+        $line = fgets($myfile);
+
+        // colocar no array: indice, t_ini, t_fin, nome do mini clip
+        // mas antes garantir que estes valores existem
+        $info = explode(";", $line );
+        if(isset($info[0]) && isset($info[3]) && isset($info[4]) && 
+                isset($info[5]) && isset($info[6])){
+            $index = $info[0];
+            $type = $info[5];
+            $ini = $info[3];
+            $fin = $info[4];
+            $name = $info[6];
+        }
         
-        $class = $str3;
-        $classes[] = $class;
-    }    
-    return $classes;
-}
-
-
-function getVideoNamesByClass($directory_path){
-    
-    $files = scandir($directory_path);
-
-
-    for($x = 2; $x < count($files) - 2; $x++) {
-
-        $videoNumber = getVideoNumber($files[$x]);
-        $video_class = getVideoClass($files[$x]);
-
-        
-        $result[] = array( 
-            'index'=>$videoNumber, 
-            'type'=> $video_class);
+        // caso se queira só os clips de uma classe não vale a pena
+        // colocar os exemplos de outras classes também
+        if( ($type !== $desiredType && $desiredType !== "all")){continue;}
+                
+        $result[] = array(
+            'index'=>$index, 
+            'type'=> $type,
+            'ini' => $ini,
+            'fin' => $fin,
+            'name' => $name);
     }
+    fclose($myfile);
+    sort($result);
     
     return $result;
+    
 }
 
 
 function getVideoClass($videoName){
-    $str = $videoName;
-    $str2 = explode(".", $str )[0];
-    $str3 = explode("_", $str2 )[2];
-
-    $class = $str3;
     
-    return $class;
 }
 
 function getVideoNumber($videoName){
-    $str = $videoName;
-    $str2 = explode(".", $str )[0];
-    $str3 = explode("_", $str2 )[1];
-
-    $number = $str3;
     
-    return $number;
 }
+
+function getDataClasses($directoryVideoPath){
+    
+    $pathToDataClassesFile = $directoryVideoPath . "/dataset/dataset_classes.txt";
+    $myfile = fopen($pathToDataClassesFile, "r") or die("Unable to open file!");
+    
+    while(!feof($myfile)) {
+      $line = fgets($myfile);
+    }
+    fclose($myfile);
+    $classeNames = explode(";", $line );
+    
+    return $classeNames;
+}
+    
 
 
 

@@ -16,7 +16,7 @@ function GetXmlHttpObject() {
 }
 
 
-
+var selectedClass;
 function SelectEventsOnChange(theSelect){
     // mudar  o video 
     /*
@@ -26,7 +26,7 @@ function SelectEventsOnChange(theSelect){
     */
     
     // The new option
-    var selectedClass = theSelect.value;
+    selectedClass = theSelect.value;
 
     var args = "class="+selectedClass;
     
@@ -41,90 +41,130 @@ function SelectEventsOnChange(theSelect){
 }
 
 function SelectEventsHandleReply(){
-    //alert( xmlHttp.readyState );
-  
-  if( xmlHttp.readyState === 4 && xmlHttp.status === 200) {
-    var countySelect=document.getElementById("county");
-
-    countySelect.options.length = 0;
-    var counties = JSON.parse( xmlHttp.responseText );
-    
-    //alert( counties );
-    
-    for (i=0; i<counties.length; i++) {
-      var currentCounty = counties[i];
-      
-      var value  = currentCounty.index;
-      var option = currentCounty.type;
-	  
-      try{
-        countySelect.add( new Option("", value), null);
-      }
-      catch(e) {
-        countySelect.add( new Option("", value) );
-      }
-      
-      countySelect.options[i].innerHTML = option;
-    }
-  }
-}
-
-
-
-
-
-
-
-// The District Select has change
-function SelectDistrictChange(theSelect) {
-  // The new option
-  var selectedDistrict = theSelect.value;
-  
-  // The new image to display
-  var districtImageFile = "images/distritos/" + selectedDistrict + ".gif";
-  document.getElementById("imgDistrict").src = districtImageFile;
-
-  // Preparing the arguments to request the counties
-  var args = "district="+selectedDistrict;
-  
-  // With HTTP GET method
-  xmlHttp = GetXmlHttpObject();
-  xmlHttp.open("GET", "getCounties.php?"+args, true);
-  xmlHttp.onreadystatechange=SelectDistrictHandleReply;
-  xmlHttp.send(null);
-}
-
-//Fill in the counties for the new district
-function SelectDistrictHandleReply() {
-  
-  //alert( xmlHttp.readyState );
   
   if( xmlHttp.readyState === 4 ) {
-    var countySelect=document.getElementById("county");
-
-    countySelect.options.length = 0;
-
     //alert( xmlHttp.responseText );
     
-    var counties = JSON.parse( xmlHttp.responseText );
+    var clips = JSON.parse( xmlHttp.responseText );
     
-    //alert( counties );
-
-    for (i=0; i<counties.length; i++) {
-      var currentCounty = counties[i];
-      
-      var value  = currentCounty.idCounty;
-      var option = currentCounty.nameCounty;
-	  
-      try{
-        countySelect.add( new Option("", value), null);
-      }
-      catch(e) {
-        countySelect.add( new Option("", value) );
-      }
-      
-      countySelect.options[i].innerHTML = option;
+    // eliminar os elementos filhos no container
+    var container = document.getElementById("selectsContainer");
+    container.innerHTML  = '';
+    
+    // para cada video
+    for (i=0; i < clips.length; i++) {
+        
+        var currentClip = clips[i];
+        var option = currentClip.type;
+        var value  = currentClip.index;
+        var name  = currentClip.name;
+       
+        // criar um select
+        var newSelect = document.createElement("SELECT");
+        newSelect.setAttribute("id", "select" + value);
+        
+        // colocar as options dentro do select
+        insertOptions(newSelect, value, option);
+                
+        // adicionar o select ao contentor
+        container.appendChild(newSelect);
+        
+        // colocar botão de play
+        var playbttn = document.createElement("BUTTON");
+        var text = document.createTextNode("Click me");
+        playbttn.appendChild(text);
+        playbttn.type="button";
+        playbttn.onclick = LoadVideo(name);
+        container.appendChild(playbttn);
+        
+        // criar <br>
+        var br = document.createElement("BR");
+        container.appendChild(br);
+        var br = document.createElement("BR");
+        container.appendChild(br);
+        
     }
   }
 }
 
+function LoadVideo(name){
+    // mudar o source do video
+    document.getElementById("vid").src = "videos/vid_20_08_2022_17_22/clips" + name;
+}
+
+
+function insertOptions(selectElement, value, option){
+    var newValue = option + "_" +value;
+    try{
+      selectElement.add( new Option(option, newValue), null);
+    }
+    catch(e) {
+      selectElement.add( new Option(option, newValue) );
+    }
+
+    selectElement.options[0].innerHTML = option;
+    
+    if(option === "noise"){
+        option = "ball-hit";
+        var newValue = option + "_" +value;
+        
+        try{
+            selectElement.add( new Option(option, newValue), null);
+          }
+          catch(e) {
+            selectElement.add( new Option(option, newValue) );
+          }
+
+          selectElement.options[1].innerHTML = option;
+    }
+    
+    else if(option === "ball-hit"){
+        option = "noise";
+        var newValue = option + "_" +value;
+        
+        try{
+            selectElement.add( new Option(option, newValue), null);
+          }
+          catch(e) {
+            selectElement.add( new Option(option, newValue) );
+          }
+
+          selectElement.options[1].innerHTML = option;
+    }
+}
+
+
+function SelectAllEvents(){
+   
+    // The new option
+    selectedClass = "all";
+
+    var args = "class="+selectedClass;
+    
+    //alert(selectedClass);
+    // With HTTP GET method
+    xmlHttp = GetXmlHttpObject();
+    xmlHttp.open("GET", "get.php?" + args, true);
+    xmlHttp.onreadystatechange=SelectEventsHandleReply;
+    xmlHttp.send(null);
+}
+
+function LoadClasses(classesArray){
+    
+    
+    var selectElement = document.getElementById("classSelect");
+    for (let i = 0; i < classesArray.length; i++) {
+        var optionName = classesArray[i];
+        var value = optionName;
+        
+        try{
+            selectElement.add( new Option(optionName, value), null);
+        }
+        catch(e) {
+          selectElement.add( new Option(optionName, value));
+        }
+        
+        // i+1 por causa da opção "all" que já lá está
+        selectElement.options[i+1].innerHTML = optionName; 
+    }
+}

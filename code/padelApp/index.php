@@ -4,46 +4,68 @@
 <?php 
 
 include_once './Lib/lib.php';
+include './Lib/constants.php';
 
-$directory_path = "videos/vid_20_08_2022_17_22/";
-$nr_files = getDirNumberOfFiles($directory_path);
-
-# $classes = getClassesName($directory_path); 
-$classes = array("ball_hit", "noise");
-
-
+$classes = getDataClasses($directoryVideoPath);
+    
 ?>
 
 <html>
     <head>
-        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+        <meta http-equiv='Content-Type' 
+              content='text/html; charset=utf-8'>
         <title>yo</title>
+        
+        <link REL="stylesheet" TYPE="text/css" href="Lib/styles.css">
         
         
         <script type="text/javascript" src="Lib/jsScripts.js">
         </script>
     </head>
-    <body>
-        <div><!-- contentor raiz -->
-            <select id="cars" name="cars" onchange="SelectEventsOnChange(this)">
-                <option value="none"></option>
-                <option value="all">all</option>
-                <option value="ball_hit">ball-hit</option>
-                <option value="noise">noise</option>
-            </select>
-            
-        </div>
+    <body onload='SelectAllEvents(); 
+        LoadClasses(<?php echo json_encode($classes); ?>)'>
         
-        <div id = "container">
-            County:<br>
-            <select
-              name="county" 
-              id="county" 
-              size="1">
-            </select><br>
+        <!-- contentor raiz -->
+        <div>
             
-        </div>
+            <!-- contentor onde está o filtro -->
+            <div id = "topDiv" class="topDiv"> 
+                <select id="classSelect" onchange="SelectEventsOnChange(this)">
+                    <option value="all">all</option>
+                </select><br><br>
+            </div>
+            
+            
+            <script type="text/javascript">
+            </script>
+            
+            <!-- contentor onde estão os selects e o video -->
+            <div id = "middleDiv" class="middleDiv">
+                
+                
+                
+                <div id = "selectsContainer" class="selectsContainer">
+                </div> 
+                
+                
+                
+                <div id = "videoDiv" class="videoDiv">
+                    <video id="vid" width="400" controls >
+                        <source src="videos/vid_20_08_2022_17_22/hits/clip_101_ball_hit.mp4" 
+                                type="video/mp4" >
+                        Your browser does not support the video tag.
+                    </video>
+                    <!-- videos/vid_20_08_2022_17_22/hits/clip_101_ball_hit.mp4#t=2,5 -->
+                  
+                
+                </div>
+                
+                
+            </div>           
         
+        
+        
+        </div> 
         
     </body>
 </html>
