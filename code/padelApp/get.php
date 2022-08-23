@@ -10,5 +10,4 @@ if(isset($_GET['class'])){
 $result = get($directoryVideoPath, desiredType: $class);
 
 echo json_encode($result);
-?>
 

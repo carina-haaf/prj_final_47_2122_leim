@@ -70,7 +70,77 @@ function getDataClasses($directoryVideoPath){
     
     return $classeNames;
 }
+   
+
+function getFirstClipName($directoryVideoPath){
+    // abrir o ficheiro
+    $pathToDataClassesFile = $directoryVideoPath . "/clips_info.txt";
+    $myfile = fopen($pathToDataClassesFile, "r") or die("Unable to open file!");
     
+    $line = fgets($myfile);
+    $info = explode(";", $line );
+    
+    if(isset($info[6])){
+        $name = $info[6];
+    }
+    
+    return $name;
+}
+
+function getFirstClipIniAndFin($directoryVideoPath){
+   
+    $pathToDataClassesFile = $directoryVideoPath . "/clips_info.txt";
+    $myfile = fopen($pathToDataClassesFile, "r") or die("Unable to open file!");
+    
+    $line = fgets($myfile);
+    $info = explode(";", $line );
+    
+    if(isset($info[3]) && isset($info[4])){
+        $ini = $info[3];
+        $fin = $info[4];
+    }
+    
+    return array($ini, $fin);
+}
+
+
+function getClipInfo($directoryVideoPath, $next, $number){
+    if($next == 'true') { $desiredClipNumber = 0 +$number + 1; }
+    else if($next == 'false') { $desiredClipNumber = 0 +$number - 1; } 
+    else { echo 'Invalid $next value!'; exit(0); }
+        
+    $pathToDataClassesFile = $directoryVideoPath . "/clips_info.txt";
+    $myfile = fopen($pathToDataClassesFile, "r") or die("Unable to open file!");
+    
+    while(!feof($myfile)) {
+        $line = fgets($myfile);
+
+        $info = explode(";", $line );
+        if(isset($info[0]) && isset($info[3]) && isset($info[4]) && 
+                isset($info[5]) && isset($info[6])){
+            $index = $info[0];
+            $type = $info[5];
+            $ini = $info[3];
+            $fin = $info[4];
+            $name = $info[6];
+        }
+         
+        if( $index == $desiredClipNumber ){
+            $result[] = array(
+            'index'=>$index, 
+            'type'=> $type,
+            'ini' => $ini,
+            'fin' => $fin,
+            'name' => $name);
+        
+        fclose($myfile);
+        return $result;
+        }
+    }
+    fclose($myfile);
+    
+    return array();
+}
 
 
 
