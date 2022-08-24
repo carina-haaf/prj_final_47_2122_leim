@@ -5,7 +5,6 @@ include_once './Lib/constants.php';
 
 
 
-
 if(isset($_GET['currentClipNumber'])){
     $number = $_GET[ "currentClipNumber" ];
 }
@@ -26,9 +25,6 @@ else if ($event == "noise" || $event == "ball-hit"){
 else{
     echo "Invalid data!"; exit(0);
 }
-
-
-
 
 echo json_encode($result);
 

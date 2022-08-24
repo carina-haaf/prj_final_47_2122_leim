@@ -199,6 +199,23 @@ function getEventTypeClipInfo($directoryVideoPath, $next, $number, $desiredType=
 }
 
 
+function getNumberOfExamples($directoryVideoPath){
+    $pathToDataClassesFile = $directoryVideoPath . "/clips_info.txt";
+    $myfile = fopen($pathToDataClassesFile, "r") or die("Unable to open file!");
+    
+    $numberOfExamples = 0;
+    
+    //iterar sobre o ficheiro
+    while(!feof($myfile)) {
+        fgets($myfile);
+        $numberOfExamples += 1;
+    }
+    fclose($myfile);
+    
+    return $numberOfExamples;    
+}
+
+
 
 
 

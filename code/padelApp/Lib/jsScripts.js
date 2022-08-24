@@ -55,7 +55,11 @@ function SelectEventsHandleReply(){
             var name  = currentClip.name;
             var ini = currentClip.ini;
             var fin = currentClip.fin;
-
+            
+            // div para o select
+            var newDiv = document.createElement("DIV");
+            newDiv.setAttribute("id", "div_" + value);
+             
             // criar um select com o tipo de evento
             var newSelect = document.createElement("SELECT");
             newSelect.setAttribute("id", "select" + value);
@@ -81,17 +85,18 @@ function SelectEventsHandleReply(){
             var br2 = document.createElement("BR");
 
             // colocar tempos inicial e final
-            var iniTextNode = document.createTextNode(ini); 
+            var iniTextNode = document.createTextNode(ini + " - "); 
             var finTextNode = document.createTextNode(fin); 
 
-            // adicionar ao contentor/div
-            container.appendChild(newSelect);
-            container.appendChild(playbttn);
-            container.appendChild(iniTextNode);
-            container.appendChild(finTextNode);
-
+            // adicionar ao container
+            newDiv.appendChild(newSelect);
+            newDiv.appendChild(iniTextNode);
+            newDiv.appendChild(finTextNode);
+            newDiv.appendChild(playbttn);
+            
+            container.appendChild(newDiv);
             container.appendChild(br1);
-            container.appendChild(br2);
+            //container.appendChild(br2);
         }
         
         // garantir que quando o refresh é feito, o primeiro vídeo 
@@ -123,7 +128,17 @@ function SetEventPeriod(ini, fin){
 }
 
 function LoadNewVideo(clipName){
+    var nrOfEvents = document.getElementById("nrOfEvents").value;
+    // ir a todos os divs do select e colocar com a cor neutra
+    for (let i = 0; i < nrOfEvents - 1; i++){
+        var currentDiv = document.getElementById("div_" + i);
+        if(currentDiv !== null){
+            currentDiv.style.backgroundColor = "coral";
+        }
+        
+    }
     
+    // carregar o video novo
     LoadVideo(dirVideoPath, clipName);
 }
 
@@ -135,8 +150,7 @@ function LoadVideo(directoryVideoPath, clipName){
     var video = document.createElement('VIDEO');
     var source = document.createElement('SOURCE');
     
-    var clipNumber = clipName.split("_")[1];
-    
+    var clipNumber = clipName.split("_")[1]; 
     
     video.setAttribute("id", "video");
     video.setAttribute("class", "video");
@@ -149,7 +163,16 @@ function LoadVideo(directoryVideoPath, clipName){
     source.setAttribute('type', 'video/mp4');
     
     video.appendChild(source);
-    container.appendChild(video);    
+    container.appendChild(video);  
+    
+    
+    
+    // colocar background do div de outra cor
+    var selectedVideoDiv = document.getElementById("div_" + clipNumber);
+    if(selectedVideoDiv !== null){
+        selectedVideoDiv.style.backgroundColor = "pink";
+    }
+    
     
 }
 

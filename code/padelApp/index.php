@@ -8,7 +8,7 @@ include './Lib/constants.php';
 $classes = getDataClasses($directoryVideoPath);
 $firstClipName = getFirstClipName($directoryVideoPath);
 $firstIniAndFin = getFirstClipIniAndFin($directoryVideoPath);
-    
+$numberOfExamples = getNumberOfExamples($directoryVideoPath);
 ?>
 
 <html>
@@ -28,6 +28,9 @@ $firstIniAndFin = getFirstClipIniAndFin($directoryVideoPath);
     <body onload='SelectAllEvents("<?php echo $directoryVideoPath; ?>"); 
         LoadClasses(<?php echo json_encode($classes); ?>); 
         LoadVideo(<?php echo json_encode($directoryVideoPath); ?>, <?php echo json_encode($firstClipName); ?>); '>
+        
+        <!-- hidden element -->
+        <input id="nrOfEvents" type="hidden" value="<?php echo $numberOfExamples; ?>" >
         
         <!-- contentor raiz -->
         <div>
