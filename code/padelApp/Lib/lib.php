@@ -104,7 +104,8 @@ function getFirstClipIniAndFin($directoryVideoPath){
 }
 
 
-function getClipInfo($directoryVideoPath, $next, $number){
+function getAllEventTypeClipInfo($directoryVideoPath, $next, $number){
+            
     if($next == 'true') { $desiredClipNumber = 0 +$number + 1; }
     else if($next == 'false') { $desiredClipNumber = 0 +$number - 1; } 
     else { echo 'Invalid $next value!'; exit(0); }
@@ -138,6 +139,61 @@ function getClipInfo($directoryVideoPath, $next, $number){
         }
     }
     fclose($myfile);
+    
+    return array();
+}
+
+
+function getEventTypeClipInfo($directoryVideoPath, $next, $number, $desiredType="all"){ 
+    $pathToDataClassesFile = $directoryVideoPath . "/clips_info.txt";
+    $myfile = fopen($pathToDataClassesFile, "r") or die("Unable to open file!");
+    $result = array();
+    
+    while(!feof($myfile)) {
+        $line = fgets($myfile);
+
+        $info = explode(";", $line );
+        if(isset($info[0]) && isset($info[3]) && isset($info[4]) && 
+                isset($info[5]) && isset($info[6])){
+            $index = $info[0];
+            $type = $info[5];
+            $ini = $info[3];
+            $fin = $info[4];
+            $name = $info[6];
+        }
+        
+        if($type !== $desiredType && $desiredType !== "all"){continue;}
+        
+        if($next === "true" && 0+$index > 0+$number){
+            $result[] = array(
+                'index'=>$index, 
+                'type'=> $type,
+                'ini' => $ini,
+                'fin' => $fin,
+                'name' => $name);
+
+            fclose($myfile);
+            return $result;
+        }
+        
+        
+        if($next === "false" && $index < $number){
+            $result[] = array(        
+                'index'=>$index, 
+                'type'=> $type,
+                'ini' => $ini,
+                'fin' => $fin,
+                'name' => $name);
+           
+        }
+    }
+    
+    if($next == "false" && count($result) > 0){
+        fclose($myfile);
+        $size = count($result);
+        $result[] = $result[$size - 1];
+        return $result;
+    }
     
     return array();
 }

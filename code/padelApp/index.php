@@ -49,18 +49,25 @@ $firstIniAndFin = getFirstClipIniAndFin($directoryVideoPath);
                 <div id = "selectsContainer" class="selectsContainer">
                 </div> 
                 
-                
-                <div id = "videoDiv" class="videoDiv">
-                    <p><?php echo "Selected period: " . $firstIniAndFin[0] . " - " . $firstIniAndFin[1] ; ?></p>
+                <div class="videoContainer">
+                    
+                    <div id = "videoDiv" class="videoDiv">
+                        <p><?php echo "Selected period: " . $firstIniAndFin[0] . " - " . $firstIniAndFin[1] ; ?></p>
 
+                    </div>
+
+                    <div id = "previousNextDiv" class="previousNextDiv">
+                        <button id='next' onclick='GetPreviousClip("<?php echo $directoryVideoPath; ?>", document.getElementById("video").getAttribute("name"))'>Previous</button>
+                        <button id='previous' onclick='GetNextClip("<?php echo $directoryVideoPath; ?>", document.getElementById("video").getAttribute("name"))'>Next</button>
+                    </div>
+                    
                 </div>
-                <div id = "previousNextDiv" class="previousNextDiv">
-                    <button id='next' onclick='GetPreviousClip("<?php echo $directoryVideoPath; ?>", document.getElementById("video").getAttribute("name"))'>Previous</button>
-                    <button id='previous' onclick='GetNextClip("<?php echo $directoryVideoPath; ?>", document.getElementById("video").getAttribute("name"))'>Next</button>
-                </div>
+                
+                
                 
             </div>           
-        
+            
+           
         
         
         </div> 

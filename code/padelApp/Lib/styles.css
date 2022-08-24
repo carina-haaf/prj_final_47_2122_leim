@@ -5,10 +5,18 @@
     Author     : carin
 */
 
+.topDiv{
+    background-color:bisque;
+}
+
+.middleDiv{
+    width:110%;
+}
+
 .selectsContainer{
     background-color:coral;
     
-    padding:4px;
+    
     height: 500px;
     
     overflow-x: hidden;
@@ -16,22 +24,20 @@
     
     /* parte da divisão em duas colunas */
     float: left;
-    width: 40%;
+    width: 30%;
     
 }
 
-.topDiv{
-    background-color:bisque;
-}
-
-
-.videoDiv{
-    
+.videoContainer{
     background-color:burlywood;    
     
     /* parte da divisão em duas colunas */
     float: left;
-    width: auto;
-    
+    width: 60%;
 }
+
+.video{
+    width: 90%;
+}
+
 

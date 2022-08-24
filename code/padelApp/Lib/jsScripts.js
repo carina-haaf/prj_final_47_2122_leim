@@ -56,7 +56,6 @@ function SelectEventsHandleReply(){
             var ini = currentClip.ini;
             var fin = currentClip.fin;
 
-
             // criar um select com o tipo de evento
             var newSelect = document.createElement("SELECT");
             newSelect.setAttribute("id", "select" + value);
@@ -141,7 +140,7 @@ function LoadVideo(directoryVideoPath, clipName){
     
     video.setAttribute("id", "video");
     video.setAttribute("class", "video");
-    // video.setAttribute("width", "400");
+    video.setAttribute("width", "100");
     video.setAttribute("controls", '');
     video.setAttribute("name", clipNumber);
     
@@ -237,7 +236,8 @@ function GetNextClip(directoryVideoPath, number){
     
     dirVideoPath = directoryVideoPath;
     
-    var args = "currentClipNumber="+number+"&next=true";
+    var eventType = document.getElementById("classSelect").value;
+    var args = "currentClipNumber="+number+"&next=true&event="+eventType;
     
     xmlHttp = GetXmlHttpObject();
     xmlHttp.open("GET", "nextPrevious.php?" + args, true);
@@ -247,7 +247,9 @@ function GetNextClip(directoryVideoPath, number){
 
 function GetPreviousClip(directoryVideoPath, number){
     dirVideoPath = directoryVideoPath;
-    var args = "currentClipNumber="+number+"&next=false";
+    
+    var eventType = document.getElementById("classSelect").value;
+    var args = "currentClipNumber="+number+"&next=false&event="+eventType;
     
     xmlHttp = GetXmlHttpObject();
     xmlHttp.open("GET", "nextPrevious.php?" + args, true);
