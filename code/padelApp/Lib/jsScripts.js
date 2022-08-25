@@ -55,6 +55,8 @@ function SelectEventsHandleReply(){
             var name  = currentClip.name;
             var ini = currentClip.ini;
             var fin = currentClip.fin;
+            var ini_idx = currentClip.ini_idx;
+            var fin_idx = currentClip.fin_idx;
             
             // div para o select
             var newDiv = document.createElement("DIV");
@@ -63,7 +65,14 @@ function SelectEventsHandleReply(){
             // criar um select com o tipo de evento
             var newSelect = document.createElement("SELECT");
             newSelect.setAttribute("id", "select" + value);
-
+            var onChangeEvent = "UpdateHidden('" + value + "', '" + ini_idx +  "', '" + fin_idx + "');";
+            newSelect.setAttribute("onchange", onChangeEvent); 
+                        
+            // elemento hidden com amostras inicial e final do evento
+            var hidden = document.createElement("INPUT");
+            hidden.setAttribute("type", "hidden");
+            hidden.setAttribute("name", "hidden"+value);
+            hidden.setAttribute("id", "hidden"+value);
             // colocar as options dentro do select
             insertOptions(newSelect, value, option);
 
@@ -76,7 +85,7 @@ function SelectEventsHandleReply(){
             playbttn.setAttribute("name", "play");
             playbttn.setAttribute("class", name);
 
-            var onclickEvent = " SetEventPeriod('" + ini + "', '" + fin + "');";
+            var onclickEvent = "SetEventPeriod('" + ini + "', '" + fin + "');";
             onclickEvent += "LoadNewVideo('" + name.trim() + "');";
             playbttn.setAttribute("onclick", onclickEvent);
 
@@ -86,9 +95,10 @@ function SelectEventsHandleReply(){
 
             // colocar tempos inicial e final
             var iniTextNode = document.createTextNode(ini + " - "); 
-            var finTextNode = document.createTextNode(fin); 
-
-            // adicionar ao container
+            var finTextNode = document.createTextNode(fin);            
+            
+            // adicionar os elementos ao container
+            newDiv.appendChild(hidden);
             newDiv.appendChild(newSelect);
             newDiv.appendChild(iniTextNode);
             newDiv.appendChild(finTextNode);
@@ -171,9 +181,8 @@ function LoadVideo(directoryVideoPath, clipName){
     var selectedVideoDiv = document.getElementById("div_" + clipNumber);
     if(selectedVideoDiv !== null){
         selectedVideoDiv.style.backgroundColor = "pink";
+        selectedVideoDiv.scrollIntoView({behavior: "smooth"});
     }
-    
-    
 }
 
 
@@ -302,3 +311,11 @@ function GetNextpreviousClipHandleReply(){
     }
 }
 
+// função que guarda a informação alterada pelo user
+function UpdateHidden(index, ini_idx, fin_idx){
+    // console.log(option + " " + ini_idx + " " + fin_idx);
+    var hidden = document.getElementById("hidden"+index);
+    var selectedEvent = document.getElementById("select"+index).value;
+    hidden.setAttribute("value", selectedEvent + "_" +ini_idx + "_" + fin_idx);
+
+}

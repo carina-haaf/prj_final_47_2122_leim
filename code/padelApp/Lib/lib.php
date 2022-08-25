@@ -22,8 +22,11 @@ function get($directoryVideoPath, $desiredType="all"){
         // mas antes garantir que estes valores existem
         $info = explode(";", $line );
         if(isset($info[0]) && isset($info[3]) && isset($info[4]) && 
-                isset($info[5]) && isset($info[6])){
+                isset($info[5]) && isset($info[6]) && isset($info[0]) && 
+                isset($info[1])){
             $index = $info[0];
+            $ini_idx = $info[1];
+            $fin_idx = $info[2];
             $type = $info[5];
             $ini = $info[3];
             $fin = $info[4];
@@ -39,6 +42,8 @@ function get($directoryVideoPath, $desiredType="all"){
             'type'=> $type,
             'ini' => $ini,
             'fin' => $fin,
+            'ini_idx' => $ini_idx,
+            'fin_idx' => $fin_idx,
             'name' => $name);
     }
     fclose($myfile);
@@ -118,8 +123,11 @@ function getAllEventTypeClipInfo($directoryVideoPath, $next, $number){
 
         $info = explode(";", $line );
         if(isset($info[0]) && isset($info[3]) && isset($info[4]) && 
-                isset($info[5]) && isset($info[6])){
+                isset($info[5]) && isset($info[6]) && isset($info[0]) && 
+                isset($info[1])){
             $index = $info[0];
+            $ini_idx = $info[1];
+            $fin_idx = $info[2];
             $type = $info[5];
             $ini = $info[3];
             $fin = $info[4];
@@ -132,6 +140,8 @@ function getAllEventTypeClipInfo($directoryVideoPath, $next, $number){
             'type'=> $type,
             'ini' => $ini,
             'fin' => $fin,
+            'ini_idx' => $ini_idx,
+            'fin_idx' => $fin_idx,
             'name' => $name);
         
         fclose($myfile);
@@ -156,6 +166,8 @@ function getEventTypeClipInfo($directoryVideoPath, $next, $number, $desiredType=
         if(isset($info[0]) && isset($info[3]) && isset($info[4]) && 
                 isset($info[5]) && isset($info[6])){
             $index = $info[0];
+            $ini_idx = $info[1];
+            $fin_idx = $info[2];
             $type = $info[5];
             $ini = $info[3];
             $fin = $info[4];
@@ -170,6 +182,8 @@ function getEventTypeClipInfo($directoryVideoPath, $next, $number, $desiredType=
                 'type'=> $type,
                 'ini' => $ini,
                 'fin' => $fin,
+                'ini_idx' => $ini_idx,
+                'fin_idx' => $fin_idx,
                 'name' => $name);
 
             fclose($myfile);
@@ -178,11 +192,13 @@ function getEventTypeClipInfo($directoryVideoPath, $next, $number, $desiredType=
         
         
         if($next === "false" && $index < $number){
-            $result[] = array(        
+            $result[] = array(
                 'index'=>$index, 
                 'type'=> $type,
                 'ini' => $ini,
                 'fin' => $fin,
+                'ini_idx' => $ini_idx,
+                'fin_idx' => $fin_idx,
                 'name' => $name);
            
         }
@@ -213,6 +229,30 @@ function getNumberOfExamples($directoryVideoPath){
     fclose($myfile);
     
     return $numberOfExamples;    
+}
+
+
+function isRegistered($directoryVideoPath, $index, $type){
+    $pathToDataClassesFile = $directoryVideoPath . "/clips_info.txt";
+    $myfile = fopen($pathToDataClassesFile, "r") or die("Unable to open file!");
+    
+    //iterar sobre o ficheiro
+    while(!feof($myfile)) {
+        $line = fgets($myfile);
+        
+        $info = explode(";", $line );
+        if(isset($info[0]) && isset($info[5])){
+            $eventIndex = $info[0];
+            $eventType = $info[5];
+            if($eventIndex == $index && $type == $eventType){
+                return true;
+            }
+        }
+    }
+    fclose($myfile);
+    
+    return false;
+    
 }
 
 

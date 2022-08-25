@@ -10,7 +10,7 @@
 }
 
 .middleDiv{
-    width:110%;
+    width:100%;
 }
 
 .selectsContainer{
@@ -37,7 +37,19 @@
 }
 
 .video{
-    width: 90%;
+    width: 100%;
+}
+
+.bottomDiv{
+    background-color: hotpink;
+    width: 100%;
+    float: right;
+}
+
+.buttonDiv{
+    margin-right: 10%;
+    background-color: thistle;
+    float: right;
 }
 
 

@@ -9,6 +9,8 @@ $classes = getDataClasses($directoryVideoPath);
 $firstClipName = getFirstClipName($directoryVideoPath);
 $firstIniAndFin = getFirstClipIniAndFin($directoryVideoPath);
 $numberOfExamples = getNumberOfExamples($directoryVideoPath);
+
+
 ?>
 
 <html>
@@ -35,45 +37,53 @@ $numberOfExamples = getNumberOfExamples($directoryVideoPath);
         <!-- contentor raiz -->
         <div>
             
-            <!-- contentor onde está o filtro -->
-            <div id = "topDiv" class="topDiv"> 
-                <select id="classSelect" onchange="SelectEventsOnChange(this, '<?php echo $directoryVideoPath; ?>');">
-                    <option value="all">all</option>
-                </select><br><br>
-            </div>
+            <form enctype="multipart/form-data"
+                    action="processForm.php"
+                    method="POST" >
             
-            
-                       
-            <!-- contentor onde estão os selects e o video -->
-            <div id = "middleDiv" class="middleDiv">
-                
-                
-                
-                <div id = "selectsContainer" class="selectsContainer">
-                </div> 
-                
-                <div class="videoContainer">
-                    
-                    <div id = "videoDiv" class="videoDiv">
-                        <p><?php echo "Selected period: " . $firstIniAndFin[0] . " - " . $firstIniAndFin[1] ; ?></p>
-
-                    </div>
-
-                    <div id = "previousNextDiv" class="previousNextDiv">
-                        <button id='next' onclick='GetPreviousClip("<?php echo $directoryVideoPath; ?>", document.getElementById("video").getAttribute("name"))'>Previous</button>
-                        <button id='previous' onclick='GetNextClip("<?php echo $directoryVideoPath; ?>", document.getElementById("video").getAttribute("name"))'>Next</button>
-                    </div>
-                    
+                <!-- contentor onde está o filtro -->
+                <div id = "topDiv" class="topDiv"> 
+                    <select id="classSelect" onchange="SelectEventsOnChange(this, '<?php echo $directoryVideoPath; ?>');">
+                        <option value="all">all</option>
+                    </select><br><br>
                 </div>
-                
-                
-                
-            </div>           
+
+
+                <!-- contentor onde estão os selects e o video -->
+                <div id = "middleDiv" class="middleDiv">
+
+
+
+                    <div id = "selectsContainer" class="selectsContainer">
+                    </div> 
+
+                    <div class="videoContainer">
+
+                        <div id = "videoDiv" class="videoDiv">
+                            <p><?php echo "Selected period: " . $firstIniAndFin[0] . " - " . $firstIniAndFin[1] ; ?></p>
+
+                        </div>
+
+                        <div id = "previousNextDiv" class="previousNextDiv">
+                            <input type="button" value="Previous" id='previous' onclick='GetPreviousClip("<?php echo $directoryVideoPath; ?>", document.getElementById("video").getAttribute("name"))'> 
+                            <input type="button" value="Next" id='next' onclick='GetNextClip("<?php echo $directoryVideoPath; ?>", document.getElementById("video").getAttribute("name"))'>
+                        </div>
+
+                    </div>                   
+                </div>
             
-           
-        
-        
-        </div> 
+                <br>
+                <div id = "bottomDiv" class="bottomDiv">
+                    <div class="buttonDiv">
+                        <input class="formButton" type="submit" name="Submit" value="Submit">
+                        <input class="formButton" type="reset" name="Reset" value="Reset"><p>
+                    </div>
+
+                </div>  
+
+            </form>
+            
+        </div>
         
     </body>
 </html>
