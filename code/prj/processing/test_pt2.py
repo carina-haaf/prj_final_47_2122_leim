@@ -10,16 +10,18 @@ import matplotlib.pyplot as plt
 from pandas import read_csv
 import numpy as np
 import time
-import os
 
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 
 from keras.models import Sequential
 from keras.layers import Dense
-
 import tensorflow as tf
+from keras import regularizers
 
+from keras.layers import Dropout
+
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 # =================================================================================
 # Iniciar contagem de tempo de processamento ...
@@ -35,16 +37,23 @@ print("The program is running...")
 dataset = read_csv("features_file.csv", header=None)
 X, Y = datasetConstructor.get_features_and_label_values(dataset, debug=True)
 
+# scaler = MinMaxScaler(feature_range=(0, 1))
+# transform data
+# X = scaler.fit_transform(X)
+# print(X_scaled)
 
+# print(np.min(X_scaled), np.max(X_scaled))
+#exit(0)
 # define k-fold cross validation test harness
 k_folds = 5
 tt_split_indexes = datasetConstructor.stratified_fold_split(k_folds, seed=None)
 
 cvscores = []
 losses = []
-nr_models = -1
+#nr_models = -1
 
 fig, ax = plt.subplots(nrows=1, ncols=2, sharex=True)
+nr_models = 125
 for train_index, test_index in tt_split_indexes.split(X, Y):
 
     # =================================================================================
@@ -52,8 +61,12 @@ for train_index, test_index in tt_split_indexes.split(X, Y):
     # =================================================================================
 
     model = Sequential()
-    model.add(Dense(35, input_dim=66, activation='relu'))
-    #model.add(Dense(18, activation='relu'))
+    model.add(Dense(66, input_shape=(66,), activation='relu'))
+    model.add(Dropout(0.6))
+    model.add(Dense(100, activation='relu'))
+    model.add(Dropout(0.2))
+    model.add(Dense(100, activation='relu'))
+    model.add(Dropout(0.2))
     model.add(Dense(1, activation='sigmoid'))
 
     # =================================================================================
@@ -61,7 +74,7 @@ for train_index, test_index in tt_split_indexes.split(X, Y):
     # =================================================================================
 
     model.compile(loss='binary_crossentropy',
-                  optimizer=tf.keras.optimizers.Adam(learning_rate=0.1),
+                  optimizer=tf.optimizers.Adam(learning_rate=0.001),
                   metrics=['accuracy'])
 
     X_train, y_train = X[train_index], Y[train_index]
@@ -69,11 +82,12 @@ for train_index, test_index in tt_split_indexes.split(X, Y):
 
     print("\n\nModel Summary: ")
     print(model.summary())
-    history = model.fit(X_train, y_train, epochs=200, batch_size=512, verbose=2)
+    history = model.fit(X_train, y_train, epochs=150, batch_size=128, verbose=2)
 
     # save model
-    nr_models = directoryManipulator.get_nr_of_files("../models/constructed_models/")
+    # nr_models = directoryManipulator.get_nr_of_files("../models/constructed_models/")
     model.save("../models/constructed_models/model_" + str(nr_models + 1))
+    nr_models += 1
 
     y_predict = model.predict(X_test)
     y_predict = np.where(y_predict > 0.5, 1, 0)
@@ -123,8 +137,8 @@ for train_index, test_index in tt_split_indexes.split(X, Y):
 
 nr_models = directoryManipulator.get_nr_of_files("../models/constructed_models/")
 fig.savefig('../models/models_graphs/models_' + str(nr_models - 4) + '_to_' + str(nr_models) + '.png')
-print("\n\nAverage accuracy:%.2f%% (+/- %.2f%%)" % (np.mean(cvscores), np.std(cvscores)))
-print("Average accuracy:%.2f%% (+/- %.2f%%)" % (np.mean(losses), np.std(losses)))
+print("\n\nAverage accuracy: %.2f%% (+/- %.2f%%)" % (np.mean(cvscores), np.std(cvscores)))
+print("Average loss: %.2f%% (+/- %.2f%%)" % (np.mean(losses), np.std(losses)))
 plt.show()
 
 

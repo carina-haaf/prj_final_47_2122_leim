@@ -5,6 +5,7 @@
 from processing import datasetConstructor
 from processing.directoryManipulator import *
 from processing.processCsvFile import *
+from filesManipulator.file import *
 
 
 # hyper parameters
@@ -22,7 +23,7 @@ clear_dir("../audios")
 
 file_rows = list()
 CsvFile.remove_file("../processing/features_file.csv")
-features_file = datasetConstructor.create_file("processing/features_file.csv")
+features_file = CsvFile("processing/features_file.csv", "w")
 
 paths_train = ["../videos", "../audios"]
 datasetConstructor.construct(paths_train, nog, spr, noss, features_file, file_rows)

@@ -64,6 +64,49 @@ class Video:
     def get_file(self):
         return self.video_clip
 
+def get_millis(ms):
+    while ms > 999:
+        ms -= 1000
+
+    ms_value = ms
+    return ms_value
+
+
+def fill(value_type, value):
+    if value_type != "hh" and value_type != "mm" and \
+            value_type != "ss" and value_type != "ms":
+        print("Wrong value type on fill method from test_pt6.py file")
+
+    string = "" + str(value)
+    if (value_type == "hh" or value_type == "mm" or value_type == "ss") and len(string) < 2:
+        string = "0" + str(value)
+    elif value_type == "ms":
+        while len(string) < 3:
+            string = "0" + string
+    return string
+
+
+def get_time(sample):
+    millis = int((sample * 1000) / 44100)
+    ms = get_millis(millis)
+    seconds = (millis/1000) % 60
+    seconds = int(seconds)
+    minutes = (millis/(1000 * 60)) % 60
+    minutes = int(minutes)
+    hours = (millis/(1000 * 60 * 60)) % 24
+    hours = hours if hours > 1 else 0  # porque há valores na ordem dos 1e-6
+
+    # print(hours, minutes, seconds, ms)
+
+    hh = fill("hh", hours)
+    mm = fill("mm", minutes)
+    ss = fill("ss", seconds)
+    millisec = fill("ms", ms)
+
+    s = str(hh) + ":" + str(mm) + ":" + str(ss) + "." + str(millisec)
+
+    return s
+
 """
 TESTES...
 
@@ -78,9 +121,17 @@ print(video.get_file())
 video = Video("padel.mp4")
 video.split_video(vd_idx_ini=33, debug=False)
 
+ou...
+
+rel_path_video = "../videos/train"
+video = Video("../videos/another/", "padel_127.mp4")
+video.split_video(vd_idx_ini=127, debug=False)
 
 
 
+
+
+# obter audios...
 import numpy as np
 rel_path_videos = "../videos/train"
 files = np.array(list(os.listdir(rel_path_videos)))
@@ -94,5 +145,11 @@ for i in range(len(files)):
 
 
 
-"""
 
+# gerar video através das amostras inicial e final
+ini = get_time(0)
+final = get_time(22528)
+newclip = mp.VideoFileClip("../test_videos/padel_58.mp4").subclip(ini, final)
+newclip.write_videofile("../test_videos/ewe.mp4")
+
+"""

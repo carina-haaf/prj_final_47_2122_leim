@@ -83,10 +83,9 @@ class CsvFile:
 
     @staticmethod
     def remove_file(path):
-        #print("Path:" + path)
         if os.path.exists(path) and os.path.isfile(path):
             os.remove(path)
-            print("file '" + path +"' has been deleted")
+            print("file '" + path + "' has been deleted")
         else:
             print("file '" + path + "' not found")
 

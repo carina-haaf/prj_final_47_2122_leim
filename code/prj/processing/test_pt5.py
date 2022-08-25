@@ -6,6 +6,8 @@
 # Imports ...
 # =================================================================================
 from processing import datasetConstructor
+from processing import videoClassifier
+from processing.videoProcessing import *
 from processing.directoryManipulator import *
 from processing.processCsvFile import *
 
@@ -20,17 +22,16 @@ noss = 1024  # number of sifted samples
 # obter dataset para videos a serem utilizados no treino do modelo....
 # =================================================================================
 
-clear_dir("../audios")
+clear_dir("../test_audios")
 
 file_rows = list()
 CsvFile.remove_file("../processing/features_test_file.csv")
-features_file = datasetConstructor.create_file("processing/features_test_file.csv")
+features_file = videoClassifier.create_file("processing/features_test_file.csv")
 
-paths_train = ["../test_videos", "../test_audios"]
-datasetConstructor.construct_v2(paths_train, nog, spr, noss, features_file, file_rows)
+v = Video("../test_videos", "padel_58.mp4")
+video = v.get_file()
+videoClassifier.construct(nog, spr, noss, features_file, file_rows, video)
 
-#print("Lines: ", len(file_rows))
-#print("Columns: ", len(file_rows[0]))
 
 
 

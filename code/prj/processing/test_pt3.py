@@ -4,19 +4,17 @@
 # =================================================================================
 
 from processing import datasetConstructor
+from processing.videoProcessing import *
+from processing.processCsvFile import *
+from filesManipulator.file import *
 
 from pandas import read_csv
 import numpy as np
-import matplotlib.pyplot as plt
 
-from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+from sklearn.metrics import confusion_matrix
 from sklearn.metrics import classification_report
 
 from keras.models import load_model
-
-import os
-import pickle
-
 import time
 
 # =================================================================================
@@ -30,71 +28,100 @@ print("The program is running...")
 # Definição do dataset ...
 # =================================================================================
 
-dataset = read_csv("features_file.csv", header=None)
+
+def organize_info(info_array):
+    string = ""
+    size = len(info)
+
+    for i in range(size):
+        if i == size - 1:
+            string += str(info_array[i]) + "\n"
+        else:
+            string += str(info_array[i]) + ";"
+    return string
+
+
+dataset = read_csv("features_test_file.csv", header=None)
 X, Y = datasetConstructor.get_features_and_label_values(dataset, debug=True)
 
+# scaler = MinMaxScaler(feature_range=(0, 1))
+# transform data
+# X = scaler.fit_transform(X)
+# print(X_scaled)
 
-# define k-fold cross validation test harness
-k_folds = 6
-tt_split_indexes = datasetConstructor.stratified_fold_split(k_folds, seed=None)
-
-index = 1  # model index
-
-fig, ax = plt.subplots(nrows=1, ncols=2, sharex=True)
-for train_index, test_index in tt_split_indexes.split(X, Y):
-
-    # Load model
-    model = load_model('../models/constructed_models/model_' + str(index))
-    model.summary()
-
-    X_train, y_train = X[train_index], Y[train_index]
-    X_test, y_test = X[test_index], Y[test_index]
-
-    print("\n\nModel Summary: ")
-    print(model.summary())
-
-    y_predict = model.predict(X_test)
-    y_predict = np.where(y_predict > 0.5, 1, 0)
-
-    print("\n\n# =================================================================================")
-    print("                         V A L I D A T I O N    R E S U L T S")
-    print("# =================================================================================")
-
-    print("\n\nConfusion Matrix: ")
-    print(confusion_matrix(y_test, y_predict))  # order matters! (actual, predicted)
-
-    print("\n\nClassification Report: ")
-    print(classification_report(y_test, y_predict))
-
-    loss, accuracy = model.evaluate(X_test, y_test, batch_size=33, verbose=0)
-
-    print("\n\nEvaluation Matrics:")
-    print("Accuracy: ", accuracy)
-    print("Loss: ", loss)
-
-    index += 1
+# Load model
+model = load_model('../models/constructed_models/model_127')
+model.summary()
 
 
+print("\n\nModel Summary: ")
+print(model.summary())
 
+y_predict = model.predict(X)
+y_predict = np.where(y_predict > 0.5, 1, 0)
+# print(np.unique(y_predict))
+
+# generate mini clips
+
+nog = 22  # number of groups
+spr = 1024  # samples per group
+nof = 3  # number of features
+noss = 1024  # number of sifted samples
+
+video_name = "vid_20_08_2022_17_22"
+path = "mini_clips/" + video_name + "/clips_info/clips_info.txt"
+File.remove_file("../" + path)
+infoFile = File(path)
+
+
+for j in range(y_predict.shape[0]):
+    ini_idx = j * noss
+    final_idx = j * noss + (nog * spr)
+
+    ini = get_time(ini_idx)
+    final = get_time(final_idx)
+    # print(j, ini_idx, final_idx, ini, final)
+
+    # newclip = mp.VideoFileClip("../test_videos/padel_58.mp4").subclip(ini, final)
+    event_type = "ball-hit" if y_predict[j] == 1 else "noise"
+    newclip_event_type = "ball_hit" if y_predict[j] == 1 else "noise"
+    newclip_name = "clip_" + str(j) + "_" + newclip_event_type + ".mp4"
+    # newclip.write_videofile("../mini_clips/" + event_type + "/newclip_name")
+
+    info = j, ini_idx, final_idx, ini, final, event_type, newclip_name
+    data = organize_info(info)
+    infoFile.write([data])
+
+lines = infoFile.read()
+print(lines)
 
 """
-# =================================================================================
-# Obtenção matriz de confusão para dados novos ...
-# =================================================================================
 
-print("\n\n\n=================================================================================")
-print("\tConfusion matrix for test fold...")
-print("=================================================================================")
-print(confusion_matrix(y_class_true, y_class_est))# order matters! (actual, predicted)
-#       o   1
-#  ô  [TN, FP]
-#  î  [FN, TP]
-"""
+print("\n\n# =================================================================================")
+print("                         V A L I D A T I O N    R E S U L T S")
+print("# =================================================================================")
 
+print("\n\nConfusion Matrix: ")
+print(confusion_matrix(Y, y_predict))  # order matters! (actual, predicted)
+
+print("\n\nClassification Report: ")
+print(classification_report(Y, y_predict))
+
+loss, accuracy = model.evaluate(X, Y, verbose=0)
+
+print("\n\nEvaluation Matrics:")
+print("Accuracy: ", accuracy)
+print("Loss: ", loss)
 
 # =================================================================================
 # Terminar contagem de tempo de processamento ...
 # =================================================================================
+
+
+
+
+"""
+
 
 end = time.time()
 #  dif = (end - start)/60
