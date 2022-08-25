@@ -61,6 +61,7 @@ function SelectEventsHandleReply(){
             // div para o select
             var newDiv = document.createElement("DIV");
             newDiv.setAttribute("id", "div_" + value);
+            newDiv.setAttribute("class", "eventDivs"); 
              
             // criar um select com o tipo de evento
             var newSelect = document.createElement("SELECT");
@@ -94,14 +95,21 @@ function SelectEventsHandleReply(){
             var br2 = document.createElement("BR");
 
             // colocar tempos inicial e final
-            var iniTextNode = document.createTextNode(ini + " - "); 
-            var finTextNode = document.createTextNode(fin);            
+            var iniTextNode = document.createTextNode(ini); 
+            var finTextNode = document.createTextNode(fin);
+            var iniText = document.createElement("TEXT");
+            var finText = document.createElement("TEXT");
+            iniText.appendChild(iniTextNode);
+            finText.appendChild(finTextNode);
+            
+            iniText.setAttribute("class", "start");
+            finText.setAttribute("class", "end");
             
             // adicionar os elementos ao container
             newDiv.appendChild(hidden);
             newDiv.appendChild(newSelect);
-            newDiv.appendChild(iniTextNode);
-            newDiv.appendChild(finTextNode);
+            newDiv.appendChild(iniText);
+            newDiv.appendChild(finText);
             newDiv.appendChild(playbttn);
             
             container.appendChild(newDiv);
@@ -129,7 +137,8 @@ function SetEventPeriod(ini, fin){
     container.innerHTML = '';
     
     var p = document.createElement("P");
-    var str = "Selected period: " + ini + " - " + fin;
+    //var str = "Selected period: " + ini + " - " + fin;
+    var str = "";
     const text = document.createTextNode(str);
     
     p.appendChild(text);
@@ -143,7 +152,7 @@ function LoadNewVideo(clipName){
     for (let i = 0; i < nrOfEvents - 1; i++){
         var currentDiv = document.getElementById("div_" + i);
         if(currentDiv !== null){
-            currentDiv.style.backgroundColor = "coral";
+            currentDiv.style.backgroundColor = "#DED4D4";
         }
         
     }
@@ -180,7 +189,7 @@ function LoadVideo(directoryVideoPath, clipName){
     // colocar background do div de outra cor
     var selectedVideoDiv = document.getElementById("div_" + clipNumber);
     if(selectedVideoDiv !== null){
-        selectedVideoDiv.style.backgroundColor = "pink";
+        selectedVideoDiv.style.backgroundColor = "#C6ECC4";
         selectedVideoDiv.scrollIntoView({behavior: "smooth"});
     }
 }

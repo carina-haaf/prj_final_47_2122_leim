@@ -9,7 +9,7 @@ $classes = getDataClasses($directoryVideoPath);
 $firstClipName = getFirstClipName($directoryVideoPath);
 $firstIniAndFin = getFirstClipIniAndFin($directoryVideoPath);
 $numberOfExamples = getNumberOfExamples($directoryVideoPath);
-
+$currentVideoName = $videoName;
 
 ?>
 
@@ -40,46 +40,62 @@ $numberOfExamples = getNumberOfExamples($directoryVideoPath);
             <form enctype="multipart/form-data"
                     action="processForm.php"
                     method="POST" >
-            
-                <!-- contentor onde está o filtro -->
-                <div id = "topDiv" class="topDiv"> 
-                    <select id="classSelect" onchange="SelectEventsOnChange(this, '<?php echo $directoryVideoPath; ?>');">
-                        <option value="all">all</option>
-                    </select><br><br>
+                
+                <div>
+                    <p class="title">Video in Analysis: <?php echo $currentVideoName; ?></p>
+                    
                 </div>
-
-
+                
                 <!-- contentor onde estão os selects e o video -->
                 <div id = "middleDiv" class="middleDiv">
-
-
-
-                    <div id = "selectsContainer" class="selectsContainer">
-                    </div> 
-
+                    
+                    
+                    
                     <div class="videoContainer">
 
                         <div id = "videoDiv" class="videoDiv">
-                            <p><?php echo "Selected period: " . $firstIniAndFin[0] . " - " . $firstIniAndFin[1] ; ?></p>
+                            <!-- <p><?php echo "Selected period: " . $firstIniAndFin[0] . " - " . $firstIniAndFin[1] ; ?></p> -->
 
                         </div>
 
                         <div id = "previousNextDiv" class="previousNextDiv">
-                            <input type="button" value="Previous" id='previous' onclick='GetPreviousClip("<?php echo $directoryVideoPath; ?>", document.getElementById("video").getAttribute("name"))'> 
-                            <input type="button" value="Next" id='next' onclick='GetNextClip("<?php echo $directoryVideoPath; ?>", document.getElementById("video").getAttribute("name"))'>
+                            <input class="previousButton" type="button" value="Previous <" id='previous' onclick='GetPreviousClip("<?php echo $directoryVideoPath; ?>", document.getElementById("video").getAttribute("name"))'> 
+                            <input class="nextButton" type="button" value="> Next" id='next' onclick='GetNextClip("<?php echo $directoryVideoPath; ?>", document.getElementById("video").getAttribute("name"))'>
                         </div>
 
-                    </div>                   
+                    </div>
+                    
+                    <div id = "eventsContainer" class="eventsContainer">
+                        
+                        <!-- contentor onde está o filtro -->
+                        <div id = "filterDiv" class="filterDiv"> 
+                            <select id="classSelect" onchange="SelectEventsOnChange(this, '<?php echo $directoryVideoPath; ?>');">
+                                <option value="all">all</option>
+                            </select>
+                            
+                            <text class="start_time">Start Time</text>
+                            <text class="end_time">End Time</text>
+                        </div>
+                        
+                        
+                        <div id = "selectsContainer" class="selectsContainer">
+                        </div>
+                        
+                        <div id = "bottomDiv" class="bottomDiv">
+                    
+                            <div class="buttonDiv">
+                                <input class="formButton" type="submit" name="Submit" value="Submit">
+                                <input class="formButton" type="reset" name="Reset" value="Reset">
+                            </div>
+
+                        </div> 
+                        
+                        
+                    </div>
+                                       
                 </div>
             
                 <br>
-                <div id = "bottomDiv" class="bottomDiv">
-                    <div class="buttonDiv">
-                        <input class="formButton" type="submit" name="Submit" value="Submit">
-                        <input class="formButton" type="reset" name="Reset" value="Reset"><p>
-                    </div>
-
-                </div>  
 
             </form>
             
