@@ -1,0 +1,12 @@
+Type of hit on the ball;Side of the hit;First sample;Last Sample;Begin;End;Classification;Environment;Video Name
+racket;1;17419;44136;  0:00.394;  0:01.000;true;indoor;padel_124.mp4
+racket;2;59338;87746;  0:01.345;  0:01.989;true;;
+racket;1;91860;124786;  0:02.083;  0:02.829;true;;
+racket;2;128463;152103;  0:02.912;  0:03.449;true;;
+racket;1;177458;203263;  0:04.024;  0:04.609;true;;
+racket;2;209798;228695;  0:04.757;  0:05.185;true;;
+racket;1;251987;279837;  0:05.714;  0:06.345;true;;
+racket;2;281850;306306;  0:06.391;  0:06.945;true;;
+racket;1;377231;397759;  0:08.554;  0:09.019;true;;
+racket;2;401454;424061;  0:09.103;  0:09.615;true;;
+racket;1;425918;444661;  0:09.658;  0:10.083;true;;

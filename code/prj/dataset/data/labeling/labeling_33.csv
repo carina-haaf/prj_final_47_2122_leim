@@ -1,0 +1,22 @@
+﻿Type of hit on the ball;Side of the hit;First sample;Last Sample;Classification;Environment;Video Name
+self_warm_up;2;8151;56403;false;indoors;padel_33.mp4
+racket;2;154630;198864;true;;
+racket;1;201131;238310;true;;
+racket;2;240817;268831;true;;
+racket;1;283813;310528;true;;
+racket;2;328198;351976;true;;
+glass;1;359420;383057;false;;
+racket;1;510311;533971;true;;
+self_warm_up;2;654611;799803;false;  0:14.843;
+racket;2;904336;930175;true;;
+racket;1;959136;980098;true;;
+racket;2;1033751;1044026;true;;
+self_warm_up;2;1470664;1541953;false;;
+racket;2;1642359;1670732;true;;
+racket;1;1687873;1722238;true;;
+racket;2;1726210;1753674;true;;
+racket;1;1772511;1797108;true;;
+racket;2;1799818;1823764;true;;
+self_warm_up;2;2168409;2362362;false;;
+racket;2;2487301;2500767;true;;
+net;2;2506636;2527529;false;;
