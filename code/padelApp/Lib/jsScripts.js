@@ -92,7 +92,7 @@ function SelectEventsHandleReply(){
 
             // colocar <br>
             var br1 = document.createElement("BR");
-            var br2 = document.createElement("BR");
+            var br2 = document.createElement("HR");
 
             // colocar tempos inicial e final
             var iniTextNode = document.createTextNode(ini); 
@@ -113,8 +113,8 @@ function SelectEventsHandleReply(){
             newDiv.appendChild(playbttn);
             
             container.appendChild(newDiv);
-            container.appendChild(br1);
-            //container.appendChild(br2);
+            //container.appendChild(br1);
+            container.appendChild(br2);
         }
         
         // garantir que quando o refresh é feito, o primeiro vídeo 
@@ -152,7 +152,7 @@ function LoadNewVideo(clipName){
     for (let i = 0; i < nrOfEvents - 1; i++){
         var currentDiv = document.getElementById("div_" + i);
         if(currentDiv !== null){
-            currentDiv.style.backgroundColor = "#DED4D4";
+            currentDiv.style.backgroundColor = "#E5E1E1";
         }
         
     }

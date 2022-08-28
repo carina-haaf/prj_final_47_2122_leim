@@ -52,11 +52,8 @@ for train_index, test_index in tt_split_indexes.split(X, Y):
 
     model = Sequential()
     model.add(Dense(NR_OF_INPUT_LAYER_NODES, input_shape=(NR_OF_INPUT_LAYER_NODES,), activation='relu'))
-    model.add(Dropout(0.6))
-    model.add(Dense(100, activation='relu'))
     model.add(Dropout(0.2))
     model.add(Dense(100, activation='relu'))
-    model.add(Dropout(0.2))
     model.add(Dense(1, activation='sigmoid'))
 
     # =================================================================================

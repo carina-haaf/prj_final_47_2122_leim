@@ -15,9 +15,9 @@ $currentVideoName = $videoName;
 
 <html>
     <head>
-        <meta http-equiv='Content-Type' 
+        <meta http-equiv='Content-Type'
               content='text/html; charset=utf-8'>
-        <title>yo</title>
+        <title><?php echo $currentVideoName; ?></title>
         
         <link REL="stylesheet" TYPE="text/css" href="Lib/styles.css">
         
@@ -69,7 +69,7 @@ $currentVideoName = $videoName;
                         
                         <!-- contentor onde está o filtro -->
                         <div id = "filterDiv" class="filterDiv"> 
-                            <select id="classSelect" onchange="SelectEventsOnChange(this, '<?php echo $directoryVideoPath; ?>');">
+                            <select class="classSelect" id="classSelect" onchange="SelectEventsOnChange(this, '<?php echo $directoryVideoPath; ?>');">
                                 <option value="all">all</option>
                             </select>
                             

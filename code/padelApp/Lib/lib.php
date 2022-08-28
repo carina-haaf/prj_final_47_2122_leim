@@ -10,6 +10,8 @@ function getDirNumberOfFiles($directory){
 
 
 function get($directoryVideoPath, $desiredType="all"){
+    $result = array();
+   
     // abrir o ficheiro
     $pathToDataClassesFile = $directoryVideoPath . "/clips_info.txt";
     $myfile = fopen($pathToDataClassesFile, "r") or die("Unable to open file!");
@@ -47,7 +49,8 @@ function get($directoryVideoPath, $desiredType="all"){
             'name' => $name);
     }
     fclose($myfile);
-    sort($result);
+    
+    if($result){ sort($result); }
     
     return $result;
     

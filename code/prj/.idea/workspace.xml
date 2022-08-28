@@ -10,7 +10,74 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="constants.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/additional/constants.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="generateVideoMiniClips.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/generateVideoMiniClips.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="155" column="34" lean-forward="true" selection-start-line="155" selection-start-column="34" selection-end-line="155" selection-end-column="34" />
+              <folding>
+                <element signature="e#283#317#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="file.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/additional/file.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="constructDataset.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dataset/construct/mainVersion/constructDataset.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+              <folding>
+                <element signature="e#183#243#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="constructAndTrainModelWithCV.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/constructAndTrainModelWithCV.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="663">
+              <caret line="55" column="31" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="31" />
+              <folding>
+                <element signature="e#183#217#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="generateTestVideoDataset.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/generateTestVideoDataset.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+              <folding>
+                <element signature="e#300#329#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -21,7 +88,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>clear</find>
       <find>vi</find>
       <find>e</find>
       <find>exit</find>
@@ -51,6 +117,7 @@
       <find>get_range_label</find>
       <find>+1</find>
       <find>label</find>
+      <find>noise</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -97,23 +164,24 @@
         <option value="$PROJECT_DIR$/additional/createMiniClipsFunctions.py" />
         <option value="$PROJECT_DIR$/additional/videoProcessing.py" />
         <option value="$PROJECT_DIR$/model/testDatasetConstructor.py" />
-        <option value="$PROJECT_DIR$/test/testDatasetConstructor.py" />
         <option value="$PROJECT_DIR$/test/dataset/generateTestVideoDataset.py" />
         <option value="$PROJECT_DIR$/test/ewe/generateTestVideoDataset.py" />
-        <option value="$PROJECT_DIR$/dataset/construct/mainVersion/datasetConstructor.py" />
         <option value="$PROJECT_DIR$/dataset/construct/mainVersion/constructDataset.py" />
-        <option value="$PROJECT_DIR$/model/constructAndTrainModelWithCV.py" />
-        <option value="$PROJECT_DIR$/test/generateVideoMiniClips.py" />
-        <option value="$PROJECT_DIR$/additional/constants.py" />
-        <option value="$PROJECT_DIR$/test/generateTestVideoDataset.py" />
         <option value="$PROJECT_DIR$/test/datasetConstructor.py" />
+        <option value="$PROJECT_DIR$/test/generateTestVideoDataset.py" />
+        <option value="$PROJECT_DIR$/test/testDatasetConstructor.py" />
+        <option value="$PROJECT_DIR$/model/constructAndTrainModelWithCV.py" />
+        <option value="$PROJECT_DIR$/dataset/construct/mainVersion/datasetConstructor.py" />
+        <option value="$PROJECT_DIR$/additional/constants.py" />
+        <option value="$PROJECT_DIR$/test/generateVideoMiniClips.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
+    <option name="y" value="1" />
     <option name="width" value="980" />
-    <option name="height" value="1040" />
+    <option name="height" value="1044" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -149,19 +217,7 @@
             <path>
               <item name="prj_2" type="b2602c69:ProjectViewProjectNode" />
               <item name="prj_2" type="462c0819:PsiDirectoryNode" />
-              <item name="dataset" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prj_2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prj_2" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="prj_2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prj_2" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="trained_models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="prj_2" type="b2602c69:ProjectViewProjectNode" />
@@ -332,9 +388,9 @@
       <list>
         <item itemvalue="Python.generateVideoMiniClips" />
         <item itemvalue="Python.generateTestVideoDataset" />
-        <item itemvalue="Python.datasetConstructor" />
         <item itemvalue="Python.constructAndTrainModelWithCV" />
         <item itemvalue="Python.constructDataset" />
+        <item itemvalue="Python.datasetConstructor" />
       </list>
     </recent_temporary>
   </component>
@@ -343,9 +399,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.12822208" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.40206185" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.15928619" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3490427" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.33873343" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.47242922" />
@@ -362,16 +419,16 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.16192994" />
       <window_info id="Structure" order="0" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.38291606" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.47275406" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32637855" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.33873343" />
     </layout-to-restore>
@@ -390,13 +447,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/moviepy/decorators.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/app_v2.py" />
     <entry file="file://$PROJECT_DIR$/app/backup.py" />
     <entry file="file://$PROJECT_DIR$/app/main.py" />
@@ -523,47 +573,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/additional/file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/constructAndTrainModelWithCV.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="76" column="16" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="16" />
-          <folding>
-            <element signature="e#183#217#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataset/construct/mainVersion/constructDataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="e#183#243#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataset/construct/mainVersion/datasetConstructor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="119" column="28" lean-forward="true" selection-start-line="119" selection-start-column="28" selection-end-line="119" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/additional/constants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="35" column="24" selection-start-line="35" selection-end-line="35" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/testDatasetConstructor.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="77">
@@ -571,30 +580,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/testDatasetConstructor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="168" column="26" lean-forward="true" selection-start-line="168" selection-start-column="26" selection-end-line="168" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataset/construct/mainVersion/datasetConstructor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="152" column="25" lean-forward="true" selection-start-line="152" selection-start-column="25" selection-end-line="152" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataset/construct/mainVersion/constructDataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+          <folding>
+            <element signature="e#183#243#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/constructAndTrainModelWithCV.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="55" column="31" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="31" />
+          <folding>
+            <element signature="e#183#217#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/additional/file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/mini_clips/vid_26_08_2022_16_21/dataset/dataset_classes.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/generateTestVideoDataset.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="442">
+          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
           <folding>
             <element signature="e#300#329#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/generateVideoMiniClips.py">
+    <entry file="file://$PROJECT_DIR$/additional/constants.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
-          <folding>
-            <element signature="e#283#317#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="459">
+          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/testDatasetConstructor.py">
+    <entry file="file://$PROJECT_DIR$/test/generateVideoMiniClips.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="54">
+          <caret line="155" column="34" lean-forward="true" selection-start-line="155" selection-start-column="34" selection-end-line="155" selection-end-column="34" />
+          <folding>
+            <element signature="e#283#317#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

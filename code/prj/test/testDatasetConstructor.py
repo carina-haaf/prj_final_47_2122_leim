@@ -6,9 +6,6 @@ import tensorflow as tf
 from additional.videoProcessing import *
 from additional.processCsvFile import *
 
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
-
 from additional.directoryManipulator import *
 from additional.constants import *
 
@@ -119,7 +116,6 @@ def get_data_features(data, vd_index, nr_groups, nr_samples_per_group, nr_shifte
 
         elif not is_ball_hit:
             nr_non_ball_hits += 1
-
 
         """
         # keep the features data on array

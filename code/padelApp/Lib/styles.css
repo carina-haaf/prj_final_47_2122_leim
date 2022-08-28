@@ -17,7 +17,7 @@ body{
     padding: 1%;
     margin-left: 2%;
     
-    width: 60%;
+    width: 58%;
     
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -36,20 +36,14 @@ body{
     margin-left: 5%;
 }
 
-.eventsContainer{
-    
-    border: 1px solid black;
+
+.classSelect{
+    border: 2px solid black;
     border-radius: 4px;
-    
-    /* parte da divisão em duas colunas */
-    float: left;
-    width: 30%;
-    
 }
 
 .selectsContainer{
-    background-color: #ECE5E5;
-    
+        
     height: 200px;
     
     overflow-x: hidden;
@@ -109,15 +103,22 @@ body{
 }
 
 
-/* filter div */
-.eventsContainer{
-    background-color:#D8D0D0;
-    
-}
-
 .filterDiv{
     background-color: #D8D0D0;
     padding: 2% 5% 1% 1%;
+    
+}
+
+.eventsContainer{
+    
+    border: 2px solid black;
+    border-radius: 4px;
+    
+    /* parte da divisão em duas colunas */
+    float: left;
+    width: 30%;
+    
+    background-color: #E5E1E1;
     
 }
 
@@ -125,7 +126,7 @@ body{
     padding: 6%;
 }
 .end{
-    padding: 3%;
+    padding: 4%;
 }
 
 .start_time{
@@ -153,7 +154,7 @@ body{
 
 
 .bottomDiv{
-    /*background-color: hotpink;*/
+    background-color: #D8D0D0;
     width: 100%;
     float: right;
 }
@@ -161,10 +162,7 @@ body{
 .buttonDiv{
     /* background-color: #ACA9A9;*/
     float: right;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    padding-left: 1%;
-    padding-right: 1%;
+    padding:1%;
     
 }
 

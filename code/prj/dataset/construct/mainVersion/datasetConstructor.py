@@ -112,6 +112,7 @@ def get_data_features(data, vd_index, nr_groups, nr_samples_per_group, nr_shifte
         # organize features and label in an array
         feature_arr = organize_feature_values(f1[j], f2[j], f3[j], is_ball_hit)
 
+        """
         file_rows.append(feature_arr)
         if is_ball_hit:
             nr_ball_hits += 1
@@ -132,10 +133,16 @@ def get_data_features(data, vd_index, nr_groups, nr_samples_per_group, nr_shifte
 
         elif (not is_ball_hit) and vd_index in non_ball_hit_vd_idx:
             nr_non_ball_hits += 1
-        
-        """
 
     return nr_ball_hits, nr_non_ball_hits
+
+
+def manipulate(data, noise_factor):
+    noise = np.random.randn(len(data))
+    augmented_data = data + noise_factor * noise
+    # Cast back to same data type
+    augmented_data = augmented_data.astype(type(data[0]))
+    return augmented_data
 
 
 def construct(paths, nr_groups, nr_samples_per_group,
@@ -146,7 +153,7 @@ def construct(paths, nr_groups, nr_samples_per_group,
     total_non_ball_hits = 0
 
     # non_ball_hit_vd_idx = [35, 36, 37, 47, 52, 53, 54]  # to balance dataset
-    non_ball_hit_vd_idx = []
+    non_ball_hit_vd_idx = [35, 36, 37, 47, 52, 53]
 
     files = np.array(list(os.listdir(paths[0])))
     for i in range(len(files)):
@@ -165,15 +172,15 @@ def construct(paths, nr_groups, nr_samples_per_group,
         total_ball_hits += nr_ball_hits
         total_non_ball_hits += nr_non_ball_hits
 
-        """
-        y2 = manipulate(y, 0.01)  # data augmentation
+
+        y2 = manipulate(y, 0.02)  # data augmentation
 
         nr_ball_hits, nr_non_ball_hits = get_data_features(y2, vd_idx, nr_groups, nr_samples_per_group,
                                                            nr_shifted_samples, file_rows, non_ball_hit_vd_idx, sample_rate)
 
         total_ball_hits += nr_ball_hits
         total_non_ball_hits += nr_non_ball_hits
-        """
+
 
     features_file.write_lines_on_file(file_rows)
 
@@ -181,9 +188,4 @@ def construct(paths, nr_groups, nr_samples_per_group,
     print("Total NON ball hits: ", total_non_ball_hits)
 
 
-def manipulate(data, noise_factor):
-    noise = np.random.randn(len(data))
-    augmented_data = data + noise_factor * noise
-    # Cast back to same data type
-    augmented_data = augmented_data.astype(type(data[0]))
-    return augmented_data
+
