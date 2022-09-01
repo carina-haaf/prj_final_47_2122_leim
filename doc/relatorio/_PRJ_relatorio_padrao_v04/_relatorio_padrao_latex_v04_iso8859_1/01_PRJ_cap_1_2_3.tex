@@ -19,7 +19,7 @@
 
 A atividade desportiva  de um atleta, numa determinada modalidade, deve ser monitorizada de uma perspetiva externa, no sentido de produzir melhores resultados. Para esse efeito, é necessário que o atleta seja supervisionado durante a sua atividade física, ou que o seu treino seja registado (em papel ou vídeo) e posteriormente analisado.
 
-Neste trabalho, a anotação de eventos sonoros em vídeo refere-se à análise do áudio extraído de um vídeo previamente gravado, com o objetivo de identificar cada instante em que ocrre uma batida de bola (tipo ténis) em raquete. O processamento sobre o áudio será realizado em modo \textit{offline}.
+Neste trabalho, a anotação de eventos sonoros em vídeo refere-se à análise do áudio extraído de um vídeo previamente gravado, com o objetivo de identificar cada instante em que ocorre uma batida de bola (tipo ténis) em raquete. O processamento sobre o áudio será realizado em modo \textit{offline}.
 
 Entre os vários desportos praticados, este trabalho foca-se na análise da componente desportiva de padel (\cite{courel2019exploring}), no sentido de fornecer a atletas e/ou treinadores um complemento no decurso do treino. Uma figura referente ao campo onde este desporto é praticado e à raquete e bola utilizadas encontra-se disponível no Capítulo \ref{ch:umDetalheAdicional}, na qual se observam as dimensões do campo onde esta modalidade desportiva é realizada. O desporto de padel pode ser praticado em ambiente interior (\textit{indoor}) ou exterior (\textit{outdoor}). Este trabalho analisa apenas vídeos em ambiente \textit{indoor}.
 
@@ -123,9 +123,9 @@ Neste trabalho, o áudio será extraído do vídeo através de um processo de amostra
 
 O processo de amostragem converte um sinal contínuo num sinal discreto. Para isso, escolhe pontos equi-espaçados do sinal contínuo para gerar os pontos do sinal discreto. A amostragem de um sinal contínuo com um período específico permite obter um sinal discretizado no tempo \cite{eng_libretexts_sampling}. Cada um dos dos pontos resultantes é designado por amostra. 
 
-O intervalo entre as amostras consecutivas denomina-se período de amostragem e é dado em segundos(s). O inverso deste valor corresponde à frequência de amostragem, que é dada em \textit{Hertz}(Hz), e refere-se ao número de amostras que ocorre no sinal a cada segundo. A informação removida pelo processo de amostragem pode ser parcialmente recuperada através de interpolação ou reconstrução do sinal \cite{eng_libretexts_reconstruction}. 
+O intervalo entre as amostras consecutivas denomina-se período de amostragem e é dado em segundos(s). O inverso deste valor corresponde à frequência de amostragem, que é dada em \textit{Hertz}(Hz), e refere-se ao número de amostras que ocorrem no sinal a cada segundo. A informação removida pelo processo de amostragem pode ser parcialmente recuperada através de interpolação ou reconstrução do sinal \cite{eng_libretexts_reconstruction}. 
 
-O ouvido humano deteta sons na gama de frequências compreendida entre 20Hz e 20kHz, pelo que, de acordo com o teorema  de \textit{Nyquist} \cite{evianyquist}, é necessário que a frequência de amostragem dos sons que chegam ao aparelho auditivo humano sejam amostrados a uma frequencia duas vezes igual ou superior a 20kHz. 
+O ouvido humano deteta sons na gama de frequências compreendida entre 20Hz e 20kHz, pelo que, de acordo com o teorema  de \textit{Nyquist} \cite{evianyquist}, é necessário que a frequência de amostragem dos sons que chegam ao aparelho auditivo humano sejam amostrados a uma frequência duas vezes igual ou superior a 20kHz. 
 
 A frequência de amostragem a ser considerada neste projeto é de 44100Hz (cerca de 43kHz), que é um dos valores padrão utilizados \cite{brown2019digital}.
 
@@ -155,7 +155,7 @@ O valor eficaz (\textit{Root Mean Square} -- RMS) refere-se à energia (intensida
 
 A figura \ref{fig:features} constitui uma representação das três características enunciadas.
 
-Observando a figura, verifica-se que os picos das duas componentes do \textit{Onset}, bem como o RMS estão correspondem aos instantes no áudio original onde a amplitude é maior.
+Observando a figura, verifica-se que os picos das duas componentes do \textit{Onset}, bem como o RMS correspondem aos instantes no áudio original onde a amplitude é maior.
 
 \begin{figure}[h]
    \centering
@@ -220,17 +220,7 @@ O desequilíbrio no \textit{dataset} ocorre quando a distribuição de exemplos pel
 Num problema de classificação binária o desequilíbrio pode abordar-se aumentando o número de exemplos da classe em minoria (sobre-amostragem) ou reduzindo o número da classe em maioria (sub-amostragem) \cite{badr2019having}. 
 
 Neste trabalho será utilizada a técnica de sub-amostragem para equilibrar o \textit{dataset}.
-
-%%________________________________________________________________________
-\subsection{Hiper-parâmetros}
-\label{sec:hiperparametros}
-%%________________________________________________________________________
-
-Em aprendizagem automática, um hiper-parâmetro é um valor utilizado pelo modelo para controlar o processo de treino. Os hiper-parâmetros de um modelo não são utilizados diretamente no modelo, mas determinam os parâmetros internos utilizados diretamente. O prefixo \aspas{hiper} advém do facto de estes parâmetros serem os escolhidos para definir outros, sugerindo que estão num nível hierárquico superior \cite{nyuytiymbiy2021parameters}. 
-
-(Falar dos hiper-parâmetros utilizados neste trabalho).
-
-
+ 
 %%________________________________________________________________________
 \subsection{Redes Neuronais}
 \label{sec:redesneuronais}
@@ -279,6 +269,32 @@ O uso de métodos de otimização permite atualizar os pesos e a taxa de aprendizag
 
 
 %%________________________________________________________________________
+\subsection{Hiper-parâmetros}
+\label{sec:hiperparametros}
+%%________________________________________________________________________
+
+Em aprendizagem automática, um hiper-parâmetro é um valor utilizado pelo modelo para controlar o processo de treino. Os hiper-parâmetros de um modelo não são utilizados diretamente no modelo, mas determinam os parâmetros internos utilizados diretamente. O prefixo \aspas{hiper} advém do facto de estes parâmetros serem os escolhidos para definir outros, sugerindo que estão num nível hierárquico superior \cite{nyuytiymbiy2021parameters}.
+
+%%________________________________________________________________________
+\subsection{Sobre-aprendizagem}
+\label{sec:sobreaprendizagem}
+%%________________________________________________________________________
+
+A sobre-aprendizagem (ou \textit{overfitting}) ocorre quando um modelo se ajusta excessivamente aos dados utilizados para treino. Este ajuste faz com que o modelo produza bons resultados no processo de aprendizagem (conjunto de treino), e apresente um mau desempenho quando avalia dados novos (conjunto de teste). 
+A sobre-aprendizagem contribui neste sentido para diminuir o desempenho do modelo, pois diminui a capacidade deste de generalizar, isto é classificar corretamente dados nunca antes vistos.
+
+Entre as várias formas de abordar este problema, neste trabalho serão utilizadas as seguintes técnicas:
+
+\begin{itemize}
+\item
+Simplificação do modelo -- consiste em reduzir a complexidade do modelo. Este processo pode ser realizado reduzindo a quantidade de características. No caso das redes neuronais corresponde a reduzir o número de camadas ou de neurónios em cada camada. 
+
+\item
+Regularização -- permite eliminar a informação que  reduz o desempenho do modelo. Neste trabalho serão considerados três tipos de regularização: \textit{Dropout}, \textit{Lasso} e \textit{Ridge}. No método de \textit{Dropout}, a cada iteração do processo de aprendizagem um número (aletório) de neurónios é desativado \cite{medium_2020}. As regularizações de \textit{Lasso} (ou norma L1) e \textit{Ridge} (ou norma L2) penalizam os pesos associados a certas características. A norma L1 coloca os pesos a zero e a norma L2 diminui os valores dos pesos, evitando que o modelo considere que  certas \textit{features} são mais importantes em relação a outras \cite{builtin_2021}. 
+ 
+\end{itemize}
+
+%%________________________________________________________________________
 \subsection{Validação Cruzada}
 \label{sec:classifevalidacaocruzada}
 %%________________________________________________________________________
@@ -318,7 +334,7 @@ Cobertura (\textit{Recall}) -- percentagem de exemplos que pertencem a uma deter
 
 Em geral, num problema de classificação os dados são divididos em treino e teste. O grupo de exemplos de treino é utilizado no processo de aprendizagem, e o  grupo de teste é utilizado no processo de classificação. Embora esta abordagem permita verificar como o classificador se comporta na predição sobre dados novos, tem como desvantagem a hipótese de existirem exemplos mais fáceis de identificar no conjunto de teste. Como solução pode ser utilizada validação cruzada.
 
-A validação cruzada é uma técnica que permite avaliar a capacidade de generalização de um classificador. Os dados são divididos em K partições (\textit{folds}) e ao longo de K iterações são treinados modelos diferentes, onde K-1 \textit{folds} são utilizados para treino e um \textit{fold} é utilizado para validação \cite{mohammed_cv_2020}.
+A validação cruzada é uma técnica que permite avaliar a capacidade de generalização de um classificador. Os dados são divididos em K partições (\textit{folds}) e ao longo de K iterações são treinados modelos diferentes, onde K-1 \text it{folds} são utilizados para treino e um \textit{fold} é utilizado para validação \cite{mohammed_cv_2020}.
 
 Dividir os dados em várias partições pode não ser suficiente, uma vez que a distribuição dos exemplos de cada classe pelos \textit{folds} pode não ser igual à original.
 
@@ -329,7 +345,30 @@ De forma a manter essa distribuição de exemplos de cada classe nos \textit{folds
 \label{ch:trabalhoRelacionado}
 %%________________________________________________________________________
 
-(Por fazer)
+Este capítulo descreve trabalhos relacionados com o tema deste projeto que consiste no uso de aprendizagem automática na deteção de eventos.
+
+
+%%________________________________________________________________________
+\section{Anotação de eventos}
+\label{sec:anotacaoeventos}
+%%________________________________________________________________________
+
+
+O sistema desenvolvido em \cite{baughman2019detection}, foca-se na componente acústica para fazer a distinção entre 6 tipos de eventos em jogos de ténis através de uma rede neuronal  convulocional (CNN). O sistema proporciona ainda uma ferramenta que permite realizar a anotação de eventos, aumentar o \textit{dataset} e melhorar a qualidade do modelo. 
+
+Para poupar tempo no processo de anotação e etiquetação, o sistema proposto em \cite{kim2018human} faz o reconhecimento (em áudio) de eventos semelhantes a um evento fornecido pelo utilizador. Este evento fornecido pode ser uma região do áudio selecionada pelo utilizador. O áudio é dividido em pequenos segmentos do mesmo tamanho que o evento que se pretende identificar. O sistema seleciona os segmentos que possuem as características que se aproximam mais do evento em análise e mostra os resultados através de uma interface. O utilizador pode validar e realizar ajustes nos resultados obtidos, o que contribui para melhorar o processo de classificação do modelo utilizado. 
+
+O sistema apresentado em \cite{liu2006multimodal} realiza a deteção de eventos combinando informação visual e acústica obtida em vídeos de basquetebol. A componente acústica foca-se nos eventos que poderão ser indicadores dos momentos mais importantes no jogo, como o som emitido pelos espetadores ou o entuasiasmo na voz de um comentador.
+
+%%________________________________________________________________________
+\section{Extração de Características e Reconhecimento de Padrões}
+\label{sec:caracteristicasepadroes}
+%%________________________________________________________________________
+
+Ainda no sistema apresentado em \cite{baughman2019detection}, o sinal de áudio é dividido em \textit{frames} de 20 milissegundos a partir das quais se obtém os coeficientes de MFCC para reconhecer os eventos de forma semelhante à humana. O sistema proposto em \cite{liu2006multimodal} considera também o nível de energia associado aos segmentos no processo de construção dos vetores de características.
+
+O sistema descrito em \cite{ganser2021classification} permite recolher informação relativa a batidas de bola na atividade desportiva de ténis através de sensores em pulseiras eletrónicas e uma câmara de vídeo. A pulseira grava cerca de 11 sinais, incluindo a unidade de medida de inercial (IMU). No processo de etiquetação a informação obtida em vídeo é sincronizada e combinada com os sinais gravados na pulseira eletrónica para construir o \textit{dataset}. O processo de classificação é realizado através das CNNs.
+
 
 %%________________________________________________________________________
 \chapter{Modelo Proposto}

@@ -21,6 +21,12 @@ Baptista, B. (2019).
 \newblock
   \url{https://medium.com/ensina-ai/machine-learning-sem-c%C3%B3digo-636d1a8f9081}.
 
+\bibitem[Baughman et~al., 2019]{baughman2019detection}
+Baughman, A., Morales, E., Reiss, G., Greco, N., Hammer, S., e Wang, S. (2019).
+\newblock Detection of tennis events from acoustic data.
+\newblock In {\em Proceedings Proceedings of the 2nd International Workshop on
+  Multimedia Content Analysis in Sports}, p. 91--99.
+
 \bibitem[Brown, 2019]{brown2019digital}
 Brown, G. (2019).
 \newblock Digital audio basics: sample rate and bit depth.
@@ -65,6 +71,11 @@ Doshi, S. (2019).
 Evia, A. (visitado em Jul.2022).
 \newblock Nyquist sampling theorem.
 
+\bibitem[Ganser et~al., 2021]{ganser2021classification}
+Ganser, A., Hollaus, B., e Stabinger, S. (2021).
+\newblock Classification of tennis shots with a neural network approach.
+\newblock {\em Sensors}, 21(17):5703.
+
 \bibitem[Janiesch et~al., 2021]{janiesch2021machine}
 Janiesch, C., Zschech, P., e Heinrich, K. (2021).
 \newblock Machine learning and deep learning.
@@ -74,6 +85,12 @@ Janiesch, C., Zschech, P., e Heinrich, K. (2021).
 Keras (visitado em Ago, 2022).
 \newblock About keras.
 \newblock \url{https://keras.io/about/}.
+
+\bibitem[Kim e Pardo, 2018]{kim2018human}
+Kim, B. e Pardo, B. (2018).
+\newblock A human-in-the-loop system for sound event detection and annotation.
+\newblock {\em ACM Transactions on Interactive Intelligent Systems (TiiS)},
+  8(2):1--23.
 
 \bibitem[Krishnan, 2021]{krishnandetermine}
 Krishnan, S. (2021).
@@ -94,6 +111,11 @@ LibreTexts, E. (2022b).
 \newblock
   \url{https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Signal_Processing_and_Modeling/Signals_and_Systems_(Baraniuk_et_al.)/10%3A_Sampling_and_Reconstruction/10.03%3A_Signal_Reconstruction}.
 
+\bibitem[Liu et~al., 2006]{liu2006multimodal}
+Liu, S., Xu, M., Yi, H., Chia, L.-T., e Rajan, D. (2006).
+\newblock Multimodal semantic analysis and annotation for basketball video.
+\newblock {\em EURASIP Journal on Advances in Signal Processing}, 2006:1--13.
+
 \bibitem[MachineLearning, 2017]{ml_harmonic_score_2017}
 MachineLearning (2017).
 \newblock Harmonic precision-recall mean (f1 score).
@@ -106,6 +128,12 @@ McFee, B., Raffel, C., Liang, D., Ellis, D.~P., McVicar, M., Battenberg, E., e
 \newblock librosa: Audio and music signal analysis in python.
 \newblock In {\em Proceedings of the 14th python in science conference},
   volume~8, p. 18--25. Citeseer.
+
+\bibitem[McNealis, 2020]{medium_2020}
+McNealis, N. (2020).
+\newblock A simple introduction to dropout regularization (with code!).
+\newblock
+  \url{https://medium.com/analytics-vidhya/a-simple-introduction-to-dropout-regularization-with-code-5279489dda1e}.
 
 \bibitem[Medium, 2019]{medium_2019}
 Medium (2019).
@@ -128,6 +156,12 @@ Nyuytiymbiy, K. (2021).
 \newblock Parameters and hyperparameters in machine learning and deep learning.
 \newblock {\em Medium. https://towardsdatascience.
   com/parameters-and-hyperparameters-aa609601a9ac (April 22, 2021)}.
+
+\bibitem[Pierre, 2021]{builtin_2021}
+Pierre, S. (2021).
+\newblock A guide to regularization in python.
+\newblock
+  \url{https://builtin.com/data-science/overfitting-regularization-python}.
 
 \bibitem[Rauber, 2022]{rauberredes}
 Rauber, T.~W. (visitado em Ago, 2022).
