@@ -20,7 +20,7 @@ Methods to create the dataset
 """
 
 
-def get_range_label(ini_idx, video_number):
+def get_range_label(ini_idx, fin_idx, video_number):
 
     # read the .csv file
     file = CsvFile(LABELING_FILES_PATH + "/labeling_" + str(video_number) + ".csv", "r")
@@ -34,11 +34,24 @@ def get_range_label(ini_idx, video_number):
         first_sample = int(column[2])
         last_sample = int(column[3])
 
+        """
         condition_1 = column[0] == "racket" or column[0] == "floor" or \
             column[0] == "glass" or column[0] == "grid" or column[0] == "net" or \
             column[0] == "self_warm_up"
+        """
+        condition_1 = column[0] == "racket"
+        # condition_2 = first_sample <= ini_idx <= last_sample
 
-        condition_2 = first_sample <= ini_idx <= last_sample
+        interval = last_sample - first_sample
+        percentage = int(PERCENTAGE * interval)
+        l_s = first_sample + percentage
+
+        # percent = 0.2
+        # condition_2 = ini_idx >= first_sample and percent > 0.2
+
+        #condition_2 = fin_idx >= first_sample and ini_idx <= l_s
+
+        condition_2 = fin_idx >= first_sample and ini_idx <= last_sample
 
         if condition_1 and condition_2:
             return True
@@ -56,7 +69,6 @@ def organize_feature_values(f1, f2, f3, is_ball_hit):
 
 
 def generate_onset_array(arr, data_size, spg):
-
     arr_size = data_size / spg  # nr of onsets
     arr_size = int(arr_size) + 1
     onset_array = np.zeros(arr_size)
@@ -105,8 +117,8 @@ def get_data_features(data, vd_index, nr_groups, nr_samples_per_group, nr_shifte
 
         # verify if it's ball hit
         ini_idx = j * nr_shifted_samples
-        # final_idx = j * nr_shifted_samples + (nr_groups*nr_samples_per_group)
-        is_ball_hit = get_range_label(ini_idx, vd_index)
+        final_idx = j * nr_shifted_samples + (nr_groups*nr_samples_per_group)
+        is_ball_hit = get_range_label(ini_idx, final_idx, vd_index)
         # print("ini_idx: ", ini_idx, "  final_idx: ", final_idx) # debug
 
         # organize features and label in an array
@@ -153,7 +165,7 @@ def construct(paths, nr_groups, nr_samples_per_group,
     total_non_ball_hits = 0
 
     # non_ball_hit_vd_idx = [35, 36, 37, 47, 52, 53, 54]  # to balance dataset
-    non_ball_hit_vd_idx = [35, 36, 37, 47, 52, 53]
+    non_ball_hit_vd_idx = [35, 36, 37, 47, 52, 53, 54]  # + indexes --> + noise
 
     files = np.array(list(os.listdir(paths[0])))
     for i in range(len(files)):
@@ -172,7 +184,7 @@ def construct(paths, nr_groups, nr_samples_per_group,
         total_ball_hits += nr_ball_hits
         total_non_ball_hits += nr_non_ball_hits
 
-
+        """
         y2 = manipulate(y, 0.02)  # data augmentation
 
         nr_ball_hits, nr_non_ball_hits = get_data_features(y2, vd_idx, nr_groups, nr_samples_per_group,
@@ -180,7 +192,7 @@ def construct(paths, nr_groups, nr_samples_per_group,
 
         total_ball_hits += nr_ball_hits
         total_non_ball_hits += nr_non_ball_hits
-
+        """
 
     features_file.write_lines_on_file(file_rows)
 

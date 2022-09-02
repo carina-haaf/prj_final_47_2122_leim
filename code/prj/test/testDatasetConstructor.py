@@ -17,7 +17,7 @@ Methods to create the dataset
 """
 
 
-def get_range_label(ini_idx, video_number):
+def get_range_label(ini_idx, fin_idx, video_number):
 
     # read the .csv file
     # file = CsvFile(LABELING_FILES_PATH + "/labeling_" + str(video_number) + ".csv", "r")
@@ -32,11 +32,13 @@ def get_range_label(ini_idx, video_number):
         first_sample = int(column[2])
         last_sample = int(column[3])
 
-        condition_1 = column[0] == "racket" or column[0] == "floor" or \
-            column[0] == "glass" or column[0] == "grid" or column[0] == "net" or \
-            column[0] == "self_warm_up"
+        condition_1 = column[0] == "racket"
 
-        condition_2 = first_sample <= ini_idx <= last_sample
+        interval = last_sample - first_sample
+        percentage = int(PERCENTAGE * interval)
+        l_s = first_sample + percentage
+
+        condition_2 = fin_idx >= first_sample and ini_idx <= last_sample
 
         if condition_1 and condition_2:
             return True
@@ -47,6 +49,7 @@ def get_range_label(ini_idx, video_number):
 def organize_feature_values(f1, f2, f3, is_ball_hit):
 
     organized_arr = np.array([f1, f2, f3])
+    #organized_arr = np.array([f2])
     organized_arr = np.ravel(organized_arr)
     organized_arr = np.append(organized_arr, [is_ball_hit * 1])
 
@@ -103,8 +106,8 @@ def get_data_features(data, vd_index, nr_groups, nr_samples_per_group, nr_shifte
 
         # verify if it's ball hit
         ini_idx = j * nr_shifted_samples
-        # final_idx = j * nr_shifted_samples + (nr_groups*nr_samples_per_group)
-        is_ball_hit = get_range_label(ini_idx, vd_index)
+        final_idx = j * nr_shifted_samples + (nr_groups*nr_samples_per_group)
+        is_ball_hit = get_range_label(ini_idx, final_idx, vd_index)
         # print("ini_idx: ", ini_idx, "  final_idx: ", final_idx) # debug
 
         # organize features and label in an array

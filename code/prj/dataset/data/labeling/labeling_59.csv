@@ -1,0 +1,15 @@
+Type of hit on the ball;Side of the hit;First sample;Last Sample;Begin;End;Classification;Environment;Video Name
+self_warm_up;1;2822;124151;  0:00.064;  0:02.815;false;indoor;padel_59.mp4
+racket;1;235409;261952;  0:05.338;  0:05.939;true;;
+racket;2;294500;314554;  0:06.678;  0:07.132;true;;
+self_warm_up;1;573351;826479;  0:13.001;  0:18.740;false;;
+racket;1;937037;963039;  0:21.248;  0:21.837;true;;
+racket;2;998561;1024948;  0:22.643;  0:23.241;true;;
+racket;1;1043671;1084726;  0:23.666;  0:24.596;true;;
+self_warm_up;1;1407869;1510719;  0:31.924;  0:34.256;false;;
+racket;1;1617059;1644183;  0:36.668;  0:37.283;true;;
+racket;2;1670023;1690372;  0:37.869;  0:38.330;true;;
+racket;1;1734261;1759531;  0:39.325;  0:39.898;true;;
+racket;2;1809070;1833486;  0:41.022;  0:41.575;true;;
+racket;1;1861337;1892913;  0:42.207;  0:42.923;true;;
+self_warm_up;-;2510966;2559563;  0:56.938;  0:58.040;false;;

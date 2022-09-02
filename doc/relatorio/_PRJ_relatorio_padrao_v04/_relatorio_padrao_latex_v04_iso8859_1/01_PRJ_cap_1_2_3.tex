@@ -332,7 +332,7 @@ Cobertura (\textit{Recall}) -- percentagem de exemplos que pertencem a uma deter
 
 \end{itemize}
 
-Em geral, num problema de classificação os dados são divididos em treino e teste. O grupo de exemplos de treino é utilizado no processo de aprendizagem, e o  grupo de teste é utilizado no processo de classificação. Embora esta abordagem permita verificar como o classificador se comporta na predição sobre dados novos, tem como desvantagem a hipótese de existirem exemplos mais fáceis de identificar no conjunto de teste. Como solução pode ser utilizada validação cruzada.
+Em geral, num problema de classificação os dados são divididos em treino e teste. O grupo de exemplos de treino é utilizado no processo de aprendizagem, e o  grupo de teste é utilizado no processo de classificação. Embora esta abordagem permita verificar como o classificador se comporta na predição sobre dados novos, tem como desvantagem a hipótese de existirem exemplos mais fáceis de identificar no conjunto de teste. Como resultado, o desempenho do modelo obtido pode não corresponder à realidade. Para contornar este problema pode ser a utilizado o método de validação cruzada.
 
 A validação cruzada é uma técnica que permite avaliar a capacidade de generalização de um classificador. Os dados são divididos em K partições (\textit{folds}) e ao longo de K iterações são treinados modelos diferentes, onde K-1 \text it{folds} são utilizados para treino e um \textit{fold} é utilizado para validação \cite{mohammed_cv_2020}.
 
@@ -382,7 +382,7 @@ Neste capítulo será realizada uma descrição geral do sistema desenvolvido, dos r
 \label{sec:descricaogeral}
 %%________________________________________________________________________
 
-O sistema desenvolvido reconhece batidas de bola, permite auxiliar no processo de construção do dataset e, consequentemente no processo de melhoria de desempenho do classificador. O funcionamento do sistema pode ser representado como se mostra na figura \ref{fig:systemscheme}.
+O sistema desenvolvido reconhece batidas de bola, permite auxiliar no processo de construção do \textit{dataset} e, consequentemente no processo de melhoria de desempenho do classificador. O funcionamento do sistema pode ser representado como se mostra na figura \ref{fig:systemscheme}.
 
 \begin{figure}[h]
    \centering
@@ -498,19 +498,27 @@ Desenvolvimento de uma aplicação \textit{web} que contribui para aumentar o \tex
 \label{sec:construcaododataset}
 %%________________________________________________________________________
 
-O \textit{dataset} construído, corresponde a um conjunto de dados com padrões identificativos de batidas de bola. 
+O \textit{dataset} construído corresponde a um conjunto de dados com padrões identificativos de batidas de bola. 
 
 \paragraph{\textbf{Obtenção da matriz de características -- \textit{X}}} \hspace{0pt}
 
 \smallskip
 \smallskip
 \smallskip
-\noindent No processo de extração das características (\cf, \ref{sec:caracteristicas}) é realizado um varrimento sobre o áudio com uma janela temporal de dimensão fixa. Este processo é realizado ao longo de várias iterações, onde em cada iteração a janela desliza um número específico de amostras, a partir das quais são extraídas as características pretendidas. 
+\noindent O impacto de uma batida de bola tem uma duração média de 0.5 segundos. Por isso, no processo de extração das características (\cf, \ref{sec:caracteristicas}) é realizado um varrimento sobre o áudio com uma janela temporal de dimensão fixa igual a meio segundo. Este processo é realizado ao longo de várias iterações, onde em cada iteração a janela desliza um número específico de amostras e as amostras abranjidas pela janela são utilizadas para o cálculo das características pretendidas. 
 
-No cálculo dessas características, o \textit{package librosa} considera um salto (\aspas{\textit{hop}}) de 512 amostras. Pelo que, este módulo divide o sinal em segmentos, com 512 amostras de dimensão, e sobre cada um deles calcula o valor da característica \cite{mcfee2015librosa}. No entanto, podem ser escolhidos múltiplos do valor do salto como outras abordagens, no sentido de verificar que alterações produzem no desempenho do classificador. O mesmo se aplica ao tamanho da janela: uma batida de bola dura em média meio segundo, mas podem ser realizados experimentos com durações maiores (na tabela \ref{tab:tabelaparamformuladen}). Neste trabalho, como primeira abordagem, será considerada uma janela de 0.5 segundos e um salto de 1024 amostras.
+O número de amostras a deslizar ou o salto (\aspas{\textit{hop}}) considerado será de 1024 amostras como primeira abordagem. No entanto, podem ser escolhidos múltiplos deste valor como outras abordagens, no sentido de verificar que alterações produzem no desempenho do classificador (tabela \ref{tab:tabelaparamformuladen}).
 
-A matriz \textit{X} é constituída por M linhas ou exemplos. Por sua vez, cada exemplo tem N colunas ou valores de características, pelo que a matriz \textit{X} pode ser representada na figura \ref{fig:matrizfeaturesv1} da seguinte forma:
+A matriz \textit{X} é constituída por M linhas ou exemplos. Por sua vez, cada exemplo tem N colunas ou valores de características, pelo que a matriz \textit{X} pode ser representada na figura \ref{fig:matrizfeaturesv1}.
 
+O valor de N na figura \ref{fig:matrizfeaturesv1}, corresponde ao número de segmentos de amostras abranjidos pela janela fixa para uma característica e pode ser dado pela seguinte expressão:
+
+\begin{equation}
+\label{eq:formulan}
+N=\frac{eventLength \times samplingRate}{hopLength}
+\end{equation}
+
+onde na equação, \textit{eventLength} é a duração de um evento, \textit{samplingRate} é a frequência de amostragem (a que os áudios são obtidos), e \textit{hopLength} refere-se ao número de amostras deslizadas a cada iteração do varrimento. 
 
 \begin{figure}[h]
 \[ 
@@ -530,15 +538,7 @@ X =
 \label{fig:matrizfeaturesv1}
 \end{figure}
 
-
-O valor de N na figura \ref{fig:matrizfeaturesv1}, corresponde ao número de segmentos de amostras abranjidos pela janela fixa para uma característica e pode ser dado pela seguinte expressão:
-
-\begin{equation} 
-\label{eq:formulan}
-N=\frac{eventLength \times samplingRate}{hopLength}
-\end{equation}
-
-onde na equação, \textit{eventLength} é a duração de um evento, \textit{samplingRate} é a frequência de amostragem (a que os áudios são obtidos), e \textit{hopLength} refere-se ao número de amostras deslizadas a cada iteração do varrimento. Na tabela \ref{tab:tabelaparamformuladen}, estão evidenciados os valores de N obtidos para as várias combinações de \textit{eventLength} e \textit{hopLength}:
+Na tabela \ref{tab:tabelaparamformuladen}, estão evidenciados os valores de N obtidos para as várias combinações de \textit{eventLength} e \textit{hopLength}:
 
 \begin{table}[h]
 		\begin{center}
@@ -547,12 +547,6 @@ onde na equação, \textit{eventLength} é a duração de um evento, \textit{sampling
 						0.5 & 1024 & 22 \\ \hline
 						0.5 & 2048 & 11 \\ \hline
 						0.5 & 4096 & 5 \\ \hline
-						0.7 & 1024 & 30 \\ \hline
-						0.7 & 2048 & 15 \\ \hline
-						0.7 & 4096 & 8 \\ \hline
-						1.0 & 1024 & 43 \\ \hline
-						1.0 & 2048 & 22 \\ \hline
-						1.0 & 4096 & 11 \\ \hline
 				\end{tabular}
 				
 		\caption{Valores de duração (em segundos), amostras delizadas e N a considerar, para um valor de \textit{samplingRate} igual a 44100Hz.}
@@ -563,10 +557,11 @@ onde na equação, \textit{eventLength} é a duração de um evento, \textit{sampling
 
 Observando ainda a figura \ref{fig:matrizfeaturesv1}, a primeira iteração do processo de varrimento permite obter a primeira linha da matriz X. A segunda segunda iteração permite obter a segunda linha da matriz e, assim sucessivamente até à iteração M. Note-se que o valor de N, corresponde ao número de segmentos de amostras obtidos para uma característica. Por isso, caso se pretenda considerar as três características enunciadas na secção \ref{sec:caracteristicas}, o número de elementos em cada linha da matriz \textit{X}, é igual a três vezes o valor de N. 
 
-\bigskip
+\smallskip
 \paragraph{\textbf{Obtenção do vetor de classes -- \textit{y}}} \hspace{0pt} \\
 
-\noindent Cada um dos exemplos da matriz de características pertence a uma classe ou categoria. O vetor de classes pode ser representado da seguinte forma:
+\noindent Cada um dos exemplos da matriz de características pertence a uma classe ou categoria. O vetor de classes pode ser representado como se mostra na figura \ref{fig:matrizclasses}, onde cada elemento $y_i$ corresponde à classe etiquetada.
+Para obtenção deste vetor, é necessário etiquetar manualmente o  áudio. O processo resume-se a ouvir o áudio e anotar num ficheiro (formato.csv), em que intervalos de tempo ocorrem batidas de bolas.
 
 \begin{figure}[h]
 \[ 
@@ -581,11 +576,7 @@ y =
  \]
 \caption{Vetor de classes.}
 \label{fig:matrizclasses}
-\end{figure}
-
-
-onde cada elemento $y_i$ corresponde à classe etiquetada.
-Para obtenção deste vetor, é necessário etiquetar manualmente o  áudio. O processo resume-se a ouvir o áudio e anotar num ficheiro (formato.csv), em que intervalos de tempo ocorrem batidas de bolas. 
+\end{figure} 
 
 Note-se que apenas as batidas de bola são registadas no ficheiro. Por isso, todos os eventos que não são registados constituem ruído.
 Cada um dos exemplos, $y_i$, do vetor \textit{y} terá um valor dependente da expressão \ref{eq:formulay}:
@@ -600,10 +591,9 @@ onde [\textit{beginSample}, \textit{endSample}] é o intervalo de tempo em que a 
 
 %%onde \textit{beginSample} é a amostra inicial do evento e \textit{endSample} corresponde à  amostra final constituinte desse mesmo evento.
 
-\bigskip
 \paragraph{\textbf{Criação do \textit{dataset}}} \hspace{0pt} \\
 
-\noindent O processo de construção do \textit{dataset} refere-se à junção da matriz de características ao vetor de classes. A janela desliza ao longo do áudio por isso, um conjunto de exemplos ou instâncias, $X_i$, corresponderão a uma classe, $y_i$, tal como se verifica na figura \ref{fig:matrizfeaturesv2}: 
+\noindent O processo de construção do \textit{dataset} refere-se à junção da matriz de características ao vetor de classes. A janela desliza ao longo do áudio por isso, um conjunto de exemplos ou instâncias, $X_i$, corresponderão a uma classe, $y_i$, tal como se verifica na figura \ref{fig:matrizfeaturesv2}.
 
 \begin{figure}[h]
 \[ 
@@ -627,26 +617,32 @@ X =
 
 O vídeo de \textit{input}, a partir do qual o \textit{dataset} foi construído é um vídeo obtido de forma não profissional com uma duração de 1 hora e 32 minutos. e constitui uma gravação de um treino realizado por um conjunto de atletas em ambiente \textit{indoor}.
 
-
+\bigskip
 %%________________________________________________________________________
 \subsection{Construção do Classificador}
 \label{sec:construcaodoclassificadorv1}
 %%________________________________________________________________________
 
-A escolha do algoritmo de aprendizagem automática a utilizar foi realizada através da ferramenta \textit{Orange Data Mining} -- ODM. Esta ferramenta permite  aplicar de vários algoritmos aos dados, no sentido de verificar quais destes produzem os melhores resultados \cite{bruno_odm_2019}.
+A escolha do algoritmo de aprendizagem automática a utilizar foi realizada através da ferramenta \textit{Orange Data Mining} -- ODM. Esta ferramenta permite  aplicar vários algoritmos aos dados, no sentido de verificar quais destes produzem os melhores resultados \cite{bruno_odm_2019}.
 
 A construção do classificador envolve também a escolha dos hiper-parâmetros que produzem os melhores resultados.
 
 
 %%________________________________________________________________________
-\subsection{Desenvolvimento da Aplicação \textit{web}}
+\subsection{Desenvolvimento da Aplicação \textit{Web}}
 \label{sec:criacaodaapp}
 %%________________________________________________________________________
 
 A aplicação \textit{web} desenvolvida tem duas páginas: página (1) que permite escolher o vídeo sobre o qual se pretende visualizar os resultados; página (2) que permite visualizar os resultados devolvidos pelo classificador (para um determinado vídeo).
-O \textit{design} destas páginas encontra-se nas figuras \ref{} e \ref{fig:paginaweb2}. Todo o processamento efetuado sobre o áudio é realizado antes de apresentar os resultados nesta aplicação.
+O \textit{design} destas páginas encontra-se nas figuras \ref{fig:paginaweb1} e \ref{fig:paginaweb2}. Todo o processamento efetuado sobre o áudio é realizado antes de apresentar os resultados nesta aplicação.
 
-(Colocar aqui o design da página 1).
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=12cm]{./mockup_pagina_web_1}
+\caption{\textit{Design} desejado da página \textit{web} 1.}
+\label{fig:paginaweb1}
+\end{figure}
+
 
 \begin{figure}[h]
    \centering

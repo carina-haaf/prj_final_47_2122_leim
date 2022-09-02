@@ -1,6 +1,6 @@
 import os
 import moviepy.editor as mp
-
+from moviepy.editor import *
 
 class Video:
     # TODO - delete "../" from self.rel_path (this is for testing)

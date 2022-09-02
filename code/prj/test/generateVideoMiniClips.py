@@ -21,6 +21,9 @@ from os.path import exists
 
 import operator
 
+import sklearn.preprocessing as pp
+from sklearn.decomposition import PCA
+
 # =================================================================================
 # Iniciar contagem de tempo de processamento ...
 # =================================================================================
@@ -47,7 +50,7 @@ def organize_info(info_array):
 
 dataset = read_csv(TEST_DATASET_PATH, header=None)
 X, Y = modelManipulator.get_features_and_label_values(dataset, debug=True)
-
+#X = pp.normalize(X)
 
 # =================================================================================
 # Load model ...
@@ -63,8 +66,9 @@ print(model.summary())
 # Events Classification Results ...
 # =================================================================================
 y_predict_ini = model.predict(X)
+print(np.unique(y_predict_ini))
 y_predict = np.where(y_predict_ini > DECISION_LIMIT, 1, 0)
-# print(np.unique(y_predict))
+#print(np.unique(y_predict))
 
 print("\n\n# =================================================================================")
 print("                         V A L I D A T I O N    R E S U L T S")
@@ -74,7 +78,7 @@ print("\n\nConfusion Matrix: ")
 print(confusion_matrix(Y, y_predict))  # order matters! (actual, predicted)
 
 print("\n\nClassification Report: ")
-print(classification_report(Y, y_predict))
+print(classification_report(Y, y_predict, target_names=["noise", "hit"]))
 
 loss, accuracy = model.evaluate(X, Y, verbose=0)
 
@@ -95,6 +99,7 @@ if file_exists:
 
 
 # create directories
+video_clip_name = MINI_CLIPS_VIDEO_NAME
 directoryManipulator.create_dir(MINI_CLIPS_VIDEO_NAME_PATH)
 directoryManipulator.create_dir(MINI_CLIPS_VIDEO_NAME_PATH + "/clips")
 directoryManipulator.create_dir(MINI_CLIPS_VIDEO_NAME_PATH + "/dataset")
@@ -103,6 +108,9 @@ directoryManipulator.create_dir(MINI_CLIPS_VIDEO_NAME_PATH + "/userAnalysis")
 # create and write on dataset_classes.txt file
 File.remove_file(MINI_CLIPS_INFO_PATH_TO_REMOVE)  # remove clips_info.txt file
 infoFile = File(MINI_CLIPS_INFO_PATH_TO_CREATE)  # create new clips_info.txt file
+# create and write on dataset_classes.txt file
+File.remove_file(MINI_CLIPS_INFO_NON_SORTED_PATH_TO_REMOVE)  # remove clips_info.txt file
+infoFileNonSorted = File(MINI_CLIPS_INFO_NON_SORTED_PATH_TO_CREATE)  # create new clips_info.txt file
 
 # create and write on dataset_classes.txt file
 File.remove_file(DATASET_CLASSES_PATH_TO_REMOVE)  # remove dataset_classes.txt file
@@ -138,8 +146,15 @@ for j in range(y_predict.shape[0]):
 
     prob = str(y_predict_ini[j]).split("[")[1].split("]")[0]
     info = ini_idx, final_idx, ini, final, event_type, prob
-    data = organize_info(info).split("\n")[0]
+    data = organize_info(info)
     D[data] = y_predict_ini[j]
+
+    newclip_event_type = "ball_hit" if event_type == "ball-hit" else "noise"
+    newclip_name = "clip_" + str(j) + "_" + newclip_event_type + ".mp4"
+
+    fileLine = j, ini_idx, final_idx, ini, final, event_type, newclip_name, prob
+    fileLineData = organize_info(fileLine)
+    infoFileNonSorted.write([fileLineData])
 
 
 sorted_dict = dict(sorted(D.items(), key=operator.itemgetter(1), reverse=True))
@@ -161,11 +176,12 @@ for k in sorted_dict:
     final = splited_info[3]
     event_type = splited_info[4]
     prob = splited_info[5]
+    prob = prob.replace("\n", "")
 
-    newclip = mp.VideoFileClip("../test/test_videos/padel_58.mp4").subclip(ini, final)
+    #newclip = mp.VideoFileClip("../test/test_videos/" + TEST_VIDEO_NAME).subclip(ini, final)
     newclip_event_type = "ball_hit" if event_type == "ball-hit" else "noise"
     newclip_name = "clip_" + str(index) + "_" + newclip_event_type + ".mp4"
-    newclip.write_videofile("mini_clips/" + MINI_CLIPS_VIDEO_NAME + "/clips" + "/" + newclip_name)
+    #newclip.write_videofile("mini_clips/" + video_clip_name + "/clips" + "/" + newclip_name)
 
     info = index, ini_idx, final_idx, ini, final, event_type, newclip_name, prob
     data = organize_info(info)
@@ -176,7 +192,7 @@ for k in sorted_dict:
 
 lines = infoFile.read()
 print(lines)
-exit(0)
+
 
 # =================================================================================
 # Terminar contagem de tempo de processamento ...

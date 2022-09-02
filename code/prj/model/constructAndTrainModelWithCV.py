@@ -19,6 +19,12 @@ from keras.models import Sequential
 from keras.layers import Dense
 import tensorflow as tf
 
+from keras.regularizers import l2, l1, l1_l2
+
+import sklearn.preprocessing as pp
+from sklearn.decomposition import PCA
+
+
 from keras.layers import Dropout
 
 # =================================================================================
@@ -37,7 +43,7 @@ X, Y = modelManipulator.get_features_and_label_values(dataset, debug=True)
 
 # define k-fold cross validation test harness
 k_folds = 5
-tt_split_indexes = modelManipulator.stratified_fold_split(k_folds, seed=None)
+tt_split_indexes = modelManipulator.stratified_fold_split(k_folds, seed=42)
 
 cvscores = []
 losses = []
@@ -51,21 +57,24 @@ for train_index, test_index in tt_split_indexes.split(X, Y):
     # =================================================================================
 
     model = Sequential()
-    model.add(Dense(NR_OF_INPUT_LAYER_NODES, input_shape=(NR_OF_INPUT_LAYER_NODES,), activation='relu'))
-    model.add(Dropout(0.2))
-    model.add(Dense(100, activation='relu'))
+    model.add(Dense(32, input_shape=(NR_OF_INPUT_LAYER_NODES,), kernel_regularizer=l1_l2(l1=1e-3, l2=1e-3), activation='relu')) # , kernel_regularizer=l2(1e-3)
+    model.add(Dropout(0.4))
+    #model.add(Dense(64, activation="relu"))
+    #model.add(Dropout(0.2))
     model.add(Dense(1, activation='sigmoid'))
 
     # =================================================================================
     # Model compilation ...
     # =================================================================================
-
     model.compile(loss=LOSS_FUNCTION,
                   optimizer=tf.optimizers.Adam(learning_rate=LR),
                   metrics=['accuracy'])
 
     X_train, y_train = X[train_index], Y[train_index]
     X_test, y_test = X[test_index], Y[test_index]
+
+    #X_train = pp.normalize(X_train)
+    #X_test = pp.normalize(X_test)
 
     print("\n\nModel Summary: ")
     print(model.summary())
@@ -94,7 +103,7 @@ for train_index, test_index in tt_split_indexes.split(X, Y):
     print(confusion_matrix(y_test, y_predict))  # order matters! (actual, predicted)
 
     print("\n\nClassification Report: ")
-    print(classification_report(y_test, y_predict))
+    print(classification_report(y_test, y_predict, target_names=("noise", "hit")))
 
     loss, accuracy = model.evaluate(X_test, y_test, verbose=0)
 

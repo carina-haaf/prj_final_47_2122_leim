@@ -31,10 +31,10 @@
 \contentsline {section}{\numberline {4.3}Abordagem}{17}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Constru\c c\~ao do \textit {Dataset}}{17}{subsection.4.3.1}%
 \contentsline {paragraph}{\textbf {Obten\c c\~ao da matriz de caracter\IeC {\'\i }sticas -- \textit {X}}}{17}{section*.17}%
-\contentsline {paragraph}{\textbf {Obten\c c\~ao do vetor de classes -- \textit {y}}}{19}{section*.20}%
-\contentsline {paragraph}{\textbf {Cria\c c\~ao do \textit {dataset}}}{20}{section*.22}%
+\contentsline {paragraph}{\textbf {Obten\c c\~ao do vetor de classes -- \textit {y}}}{18}{section*.20}%
+\contentsline {paragraph}{\textbf {Cria\c c\~ao do \textit {dataset}}}{19}{section*.22}%
 \contentsline {subsection}{\numberline {4.3.2}Constru\c c\~ao do Classificador}{20}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Desenvolvimento da Aplica\c c\~ao \textit {web}}{20}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.3}Desenvolvimento da Aplica\c c\~ao \textit {Web}}{20}{subsection.4.3.3}%
 \contentsline {chapter}{\numberline {5}Implementa\c c\~ao do Modelo}{23}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Constru\c c\~ao do \textit {Dataset}}{23}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Constru\c c\~ao do Classificador}{24}{section.5.2}%
@@ -43,4 +43,4 @@
 \contentsline {chapter}{\numberline {7}Conclus\~oes e Trabalho Futuro}{29}{chapter.7}%
 \contentsline {chapter}{\numberline {A}Um Detalhe Adicional}{31}{appendix.A}%
 \contentsline {chapter}{\numberline {B}Outro Detalhe Adicional}{33}{appendix.B}%
-\contentsline {chapter}{Bibliografia}{35}{appendix*.31}%
+\contentsline {chapter}{Bibliografia}{35}{appendix*.32}%

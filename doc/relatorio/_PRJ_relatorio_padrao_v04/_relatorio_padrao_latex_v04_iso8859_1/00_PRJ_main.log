@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.7.22)  1 SEP 2022 17:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.7.22)  2 SEP 2022 20:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -669,13 +669,13 @@ or-res-ponde ^^Ra frequ^encia
  []
 
 [5]
-<./audio_features.png, id=372, 462.528pt x 346.896pt>
+<./audio_features.png, id=374, 462.528pt x 346.896pt>
 File: ./audio_features.png Graphic file (type png)
 <use ./audio_features.png>
 Package pdftex.def Info: ./audio_features.png  used on input line 162.
 (pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
  [6] [7 <./audio_features.png>] [8]
-<./NN.png, id=406, 344.487pt x 249.3315pt>
+<./NN.png, id=408, 344.487pt x 249.3315pt>
 File: ./NN.png Graphic file (type png)
 <use ./NN.png>
 Package pdftex.def Info: ./NN.png  used on input line 236.
@@ -692,50 +692,57 @@ Cap\'{\i }tulo 3.
 
 ] [14]
 Cap\'{\i }tulo 4.
-<./system_scheme.png, id=476, 681.747pt x 221.02576pt>
+<./system_scheme.png, id=478, 681.747pt x 221.02576pt>
 File: ./system_scheme.png Graphic file (type png)
 <use ./system_scheme.png>
 Package pdftex.def Info: ./system_scheme.png  used on input line 389.
 (pdftex.def)             Requested size: 341.43306pt x 110.69809pt.
 [15
 
- <./system_scheme.png>] [16]
+ <./system_scheme.png>] [16] [17
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 561--562
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 594--595
+
+ []
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[17
-
-] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 567--568
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 604--605
-
- []
-
 [19]
-Overfull \hbox (15.10422pt too wide) in paragraph at lines 638--639
+Overfull \hbox (15.10422pt too wide) in paragraph at lines 628--629
 []\OT1/cmr/m/n/12 A cons-tru^^Xc~ao do clas-si-fi-ca-dor en-volve tamb^^Sem a e
 s-co-lha dos hiper-par^ametros
  []
 
+<./mockup_pagina_web_1.png, id=525, 237.88875pt x 123.46124pt>
+File: ./mockup_pagina_web_1.png Graphic file (type png)
+<use ./mockup_pagina_web_1.png>
+Package pdftex.def Info: ./mockup_pagina_web_1.png  used on input line 641.
+(pdftex.def)             Requested size: 341.43306pt x 177.20757pt.
 
-LaTeX Warning: Reference `' on page 20 undefined on input line 647.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-[20]
-<./mockup_pagina_web_2.png, id=527, 956.97525pt x 489.027pt>
+<./mockup_pagina_web_2.png, id=526, 396.2805pt x 213.79875pt>
 File: ./mockup_pagina_web_2.png Graphic file (type png)
 <use ./mockup_pagina_web_2.png>
-Package pdftex.def Info: ./mockup_pagina_web_2.png  used on input line 653.
-(pdftex.def)             Requested size: 341.43306pt x 174.4751pt.
-) (01_PRJ_cap_4_5_6.tex [21 <./mockup_pagina_web_2.png>] [22
+Package pdftex.def Info: ./mockup_pagina_web_2.png  used on input line 649.
+(pdftex.def)             Requested size: 341.43306pt x 184.21892pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (01_PRJ_cap_4_5_6.tex [20] [21 <./mockup_pagina_web_1.png> <./mockup_pagina_w
+eb_2.png>] [22
 
 ]
 Cap\'{\i }tulo 5.
 [23]
-<./construct_dataset_scheme.png, id=549, 797.98125pt x 319.1925pt>
+<./construct_dataset_scheme.png, id=554, 797.98125pt x 319.1925pt>
 File: ./construct_dataset_scheme.png Graphic file (type png)
 <use ./construct_dataset_scheme.png>
 Package pdftex.def Info: ./construct_dataset_scheme.png  used on input line 58.
@@ -747,7 +754,7 @@ Overfull \hbox (8.33858pt too wide) in paragraph at lines 58--59
  []
 
 [24 <./construct_dataset_scheme.png>]
-<./odm_results_v3.png, id=561, 366.77025pt x 213.79875pt>
+<./odm_results_v3.png, id=566, 366.77025pt x 213.79875pt>
 File: ./odm_results_v3.png Graphic file (type png)
 <use ./odm_results_v3.png>
 Package pdftex.def Info: ./odm_results_v3.png  used on input line 84.
@@ -758,7 +765,7 @@ Overfull \hbox (0.78607pt too wide) in paragraph at lines 97--98
 cmr/m/it/12 even-tLength\OT1/cmr/m/n/12 ) e n^^Sumero
  []
 
-<./model_construction_scheme_v2.png, id=569, 681.747pt x 97.5645pt>
+<./model_construction_scheme_v2.png, id=574, 681.747pt x 97.5645pt>
 File: ./model_construction_scheme_v2.png Graphic file (type png)
 <use ./model_construction_scheme_v2.png>
 Package pdftex.def Info: ./model_construction_scheme_v2.png  used on input line
@@ -780,12 +787,12 @@ Ap\^endice A.
 
 ]
 Ap\^endice B.
-<./padel_court.png, id=600, 459.96844pt x 347.04657pt>
+<./padel_court.png, id=605, 459.96844pt x 347.04657pt>
 File: ./padel_court.png Graphic file (type png)
 <use ./padel_court.png>
 Package pdftex.def Info: ./padel_court.png  used on input line 43.
 (pdftex.def)             Requested size: 284.52756pt x 214.69005pt.
-<./positives_evaluation_0_5_1024.png, id=603, 369.17924pt x 210.18526pt>
+<./positives_evaluation_0_5_1024.png, id=608, 369.17924pt x 210.18526pt>
 File: ./positives_evaluation_0_5_1024.png Graphic file (type png)
 <use ./positives_evaluation_0_5_1024.png>
 Package pdftex.def Info: ./positives_evaluation_0_5_1024.png  used on input lin
@@ -794,7 +801,7 @@ e 50.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./negatives_evaluation_0_5_1024.png, id=604, 367.97475pt x 212.59425pt>
+<./negatives_evaluation_0_5_1024.png, id=609, 367.97475pt x 212.59425pt>
 File: ./negatives_evaluation_0_5_1024.png Graphic file (type png)
 <use ./negatives_evaluation_0_5_1024.png>
 Package pdftex.def Info: ./negatives_evaluation_0_5_1024.png  used on input lin
@@ -889,20 +896,17 @@ Underfull \hbox (badness 7869) in paragraph at lines 155--159
 
 [37]) [38] (00_PRJ_main.aux (00a_PRJ_resumo_abstract.aux)
 (00b_PRJ_agradecimentos.aux) (00c_PRJ_dedicatoria.aux))
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `00_PRJ_main.out' has not changed.
-(rerunfilecheck)             Checksum: 0ECAFA5614C1C05010959E81F7CF5117;6688.
+(rerunfilecheck)             Checksum: DAF6BE4A42173FC53B5C5738B5A3FA75;6688.
  ) 
 Here is how much of TeX's memory you used:
- 14684 strings out of 478338
- 245100 string characters out of 2843735
- 566611 words of memory out of 3000000
- 32702 multiletter control sequences out of 15000+600000
+ 14696 strings out of 478338
+ 245451 string characters out of 2843735
+ 565684 words of memory out of 3000000
+ 32712 multiletter control sequences out of 15000+600000
  478378 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,13n,77p,831b,591s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 72i,13n,77p,746b,591s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\carin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmbx12.pf
 b><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><D
@@ -917,9 +921,9 @@ ic/amsfonts/cm/cmsy10.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/ams
 fonts/cm/cmsy8.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/c
 m/cmti12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmtt
 12.pfb>
-Output written on 00_PRJ_main.pdf (54 pages, 937652 bytes).
+Output written on 00_PRJ_main.pdf (54 pages, 923797 bytes).
 PDF statistics:
- 757 PDF objects out of 1000 (max. 8388607)
- 161 named destinations out of 1000 (max. 500000)
- 392 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 762 PDF objects out of 1000 (max. 8388607)
+ 162 named destinations out of 1000 (max. 500000)
+ 397 words of extra memory for PDF output out of 10000 (max. 10000000)
 
