@@ -26,7 +26,7 @@ O processo de criação do \textit{dataset} pode ser representado pelo esquema que
 
 %%À exceção da fase de anotação manual das batidas de bola (\aspas{\textit{Human ear annotation}}), todas as outras fases do esquema foram realizadas no ambiente de desenvolvimento \textit{Pycharm} que compila e executa código \textit{Python} \cite{jetbrains_pycharm_2022}.
  
-Para simplificar o processo de anotação das batidas de bola (\aspas{\textit{Human ear annotation}}), optou-se por segmentar o vídeo de longa duração em vídeos com 1 minuto. O processo de segmentação deu origem a cerca de 90 vídeos de curta duração. Para cada um desses vídeos, foram gerados os áudios correspondentes. Foram anotados 24 áudios.
+Para simplificar o processo de anotação das batidas de bola (\aspas{\textit{Human ear annotation}}), optou-se por segmentar o vídeo de longa duração em vídeos com 1 minuto. O processo de segmentação deu origem a cerca de 90 vídeos de curta duração. Para cada um desses vídeos, foram gerados os áudios correspondentes e 30 foram anotados.
 
 A anotação das batidas de bola foi realizada com o auxílio da aplicação \textit{Adobe Audition} \cite{adobe2013adobe}. Esta ferramenta permite efetuar uma análise sobre áudio e verificar em que instantes ocorrem batidas de bola. A anotação é realizada num ficheiro \textit{Excel}, que posteriormente é convertido para \textit{CSV}.
 
@@ -34,7 +34,7 @@ Cada evento está registado no ficheiro \textit{Excel} com os seguintes dados:
 
 \begin{itemize}
 \item
-O tipo de batida de bola (em raquete, no chão, na rede metálica, entre outros). Todos estes tipos pertencem à classe batida de bola;
+O tipo de batida de bola (em raquete, no chão, na rede metálica, entre outros). Todos estes tipos pertencem à classe batida de bola, no entato apenas as batidas de bola em raquete foram consideradas neste projeto;
 
 \item
 O intervalo de tempo em que ocorre a batida de bola (amostras inicial e final no áudio);
@@ -51,7 +51,7 @@ O tipo de ambiente onde o desporto é praticado e o lado do campo onde ocorrem as
 
 Na fase de extração de características iterou-se apenas sobre os áudios anotados. Sobre estes áudios realizou-se o processo descrito na secção \ref{sec:construcaododataset} para obtenção da matriz de características com o auxílio da biblioteca \textit{tensorflow}. Esta biblioteca permite realizar  indexação e varrimento sobre \textit{arrays} de forma simples.
 
-Na fase de \aspas{\textit{Labeling}} combinou-se a informação registada nos ficheiros \textit{CSV} (batidas de bola) com as características tal como se verifica na figura  \ref{fig:matrizfeaturesv2}, o que permitiu obter o \textit{dataset} a utilizar na contrução do modelo (\aspas{\textit{Input data}}). Este processo de etiquetação foi realizado com base na equação \ref{eq:formulan}.
+Na fase de \aspas{\textit{Labeling}} combinou-se a informação registada nos ficheiros \textit{CSV} (batidas de bola) com as características tal como se verifica na figura  \ref{fig:matrizfeaturesv2}, o que permitiu obter o \textit{dataset} a utilizar na contrução do modelo (\aspas{\textit{Input data}}). %Este processo de etiquetação foi realizado com base na equação \ref{eq:formulan}.
 
 \begin{figure}[h]
    \centering
@@ -60,35 +60,55 @@ Na fase de \aspas{\textit{Labeling}} combinou-se a informação registada nos fich
 \label{fig:construcaodatasetdetalhe}
 \end{figure}
 
-Considerando como primeira abordagem a primeira linha da tabela \ref{tab:tabelaparamformuladen}, o \textit{dataset} obtido contém cerca de 65 mil exemplos.
+Considerou-se como primeira abordagem a primeira linha da tabela \ref{tab:tabelaparamformuladen}, onde a cada iteração a janela desliza 1024 amostras e abranje 22 grupos de 1024 amostras (0.5 segundos). O \textit{dataset} obtido contém cerca de 75 mil exemplos: 19724 exemplos de batidas de bola e 54646 exemplos de ruído.
 
 %%________________________________________________________________________
 \section{Construção do Classificador}
 \label{sec:sec:construcaodoclassificadorv2}
 %%________________________________________________________________________
 
-A construção do modelo pode ser descrita através da figura \ref{fig:construcaoclassif}.
+A construção do modelo pode ser descrita através da figura \ref{fig:construcaoclassif}, que descreve de uma forma geral as fases envolvidas neste processo. 
 
-Através da ferramenta \textit{Orange Data Mining} obtiveram-se os resultados que se encontram na figura \ref{fig:odmresults}. Esta figura contém os resultados (independentes das classes) referentes à aplicação de vários algoritmos ao \textit{dataset} e sugere que os modelos que produzem os melhores resultados são o regressor logístico e a rede neuronal. Os valores das métricas de avaliação (\cf, \ref{sec:classifevalidacaocruzada}) estão acima dos 85\% e o erro (\aspas{\textit{LogLoss}}) associado à classificação é igual ou inferior 35\%.
+\begin{figure}
+   \centering
+   \includegraphics[width=12cm]{./model_construction_scheme_v2}
+\caption{Processo de construção do classificador.}
+\label{fig:construcaoclassif}
+\end{figure}
+
+\bigskip
+\paragraph{\textbf{Escolha do modelo}} \hspace{0pt}
+
+\smallskip
+\smallskip
+\smallskip
+\noindent Através da ferramenta ODM obtiveram-se os resultados que se encontram na figura \ref{fig:odmresults}. Antes do processo de treino, à exceção da árvore de decisão, os dados de \textit{input} são pré-processados. No caso da rede neuronal, é utilizado o algoritmo \textit{Standard Scaler} de modo que as dimensões da matriz de características tenham média zero e variância igual a 1 \cite{orange3_2022_neuralnetwork}.
+
+A figura \ref{fig:odmresults} contém os resultados (independentes das classes) referentes à aplicação de vários algoritmos ao \textit{dataset} e sugere que os modelos que produzem os melhores resultados são o regressor logístico e a rede neuronal. Para estes dois classificadores os valores das métricas de avaliação (\cf, \ref{sec:classifevalidacaocruzada}) estão acima dos 85\% e o erro (\aspas{\textit{LogLoss}}) associado à classificação é igual ou inferior 34\%.
 
 As figuras \ref{fig:odm_results_positives} e \ref{fig:odm_results_negatives} correspondem aos resultados para cada uma das classes (positivos e negativos). Observando separadamente estes resultados, verifica-se que a rede neuronal obtém os melhores resultados em termos de taxa de sucesso, média harmónica e erro associado. Por este motivo, a rede neuronal será a técnica de aprendizagem automática a utilizar para construir o classificador.
 
-Devido a um desequilíbrio no \textit{dataset}, os valores obtidos no caso da classe dos positivos (batidas de bola) são menos eficientes. Como solução, será aplicada a técnica de sub-amostragem na qual se diminui o número de exemplos da classe dos negativos (ruído).
+%Devido ao desequilíbrio no \textit{dataset}, os valores obtidos no caso da classe dos positivos (batidas de bola) são menos eficientes. Como solução, será aplicada a técnica de sub-amostragem na qual se diminui o número de exemplos da classe dos negativos (ruído).
 
 %%O regressor logístico pode ser \aspas{visto} como uma rede neuronal com apenas uma camada escondida \cite{datasciencecentral_lrnn_2019}. Pelo que neste trabalho será utilizada a rede neuronal como método de aprendizagem automática.
 
-Para verificar a qualidade dos modelos é utilizada a partição estratificada (\aspas{\textit{Stratified}}). Neste processo de validação os dados são divididos em 5 \textit{folds}.
-
 \begin{figure}[h]
    \centering
-   \includegraphics[width=12cm]{./odm_results_v3}
+   \includegraphics[width=11cm]{./odm_results_v2}
 \caption{Resultados (independentes das classes) da aplicação de vários algoritmos aos dados.}
 \label{fig:odmresults}
 \end{figure}
 
-Para construir e treinar o modelo utilizou-se a biblioteca \textit{Python Keras}. Esta biblioteca usa internamente o módulo \textit{tensorflow} e permite criar modelos de aprendizagem automática de forma simples e flexível \cite{keras_aboutkeras_2022}. 
+De forma obter resultados próximos dos observados para a rede neuronal serão considerados os hiper-parâmetros utilizados na aplicação ODM.
 
-A capacidade de generalizar do modelo foi verificada através do método de validação cruzada, \textit{Stratified KFold}. Os dados foram divididos em 5 \textit{folds}.
+\paragraph{\textbf{Definição dos Hiper-parâmetros e Treino do Modelo}} \hspace{0pt}
+
+\smallskip
+\smallskip
+\smallskip
+\noindent Para construir e treinar o modelo utilizou-se a biblioteca \textit{Python Keras}. Esta biblioteca usa internamente o módulo \textit{tensorflow} e permite criar modelos de aprendizagem automática de forma simples e flexível \cite{keras_aboutkeras_2022}. 
+
+A capacidade de generalizar do modelo foi verificada através do método de validação cruzada, \textit{Stratified KFold}. Tal como na ferramenta ODM, os dados foram divididos em 5 \textit{folds}.
 
 Os hiper-parâmetros considerados foram os seguintes:
 
@@ -97,39 +117,152 @@ Os hiper-parâmetros considerados foram os seguintes:
 Temporais -- duração da janela de dimensão fixa (\textit{eventLength}) e número de amostras deslizadas a cada iteração (\textit{hopLength});
 
 \item
-Na rede rede neuronal -- taxa de aprendizagem, método de otimização, número de épocas, número de \textit{batches}, número de camadas na rede e de neurónios em cada camada.
+Na rede neuronal -- tipo de regularização e o parâmetro \textit{lambda} associado, taxa de aprendizagem, método de otimização, número de épocas, número de \textit{batches}, número de camadas na rede e de neurónios em cada camada.
 
 \end{itemize}
 
 Os parâmetros temporais têm influência na estrutura do \textit{dataset} por isso também têm impacto na construção do modelo. Os parâmetros da rede neuronal têm impacto na forma como o modelo se ajusta aos dados recebidos.
 
-O objetivo é escolher os hiper-parâmetros do modelo que produzem os melhores resultados.
-
-
-\begin{figure}[h]
-   \centering
-   \includegraphics[width=12cm]{./model_construction_scheme_v2}
-\caption{Processo de construção do classificador.}
-\label{fig:construcaoclassif}
-\end{figure}
-
-(Na imagem trocar a etapa de validação cruzada com a definição e ajuste dos hiepr-parametros).
-
-
+O objetivo é escolher os hiper-parâmetros do modelo que produzem os melhores resultados. Para esse efeito, após a verificação dos resultados obtidos no treino e validação, os hiper-parâmetros foram ajustados várias vezes, no sentido de melhorar a qualidade do modelo.
 
 %%________________________________________________________________________
 \section{Desenvolvimento da Aplicação \textit{web}}
 \label{sec:criacaodaappv2}
 %%________________________________________________________________________
 
-(Por fazer)
+
 
 %%________________________________________________________________________
 \chapter{Validação e Testes}
 \label{ch:validacaoTestes}
 %%________________________________________________________________________
 
-(Por fazer)
+Neste capítulo serão apresentados os resultados obtidos ao longo do processo de construção do modelo final a ser utilizado para a classificação de batidas de bola.
+
+%%________________________________________________________________________
+\section{Definição dos Hiper-parâmetros}
+\label{sec:defhiperparms}
+%%________________________________________________________________________
+
+Para obter um modelo que identifique corretamente batidas de bola em raquete foram realizados vários experimentos, alterando os parâmetros da rede neuronal. As tabelas \ref{tab:tests_1} e \ref{tab:tests_2} contém os resultados obtidos para esses experimentos. Considerou-se um número de \textit{batches} igual a 128, a função de erro \textit{binary cross-entropy}, o algoritmo de optimização \textit{Adam} e um parâmetro \textit{eventLength} igual a 0.5 segundos. Todos os outros hiper-parâmetros encontram-se evidenciados nas tabelas referidas.
+
+A duração dos eventos (\textit{eventLength}) foi pré-definida para meio segundo, por isso, o valor de N e, consequentemente, o número de exemplos no \textit{dataset} em (\aspas{\textit{Dataset Observations}}) dependem do valor de (\aspas{\textit{Hop}}) de acordo com a expressão \ref{eq:formulan}. Cada um dos experimentos (1 a 12) foi realizado dividindo os dados em 5 \textit{folds} através da técnica \textit{Stratified KFold}. Pelo que cada um desses experimentos dá origem a 5 modelos diferentes. Os resultados presentes na tabela \ref{tab:tests_2} constituem os valores médios obtidos dos 5 modelos construídos. 
+
+
+
+
+
+
+
+
+Observando os valores presentes na tabela \ref{tab:tests_2} verifica-se que os valores médios obtidos nas fases de treino e validação estão bastante próximos. Os valores obtidos para os conjuntos de validação permitem obter uma estimativa de como o classificador se comporta ao observar dados novos, mas não eliminam a possibilidade de estar a ocorrer sobre-aprendizagem. 
+
+
+
+
+%=======================================================================
+%=======================================================================
+%=======================================================================
+\begin{table}[h]
+\begin{center}
+
+\resizebox{15cm}{!}{% permite fazer
+
+
+\begin{tabular}{|c|c|c|cc|ccc|c|cccc|}
+\hline
+\multirow{3}{*}{Experiment} & \multirow{3}{*}{Hop}  & \multirow{3}{*}{Layers} & \multicolumn{2}{c|}{Neurons}                                                                                                                                          & \multicolumn{3}{c|}{Regularization}                                                                                & Epochs               & \multicolumn{4}{c|}{Dataset Observations}                                                                                                                       \\ \cline{4-13} 
+                            &                       &                         & \multicolumn{1}{c|}{\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}1st \\ Layer\end{tabular}}} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Hidden\\ Layers\end{tabular}} & \multicolumn{1}{c|}{\multirow{2}{*}{Dropout}} & \multicolumn{1}{c|}{\multirow{2}{*}{L1}}   & \multirow{2}{*}{L2}   & \multirow{7}{*}{100} & \multicolumn{2}{c|}{Train}                                                                & \multicolumn{2}{c|}{Validation}                                     \\ \cline{10-13} 
+                            &                       &                         & \multicolumn{1}{c|}{}                                                                      &                                                                          & \multicolumn{1}{c|}{}                         & \multicolumn{1}{c|}{}                      &                       &                      & \multicolumn{1}{c|}{Ball Hits}              & \multicolumn{1}{c|}{Noise}                  & \multicolumn{1}{c|}{Ball Hits}             & Noise                  \\ \cline{1-8} \cline{10-13} 
+\multirow{2}{*}{1}          & \multirow{4}{*}{1024} & \multirow{4}{*}{6}      & \multicolumn{1}{c|}{\multirow{4}{*}{66}}                                                   & 64                                                                       & \multicolumn{1}{c|}{0.4}                      & \multicolumn{1}{c|}{\multirow{4}{*}{10-3}} & \multirow{4}{*}{10-3} &                      & \multicolumn{1}{c|}{\multirow{2}{*}{15780}} & \multicolumn{1}{c|}{\multirow{2}{*}{43716}} & \multicolumn{1}{c|}{\multirow{2}{*}{3944}} & \multirow{2}{*}{10930} \\ \cline{5-6}
+                            &                       &                         & \multicolumn{1}{c|}{}                                                                      & 32                                                                       & \multicolumn{1}{c|}{0.2}                      & \multicolumn{1}{c|}{}                      &                       &                      & \multicolumn{1}{c|}{}                       & \multicolumn{1}{c|}{}                       & \multicolumn{1}{c|}{}                      &                        \\ \cline{1-1} \cline{5-6} \cline{10-13} 
+\multirow{2}{*}{2}          &                       &                         & \multicolumn{1}{c|}{}                                                                      & 64                                                                       & \multicolumn{1}{c|}{0.4}                      & \multicolumn{1}{c|}{}                      &                       &                      & \multicolumn{1}{c|}{\multirow{2}{*}{12653}} & \multicolumn{1}{c|}{\multirow{2}{*}{12739}} & \multicolumn{1}{c|}{\multirow{2}{*}{3163}} & \multirow{2}{*}{3185}  \\ \cline{5-6}
+                            &                       &                         & \multicolumn{1}{c|}{}                                                                      & 32                                                                       & \multicolumn{1}{c|}{0.2}                      & \multicolumn{1}{c|}{}                      &                       &                      & \multicolumn{1}{c|}{}                       & \multicolumn{1}{c|}{}                       & \multicolumn{1}{c|}{}                      &                        \\ \cline{1-8} \cline{10-13} 
+3                           & \multirow{3}{*}{2048} & \multirow{3}{*}{3}      & \multicolumn{1}{c|}{\multirow{3}{*}{33}}                                                   & \multirow{3}{*}{256}                                                     & \multicolumn{1}{c|}{\multirow{3}{*}{0.45}}    & \multicolumn{1}{c|}{\multirow{3}{*}{N/A}}  & \multirow{3}{*}{10-5} &                      & \multicolumn{1}{c|}{6328}                   & \multicolumn{1}{c|}{6367}                   & \multicolumn{1}{c|}{1582}                  & 1592                   \\ \cline{1-1} \cline{9-13} 
+4                           &                       &                         & \multicolumn{1}{c|}{}                                                                      &                                                                          & \multicolumn{1}{c|}{}                         & \multicolumn{1}{c|}{}                      &                       & \multirow{4}{*}{300} & \multicolumn{1}{c|}{7897}                   & \multicolumn{1}{c|}{21863}                  & \multicolumn{1}{c|}{1974}                  & 5466                   \\ \cline{1-1} \cline{10-13} 
+5                           &                       &                         & \multicolumn{1}{c|}{}                                                                      &                                                                          & \multicolumn{1}{c|}{}                         & \multicolumn{1}{c|}{}                      &                       &                      & \multicolumn{1}{c|}{6328}                   & \multicolumn{1}{c|}{6367}                   & \multicolumn{1}{c|}{1582}                  & 1592                   \\ \cline{1-8} \cline{10-13} 
+\multirow{2}{*}{6}          & \multirow{4}{*}{4096} & \multirow{2}{*}{4}      & \multicolumn{1}{c|}{\multirow{4}{*}{15}}                                                   & 32                                                                       & \multicolumn{1}{c|}{0.4}                      & \multicolumn{1}{c|}{\multirow{8}{*}{N/A}}  & \multirow{2}{*}{10-5} &                      & \multicolumn{1}{c|}{\multirow{2}{*}{3068}}  & \multicolumn{1}{c|}{\multirow{2}{*}{3213}}  & \multicolumn{1}{c|}{\multirow{2}{*}{767}}  & \multirow{2}{*}{804}   \\ \cline{5-6}
+                            &                       &                         & \multicolumn{1}{c|}{}                                                                      & 16                                                                       & \multicolumn{1}{c|}{0.2}                      & \multicolumn{1}{c|}{}                      &                       &                      & \multicolumn{1}{c|}{}                       & \multicolumn{1}{c|}{}                       & \multicolumn{1}{c|}{}                      &                        \\ \cline{1-1} \cline{3-3} \cline{5-6} \cline{8-13} 
+7                           &                       & \multirow{6}{*}{3}      & \multicolumn{1}{c|}{}                                                                      & \multirow{6}{*}{64}                                                      & \multicolumn{1}{c|}{\multirow{6}{*}{0.4}}     & \multicolumn{1}{c|}{}                      & \multirow{2}{*}{10-4} & \multirow{6}{*}{200} & \multicolumn{1}{c|}{3068}                   & \multicolumn{1}{c|}{3213}                   & \multicolumn{1}{c|}{767}                   & 804                    \\ \cline{1-1} \cline{10-13} 
+8                           &                       &                         & \multicolumn{1}{c|}{}                                                                      &                                                                          & \multicolumn{1}{c|}{}                         & \multicolumn{1}{c|}{}                      &                       &                      & \multicolumn{1}{c|}{11076}                  & \multicolumn{1}{c|}{3828}                   & \multicolumn{1}{c|}{958}                   & 2768                   \\ \cline{1-2} \cline{4-4} \cline{8-8} \cline{10-13} 
+9                           & \multirow{2}{*}{1024} &                         & \multicolumn{1}{c|}{\multirow{2}{*}{66}}                                                   &                                                                          & \multicolumn{1}{c|}{}                         & \multicolumn{1}{c|}{}                      & 10-6                  &                      & \multicolumn{1}{c|}{\multirow{2}{*}{12653}} & \multicolumn{1}{c|}{\multirow{2}{*}{12739}} & \multicolumn{1}{c|}{\multirow{2}{*}{3163}} & \multirow{2}{*}{3185}  \\ \cline{1-1} \cline{8-8}
+10                          &                       &                         & \multicolumn{1}{c|}{}                                                                      &                                                                          & \multicolumn{1}{c|}{}                         & \multicolumn{1}{c|}{}                      & \multirow{3}{*}{N/A}  &                      & \multicolumn{1}{c|}{}                       & \multicolumn{1}{c|}{}                       & \multicolumn{1}{c|}{}                      &                        \\ \cline{1-2} \cline{4-4} \cline{10-13} 
+11                          & 2048                  &                         & \multicolumn{1}{c|}{33}                                                                    &                                                                          & \multicolumn{1}{c|}{}                         & \multicolumn{1}{c|}{}                      &                       &                      & \multicolumn{1}{c|}{6328}                   & \multicolumn{1}{c|}{6367}                   & \multicolumn{1}{c|}{1582}                  & 1592                   \\ \cline{1-2} \cline{4-4} \cline{10-13} 
+12                          & 4096                  &                         & \multicolumn{1}{c|}{15}                                                                    &                                                                          & \multicolumn{1}{c|}{}                         & \multicolumn{1}{c|}{}                      &                       &                      & \multicolumn{1}{c|}{3068}                   & \multicolumn{1}{c|}{3213}                   & \multicolumn{1}{c|}{767}                   & 804                    \\ \hline
+\end{tabular}
+
+
+}
+
+
+		
+\caption{Testes realizados.}
+\label{tab:tests_1}
+		
+\end{center}
+\end{table}	
+
+
+%=======================================================================
+%=======================================================================
+%=======================================================================
+
+\begin{table}[h]
+\begin{center}
+
+\resizebox{13cm}{!}{% permite fazer
+
+
+\begin{tabular}{|c|c|c|cc|cc|c|}
+\hline
+\multirow{2}{*}{Experiment} & \multirow{2}{*}{Learning Rate} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Activation\\ Function\end{tabular}} & \multicolumn{2}{c|}{Accuracy}           & \multicolumn{2}{c|}{Loss}               & \multirow{2}{*}{Overfitting} \\ \cline{4-7}
+                            &                                &                                                                                & \multicolumn{1}{c|}{Train} & Validation & \multicolumn{1}{c|}{Train} & Validation &                              \\ \hline
+1                           & \multirow{6}{*}{10-3}          & \multirow{12}{*}{sigmoid}                                                      & \multicolumn{1}{c|}{93\%}  & 94\%       & \multicolumn{1}{c|}{0.22}  & 0.20       & No                           \\ \cline{1-1} \cline{4-8} 
+2                           &                                &                                                                                & \multicolumn{1}{c|}{92\%}  & 92\%       & \multicolumn{1}{c|}{0.25}  & 0.24       & No                           \\ \cline{1-1} \cline{4-8} 
+3                           &                                &                                                                                & \multicolumn{1}{c|}{93\%}  & 92\%       & \multicolumn{1}{c|}{0.18}  & 0.21       & Yes                          \\ \cline{1-1} \cline{4-8} 
+4                           &                                &                                                                                & \multicolumn{1}{c|}{95\%}  & 94\%       & \multicolumn{1}{c|}{0.16}  & 0.18       &                              \\ \cline{1-1} \cline{4-8} 
+5                           &                                &                                                                                & \multicolumn{1}{c|}{95\%}  & 94\%       & \multicolumn{1}{c|}{0.16}  & 0.18       & No                           \\ \cline{1-1} \cline{4-8} 
+6                           &                                &                                                                                & \multicolumn{1}{c|}{91\%}  & 90\%       & \multicolumn{1}{c|}{0.25}  & 0.26       & No                           \\ \cline{1-2} \cline{4-8} 
+7                           & \multirow{2}{*}{10-2}          &                                                                                & \multicolumn{1}{c|}{90\%}  & 90\%       & \multicolumn{1}{c|}{0.27}  & 0.28       & Yes                          \\ \cline{1-1} \cline{4-8} 
+8                           &                                &                                                                                & \multicolumn{1}{c|}{93\%}  & 93\%       & \multicolumn{1}{c|}{0.23}  & 0.22       & No                           \\ \cline{1-2} \cline{4-8} 
+9                           & 10-4                           &                                                                                & \multicolumn{1}{c|}{93\%}  & 93\%       & \multicolumn{1}{c|}{0.19}  & 0.18       & Yes                          \\ \cline{1-2} \cline{4-8} 
+10                          & \multirow{3}{*}{10-3}          &                                                                                & \multicolumn{1}{c|}{94\%}  & 93\%       & \multicolumn{1}{c|}{0.16}  & 0.18       & Yes                          \\ \cline{1-1} \cline{4-8} 
+11                          &                                &                                                                                & \multicolumn{1}{c|}{94\%}  & 94\%       & \multicolumn{1}{c|}{0.17}  & 0.18       & Yes                          \\ \cline{1-1} \cline{4-8} 
+12                          &                                &                                                                                & \multicolumn{1}{c|}{91\%}  & 90\%       & \multicolumn{1}{c|}{0.25}  & 0.26       & Yes                          \\ \hline
+\end{tabular}
+}
+
+		
+\caption{Testes realizados.}
+\label{tab:tests_2}
+		
+\end{center}
+\end{table}	
+
+%=======================================================================
+%=======================================================================
+%=======================================================================
+
+%%________________________________________________________________________
+\section{Classificação de Vídeos Novos}
+\label{sec:classifdevideosnovos}
+
+
+
+
+%%________________________________________________________________________
+\section{Anotação e Melhoria do \textit{Dataset}}
+\label{sec:resultadosnaapp}
+%%________________________________________________________________________
+
+
+
+
+%%________________________________________________________________________
+\section{Modelo Final}
+\label{sec:modelofinal}
+%%________________________________________________________________________
+
 
 
 %%________________________________________________________________________

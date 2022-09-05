@@ -219,7 +219,7 @@ O desequilíbrio no \textit{dataset} ocorre quando a distribuição de exemplos pel
 
 Num problema de classificação binária o desequilíbrio pode abordar-se aumentando o número de exemplos da classe em minoria (sobre-amostragem) ou reduzindo o número da classe em maioria (sub-amostragem) \cite{badr2019having}. 
 
-Neste trabalho será utilizada a técnica de sub-amostragem para equilibrar o \textit{dataset}.
+Em jogos de padel, o número de batidas de bola é muito inferior ao ruído de fundo, pelo que neste trabalho será utilizada a técnica de sub-amostragem para equilibrar o \textit{dataset}.
  
 %%________________________________________________________________________
 \subsection{Redes Neuronais}
@@ -263,7 +263,7 @@ outputValue=\frac{1}{1 + e^{-inputValue}}
 
 \end{itemize}
 
-O processo de aprendizagem é realizado ao longo de várias épocas. Uma época (\textit{epoch}) corresponde a um ciclo de passagem, pela rede neuronal, de todos os exemplos do \textit{dataset}. Uma época é constituída por várias iterações. Cada iteração corresponde a uma atualização de pesos após a passagem pela rede de um número pré-definido (\textit{batch}) de exemplos.
+O processo de aprendizagem é realizado ao longo de várias épocas. Uma época (\textit{epoch}) corresponde a um ciclo de passagem, pela rede neuronal, de todos os exemplos do \textit{dataset}. Uma época é constituída por várias iterações. Cada iteração corresponde a uma atualização de pesos após a passagem pela rede de um número pré-definido (\textit{batch}) de exemplos. Um valor de \textit{batch} igual a uma potência de 2 acelera o processo de treino \cite{interviewarea_batchsize_2022}.
 
 O uso de métodos de otimização permite atualizar os pesos e a taxa de aprendizagem da rede neuronal de forma a reduzir o erro associado e aumentar a taxa de sucesso. Neste trabalho, será utilizado o método de otimização \textit{Adam} \cite{doshi2019various}.
 
@@ -313,7 +313,7 @@ Multi-Label -- quando existem existem duas ou mais classes e um exemplo pode per
 
 \end{itemize}
 
-Neste trabalho, o problema de classificação é binário, uma vez que o modelo deve distinguir exemplos que são batidas de bola (positivos) de exemplos que não são batidas de bola (negativos).
+Neste trabalho, o problema de classificação é binário, uma vez que o modelo deve distinguir exemplos que são batidas de bola em raquete (positivos) de exemplos que não são batidas de bola (negativos).
 
 Para avaliar o desempenho de um classificador é necessário verificar quais são as hipótes de este acertar independentemente da classe, mas também verificar a distribuição de acertos em cada classe. Essas probabilidades podem ser obtidas através da matriz de confusão. Neste trabalho, entre as várias métricas de desempenho que podem ser obtidas da matriz de confusão, serão consideradas as seguintes \cite{brownlee2020tour}:
 
@@ -623,7 +623,7 @@ O vídeo de \textit{input}, a partir do qual o \textit{dataset} foi construído é 
 \label{sec:construcaodoclassificadorv1}
 %%________________________________________________________________________
 
-A escolha do algoritmo de aprendizagem automática a utilizar foi realizada através da ferramenta \textit{Orange Data Mining} -- ODM. Esta ferramenta permite  aplicar vários algoritmos aos dados, no sentido de verificar quais destes produzem os melhores resultados \cite{bruno_odm_2019}.
+A escolha do algoritmo de aprendizagem automática a utilizar foi realizada através da ferramenta \textit{Orange Data Mining} -- ODM. Esta ferramenta permite  aplicar vários algoritmos aos dados, no sentido de verificar quais destes produzem os melhores resultados \cite{bruno_odm_2019}. Para verificar a qualidade dos modelos é utilizada a técnica partição estratificada ({\textit{Stratified KFold}}) onde os dados são divididos em 5 \textit{folds}.
 
 A construção do classificador envolve também a escolha dos hiper-parâmetros que produzem os melhores resultados.
 
@@ -633,8 +633,22 @@ A construção do classificador envolve também a escolha dos hiper-parâmetros que 
 \label{sec:criacaodaapp}
 %%________________________________________________________________________
 
+Esta sub-secção faz uma descrição da aborgem adotada para construir a aplicação que deve mostrar os resultados obtidos pelo classificador.
+
+\paragraph{\textbf{Estrutura da Aplicação}} \hspace{0pt} \\
+
+\noindent
+A aplicação \textit{web} será desenvolvida utilizando a linguagem PHP. Esta linguagem é bastante útil porque é executada do lado do servidor e permite de forma flexível criar interação com o utilizador através de páginas HTML dinâmicas. No lado do cliente será utilizada a linguagem Javascript. (REFERIR QUE SÃO FEITOS PEDIDOS GET EPOST AO SERVIDOR) e que são realizados pedidos AJAX e que o AJAX é útil para não ter de fazer refresh na página toda, só pequenas porções da página. 
+
+
+
+\paragraph{\textbf{\textit{Design} da Aplicação}} \hspace{0pt} \\
+
+\noindent 
 A aplicação \textit{web} desenvolvida tem duas páginas: página (1) que permite escolher o vídeo sobre o qual se pretende visualizar os resultados; página (2) que permite visualizar os resultados devolvidos pelo classificador (para um determinado vídeo).
 O \textit{design} destas páginas encontra-se nas figuras \ref{fig:paginaweb1} e \ref{fig:paginaweb2}. Todo o processamento efetuado sobre o áudio é realizado antes de apresentar os resultados nesta aplicação.
+
+Para efeitos de seimplificação, a página 1 terá um lista de vídeos que já foram classificados. Pelo que o utilizador deve escolher um vídeo. Ao selecionar um vídeo é redirecionado para a página 2, onde pode selecionar os vários eventos (à esquerda) e visualizá-los (à direita).
 
 \begin{figure}[h]
    \centering
@@ -650,4 +664,7 @@ O \textit{design} destas páginas encontra-se nas figuras \ref{fig:paginaweb1} e 
 \caption{\textit{Design} desejado da página \textit{web} 2.}
 \label{fig:paginaweb2}
 \end{figure}
+
+
+
 

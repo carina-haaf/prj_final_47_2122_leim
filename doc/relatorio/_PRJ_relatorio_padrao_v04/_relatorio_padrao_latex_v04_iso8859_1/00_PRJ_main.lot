@@ -3,12 +3,14 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Requisitos funcionais do sistema em desenvolvimento para a constru\c c\~ao do \textit {dataset}.\relax }}{16}{table.caption.14}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Requisitos funcionais respeitantes ao processo de classifica\c c\~ao.\relax }}{16}{table.caption.15}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Requisitos n\~ao funcionais do sistema.\relax }}{16}{table.caption.16}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Valores de dura\c c\~ao (em segundos), amostras delizadas e N a considerar, para um valor de \textit {samplingRate} igual a 44100Hz.\relax }}{18}{table.caption.19}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Requisitos funcionais do sistema em desenvolvimento para a constru\c c\~ao do \textit {dataset}.\relax }}{18}{table.caption.14}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Requisitos funcionais respeitantes ao processo de classifica\c c\~ao.\relax }}{18}{table.caption.15}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Requisitos n\~ao funcionais do sistema.\relax }}{18}{table.caption.16}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Valores de dura\c c\~ao (em segundos), amostras delizadas e N a considerar, para um valor de \textit {samplingRate} igual a 44100Hz.\relax }}{20}{table.caption.19}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces Testes realizados.\relax }}{30}{table.caption.33}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Testes realizados.\relax }}{30}{table.caption.34}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

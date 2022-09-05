@@ -18,29 +18,37 @@
 \contentsline {section}{\numberline {2.2}Conceitos de Aprendizagem Autom\'atica}{7}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}\textit {Dataset}}{8}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Desiquil\IeC {\'\i }brio no \textit {Dataset}}{8}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Redes Neuronais}{8}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.3}Redes Neuronais}{9}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Hiper-par\^ametros}{10}{subsection.2.2.4}%
 \contentsline {subsection}{\numberline {2.2.5}Sobre-aprendizagem}{10}{subsection.2.2.5}%
 \contentsline {subsection}{\numberline {2.2.6}Valida\c c\~ao Cruzada}{11}{subsection.2.2.6}%
-\contentsline {chapter}{\numberline {3}Trabalho Relacionado}{13}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Anota\c c\~ao de eventos}{13}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Extra\c c\~ao de Caracter\IeC {\'\i }sticas e Reconhecimento de Padr\~oes}{14}{section.3.2}%
-\contentsline {chapter}{\numberline {4}Modelo Proposto}{15}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Descri\c c\~ao Geral do Sistema}{15}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Requisitos}{15}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Abordagem}{17}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Constru\c c\~ao do \textit {Dataset}}{17}{subsection.4.3.1}%
-\contentsline {paragraph}{\textbf {Obten\c c\~ao da matriz de caracter\IeC {\'\i }sticas -- \textit {X}}}{17}{section*.17}%
-\contentsline {paragraph}{\textbf {Obten\c c\~ao do vetor de classes -- \textit {y}}}{18}{section*.20}%
-\contentsline {paragraph}{\textbf {Cria\c c\~ao do \textit {dataset}}}{19}{section*.22}%
-\contentsline {subsection}{\numberline {4.3.2}Constru\c c\~ao do Classificador}{20}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Desenvolvimento da Aplica\c c\~ao \textit {Web}}{20}{subsection.4.3.3}%
-\contentsline {chapter}{\numberline {5}Implementa\c c\~ao do Modelo}{23}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Constru\c c\~ao do \textit {Dataset}}{23}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Constru\c c\~ao do Classificador}{24}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Desenvolvimento da Aplica\c c\~ao \textit {web}}{26}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Valida\c c\~ao e Testes}{27}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Conclus\~oes e Trabalho Futuro}{29}{chapter.7}%
-\contentsline {chapter}{\numberline {A}Um Detalhe Adicional}{31}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Outro Detalhe Adicional}{33}{appendix.B}%
-\contentsline {chapter}{Bibliografia}{35}{appendix*.32}%
+\contentsline {chapter}{\numberline {3}Trabalho Relacionado}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Anota\c c\~ao de eventos}{15}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Extra\c c\~ao de Caracter\IeC {\'\i }sticas e Reconhecimento de Padr\~oes}{16}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Modelo Proposto}{17}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Descri\c c\~ao Geral do Sistema}{17}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Requisitos}{17}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Abordagem}{19}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Constru\c c\~ao do \textit {Dataset}}{19}{subsection.4.3.1}%
+\contentsline {paragraph}{\textbf {Obten\c c\~ao da matriz de caracter\IeC {\'\i }sticas -- \textit {X}}}{19}{section*.17}%
+\contentsline {paragraph}{\textbf {Obten\c c\~ao do vetor de classes -- \textit {y}}}{20}{section*.20}%
+\contentsline {paragraph}{\textbf {Cria\c c\~ao do \textit {dataset}}}{21}{section*.22}%
+\contentsline {subsection}{\numberline {4.3.2}Constru\c c\~ao do Classificador}{22}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Desenvolvimento da Aplica\c c\~ao \textit {Web}}{22}{subsection.4.3.3}%
+\contentsline {paragraph}{\textbf {Estrutura da Aplica\c c\~ao}}{22}{section*.24}%
+\contentsline {paragraph}{\textbf {\textit {Design} da Aplica\c c\~ao}}{23}{section*.25}%
+\contentsline {chapter}{\numberline {5}Implementa\c c\~ao do Modelo}{25}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Constru\c c\~ao do \textit {Dataset}}{25}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Constru\c c\~ao do Classificador}{26}{section.5.2}%
+\contentsline {paragraph}{\textbf {Escolha do modelo}}{27}{section*.30}%
+\contentsline {paragraph}{\textbf {Defini\c c\~ao dos Hiper-par\^ametros e Treino do Modelo}}{28}{section*.32}%
+\contentsline {section}{\numberline {5.3}Desenvolvimento da Aplica\c c\~ao \textit {web}}{28}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Valida\c c\~ao e Testes}{29}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Defini\c c\~ao dos Hiper-par\^ametros}{29}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Classifica\c c\~ao de V\IeC {\'\i }deos Novos}{30}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Anota\c c\~ao e Melhoria do \textit {Dataset}}{30}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Modelo Final}{30}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Conclus\~oes e Trabalho Futuro}{31}{chapter.7}%
+\contentsline {chapter}{\numberline {A}Um Detalhe Adicional}{33}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Outro Detalhe Adicional}{35}{appendix.B}%
+\contentsline {chapter}{Bibliografia}{37}{appendix*.38}%

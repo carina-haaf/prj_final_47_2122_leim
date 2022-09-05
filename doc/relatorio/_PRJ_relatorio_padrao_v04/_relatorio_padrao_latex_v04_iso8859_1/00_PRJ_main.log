@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.7.22)  2 SEP 2022 20:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.7.22)  5 SEP 2022 01:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -526,24 +526,24 @@ File: l3backend-pdftex.def 2022-07-01 L3 backend support: PDF output (pdfTeX)
 (00c_PRJ_dedicatoria.aux))
 \openout1 = `00_PRJ_main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
 
 (D:\isel\LEIM\PRJ_2122SV\LaTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -567,7 +567,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 \c@lstlisting=\count320
-Package hyperref Info: Link coloring OFF on input line 135.
+Package hyperref Info: Link coloring OFF on input line 139.
 
 (00_PRJ_main.out) (00_PRJ_main.out)
 \@outlinefile=\write3
@@ -575,10 +575,10 @@ Package hyperref Info: Link coloring OFF on input line 135.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<./fig_logo_ISEL.png, id=171, 464.4552pt x 456.7464pt>
+<./fig_logo_ISEL.png, id=187, 464.4552pt x 456.7464pt>
 File: ./fig_logo_ISEL.png Graphic file (type png)
 <use ./fig_logo_ISEL.png>
-Package pdftex.def Info: ./fig_logo_ISEL.png  used on input line 141.
+Package pdftex.def Info: ./fig_logo_ISEL.png  used on input line 145.
 (pdftex.def)             Requested size: 49.79231pt x 48.95988pt.
  [1
 
@@ -669,13 +669,13 @@ or-res-ponde ^^Ra frequ^encia
  []
 
 [5]
-<./audio_features.png, id=374, 462.528pt x 346.896pt>
+<./audio_features.png, id=398, 462.528pt x 346.896pt>
 File: ./audio_features.png Graphic file (type png)
 <use ./audio_features.png>
 Package pdftex.def Info: ./audio_features.png  used on input line 162.
 (pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
  [6] [7 <./audio_features.png>] [8]
-<./NN.png, id=408, 344.487pt x 249.3315pt>
+<./NN.png, id=432, 344.487pt x 249.3315pt>
 File: ./NN.png Graphic file (type png)
 <use ./NN.png>
 Package pdftex.def Info: ./NN.png  used on input line 236.
@@ -686,27 +686,27 @@ Overfull \hbox (17.7166pt too wide) in paragraph at lines 241--242
 -dor poss^^S^^Pvel [[]]. 
  []
 
-[9 <./NN.png>] [10] [11] [12]
-Cap\'{\i }tulo 3.
-[13
+[9 <./NN.png>] [10] [11] [12] [13] [14
 
-] [14]
+]
+Cap\'{\i }tulo 3.
+[15] [16]
 Cap\'{\i }tulo 4.
-<./system_scheme.png, id=478, 681.747pt x 221.02576pt>
+<./system_scheme.png, id=513, 681.747pt x 221.02576pt>
 File: ./system_scheme.png Graphic file (type png)
 <use ./system_scheme.png>
 Package pdftex.def Info: ./system_scheme.png  used on input line 389.
 (pdftex.def)             Requested size: 341.43306pt x 110.69809pt.
-[15
+[17
 
- <./system_scheme.png>] [16] [17
+ <./system_scheme.png>] [18] [19
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 561--562
 
  []
 
-[18]
+[20]
 Underfull \hbox (badness 10000) in paragraph at lines 594--595
 
  []
@@ -714,35 +714,44 @@ Underfull \hbox (badness 10000) in paragraph at lines 594--595
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[19]
+[21]
 Overfull \hbox (15.10422pt too wide) in paragraph at lines 628--629
 []\OT1/cmr/m/n/12 A cons-tru^^Xc~ao do clas-si-fi-ca-dor en-volve tamb^^Sem a e
 s-co-lha dos hiper-par^ametros
  []
 
-<./mockup_pagina_web_1.png, id=525, 237.88875pt x 123.46124pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 638--639
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 645--646
+
+ []
+
+[22]
+<./mockup_pagina_web_1.png, id=566, 237.88875pt x 123.46124pt>
 File: ./mockup_pagina_web_1.png Graphic file (type png)
 <use ./mockup_pagina_web_1.png>
-Package pdftex.def Info: ./mockup_pagina_web_1.png  used on input line 641.
+Package pdftex.def Info: ./mockup_pagina_web_1.png  used on input line 655.
 (pdftex.def)             Requested size: 341.43306pt x 177.20757pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<./mockup_pagina_web_2.png, id=526, 396.2805pt x 213.79875pt>
+<./mockup_pagina_web_2.png, id=567, 396.2805pt x 213.79875pt>
 File: ./mockup_pagina_web_2.png Graphic file (type png)
 <use ./mockup_pagina_web_2.png>
-Package pdftex.def Info: ./mockup_pagina_web_2.png  used on input line 649.
+Package pdftex.def Info: ./mockup_pagina_web_2.png  used on input line 663.
 (pdftex.def)             Requested size: 341.43306pt x 184.21892pt.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (01_PRJ_cap_4_5_6.tex [20] [21 <./mockup_pagina_web_1.png> <./mockup_pagina_w
-eb_2.png>] [22
+) (01_PRJ_cap_4_5_6.tex [23 <./mockup_pagina_web_1.png>] [24 <./mockup_pagina_w
+eb_2.png>]
+Cap\'{\i }tulo 5.
+[25
 
 ]
-Cap\'{\i }tulo 5.
-[23]
-<./construct_dataset_scheme.png, id=554, 797.98125pt x 319.1925pt>
+<./construct_dataset_scheme.png, id=589, 797.98125pt x 319.1925pt>
 File: ./construct_dataset_scheme.png Graphic file (type png)
 <use ./construct_dataset_scheme.png>
 Package pdftex.def Info: ./construct_dataset_scheme.png  used on input line 58.
@@ -753,64 +762,69 @@ Overfull \hbox (8.33858pt too wide) in paragraph at lines 58--59
  [][] 
  []
 
-[24 <./construct_dataset_scheme.png>]
-<./odm_results_v3.png, id=566, 366.77025pt x 213.79875pt>
-File: ./odm_results_v3.png Graphic file (type png)
-<use ./odm_results_v3.png>
-Package pdftex.def Info: ./odm_results_v3.png  used on input line 84.
-(pdftex.def)             Requested size: 341.43306pt x 199.03955pt.
- [25 <./odm_results_v3.png>]
-Overfull \hbox (0.78607pt too wide) in paragraph at lines 97--98
+<./model_construction_scheme_v2.png, id=592, 694.9965pt x 99.9735pt>
+File: ./model_construction_scheme_v2.png Graphic file (type png)
+<use ./model_construction_scheme_v2.png>
+Package pdftex.def Info: ./model_construction_scheme_v2.png  used on input line
+ 74.
+(pdftex.def)             Requested size: 341.43306pt x 49.11557pt.
+[26 <./construct_dataset_scheme.png>]
+<./odm_results_v2.png, id=604, 397.485pt x 158.994pt>
+File: ./odm_results_v2.png Graphic file (type png)
+<use ./odm_results_v2.png>
+Package pdftex.def Info: ./odm_results_v2.png  used on input line 97.
+(pdftex.def)             Requested size: 312.9803pt x 125.1963pt.
+ [27 <./model_construction_scheme_v2.png> <./odm_results_v2.png>]
+Overfull \hbox (0.78607pt too wide) in paragraph at lines 117--118
 []\OT1/cmr/m/n/12 Temporais -- dura^^Xc~ao da ja-nela de di-mens~ao fixa (\OT1/
 cmr/m/it/12 even-tLength\OT1/cmr/m/n/12 ) e n^^Sumero
  []
 
-<./model_construction_scheme_v2.png, id=574, 681.747pt x 97.5645pt>
-File: ./model_construction_scheme_v2.png Graphic file (type png)
-<use ./model_construction_scheme_v2.png>
-Package pdftex.def Info: ./model_construction_scheme_v2.png  used on input line
- 111.
-(pdftex.def)             Requested size: 341.43306pt x 48.864pt.
-[26 <./model_construction_scheme_v2.png>]
+[28]
 Cap\'{\i }tulo 6.
-[27
 
-] [28
+Overfull \hbox (36.79851pt too wide) in paragraph at lines 162--189
+ [] 
+ []
 
-]
+[29
+
+] [30]
 Cap\'{\i }tulo 7.
-) (02_PRJ_cap_apendice.tex [29] [30
+) (02_PRJ_cap_apendice.tex [31
+
+] [32
 
 ]
 Ap\^endice A.
-[31] [32
+[33] [34
 
 ]
 Ap\^endice B.
-<./padel_court.png, id=605, 459.96844pt x 347.04657pt>
+<./padel_court.png, id=651, 459.96844pt x 347.04657pt>
 File: ./padel_court.png Graphic file (type png)
 <use ./padel_court.png>
 Package pdftex.def Info: ./padel_court.png  used on input line 43.
 (pdftex.def)             Requested size: 284.52756pt x 214.69005pt.
-<./positives_evaluation_0_5_1024.png, id=608, 369.17924pt x 210.18526pt>
+<./positives_evaluation_0_5_1024.png, id=654, 375.20175pt x 215.00325pt>
 File: ./positives_evaluation_0_5_1024.png Graphic file (type png)
 <use ./positives_evaluation_0_5_1024.png>
 Package pdftex.def Info: ./positives_evaluation_0_5_1024.png  used on input lin
 e 50.
-(pdftex.def)             Requested size: 341.43306pt x 194.39906pt.
+(pdftex.def)             Requested size: 341.43306pt x 195.65652pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./negatives_evaluation_0_5_1024.png, id=609, 367.97475pt x 212.59425pt>
+<./negatives_evaluation_0_5_1024.png, id=655, 379.4175pt x 216.20775pt>
 File: ./negatives_evaluation_0_5_1024.png Graphic file (type png)
 <use ./negatives_evaluation_0_5_1024.png>
 Package pdftex.def Info: ./negatives_evaluation_0_5_1024.png  used on input lin
 e 57.
-(pdftex.def)             Requested size: 341.43306pt x 197.25969pt.
+(pdftex.def)             Requested size: 341.43306pt x 194.56537pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [33 <./padel_court.png>] [34 <./positives_evaluation_0_5_1024.png> <./negativ
+) [35 <./padel_court.png>] [36 <./positives_evaluation_0_5_1024.png> <./negativ
 es_evaluation_0_5_1024.png>] (00_PRJ_main.bbl
 Underfull \hbox (badness 2080) in paragraph at lines 19--23
 []\OT1/cmr/m/n/12 Baptista, B. (2019).  Ma-chine le-ar-ning sem c^^Sodigo.
@@ -822,91 +836,108 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--23
 -[]sem-[]c % C3 %
  []
 
-[35
+[37
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 103--107
+Underfull \hbox (badness 2865) in paragraph at lines 80--84
+[]\OT1/cmr/m/n/12 InterviewArea (vi-si-tado em Ago, 2022).  How
+ []
+
+
+Underfull \hbox (badness 2753) in paragraph at lines 80--84
+\OT1/cmr/m/n/12 do i cho-ose a batch size?  []$\OT1/cmtt/m/n/12 https : / / www
+ . interviewarea . com /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--113
 \OT1/cmtt/m/n/12 eng . libretexts . org / Bookshelves / Electrical _ Engineerin
 g / Signal _
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--107
+Underfull \hbox (badness 10000) in paragraph at lines 109--113
 \OT1/cmtt/m/n/12 Processing _ and _ Modeling / Signals _ and _ Systems _ (Baran
 iuk _ et _ al .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--113
+Underfull \hbox (badness 10000) in paragraph at lines 115--119
 \OT1/cmtt/m/n/12 / / eng . libretexts . org / Bookshelves / Electrical _ Engine
 ering /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--113
+Underfull \hbox (badness 10000) in paragraph at lines 115--119
 \OT1/cmtt/m/n/12 Signal _ Processing _ and _ Modeling / Signals _ and _ Systems
  _ (Baraniuk _
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--113
+Underfull \hbox (badness 10000) in paragraph at lines 115--119
 \OT1/cmtt/m/n/12 et _ al . ) / 10 % 3A _ Sampling _ and _ Reconstruction / 10 .
  03 % 3A _ Signal _
  []
 
-[36]
-Underfull \hbox (badness 1215) in paragraph at lines 120--124
+[38]
+Underfull \hbox (badness 1215) in paragraph at lines 126--130
 []\OT1/cmr/m/n/12 MachineLearning (2017).  Har-mo-nic precision-
  []
 
 
-Underfull \hbox (badness 7081) in paragraph at lines 120--124
+Underfull \hbox (badness 7081) in paragraph at lines 126--130
 \OT1/cmr/m/n/12 recall mean (f1 score).  []$\OT1/cmtt/m/n/12 https : / / machin
 elearning . wtf / terms /
  []
 
 
-Overfull \hbox (61.91672pt too wide) in paragraph at lines 133--137
+Overfull \hbox (61.91672pt too wide) in paragraph at lines 139--143
 \OT1/cmtt/m/n/12 a-[]simple-[]introduction-[]to-[]dropout-[]regularization-[]wi
 th-[]code-[]5279489dda1e$[]\OT1/cmr/m/n/12 . 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--143
+Underfull \hbox (badness 10000) in paragraph at lines 145--149
 []\OT1/cmr/m/n/12 Medium (2019).  A be-gin-ner in-tro to neu-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--143
+Underfull \hbox (badness 10000) in paragraph at lines 145--149
 \OT1/cmr/m/n/12 ral networks.  []$\OT1/cmtt/m/n/12 https : / / purnasaigudikand
 ula . medium . com /
  []
 
 
-Underfull \hbox (badness 4072) in paragraph at lines 155--159
+Underfull \hbox (badness 4072) in paragraph at lines 161--165
 []\OT1/cmr/m/n/12 Nyuytiymbiy, K. (2021).  Pa-ra-me-ters and hy-
  []
 
 
-Underfull \hbox (badness 7869) in paragraph at lines 155--159
+Underfull \hbox (badness 7869) in paragraph at lines 161--165
 \OT1/cmr/m/n/12 per-pa-ra-me-ters in ma-chine le-ar-ning and deep le-ar-ning.  
 \OT1/cmr/m/it/12 Me-
  []
 
-[37]) [38] (00_PRJ_main.aux (00a_PRJ_resumo_abstract.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--171
+\OT1/cmtt/m/n/12 / / orange3 . readthedocs . io / projects / orange-[]visual-[]
+programming /
+ []
+
+[39]) [40] (00_PRJ_main.aux (00a_PRJ_resumo_abstract.aux)
 (00b_PRJ_agradecimentos.aux) (00c_PRJ_dedicatoria.aux))
 Package rerunfilecheck Info: File `00_PRJ_main.out' has not changed.
-(rerunfilecheck)             Checksum: DAF6BE4A42173FC53B5C5738B5A3FA75;6688.
+(rerunfilecheck)             Checksum: 7044AD019C29DE7BC76F87957C13F683;7467.
  ) 
 Here is how much of TeX's memory you used:
- 14696 strings out of 478338
- 245451 string characters out of 2843735
- 565684 words of memory out of 3000000
- 32712 multiletter control sequences out of 15000+600000
+ 14722 strings out of 478338
+ 245868 string characters out of 2843735
+ 616135 words of memory out of 3000000
+ 32724 multiletter control sequences out of 15000+600000
  478378 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,13n,77p,746b,591s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 72i,17n,77p,746b,591s stack positions out of 10000i,1000n,20000p,200000b,80000s
  <C:\Users\carin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmbx12.pf
 b><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><D
@@ -921,9 +952,9 @@ ic/amsfonts/cm/cmsy10.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/ams
 fonts/cm/cmsy8.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/c
 m/cmti12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmtt
 12.pfb>
-Output written on 00_PRJ_main.pdf (54 pages, 923797 bytes).
+Output written on 00_PRJ_main.pdf (56 pages, 882043 bytes).
 PDF statistics:
- 762 PDF objects out of 1000 (max. 8388607)
- 162 named destinations out of 1000 (max. 500000)
- 397 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 814 PDF objects out of 1000 (max. 8388607)
+ 176 named destinations out of 1000 (max. 500000)
+ 429 words of extra memory for PDF output out of 10000 (max. 10000000)
 

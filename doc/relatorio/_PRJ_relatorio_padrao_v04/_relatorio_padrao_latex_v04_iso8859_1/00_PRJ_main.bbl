@@ -76,6 +76,12 @@ Ganser, A., Hollaus, B., e Stabinger, S. (2021).
 \newblock Classification of tennis shots with a neural network approach.
 \newblock {\em Sensors}, 21(17):5703.
 
+\bibitem[InterviewArea, 2022]{interviewarea_batchsize_2022}
+InterviewArea (visitado em Ago, 2022).
+\newblock How do i choose a batch size?
+\newblock
+  \url{https://www.interviewarea.com/frequently-asked-questions/how-do-i-choose-a-batch-size}.
+
 \bibitem[Janiesch et~al., 2021]{janiesch2021machine}
 Janiesch, C., Zschech, P., e Heinrich, K. (2021).
 \newblock Machine learning and deep learning.
@@ -156,6 +162,12 @@ Nyuytiymbiy, K. (2021).
 \newblock Parameters and hyperparameters in machine learning and deep learning.
 \newblock {\em Medium. https://towardsdatascience.
   com/parameters-and-hyperparameters-aa609601a9ac (April 22, 2021)}.
+
+\bibitem[Orange3, 2022]{orange3_2022_neuralnetwork}
+Orange3 (visitado em Ago, 2022).
+\newblock Neural network.
+\newblock
+  \url{https://orange3.readthedocs.io/projects/orange-visual-programming/en/latest/widgets/model/neuralnetwork.html}.
 
 \bibitem[Pierre, 2021]{builtin_2021}
 Pierre, S. (2021).
