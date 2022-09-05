@@ -31,8 +31,8 @@ file_rows = list()
 CsvFile.remove_file("../" + TEST_DIR_PATH + "/" + TEST_DATASET_PATH)
 features_file = CsvFile(TEST_DIR_PATH + "/" + TEST_DATASET_PATH, "w")
 
-v = Video(TEST_VIDEO_PATH + "/", TEST_VIDEO_NAME)
-video = v.get_file()
+# v = Video(TEST_VIDEO_PATH + "/", TEST_VIDEO_NAME)
+# video = v.get_file()
 
 # testDatasetConstructor.construct(nog, spr, noss, features_file, file_rows, video)
 
@@ -40,10 +40,3 @@ video = v.get_file()
 paths_train = [TEST_VIDEO_PATH, TEST_AUDIO_PATH]
 testDatasetConstructor.construct(paths_train, nog, spr,
                                  noss, features_file, file_rows)
-
-
-
-
-
-
-

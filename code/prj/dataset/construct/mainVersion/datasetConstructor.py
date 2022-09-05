@@ -132,7 +132,6 @@ def get_data_features(data, vd_index, nr_groups, nr_samples_per_group, nr_shifte
         elif not is_ball_hit:
             nr_non_ball_hits += 1
 
-
         """
         # keep the features data on array
         if (is_ball_hit and vd_index not in non_ball_hit_vd_idx) or \
@@ -165,7 +164,7 @@ def construct(paths, nr_groups, nr_samples_per_group,
     total_non_ball_hits = 0
 
     # non_ball_hit_vd_idx = [35, 36, 37, 47, 52, 53, 54]  # to balance dataset
-    non_ball_hit_vd_idx = [35, 36, 37, 47, 52, 53, 54]  # + indexes --> + noise
+    non_ball_hit_vd_idx = [35, 36, 37, 38, 47, 52, 53, 54]  # + indexes --> + noise
 
     files = np.array(list(os.listdir(paths[0])))
     for i in range(len(files)):

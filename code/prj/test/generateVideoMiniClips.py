@@ -22,7 +22,6 @@ from os.path import exists
 import operator
 
 import sklearn.preprocessing as pp
-from sklearn.decomposition import PCA
 
 # =================================================================================
 # Iniciar contagem de tempo de processamento ...
@@ -49,14 +48,21 @@ def organize_info(info_array):
 
 
 dataset = read_csv(TEST_DATASET_PATH, header=None)
-X, Y = modelManipulator.get_features_and_label_values(dataset, debug=True)
-#X = pp.normalize(X)
+X_non_scaled, Y = modelManipulator.get_features_and_label_values(dataset, debug=True)
+
+# =================================================================================
+# Data pre-processing ...
+# =================================================================================
+
+scaler = pp.StandardScaler().fit(X_non_scaled)
+X = scaler.transform(X_non_scaled)
 
 # =================================================================================
 # Load model ...
 # =================================================================================
 
-model = load_model("../" + MODEL_PATH + "/" + TRAINED_MODELS_PATH + '/model_' + str(CHOSE_MODEL))
+model = load_model("../" + MODEL_PATH + "/" + TRAINED_MODELS_PATH +
+                   '/exp_' + str(EXPERIMENT) + '/model_' + str(CHOSE_MODEL))
 
 print("\n\nModel Summary: ")
 print(model.summary())
@@ -68,10 +74,10 @@ print(model.summary())
 y_predict_ini = model.predict(X)
 print(np.unique(y_predict_ini))
 y_predict = np.where(y_predict_ini > DECISION_LIMIT, 1, 0)
-#print(np.unique(y_predict))
+# print(np.unique(y_predict))
 
 print("\n\n# =================================================================================")
-print("                         V A L I D A T I O N    R E S U L T S")
+print("                         T E S T    R E S U L T S")
 print("# =================================================================================")
 
 print("\n\nConfusion Matrix: ")
@@ -178,10 +184,10 @@ for k in sorted_dict:
     prob = splited_info[5]
     prob = prob.replace("\n", "")
 
-    #newclip = mp.VideoFileClip("../test/test_videos/" + TEST_VIDEO_NAME).subclip(ini, final)
+    # newclip = mp.VideoFileClip("../test/test_videos/" + TEST_VIDEO_NAME).subclip(ini, final)
     newclip_event_type = "ball_hit" if event_type == "ball-hit" else "noise"
     newclip_name = "clip_" + str(index) + "_" + newclip_event_type + ".mp4"
-    #newclip.write_videofile("mini_clips/" + video_clip_name + "/clips" + "/" + newclip_name)
+    # newclip.write_videofile("mini_clips/" + video_clip_name + "/clips" + "/" + newclip_name)
 
     info = index, ini_idx, final_idx, ini, final, event_type, newclip_name, prob
     data = organize_info(info)

@@ -1,0 +1,2459 @@
+
+(no relatório é o exp_9)
+
+Dados - Noise: 15924 ; Hits: 15816
+Pre-processamento: standard scaler
+
+
+# temporal hyper parameters
+NOG = 22  # number of groups
+SPG = 1024  # samples per group
+NOF = 3  # number of features
+NOSS = 1024  # number of shifted samples
+
+PERCENTAGE = 0.7
+
+# NN hyper parameters
+LR = 0.0001  # learning rate
+NR_EPOCHS = 200
+BATCH_SIZE = 128
+LOSS_FUNCTION = "binary_crossentropy"  # "binary_crossentropy"
+DECISION_LIMIT = 0.5  # to decide whether it is a ball hit or noise
+NR_OF_INPUT_LAYER_NODES = NOG * NOF
+OUTPUT_ACTIVATION_FUNCTION = "sigmoid"
+HIDDEN_LAYERS_ACTIVATION_FUNCTION = "relu"
+
+
+
+
+
+# =================================================================================
+# Model construction ...
+# =================================================================================
+# kernel_regularizer=l2(1e-3), kernel_regularizer=l1_l2(l1=1e-3, l2=1e-3),
+model = Sequential()
+model.add(Dense(64, input_shape=(NR_OF_INPUT_LAYER_NODES,),
+				kernel_regularizer=l2(l2=1e-6),
+				activation=HIDDEN_LAYERS_ACTIVATION_FUNCTION))
+
+model.add(Dropout(0.4))
+
+model.add(Dense(1, activation=OUTPUT_ACTIVATION_FUNCTION))
+
+
+
+
+2022-09-04 18:34:34.635798: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2022-09-04 18:34:34.635919: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+The program is running...
+X.shape:  (31740, 66) y.shape:  (31740,)
+2022-09-04 18:34:38.918847: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2022-09-04 18:34:38.918998: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2022-09-04 18:34:38.921648: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: LAPTOP-L0U6CFHO
+2022-09-04 18:34:38.921805: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: LAPTOP-L0U6CFHO
+2022-09-04 18:34:38.922132: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+
+
+Model Summary: 
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dense (Dense)               (None, 64)                4288      
+                                                                 
+ dropout (Dropout)           (None, 64)                0         
+                                                                 
+ dense_1 (Dense)             (None, 1)                 65        
+                                                                 
+=================================================================
+Total params: 4,353
+Trainable params: 4,353
+Non-trainable params: 0
+_________________________________________________________________
+None
+Epoch 1/200
+199/199 - 1s - loss: 0.6414 - accuracy: 0.6876 - 605ms/epoch - 3ms/step
+Epoch 2/200
+199/199 - 0s - loss: 0.4970 - accuracy: 0.7798 - 228ms/epoch - 1ms/step
+Epoch 3/200
+199/199 - 0s - loss: 0.4435 - accuracy: 0.8119 - 237ms/epoch - 1ms/step
+Epoch 4/200
+199/199 - 0s - loss: 0.4148 - accuracy: 0.8306 - 235ms/epoch - 1ms/step
+Epoch 5/200
+199/199 - 0s - loss: 0.3881 - accuracy: 0.8442 - 231ms/epoch - 1ms/step
+Epoch 6/200
+199/199 - 0s - loss: 0.3712 - accuracy: 0.8503 - 219ms/epoch - 1ms/step
+Epoch 7/200
+199/199 - 0s - loss: 0.3565 - accuracy: 0.8592 - 214ms/epoch - 1ms/step
+Epoch 8/200
+199/199 - 0s - loss: 0.3418 - accuracy: 0.8631 - 222ms/epoch - 1ms/step
+Epoch 9/200
+199/199 - 0s - loss: 0.3306 - accuracy: 0.8662 - 223ms/epoch - 1ms/step
+Epoch 10/200
+199/199 - 0s - loss: 0.3213 - accuracy: 0.8704 - 234ms/epoch - 1ms/step
+Epoch 11/200
+199/199 - 0s - loss: 0.3094 - accuracy: 0.8750 - 228ms/epoch - 1ms/step
+Epoch 12/200
+199/199 - 0s - loss: 0.3102 - accuracy: 0.8734 - 237ms/epoch - 1ms/step
+Epoch 13/200
+199/199 - 0s - loss: 0.3009 - accuracy: 0.8789 - 244ms/epoch - 1ms/step
+Epoch 14/200
+199/199 - 0s - loss: 0.2965 - accuracy: 0.8798 - 225ms/epoch - 1ms/step
+Epoch 15/200
+199/199 - 0s - loss: 0.2905 - accuracy: 0.8819 - 228ms/epoch - 1ms/step
+Epoch 16/200
+199/199 - 0s - loss: 0.2827 - accuracy: 0.8844 - 229ms/epoch - 1ms/step
+Epoch 17/200
+199/199 - 0s - loss: 0.2831 - accuracy: 0.8845 - 230ms/epoch - 1ms/step
+Epoch 18/200
+199/199 - 0s - loss: 0.2794 - accuracy: 0.8845 - 225ms/epoch - 1ms/step
+Epoch 19/200
+199/199 - 0s - loss: 0.2772 - accuracy: 0.8870 - 235ms/epoch - 1ms/step
+Epoch 20/200
+199/199 - 0s - loss: 0.2741 - accuracy: 0.8887 - 237ms/epoch - 1ms/step
+Epoch 21/200
+199/199 - 0s - loss: 0.2707 - accuracy: 0.8878 - 237ms/epoch - 1ms/step
+Epoch 22/200
+199/199 - 0s - loss: 0.2702 - accuracy: 0.8873 - 245ms/epoch - 1ms/step
+Epoch 23/200
+199/199 - 0s - loss: 0.2642 - accuracy: 0.8913 - 231ms/epoch - 1ms/step
+Epoch 24/200
+199/199 - 0s - loss: 0.2631 - accuracy: 0.8925 - 242ms/epoch - 1ms/step
+Epoch 25/200
+199/199 - 0s - loss: 0.2617 - accuracy: 0.8929 - 212ms/epoch - 1ms/step
+Epoch 26/200
+199/199 - 0s - loss: 0.2628 - accuracy: 0.8921 - 218ms/epoch - 1ms/step
+Epoch 27/200
+199/199 - 0s - loss: 0.2571 - accuracy: 0.8930 - 210ms/epoch - 1ms/step
+Epoch 28/200
+199/199 - 0s - loss: 0.2562 - accuracy: 0.8947 - 204ms/epoch - 1ms/step
+Epoch 29/200
+199/199 - 0s - loss: 0.2540 - accuracy: 0.8966 - 205ms/epoch - 1ms/step
+Epoch 30/200
+199/199 - 0s - loss: 0.2509 - accuracy: 0.8966 - 209ms/epoch - 1ms/step
+Epoch 31/200
+199/199 - 0s - loss: 0.2515 - accuracy: 0.8954 - 213ms/epoch - 1ms/step
+Epoch 32/200
+199/199 - 0s - loss: 0.2532 - accuracy: 0.8951 - 298ms/epoch - 1ms/step
+Epoch 33/200
+199/199 - 0s - loss: 0.2484 - accuracy: 0.8973 - 289ms/epoch - 1ms/step
+Epoch 34/200
+199/199 - 0s - loss: 0.2473 - accuracy: 0.8978 - 205ms/epoch - 1ms/step
+Epoch 35/200
+199/199 - 0s - loss: 0.2483 - accuracy: 0.8961 - 208ms/epoch - 1ms/step
+Epoch 36/200
+199/199 - 0s - loss: 0.2475 - accuracy: 0.8974 - 202ms/epoch - 1ms/step
+Epoch 37/200
+199/199 - 0s - loss: 0.2452 - accuracy: 0.8990 - 209ms/epoch - 1ms/step
+Epoch 38/200
+199/199 - 0s - loss: 0.2454 - accuracy: 0.8990 - 205ms/epoch - 1ms/step
+Epoch 39/200
+199/199 - 0s - loss: 0.2405 - accuracy: 0.9009 - 210ms/epoch - 1ms/step
+Epoch 40/200
+199/199 - 0s - loss: 0.2407 - accuracy: 0.9005 - 203ms/epoch - 1ms/step
+Epoch 41/200
+199/199 - 0s - loss: 0.2386 - accuracy: 0.9006 - 206ms/epoch - 1ms/step
+Epoch 42/200
+199/199 - 0s - loss: 0.2416 - accuracy: 0.8998 - 201ms/epoch - 1ms/step
+Epoch 43/200
+199/199 - 0s - loss: 0.2364 - accuracy: 0.9027 - 213ms/epoch - 1ms/step
+Epoch 44/200
+199/199 - 0s - loss: 0.2367 - accuracy: 0.9017 - 201ms/epoch - 1ms/step
+Epoch 45/200
+199/199 - 0s - loss: 0.2365 - accuracy: 0.9016 - 209ms/epoch - 1ms/step
+Epoch 46/200
+199/199 - 0s - loss: 0.2369 - accuracy: 0.9044 - 204ms/epoch - 1ms/step
+Epoch 47/200
+199/199 - 0s - loss: 0.2362 - accuracy: 0.9031 - 208ms/epoch - 1ms/step
+Epoch 48/200
+199/199 - 0s - loss: 0.2332 - accuracy: 0.9045 - 204ms/epoch - 1ms/step
+Epoch 49/200
+199/199 - 0s - loss: 0.2338 - accuracy: 0.9027 - 208ms/epoch - 1ms/step
+Epoch 50/200
+199/199 - 0s - loss: 0.2298 - accuracy: 0.9044 - 203ms/epoch - 1ms/step
+Epoch 51/200
+199/199 - 0s - loss: 0.2315 - accuracy: 0.9037 - 206ms/epoch - 1ms/step
+Epoch 52/200
+199/199 - 0s - loss: 0.2311 - accuracy: 0.9037 - 200ms/epoch - 1ms/step
+Epoch 53/200
+199/199 - 0s - loss: 0.2278 - accuracy: 0.9061 - 209ms/epoch - 1ms/step
+Epoch 54/200
+199/199 - 0s - loss: 0.2299 - accuracy: 0.9061 - 201ms/epoch - 1ms/step
+Epoch 55/200
+199/199 - 0s - loss: 0.2286 - accuracy: 0.9051 - 211ms/epoch - 1ms/step
+Epoch 56/200
+199/199 - 0s - loss: 0.2277 - accuracy: 0.9054 - 201ms/epoch - 1ms/step
+Epoch 57/200
+199/199 - 0s - loss: 0.2261 - accuracy: 0.9060 - 212ms/epoch - 1ms/step
+Epoch 58/200
+199/199 - 0s - loss: 0.2252 - accuracy: 0.9070 - 205ms/epoch - 1ms/step
+Epoch 59/200
+199/199 - 0s - loss: 0.2269 - accuracy: 0.9072 - 210ms/epoch - 1ms/step
+Epoch 60/200
+199/199 - 0s - loss: 0.2258 - accuracy: 0.9078 - 202ms/epoch - 1ms/step
+Epoch 61/200
+199/199 - 0s - loss: 0.2243 - accuracy: 0.9078 - 205ms/epoch - 1ms/step
+Epoch 62/200
+199/199 - 0s - loss: 0.2221 - accuracy: 0.9085 - 202ms/epoch - 1ms/step
+Epoch 63/200
+199/199 - 0s - loss: 0.2232 - accuracy: 0.9085 - 207ms/epoch - 1ms/step
+Epoch 64/200
+199/199 - 0s - loss: 0.2225 - accuracy: 0.9095 - 202ms/epoch - 1ms/step
+Epoch 65/200
+199/199 - 0s - loss: 0.2221 - accuracy: 0.9072 - 209ms/epoch - 1ms/step
+Epoch 66/200
+199/199 - 0s - loss: 0.2226 - accuracy: 0.9064 - 203ms/epoch - 1ms/step
+Epoch 67/200
+199/199 - 0s - loss: 0.2214 - accuracy: 0.9097 - 210ms/epoch - 1ms/step
+Epoch 68/200
+199/199 - 0s - loss: 0.2206 - accuracy: 0.9094 - 202ms/epoch - 1ms/step
+Epoch 69/200
+199/199 - 0s - loss: 0.2184 - accuracy: 0.9102 - 208ms/epoch - 1ms/step
+Epoch 70/200
+199/199 - 0s - loss: 0.2193 - accuracy: 0.9108 - 264ms/epoch - 1ms/step
+Epoch 71/200
+199/199 - 0s - loss: 0.2200 - accuracy: 0.9104 - 281ms/epoch - 1ms/step
+Epoch 72/200
+199/199 - 0s - loss: 0.2174 - accuracy: 0.9096 - 230ms/epoch - 1ms/step
+Epoch 73/200
+199/199 - 0s - loss: 0.2182 - accuracy: 0.9121 - 285ms/epoch - 1ms/step
+Epoch 74/200
+199/199 - 0s - loss: 0.2190 - accuracy: 0.9090 - 218ms/epoch - 1ms/step
+Epoch 75/200
+199/199 - 0s - loss: 0.2170 - accuracy: 0.9124 - 205ms/epoch - 1ms/step
+Epoch 76/200
+199/199 - 0s - loss: 0.2169 - accuracy: 0.9111 - 240ms/epoch - 1ms/step
+Epoch 77/200
+199/199 - 0s - loss: 0.2148 - accuracy: 0.9119 - 213ms/epoch - 1ms/step
+Epoch 78/200
+199/199 - 0s - loss: 0.2153 - accuracy: 0.9111 - 208ms/epoch - 1ms/step
+Epoch 79/200
+199/199 - 0s - loss: 0.2141 - accuracy: 0.9125 - 200ms/epoch - 1ms/step
+Epoch 80/200
+199/199 - 0s - loss: 0.2150 - accuracy: 0.9125 - 214ms/epoch - 1ms/step
+Epoch 81/200
+199/199 - 0s - loss: 0.2144 - accuracy: 0.9130 - 201ms/epoch - 1ms/step
+Epoch 82/200
+199/199 - 0s - loss: 0.2167 - accuracy: 0.9131 - 213ms/epoch - 1ms/step
+Epoch 83/200
+199/199 - 0s - loss: 0.2147 - accuracy: 0.9131 - 222ms/epoch - 1ms/step
+Epoch 84/200
+199/199 - 0s - loss: 0.2128 - accuracy: 0.9125 - 205ms/epoch - 1ms/step
+Epoch 85/200
+199/199 - 0s - loss: 0.2136 - accuracy: 0.9130 - 208ms/epoch - 1ms/step
+Epoch 86/200
+199/199 - 0s - loss: 0.2125 - accuracy: 0.9130 - 205ms/epoch - 1ms/step
+Epoch 87/200
+199/199 - 0s - loss: 0.2120 - accuracy: 0.9138 - 209ms/epoch - 1ms/step
+Epoch 88/200
+199/199 - 0s - loss: 0.2121 - accuracy: 0.9147 - 202ms/epoch - 1ms/step
+Epoch 89/200
+199/199 - 0s - loss: 0.2114 - accuracy: 0.9126 - 216ms/epoch - 1ms/step
+Epoch 90/200
+199/199 - 0s - loss: 0.2084 - accuracy: 0.9155 - 201ms/epoch - 1ms/step
+Epoch 91/200
+199/199 - 0s - loss: 0.2124 - accuracy: 0.9136 - 205ms/epoch - 1ms/step
+Epoch 92/200
+199/199 - 0s - loss: 0.2128 - accuracy: 0.9135 - 202ms/epoch - 1ms/step
+Epoch 93/200
+199/199 - 0s - loss: 0.2092 - accuracy: 0.9150 - 210ms/epoch - 1ms/step
+Epoch 94/200
+199/199 - 0s - loss: 0.2077 - accuracy: 0.9150 - 203ms/epoch - 1ms/step
+Epoch 95/200
+199/199 - 0s - loss: 0.2100 - accuracy: 0.9156 - 292ms/epoch - 1ms/step
+Epoch 96/200
+199/199 - 0s - loss: 0.2093 - accuracy: 0.9138 - 268ms/epoch - 1ms/step
+Epoch 97/200
+199/199 - 0s - loss: 0.2084 - accuracy: 0.9159 - 204ms/epoch - 1ms/step
+Epoch 98/200
+199/199 - 0s - loss: 0.2096 - accuracy: 0.9139 - 211ms/epoch - 1ms/step
+Epoch 99/200
+199/199 - 0s - loss: 0.2070 - accuracy: 0.9152 - 205ms/epoch - 1ms/step
+Epoch 100/200
+199/199 - 0s - loss: 0.2073 - accuracy: 0.9175 - 262ms/epoch - 1ms/step
+Epoch 101/200
+199/199 - 0s - loss: 0.2076 - accuracy: 0.9169 - 298ms/epoch - 1ms/step
+Epoch 102/200
+199/199 - 0s - loss: 0.2088 - accuracy: 0.9159 - 222ms/epoch - 1ms/step
+Epoch 103/200
+199/199 - 0s - loss: 0.2060 - accuracy: 0.9167 - 210ms/epoch - 1ms/step
+Epoch 104/200
+199/199 - 0s - loss: 0.2064 - accuracy: 0.9168 - 219ms/epoch - 1ms/step
+Epoch 105/200
+199/199 - 0s - loss: 0.2080 - accuracy: 0.9167 - 213ms/epoch - 1ms/step
+Epoch 106/200
+199/199 - 0s - loss: 0.2050 - accuracy: 0.9171 - 206ms/epoch - 1ms/step
+Epoch 107/200
+199/199 - 0s - loss: 0.2067 - accuracy: 0.9175 - 214ms/epoch - 1ms/step
+Epoch 108/200
+199/199 - 0s - loss: 0.2074 - accuracy: 0.9158 - 216ms/epoch - 1ms/step
+Epoch 109/200
+199/199 - 0s - loss: 0.2035 - accuracy: 0.9167 - 286ms/epoch - 1ms/step
+Epoch 110/200
+199/199 - 0s - loss: 0.2046 - accuracy: 0.9160 - 229ms/epoch - 1ms/step
+Epoch 111/200
+199/199 - 0s - loss: 0.2066 - accuracy: 0.9174 - 234ms/epoch - 1ms/step
+Epoch 112/200
+199/199 - 0s - loss: 0.2045 - accuracy: 0.9173 - 233ms/epoch - 1ms/step
+Epoch 113/200
+199/199 - 0s - loss: 0.2033 - accuracy: 0.9181 - 239ms/epoch - 1ms/step
+Epoch 114/200
+199/199 - 0s - loss: 0.2027 - accuracy: 0.9170 - 232ms/epoch - 1ms/step
+Epoch 115/200
+199/199 - 0s - loss: 0.2044 - accuracy: 0.9168 - 222ms/epoch - 1ms/step
+Epoch 116/200
+199/199 - 0s - loss: 0.2016 - accuracy: 0.9191 - 216ms/epoch - 1ms/step
+Epoch 117/200
+199/199 - 0s - loss: 0.2016 - accuracy: 0.9179 - 226ms/epoch - 1ms/step
+Epoch 118/200
+199/199 - 0s - loss: 0.2040 - accuracy: 0.9158 - 234ms/epoch - 1ms/step
+Epoch 119/200
+199/199 - 0s - loss: 0.2024 - accuracy: 0.9180 - 245ms/epoch - 1ms/step
+Epoch 120/200
+199/199 - 0s - loss: 0.2011 - accuracy: 0.9201 - 228ms/epoch - 1ms/step
+Epoch 121/200
+199/199 - 0s - loss: 0.2014 - accuracy: 0.9180 - 216ms/epoch - 1ms/step
+Epoch 122/200
+199/199 - 0s - loss: 0.2012 - accuracy: 0.9178 - 223ms/epoch - 1ms/step
+Epoch 123/200
+199/199 - 0s - loss: 0.2018 - accuracy: 0.9191 - 214ms/epoch - 1ms/step
+Epoch 124/200
+199/199 - 0s - loss: 0.1987 - accuracy: 0.9204 - 244ms/epoch - 1ms/step
+Epoch 125/200
+199/199 - 0s - loss: 0.2016 - accuracy: 0.9186 - 219ms/epoch - 1ms/step
+Epoch 126/200
+199/199 - 0s - loss: 0.1974 - accuracy: 0.9187 - 219ms/epoch - 1ms/step
+Epoch 127/200
+199/199 - 0s - loss: 0.2004 - accuracy: 0.9188 - 216ms/epoch - 1ms/step
+Epoch 128/200
+199/199 - 0s - loss: 0.1973 - accuracy: 0.9210 - 217ms/epoch - 1ms/step
+Epoch 129/200
+199/199 - 0s - loss: 0.1986 - accuracy: 0.9185 - 209ms/epoch - 1ms/step
+Epoch 130/200
+199/199 - 0s - loss: 0.2000 - accuracy: 0.9190 - 214ms/epoch - 1ms/step
+Epoch 131/200
+199/199 - 0s - loss: 0.1988 - accuracy: 0.9216 - 213ms/epoch - 1ms/step
+Epoch 132/200
+199/199 - 0s - loss: 0.1997 - accuracy: 0.9196 - 217ms/epoch - 1ms/step
+Epoch 133/200
+199/199 - 0s - loss: 0.1980 - accuracy: 0.9204 - 214ms/epoch - 1ms/step
+Epoch 134/200
+199/199 - 0s - loss: 0.2000 - accuracy: 0.9199 - 209ms/epoch - 1ms/step
+Epoch 135/200
+199/199 - 0s - loss: 0.1963 - accuracy: 0.9203 - 214ms/epoch - 1ms/step
+Epoch 136/200
+199/199 - 0s - loss: 0.1972 - accuracy: 0.9211 - 215ms/epoch - 1ms/step
+Epoch 137/200
+199/199 - 0s - loss: 0.1981 - accuracy: 0.9208 - 212ms/epoch - 1ms/step
+Epoch 138/200
+199/199 - 0s - loss: 0.1962 - accuracy: 0.9226 - 215ms/epoch - 1ms/step
+Epoch 139/200
+199/199 - 0s - loss: 0.1978 - accuracy: 0.9209 - 212ms/epoch - 1ms/step
+Epoch 140/200
+199/199 - 0s - loss: 0.1972 - accuracy: 0.9208 - 221ms/epoch - 1ms/step
+Epoch 141/200
+199/199 - 0s - loss: 0.1986 - accuracy: 0.9208 - 213ms/epoch - 1ms/step
+Epoch 142/200
+199/199 - 0s - loss: 0.1961 - accuracy: 0.9208 - 216ms/epoch - 1ms/step
+Epoch 143/200
+199/199 - 0s - loss: 0.1971 - accuracy: 0.9216 - 214ms/epoch - 1ms/step
+Epoch 144/200
+199/199 - 0s - loss: 0.1981 - accuracy: 0.9191 - 213ms/epoch - 1ms/step
+Epoch 145/200
+199/199 - 0s - loss: 0.1982 - accuracy: 0.9211 - 219ms/epoch - 1ms/step
+Epoch 146/200
+199/199 - 0s - loss: 0.1964 - accuracy: 0.9214 - 214ms/epoch - 1ms/step
+Epoch 147/200
+199/199 - 0s - loss: 0.1965 - accuracy: 0.9198 - 219ms/epoch - 1ms/step
+Epoch 148/200
+199/199 - 0s - loss: 0.1953 - accuracy: 0.9216 - 218ms/epoch - 1ms/step
+Epoch 149/200
+199/199 - 0s - loss: 0.1972 - accuracy: 0.9212 - 213ms/epoch - 1ms/step
+Epoch 150/200
+199/199 - 0s - loss: 0.1958 - accuracy: 0.9223 - 207ms/epoch - 1ms/step
+Epoch 151/200
+199/199 - 0s - loss: 0.1935 - accuracy: 0.9240 - 206ms/epoch - 1ms/step
+Epoch 152/200
+199/199 - 0s - loss: 0.1963 - accuracy: 0.9222 - 201ms/epoch - 1ms/step
+Epoch 153/200
+199/199 - 0s - loss: 0.1938 - accuracy: 0.9234 - 209ms/epoch - 1ms/step
+Epoch 154/200
+199/199 - 0s - loss: 0.1935 - accuracy: 0.9216 - 210ms/epoch - 1ms/step
+Epoch 155/200
+199/199 - 0s - loss: 0.1955 - accuracy: 0.9228 - 214ms/epoch - 1ms/step
+Epoch 156/200
+199/199 - 0s - loss: 0.1972 - accuracy: 0.9207 - 212ms/epoch - 1ms/step
+Epoch 157/200
+199/199 - 0s - loss: 0.1967 - accuracy: 0.9218 - 214ms/epoch - 1ms/step
+Epoch 158/200
+199/199 - 0s - loss: 0.1946 - accuracy: 0.9229 - 210ms/epoch - 1ms/step
+Epoch 159/200
+199/199 - 0s - loss: 0.1922 - accuracy: 0.9243 - 216ms/epoch - 1ms/step
+Epoch 160/200
+199/199 - 0s - loss: 0.1927 - accuracy: 0.9222 - 206ms/epoch - 1ms/step
+Epoch 161/200
+199/199 - 0s - loss: 0.1957 - accuracy: 0.9217 - 206ms/epoch - 1ms/step
+Epoch 162/200
+199/199 - 0s - loss: 0.1942 - accuracy: 0.9217 - 201ms/epoch - 1ms/step
+Epoch 163/200
+199/199 - 0s - loss: 0.1951 - accuracy: 0.9214 - 209ms/epoch - 1ms/step
+Epoch 164/200
+199/199 - 0s - loss: 0.1947 - accuracy: 0.9229 - 203ms/epoch - 1ms/step
+Epoch 165/200
+199/199 - 0s - loss: 0.1951 - accuracy: 0.9226 - 211ms/epoch - 1ms/step
+Epoch 166/200
+199/199 - 0s - loss: 0.1929 - accuracy: 0.9241 - 205ms/epoch - 1ms/step
+Epoch 167/200
+199/199 - 0s - loss: 0.1940 - accuracy: 0.9220 - 214ms/epoch - 1ms/step
+Epoch 168/200
+199/199 - 0s - loss: 0.1952 - accuracy: 0.9224 - 209ms/epoch - 1ms/step
+Epoch 169/200
+199/199 - 0s - loss: 0.1908 - accuracy: 0.9244 - 213ms/epoch - 1ms/step
+Epoch 170/200
+199/199 - 0s - loss: 0.1929 - accuracy: 0.9224 - 210ms/epoch - 1ms/step
+Epoch 171/200
+199/199 - 0s - loss: 0.1935 - accuracy: 0.9230 - 207ms/epoch - 1ms/step
+Epoch 172/200
+199/199 - 0s - loss: 0.1902 - accuracy: 0.9245 - 205ms/epoch - 1ms/step
+Epoch 173/200
+199/199 - 0s - loss: 0.1911 - accuracy: 0.9240 - 202ms/epoch - 1ms/step
+Epoch 174/200
+199/199 - 0s - loss: 0.1929 - accuracy: 0.9223 - 207ms/epoch - 1ms/step
+Epoch 175/200
+199/199 - 0s - loss: 0.1904 - accuracy: 0.9237 - 203ms/epoch - 1ms/step
+Epoch 176/200
+199/199 - 0s - loss: 0.1944 - accuracy: 0.9232 - 209ms/epoch - 1ms/step
+Epoch 177/200
+199/199 - 0s - loss: 0.1908 - accuracy: 0.9233 - 204ms/epoch - 1ms/step
+Epoch 178/200
+199/199 - 0s - loss: 0.1909 - accuracy: 0.9232 - 211ms/epoch - 1ms/step
+Epoch 179/200
+199/199 - 0s - loss: 0.1924 - accuracy: 0.9242 - 204ms/epoch - 1ms/step
+Epoch 180/200
+199/199 - 0s - loss: 0.1905 - accuracy: 0.9235 - 210ms/epoch - 1ms/step
+Epoch 181/200
+199/199 - 0s - loss: 0.1916 - accuracy: 0.9247 - 201ms/epoch - 1ms/step
+Epoch 182/200
+199/199 - 0s - loss: 0.1894 - accuracy: 0.9245 - 206ms/epoch - 1ms/step
+Epoch 183/200
+199/199 - 0s - loss: 0.1902 - accuracy: 0.9234 - 204ms/epoch - 1ms/step
+Epoch 184/200
+199/199 - 0s - loss: 0.1894 - accuracy: 0.9249 - 212ms/epoch - 1ms/step
+Epoch 185/200
+199/199 - 0s - loss: 0.1923 - accuracy: 0.9240 - 204ms/epoch - 1ms/step
+Epoch 186/200
+199/199 - 0s - loss: 0.1909 - accuracy: 0.9233 - 209ms/epoch - 1ms/step
+Epoch 187/200
+199/199 - 0s - loss: 0.1917 - accuracy: 0.9234 - 204ms/epoch - 1ms/step
+Epoch 188/200
+199/199 - 0s - loss: 0.1915 - accuracy: 0.9250 - 212ms/epoch - 1ms/step
+Epoch 189/200
+199/199 - 0s - loss: 0.1915 - accuracy: 0.9230 - 201ms/epoch - 1ms/step
+Epoch 190/200
+199/199 - 0s - loss: 0.1915 - accuracy: 0.9232 - 208ms/epoch - 1ms/step
+Epoch 191/200
+199/199 - 0s - loss: 0.1891 - accuracy: 0.9240 - 204ms/epoch - 1ms/step
+Epoch 192/200
+199/199 - 0s - loss: 0.1899 - accuracy: 0.9233 - 224ms/epoch - 1ms/step
+Epoch 193/200
+199/199 - 0s - loss: 0.1901 - accuracy: 0.9257 - 209ms/epoch - 1ms/step
+Epoch 194/200
+199/199 - 0s - loss: 0.1876 - accuracy: 0.9255 - 213ms/epoch - 1ms/step
+Epoch 195/200
+199/199 - 0s - loss: 0.1874 - accuracy: 0.9257 - 207ms/epoch - 1ms/step
+Epoch 196/200
+199/199 - 0s - loss: 0.1870 - accuracy: 0.9262 - 210ms/epoch - 1ms/step
+Epoch 197/200
+199/199 - 0s - loss: 0.1893 - accuracy: 0.9256 - 204ms/epoch - 1ms/step
+Epoch 198/200
+199/199 - 0s - loss: 0.1884 - accuracy: 0.9243 - 213ms/epoch - 1ms/step
+Epoch 199/200
+199/199 - 0s - loss: 0.1898 - accuracy: 0.9245 - 216ms/epoch - 1ms/step
+Epoch 200/200
+199/199 - 0s - loss: 0.1886 - accuracy: 0.9251 - 203ms/epoch - 1ms/step
+2022-09-04 18:35:23.209252: W tensorflow/python/util/util.cc:368] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+
+
+# =================================================================================
+                         T R A I N I N G    R E S U L T S
+# =================================================================================
+
+
+Best training score (model history):  0.9261972308158875
+Minimum loss (model history):  0.18702779710292816
+
+
+# =================================================================================
+                         V A L I D A T I O N    R E S U L T S
+# =================================================================================
+
+
+Confusion Matrix: 
+[[2949  235]
+ [ 235 2929]]
+
+
+Classification Report: 
+              precision    recall  f1-score   support
+
+       noise       0.93      0.93      0.93      3184
+         hit       0.93      0.93      0.93      3164
+
+    accuracy                           0.93      6348
+   macro avg       0.93      0.93      0.93      6348
+weighted avg       0.93      0.93      0.93      6348
+
+
+
+Evaluation Matrics:
+Accuracy:  0.9259609580039978
+Loss:  0.18928007781505585
+
+
+Model Summary: 
+Model: "sequential_1"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dense_2 (Dense)             (None, 64)                4288      
+                                                                 
+ dropout_1 (Dropout)         (None, 64)                0         
+                                                                 
+ dense_3 (Dense)             (None, 1)                 65        
+                                                                 
+=================================================================
+Total params: 4,353
+Trainable params: 4,353
+Non-trainable params: 0
+_________________________________________________________________
+None
+Epoch 1/200
+199/199 - 1s - loss: 0.6283 - accuracy: 0.6839 - 539ms/epoch - 3ms/step
+Epoch 2/200
+199/199 - 0s - loss: 0.4804 - accuracy: 0.7800 - 214ms/epoch - 1ms/step
+Epoch 3/200
+199/199 - 0s - loss: 0.4270 - accuracy: 0.8193 - 211ms/epoch - 1ms/step
+Epoch 4/200
+199/199 - 0s - loss: 0.3970 - accuracy: 0.8358 - 216ms/epoch - 1ms/step
+Epoch 5/200
+199/199 - 0s - loss: 0.3726 - accuracy: 0.8473 - 208ms/epoch - 1ms/step
+Epoch 6/200
+199/199 - 0s - loss: 0.3532 - accuracy: 0.8583 - 208ms/epoch - 1ms/step
+Epoch 7/200
+199/199 - 0s - loss: 0.3383 - accuracy: 0.8635 - 206ms/epoch - 1ms/step
+Epoch 8/200
+199/199 - 0s - loss: 0.3261 - accuracy: 0.8700 - 210ms/epoch - 1ms/step
+Epoch 9/200
+199/199 - 0s - loss: 0.3177 - accuracy: 0.8728 - 206ms/epoch - 1ms/step
+Epoch 10/200
+199/199 - 0s - loss: 0.3097 - accuracy: 0.8761 - 207ms/epoch - 1ms/step
+Epoch 11/200
+199/199 - 0s - loss: 0.3033 - accuracy: 0.8765 - 204ms/epoch - 1ms/step
+Epoch 12/200
+199/199 - 0s - loss: 0.2920 - accuracy: 0.8829 - 206ms/epoch - 1ms/step
+Epoch 13/200
+199/199 - 0s - loss: 0.2901 - accuracy: 0.8822 - 203ms/epoch - 1ms/step
+Epoch 14/200
+199/199 - 0s - loss: 0.2841 - accuracy: 0.8845 - 205ms/epoch - 1ms/step
+Epoch 15/200
+199/199 - 0s - loss: 0.2850 - accuracy: 0.8824 - 203ms/epoch - 1ms/step
+Epoch 16/200
+199/199 - 0s - loss: 0.2795 - accuracy: 0.8859 - 214ms/epoch - 1ms/step
+Epoch 17/200
+199/199 - 0s - loss: 0.2733 - accuracy: 0.8897 - 205ms/epoch - 1ms/step
+Epoch 18/200
+199/199 - 0s - loss: 0.2699 - accuracy: 0.8884 - 207ms/epoch - 1ms/step
+Epoch 19/200
+199/199 - 0s - loss: 0.2668 - accuracy: 0.8922 - 205ms/epoch - 1ms/step
+Epoch 20/200
+199/199 - 0s - loss: 0.2651 - accuracy: 0.8900 - 206ms/epoch - 1ms/step
+Epoch 21/200
+199/199 - 0s - loss: 0.2600 - accuracy: 0.8914 - 202ms/epoch - 1ms/step
+Epoch 22/200
+199/199 - 0s - loss: 0.2616 - accuracy: 0.8924 - 203ms/epoch - 1ms/step
+Epoch 23/200
+199/199 - 0s - loss: 0.2556 - accuracy: 0.8939 - 202ms/epoch - 1ms/step
+Epoch 24/200
+199/199 - 0s - loss: 0.2577 - accuracy: 0.8941 - 204ms/epoch - 1ms/step
+Epoch 25/200
+199/199 - 0s - loss: 0.2557 - accuracy: 0.8951 - 202ms/epoch - 1ms/step
+Epoch 26/200
+199/199 - 0s - loss: 0.2530 - accuracy: 0.8952 - 205ms/epoch - 1ms/step
+Epoch 27/200
+199/199 - 0s - loss: 0.2515 - accuracy: 0.8951 - 205ms/epoch - 1ms/step
+Epoch 28/200
+199/199 - 0s - loss: 0.2503 - accuracy: 0.8954 - 204ms/epoch - 1ms/step
+Epoch 29/200
+199/199 - 0s - loss: 0.2463 - accuracy: 0.8972 - 206ms/epoch - 1ms/step
+Epoch 30/200
+199/199 - 0s - loss: 0.2452 - accuracy: 0.8987 - 203ms/epoch - 1ms/step
+Epoch 31/200
+199/199 - 0s - loss: 0.2431 - accuracy: 0.8978 - 204ms/epoch - 1ms/step
+Epoch 32/200
+199/199 - 0s - loss: 0.2453 - accuracy: 0.8978 - 202ms/epoch - 1ms/step
+Epoch 33/200
+199/199 - 0s - loss: 0.2422 - accuracy: 0.9003 - 203ms/epoch - 1ms/step
+Epoch 34/200
+199/199 - 0s - loss: 0.2404 - accuracy: 0.9000 - 202ms/epoch - 1ms/step
+Epoch 35/200
+199/199 - 0s - loss: 0.2407 - accuracy: 0.8982 - 207ms/epoch - 1ms/step
+Epoch 36/200
+199/199 - 0s - loss: 0.2410 - accuracy: 0.8991 - 205ms/epoch - 1ms/step
+Epoch 37/200
+199/199 - 0s - loss: 0.2393 - accuracy: 0.9008 - 208ms/epoch - 1ms/step
+Epoch 38/200
+199/199 - 0s - loss: 0.2390 - accuracy: 0.9006 - 204ms/epoch - 1ms/step
+Epoch 39/200
+199/199 - 0s - loss: 0.2359 - accuracy: 0.9006 - 205ms/epoch - 1ms/step
+Epoch 40/200
+199/199 - 0s - loss: 0.2361 - accuracy: 0.9029 - 203ms/epoch - 1ms/step
+Epoch 41/200
+199/199 - 0s - loss: 0.2350 - accuracy: 0.9002 - 203ms/epoch - 1ms/step
+Epoch 42/200
+199/199 - 0s - loss: 0.2346 - accuracy: 0.9036 - 201ms/epoch - 1ms/step
+Epoch 43/200
+199/199 - 0s - loss: 0.2316 - accuracy: 0.9012 - 203ms/epoch - 1ms/step
+Epoch 44/200
+199/199 - 0s - loss: 0.2309 - accuracy: 0.9050 - 202ms/epoch - 1ms/step
+Epoch 45/200
+199/199 - 0s - loss: 0.2316 - accuracy: 0.9047 - 207ms/epoch - 1ms/step
+Epoch 46/200
+199/199 - 0s - loss: 0.2305 - accuracy: 0.9041 - 204ms/epoch - 1ms/step
+Epoch 47/200
+199/199 - 0s - loss: 0.2281 - accuracy: 0.9051 - 205ms/epoch - 1ms/step
+Epoch 48/200
+199/199 - 0s - loss: 0.2272 - accuracy: 0.9068 - 203ms/epoch - 1ms/step
+Epoch 49/200
+199/199 - 0s - loss: 0.2290 - accuracy: 0.9068 - 205ms/epoch - 1ms/step
+Epoch 50/200
+199/199 - 0s - loss: 0.2290 - accuracy: 0.9051 - 201ms/epoch - 1ms/step
+Epoch 51/200
+199/199 - 0s - loss: 0.2254 - accuracy: 0.9067 - 203ms/epoch - 1ms/step
+Epoch 52/200
+199/199 - 0s - loss: 0.2294 - accuracy: 0.9052 - 202ms/epoch - 1ms/step
+Epoch 53/200
+199/199 - 0s - loss: 0.2245 - accuracy: 0.9080 - 204ms/epoch - 1ms/step
+Epoch 54/200
+199/199 - 0s - loss: 0.2239 - accuracy: 0.9078 - 201ms/epoch - 1ms/step
+Epoch 55/200
+199/199 - 0s - loss: 0.2234 - accuracy: 0.9075 - 208ms/epoch - 1ms/step
+Epoch 56/200
+199/199 - 0s - loss: 0.2224 - accuracy: 0.9089 - 205ms/epoch - 1ms/step
+Epoch 57/200
+199/199 - 0s - loss: 0.2220 - accuracy: 0.9079 - 206ms/epoch - 1ms/step
+Epoch 58/200
+199/199 - 0s - loss: 0.2225 - accuracy: 0.9073 - 207ms/epoch - 1ms/step
+Epoch 59/200
+199/199 - 0s - loss: 0.2211 - accuracy: 0.9090 - 234ms/epoch - 1ms/step
+Epoch 60/200
+199/199 - 0s - loss: 0.2219 - accuracy: 0.9089 - 220ms/epoch - 1ms/step
+Epoch 61/200
+199/199 - 0s - loss: 0.2210 - accuracy: 0.9093 - 219ms/epoch - 1ms/step
+Epoch 62/200
+199/199 - 0s - loss: 0.2195 - accuracy: 0.9092 - 262ms/epoch - 1ms/step
+Epoch 63/200
+199/199 - 0s - loss: 0.2179 - accuracy: 0.9100 - 253ms/epoch - 1ms/step
+Epoch 64/200
+199/199 - 0s - loss: 0.2164 - accuracy: 0.9119 - 232ms/epoch - 1ms/step
+Epoch 65/200
+199/199 - 0s - loss: 0.2176 - accuracy: 0.9089 - 210ms/epoch - 1ms/step
+Epoch 66/200
+199/199 - 0s - loss: 0.2163 - accuracy: 0.9120 - 215ms/epoch - 1ms/step
+Epoch 67/200
+199/199 - 0s - loss: 0.2177 - accuracy: 0.9106 - 239ms/epoch - 1ms/step
+Epoch 68/200
+199/199 - 0s - loss: 0.2163 - accuracy: 0.9108 - 217ms/epoch - 1ms/step
+Epoch 69/200
+199/199 - 0s - loss: 0.2153 - accuracy: 0.9110 - 203ms/epoch - 1ms/step
+Epoch 70/200
+199/199 - 0s - loss: 0.2163 - accuracy: 0.9115 - 195ms/epoch - 982us/step
+Epoch 71/200
+199/199 - 0s - loss: 0.2154 - accuracy: 0.9117 - 207ms/epoch - 1ms/step
+Epoch 72/200
+199/199 - 0s - loss: 0.2164 - accuracy: 0.9115 - 206ms/epoch - 1ms/step
+Epoch 73/200
+199/199 - 0s - loss: 0.2127 - accuracy: 0.9135 - 221ms/epoch - 1ms/step
+Epoch 74/200
+199/199 - 0s - loss: 0.2146 - accuracy: 0.9107 - 201ms/epoch - 1ms/step
+Epoch 75/200
+199/199 - 0s - loss: 0.2133 - accuracy: 0.9123 - 211ms/epoch - 1ms/step
+Epoch 76/200
+199/199 - 0s - loss: 0.2138 - accuracy: 0.9123 - 203ms/epoch - 1ms/step
+Epoch 77/200
+199/199 - 0s - loss: 0.2134 - accuracy: 0.9130 - 208ms/epoch - 1ms/step
+Epoch 78/200
+199/199 - 0s - loss: 0.2116 - accuracy: 0.9131 - 203ms/epoch - 1ms/step
+Epoch 79/200
+199/199 - 0s - loss: 0.2105 - accuracy: 0.9125 - 207ms/epoch - 1ms/step
+Epoch 80/200
+199/199 - 0s - loss: 0.2099 - accuracy: 0.9138 - 200ms/epoch - 1ms/step
+Epoch 81/200
+199/199 - 0s - loss: 0.2086 - accuracy: 0.9144 - 206ms/epoch - 1ms/step
+Epoch 82/200
+199/199 - 0s - loss: 0.2103 - accuracy: 0.9132 - 200ms/epoch - 1ms/step
+Epoch 83/200
+199/199 - 0s - loss: 0.2088 - accuracy: 0.9159 - 210ms/epoch - 1ms/step
+Epoch 84/200
+199/199 - 0s - loss: 0.2090 - accuracy: 0.9146 - 202ms/epoch - 1ms/step
+Epoch 85/200
+199/199 - 0s - loss: 0.2091 - accuracy: 0.9145 - 216ms/epoch - 1ms/step
+Epoch 86/200
+199/199 - 0s - loss: 0.2109 - accuracy: 0.9128 - 213ms/epoch - 1ms/step
+Epoch 87/200
+199/199 - 0s - loss: 0.2074 - accuracy: 0.9160 - 215ms/epoch - 1ms/step
+Epoch 88/200
+199/199 - 0s - loss: 0.2085 - accuracy: 0.9156 - 208ms/epoch - 1ms/step
+Epoch 89/200
+199/199 - 0s - loss: 0.2065 - accuracy: 0.9161 - 225ms/epoch - 1ms/step
+Epoch 90/200
+199/199 - 0s - loss: 0.2070 - accuracy: 0.9155 - 302ms/epoch - 2ms/step
+Epoch 91/200
+199/199 - 0s - loss: 0.2059 - accuracy: 0.9167 - 241ms/epoch - 1ms/step
+Epoch 92/200
+199/199 - 0s - loss: 0.2078 - accuracy: 0.9162 - 217ms/epoch - 1ms/step
+Epoch 93/200
+199/199 - 0s - loss: 0.2053 - accuracy: 0.9167 - 212ms/epoch - 1ms/step
+Epoch 94/200
+199/199 - 0s - loss: 0.2062 - accuracy: 0.9168 - 219ms/epoch - 1ms/step
+Epoch 95/200
+199/199 - 0s - loss: 0.2042 - accuracy: 0.9164 - 208ms/epoch - 1ms/step
+Epoch 96/200
+199/199 - 0s - loss: 0.2046 - accuracy: 0.9183 - 220ms/epoch - 1ms/step
+Epoch 97/200
+199/199 - 0s - loss: 0.2032 - accuracy: 0.9167 - 225ms/epoch - 1ms/step
+Epoch 98/200
+199/199 - 0s - loss: 0.2040 - accuracy: 0.9180 - 203ms/epoch - 1ms/step
+Epoch 99/200
+199/199 - 0s - loss: 0.2031 - accuracy: 0.9181 - 209ms/epoch - 1ms/step
+Epoch 100/200
+199/199 - 0s - loss: 0.2051 - accuracy: 0.9167 - 199ms/epoch - 1ms/step
+Epoch 101/200
+199/199 - 0s - loss: 0.2029 - accuracy: 0.9198 - 223ms/epoch - 1ms/step
+Epoch 102/200
+199/199 - 0s - loss: 0.2047 - accuracy: 0.9177 - 203ms/epoch - 1ms/step
+Epoch 103/200
+199/199 - 0s - loss: 0.2017 - accuracy: 0.9178 - 231ms/epoch - 1ms/step
+Epoch 104/200
+199/199 - 0s - loss: 0.2027 - accuracy: 0.9165 - 211ms/epoch - 1ms/step
+Epoch 105/200
+199/199 - 0s - loss: 0.2022 - accuracy: 0.9178 - 207ms/epoch - 1ms/step
+Epoch 106/200
+199/199 - 0s - loss: 0.2022 - accuracy: 0.9194 - 213ms/epoch - 1ms/step
+Epoch 107/200
+199/199 - 0s - loss: 0.2032 - accuracy: 0.9173 - 206ms/epoch - 1ms/step
+Epoch 108/200
+199/199 - 0s - loss: 0.2005 - accuracy: 0.9202 - 213ms/epoch - 1ms/step
+Epoch 109/200
+199/199 - 0s - loss: 0.2009 - accuracy: 0.9202 - 213ms/epoch - 1ms/step
+Epoch 110/200
+199/199 - 0s - loss: 0.2024 - accuracy: 0.9186 - 209ms/epoch - 1ms/step
+Epoch 111/200
+199/199 - 0s - loss: 0.2021 - accuracy: 0.9191 - 217ms/epoch - 1ms/step
+Epoch 112/200
+199/199 - 0s - loss: 0.2022 - accuracy: 0.9204 - 242ms/epoch - 1ms/step
+Epoch 113/200
+199/199 - 0s - loss: 0.2012 - accuracy: 0.9199 - 233ms/epoch - 1ms/step
+Epoch 114/200
+199/199 - 0s - loss: 0.1995 - accuracy: 0.9210 - 204ms/epoch - 1ms/step
+Epoch 115/200
+199/199 - 0s - loss: 0.1981 - accuracy: 0.9210 - 203ms/epoch - 1ms/step
+Epoch 116/200
+199/199 - 0s - loss: 0.1986 - accuracy: 0.9207 - 203ms/epoch - 1ms/step
+Epoch 117/200
+199/199 - 0s - loss: 0.1980 - accuracy: 0.9194 - 203ms/epoch - 1ms/step
+Epoch 118/200
+199/199 - 0s - loss: 0.1986 - accuracy: 0.9206 - 202ms/epoch - 1ms/step
+Epoch 119/200
+199/199 - 0s - loss: 0.1982 - accuracy: 0.9210 - 205ms/epoch - 1ms/step
+Epoch 120/200
+199/199 - 0s - loss: 0.1996 - accuracy: 0.9201 - 204ms/epoch - 1ms/step
+Epoch 121/200
+199/199 - 0s - loss: 0.1958 - accuracy: 0.9210 - 206ms/epoch - 1ms/step
+Epoch 122/200
+199/199 - 0s - loss: 0.1993 - accuracy: 0.9205 - 202ms/epoch - 1ms/step
+Epoch 123/200
+199/199 - 0s - loss: 0.1989 - accuracy: 0.9204 - 206ms/epoch - 1ms/step
+Epoch 124/200
+199/199 - 0s - loss: 0.1967 - accuracy: 0.9229 - 202ms/epoch - 1ms/step
+Epoch 125/200
+199/199 - 0s - loss: 0.1966 - accuracy: 0.9217 - 204ms/epoch - 1ms/step
+Epoch 126/200
+199/199 - 0s - loss: 0.1961 - accuracy: 0.9203 - 201ms/epoch - 1ms/step
+Epoch 127/200
+199/199 - 0s - loss: 0.1964 - accuracy: 0.9210 - 202ms/epoch - 1ms/step
+Epoch 128/200
+199/199 - 0s - loss: 0.1962 - accuracy: 0.9218 - 202ms/epoch - 1ms/step
+Epoch 129/200
+199/199 - 0s - loss: 0.1956 - accuracy: 0.9221 - 203ms/epoch - 1ms/step
+Epoch 130/200
+199/199 - 0s - loss: 0.1946 - accuracy: 0.9218 - 202ms/epoch - 1ms/step
+Epoch 131/200
+199/199 - 0s - loss: 0.1954 - accuracy: 0.9216 - 205ms/epoch - 1ms/step
+Epoch 132/200
+199/199 - 0s - loss: 0.1956 - accuracy: 0.9218 - 203ms/epoch - 1ms/step
+Epoch 133/200
+199/199 - 0s - loss: 0.1957 - accuracy: 0.9207 - 207ms/epoch - 1ms/step
+Epoch 134/200
+199/199 - 0s - loss: 0.1929 - accuracy: 0.9225 - 202ms/epoch - 1ms/step
+Epoch 135/200
+199/199 - 0s - loss: 0.1946 - accuracy: 0.9242 - 202ms/epoch - 1ms/step
+Epoch 136/200
+199/199 - 0s - loss: 0.1942 - accuracy: 0.9212 - 201ms/epoch - 1ms/step
+Epoch 137/200
+199/199 - 0s - loss: 0.1954 - accuracy: 0.9214 - 204ms/epoch - 1ms/step
+Epoch 138/200
+199/199 - 0s - loss: 0.1948 - accuracy: 0.9230 - 202ms/epoch - 1ms/step
+Epoch 139/200
+199/199 - 0s - loss: 0.1931 - accuracy: 0.9235 - 203ms/epoch - 1ms/step
+Epoch 140/200
+199/199 - 0s - loss: 0.1941 - accuracy: 0.9231 - 204ms/epoch - 1ms/step
+Epoch 141/200
+199/199 - 0s - loss: 0.1930 - accuracy: 0.9242 - 205ms/epoch - 1ms/step
+Epoch 142/200
+199/199 - 0s - loss: 0.1930 - accuracy: 0.9228 - 202ms/epoch - 1ms/step
+Epoch 143/200
+199/199 - 0s - loss: 0.1962 - accuracy: 0.9215 - 206ms/epoch - 1ms/step
+Epoch 144/200
+199/199 - 0s - loss: 0.1926 - accuracy: 0.9225 - 204ms/epoch - 1ms/step
+Epoch 145/200
+199/199 - 0s - loss: 0.1924 - accuracy: 0.9232 - 202ms/epoch - 1ms/step
+Epoch 146/200
+199/199 - 0s - loss: 0.1914 - accuracy: 0.9233 - 202ms/epoch - 1ms/step
+Epoch 147/200
+199/199 - 0s - loss: 0.1935 - accuracy: 0.9238 - 203ms/epoch - 1ms/step
+Epoch 148/200
+199/199 - 0s - loss: 0.1926 - accuracy: 0.9214 - 201ms/epoch - 1ms/step
+Epoch 149/200
+199/199 - 0s - loss: 0.1936 - accuracy: 0.9211 - 204ms/epoch - 1ms/step
+Epoch 150/200
+199/199 - 0s - loss: 0.1905 - accuracy: 0.9257 - 203ms/epoch - 1ms/step
+Epoch 151/200
+199/199 - 0s - loss: 0.1919 - accuracy: 0.9234 - 206ms/epoch - 1ms/step
+Epoch 152/200
+199/199 - 0s - loss: 0.1918 - accuracy: 0.9249 - 203ms/epoch - 1ms/step
+Epoch 153/200
+199/199 - 0s - loss: 0.1909 - accuracy: 0.9269 - 206ms/epoch - 1ms/step
+Epoch 154/200
+199/199 - 0s - loss: 0.1902 - accuracy: 0.9238 - 203ms/epoch - 1ms/step
+Epoch 155/200
+199/199 - 0s - loss: 0.1905 - accuracy: 0.9237 - 203ms/epoch - 1ms/step
+Epoch 156/200
+199/199 - 0s - loss: 0.1909 - accuracy: 0.9250 - 203ms/epoch - 1ms/step
+Epoch 157/200
+199/199 - 0s - loss: 0.1891 - accuracy: 0.9248 - 203ms/epoch - 1ms/step
+Epoch 158/200
+199/199 - 0s - loss: 0.1933 - accuracy: 0.9230 - 202ms/epoch - 1ms/step
+Epoch 159/200
+199/199 - 0s - loss: 0.1909 - accuracy: 0.9262 - 204ms/epoch - 1ms/step
+Epoch 160/200
+199/199 - 0s - loss: 0.1899 - accuracy: 0.9242 - 202ms/epoch - 1ms/step
+Epoch 161/200
+199/199 - 0s - loss: 0.1906 - accuracy: 0.9242 - 205ms/epoch - 1ms/step
+Epoch 162/200
+199/199 - 0s - loss: 0.1904 - accuracy: 0.9253 - 202ms/epoch - 1ms/step
+Epoch 163/200
+199/199 - 0s - loss: 0.1891 - accuracy: 0.9242 - 206ms/epoch - 1ms/step
+Epoch 164/200
+199/199 - 0s - loss: 0.1912 - accuracy: 0.9243 - 201ms/epoch - 1ms/step
+Epoch 165/200
+199/199 - 0s - loss: 0.1903 - accuracy: 0.9248 - 202ms/epoch - 1ms/step
+Epoch 166/200
+199/199 - 0s - loss: 0.1885 - accuracy: 0.9255 - 200ms/epoch - 1ms/step
+Epoch 167/200
+199/199 - 0s - loss: 0.1878 - accuracy: 0.9254 - 202ms/epoch - 1ms/step
+Epoch 168/200
+199/199 - 0s - loss: 0.1884 - accuracy: 0.9257 - 201ms/epoch - 1ms/step
+Epoch 169/200
+199/199 - 0s - loss: 0.1886 - accuracy: 0.9245 - 204ms/epoch - 1ms/step
+Epoch 170/200
+199/199 - 0s - loss: 0.1913 - accuracy: 0.9238 - 203ms/epoch - 1ms/step
+Epoch 171/200
+199/199 - 0s - loss: 0.1864 - accuracy: 0.9266 - 211ms/epoch - 1ms/step
+Epoch 172/200
+199/199 - 0s - loss: 0.1882 - accuracy: 0.9253 - 204ms/epoch - 1ms/step
+Epoch 173/200
+199/199 - 0s - loss: 0.1879 - accuracy: 0.9269 - 206ms/epoch - 1ms/step
+Epoch 174/200
+199/199 - 0s - loss: 0.1881 - accuracy: 0.9254 - 201ms/epoch - 1ms/step
+Epoch 175/200
+199/199 - 0s - loss: 0.1888 - accuracy: 0.9272 - 204ms/epoch - 1ms/step
+Epoch 176/200
+199/199 - 0s - loss: 0.1884 - accuracy: 0.9264 - 202ms/epoch - 1ms/step
+Epoch 177/200
+199/199 - 0s - loss: 0.1871 - accuracy: 0.9266 - 203ms/epoch - 1ms/step
+Epoch 178/200
+199/199 - 0s - loss: 0.1867 - accuracy: 0.9265 - 202ms/epoch - 1ms/step
+Epoch 179/200
+199/199 - 0s - loss: 0.1886 - accuracy: 0.9263 - 205ms/epoch - 1ms/step
+Epoch 180/200
+199/199 - 0s - loss: 0.1866 - accuracy: 0.9273 - 203ms/epoch - 1ms/step
+Epoch 181/200
+199/199 - 0s - loss: 0.1881 - accuracy: 0.9254 - 206ms/epoch - 1ms/step
+Epoch 182/200
+199/199 - 0s - loss: 0.1887 - accuracy: 0.9247 - 204ms/epoch - 1ms/step
+Epoch 183/200
+199/199 - 0s - loss: 0.1877 - accuracy: 0.9263 - 207ms/epoch - 1ms/step
+Epoch 184/200
+199/199 - 0s - loss: 0.1877 - accuracy: 0.9266 - 200ms/epoch - 1ms/step
+Epoch 185/200
+199/199 - 0s - loss: 0.1883 - accuracy: 0.9271 - 202ms/epoch - 1ms/step
+Epoch 186/200
+199/199 - 0s - loss: 0.1857 - accuracy: 0.9258 - 201ms/epoch - 1ms/step
+Epoch 187/200
+199/199 - 0s - loss: 0.1862 - accuracy: 0.9277 - 204ms/epoch - 1ms/step
+Epoch 188/200
+199/199 - 0s - loss: 0.1872 - accuracy: 0.9263 - 201ms/epoch - 1ms/step
+Epoch 189/200
+199/199 - 0s - loss: 0.1842 - accuracy: 0.9275 - 204ms/epoch - 1ms/step
+Epoch 190/200
+199/199 - 0s - loss: 0.1860 - accuracy: 0.9259 - 203ms/epoch - 1ms/step
+Epoch 191/200
+199/199 - 0s - loss: 0.1853 - accuracy: 0.9270 - 207ms/epoch - 1ms/step
+Epoch 192/200
+199/199 - 0s - loss: 0.1864 - accuracy: 0.9269 - 209ms/epoch - 1ms/step
+Epoch 193/200
+199/199 - 0s - loss: 0.1846 - accuracy: 0.9280 - 206ms/epoch - 1ms/step
+Epoch 194/200
+199/199 - 0s - loss: 0.1848 - accuracy: 0.9264 - 200ms/epoch - 1ms/step
+Epoch 195/200
+199/199 - 0s - loss: 0.1850 - accuracy: 0.9267 - 203ms/epoch - 1ms/step
+Epoch 196/200
+199/199 - 0s - loss: 0.1871 - accuracy: 0.9283 - 203ms/epoch - 1ms/step
+Epoch 197/200
+199/199 - 0s - loss: 0.1843 - accuracy: 0.9279 - 204ms/epoch - 1ms/step
+Epoch 198/200
+199/199 - 0s - loss: 0.1841 - accuracy: 0.9268 - 203ms/epoch - 1ms/step
+Epoch 199/200
+199/199 - 0s - loss: 0.1849 - accuracy: 0.9272 - 205ms/epoch - 1ms/step
+Epoch 200/200
+199/199 - 0s - loss: 0.1854 - accuracy: 0.9259 - 203ms/epoch - 1ms/step
+
+
+# =================================================================================
+                         T R A I N I N G    R E S U L T S
+# =================================================================================
+
+
+Best training score (model history):  0.9282845258712769
+Minimum loss (model history):  0.18411915004253387
+
+
+# =================================================================================
+                         V A L I D A T I O N    R E S U L T S
+# =================================================================================
+
+
+Confusion Matrix: 
+[[2950  235]
+ [ 247 2916]]
+
+
+Classification Report: 
+              precision    recall  f1-score   support
+
+       noise       0.92      0.93      0.92      3185
+         hit       0.93      0.92      0.92      3163
+
+    accuracy                           0.92      6348
+   macro avg       0.92      0.92      0.92      6348
+weighted avg       0.92      0.92      0.92      6348
+
+
+
+Evaluation Matrics:
+Accuracy:  0.9240705966949463
+Loss:  0.19125114381313324
+
+
+Model Summary: 
+Model: "sequential_2"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dense_4 (Dense)             (None, 64)                4288      
+                                                                 
+ dropout_2 (Dropout)         (None, 64)                0         
+                                                                 
+ dense_5 (Dense)             (None, 1)                 65        
+                                                                 
+=================================================================
+Total params: 4,353
+Trainable params: 4,353
+Non-trainable params: 0
+_________________________________________________________________
+None
+Epoch 1/200
+199/199 - 1s - loss: 0.6195 - accuracy: 0.6803 - 542ms/epoch - 3ms/step
+Epoch 2/200
+199/199 - 0s - loss: 0.4764 - accuracy: 0.7871 - 203ms/epoch - 1ms/step
+Epoch 3/200
+199/199 - 0s - loss: 0.4276 - accuracy: 0.8179 - 204ms/epoch - 1ms/step
+Epoch 4/200
+199/199 - 0s - loss: 0.3994 - accuracy: 0.8350 - 199ms/epoch - 1ms/step
+Epoch 5/200
+199/199 - 0s - loss: 0.3794 - accuracy: 0.8455 - 205ms/epoch - 1ms/step
+Epoch 6/200
+199/199 - 0s - loss: 0.3614 - accuracy: 0.8542 - 202ms/epoch - 1ms/step
+Epoch 7/200
+199/199 - 0s - loss: 0.3443 - accuracy: 0.8623 - 202ms/epoch - 1ms/step
+Epoch 8/200
+199/199 - 0s - loss: 0.3325 - accuracy: 0.8650 - 198ms/epoch - 997us/step
+Epoch 9/200
+199/199 - 0s - loss: 0.3223 - accuracy: 0.8683 - 199ms/epoch - 1ms/step
+Epoch 10/200
+199/199 - 0s - loss: 0.3153 - accuracy: 0.8712 - 199ms/epoch - 1ms/step
+Epoch 11/200
+199/199 - 0s - loss: 0.3104 - accuracy: 0.8728 - 200ms/epoch - 1ms/step
+Epoch 12/200
+199/199 - 0s - loss: 0.3007 - accuracy: 0.8775 - 200ms/epoch - 1ms/step
+Epoch 13/200
+199/199 - 0s - loss: 0.2965 - accuracy: 0.8779 - 204ms/epoch - 1ms/step
+Epoch 14/200
+199/199 - 0s - loss: 0.2907 - accuracy: 0.8816 - 202ms/epoch - 1ms/step
+Epoch 15/200
+199/199 - 0s - loss: 0.2864 - accuracy: 0.8829 - 202ms/epoch - 1ms/step
+Epoch 16/200
+199/199 - 0s - loss: 0.2840 - accuracy: 0.8824 - 200ms/epoch - 1ms/step
+Epoch 17/200
+199/199 - 0s - loss: 0.2774 - accuracy: 0.8862 - 201ms/epoch - 1ms/step
+Epoch 18/200
+199/199 - 0s - loss: 0.2775 - accuracy: 0.8875 - 199ms/epoch - 1ms/step
+Epoch 19/200
+199/199 - 0s - loss: 0.2764 - accuracy: 0.8871 - 201ms/epoch - 1ms/step
+Epoch 20/200
+199/199 - 0s - loss: 0.2712 - accuracy: 0.8894 - 199ms/epoch - 1ms/step
+Epoch 21/200
+199/199 - 0s - loss: 0.2682 - accuracy: 0.8886 - 199ms/epoch - 1ms/step
+Epoch 22/200
+199/199 - 0s - loss: 0.2676 - accuracy: 0.8887 - 200ms/epoch - 1ms/step
+Epoch 23/200
+199/199 - 0s - loss: 0.2633 - accuracy: 0.8928 - 211ms/epoch - 1ms/step
+Epoch 24/200
+199/199 - 0s - loss: 0.2638 - accuracy: 0.8914 - 210ms/epoch - 1ms/step
+Epoch 25/200
+199/199 - 0s - loss: 0.2578 - accuracy: 0.8925 - 204ms/epoch - 1ms/step
+Epoch 26/200
+199/199 - 0s - loss: 0.2583 - accuracy: 0.8925 - 214ms/epoch - 1ms/step
+Epoch 27/200
+199/199 - 0s - loss: 0.2581 - accuracy: 0.8938 - 202ms/epoch - 1ms/step
+Epoch 28/200
+199/199 - 0s - loss: 0.2584 - accuracy: 0.8939 - 199ms/epoch - 1ms/step
+Epoch 29/200
+199/199 - 0s - loss: 0.2540 - accuracy: 0.8949 - 199ms/epoch - 1ms/step
+Epoch 30/200
+199/199 - 0s - loss: 0.2513 - accuracy: 0.8963 - 200ms/epoch - 1ms/step
+Epoch 31/200
+199/199 - 0s - loss: 0.2500 - accuracy: 0.8942 - 200ms/epoch - 1ms/step
+Epoch 32/200
+199/199 - 0s - loss: 0.2498 - accuracy: 0.8974 - 200ms/epoch - 1ms/step
+Epoch 33/200
+199/199 - 0s - loss: 0.2477 - accuracy: 0.8977 - 202ms/epoch - 1ms/step
+Epoch 34/200
+199/199 - 0s - loss: 0.2479 - accuracy: 0.8965 - 200ms/epoch - 1ms/step
+Epoch 35/200
+199/199 - 0s - loss: 0.2451 - accuracy: 0.8984 - 205ms/epoch - 1ms/step
+Epoch 36/200
+199/199 - 0s - loss: 0.2468 - accuracy: 0.8971 - 201ms/epoch - 1ms/step
+Epoch 37/200
+199/199 - 0s - loss: 0.2440 - accuracy: 0.8977 - 201ms/epoch - 1ms/step
+Epoch 38/200
+199/199 - 0s - loss: 0.2426 - accuracy: 0.8999 - 199ms/epoch - 998us/step
+Epoch 39/200
+199/199 - 0s - loss: 0.2422 - accuracy: 0.8992 - 199ms/epoch - 1ms/step
+Epoch 40/200
+199/199 - 0s - loss: 0.2421 - accuracy: 0.9002 - 198ms/epoch - 996us/step
+Epoch 41/200
+199/199 - 0s - loss: 0.2430 - accuracy: 0.8991 - 200ms/epoch - 1ms/step
+Epoch 42/200
+199/199 - 0s - loss: 0.2371 - accuracy: 0.9019 - 199ms/epoch - 999us/step
+Epoch 43/200
+199/199 - 0s - loss: 0.2376 - accuracy: 0.9012 - 206ms/epoch - 1ms/step
+Epoch 44/200
+199/199 - 0s - loss: 0.2372 - accuracy: 0.9024 - 201ms/epoch - 1ms/step
+Epoch 45/200
+199/199 - 0s - loss: 0.2353 - accuracy: 0.9018 - 204ms/epoch - 1ms/step
+Epoch 46/200
+199/199 - 0s - loss: 0.2356 - accuracy: 0.9030 - 200ms/epoch - 1ms/step
+Epoch 47/200
+199/199 - 0s - loss: 0.2322 - accuracy: 0.9043 - 203ms/epoch - 1ms/step
+Epoch 48/200
+199/199 - 0s - loss: 0.2329 - accuracy: 0.9039 - 199ms/epoch - 1ms/step
+Epoch 49/200
+199/199 - 0s - loss: 0.2330 - accuracy: 0.9046 - 199ms/epoch - 1ms/step
+Epoch 50/200
+199/199 - 0s - loss: 0.2311 - accuracy: 0.9032 - 197ms/epoch - 991us/step
+Epoch 51/200
+199/199 - 0s - loss: 0.2296 - accuracy: 0.9056 - 201ms/epoch - 1ms/step
+Epoch 52/200
+199/199 - 0s - loss: 0.2295 - accuracy: 0.9055 - 199ms/epoch - 1ms/step
+Epoch 53/200
+199/199 - 0s - loss: 0.2290 - accuracy: 0.9045 - 204ms/epoch - 1ms/step
+Epoch 54/200
+199/199 - 0s - loss: 0.2272 - accuracy: 0.9062 - 201ms/epoch - 1ms/step
+Epoch 55/200
+199/199 - 0s - loss: 0.2253 - accuracy: 0.9068 - 204ms/epoch - 1ms/step
+Epoch 56/200
+199/199 - 0s - loss: 0.2277 - accuracy: 0.9067 - 201ms/epoch - 1ms/step
+Epoch 57/200
+199/199 - 0s - loss: 0.2273 - accuracy: 0.9066 - 200ms/epoch - 1ms/step
+Epoch 58/200
+199/199 - 0s - loss: 0.2242 - accuracy: 0.9063 - 231ms/epoch - 1ms/step
+Epoch 59/200
+199/199 - 0s - loss: 0.2270 - accuracy: 0.9076 - 198ms/epoch - 997us/step
+Epoch 60/200
+199/199 - 0s - loss: 0.2258 - accuracy: 0.9073 - 201ms/epoch - 1ms/step
+Epoch 61/200
+199/199 - 0s - loss: 0.2247 - accuracy: 0.9079 - 198ms/epoch - 995us/step
+Epoch 62/200
+199/199 - 0s - loss: 0.2249 - accuracy: 0.9078 - 200ms/epoch - 1ms/step
+Epoch 63/200
+199/199 - 0s - loss: 0.2225 - accuracy: 0.9091 - 206ms/epoch - 1ms/step
+Epoch 64/200
+199/199 - 0s - loss: 0.2226 - accuracy: 0.9076 - 203ms/epoch - 1ms/step
+Epoch 65/200
+199/199 - 0s - loss: 0.2210 - accuracy: 0.9080 - 203ms/epoch - 1ms/step
+Epoch 66/200
+199/199 - 0s - loss: 0.2226 - accuracy: 0.9089 - 204ms/epoch - 1ms/step
+Epoch 67/200
+199/199 - 0s - loss: 0.2210 - accuracy: 0.9096 - 198ms/epoch - 997us/step
+Epoch 68/200
+199/199 - 0s - loss: 0.2209 - accuracy: 0.9089 - 200ms/epoch - 1ms/step
+Epoch 69/200
+199/199 - 0s - loss: 0.2208 - accuracy: 0.9096 - 199ms/epoch - 1ms/step
+Epoch 70/200
+199/199 - 0s - loss: 0.2189 - accuracy: 0.9110 - 200ms/epoch - 1ms/step
+Epoch 71/200
+199/199 - 0s - loss: 0.2196 - accuracy: 0.9097 - 199ms/epoch - 999us/step
+Epoch 72/200
+199/199 - 0s - loss: 0.2174 - accuracy: 0.9122 - 201ms/epoch - 1ms/step
+Epoch 73/200
+199/199 - 0s - loss: 0.2160 - accuracy: 0.9111 - 202ms/epoch - 1ms/step
+Epoch 74/200
+199/199 - 0s - loss: 0.2176 - accuracy: 0.9110 - 201ms/epoch - 1ms/step
+Epoch 75/200
+199/199 - 0s - loss: 0.2169 - accuracy: 0.9116 - 199ms/epoch - 1ms/step
+Epoch 76/200
+199/199 - 0s - loss: 0.2168 - accuracy: 0.9117 - 202ms/epoch - 1ms/step
+Epoch 77/200
+199/199 - 0s - loss: 0.2171 - accuracy: 0.9125 - 198ms/epoch - 993us/step
+Epoch 78/200
+199/199 - 0s - loss: 0.2131 - accuracy: 0.9123 - 201ms/epoch - 1ms/step
+Epoch 79/200
+199/199 - 0s - loss: 0.2145 - accuracy: 0.9116 - 197ms/epoch - 991us/step
+Epoch 80/200
+199/199 - 0s - loss: 0.2157 - accuracy: 0.9112 - 199ms/epoch - 1ms/step
+Epoch 81/200
+199/199 - 0s - loss: 0.2145 - accuracy: 0.9128 - 200ms/epoch - 1ms/step
+Epoch 82/200
+199/199 - 0s - loss: 0.2128 - accuracy: 0.9127 - 203ms/epoch - 1ms/step
+Epoch 83/200
+199/199 - 0s - loss: 0.2142 - accuracy: 0.9120 - 203ms/epoch - 1ms/step
+Epoch 84/200
+199/199 - 0s - loss: 0.2114 - accuracy: 0.9112 - 202ms/epoch - 1ms/step
+Epoch 85/200
+199/199 - 0s - loss: 0.2104 - accuracy: 0.9148 - 200ms/epoch - 1ms/step
+Epoch 86/200
+199/199 - 0s - loss: 0.2118 - accuracy: 0.9141 - 204ms/epoch - 1ms/step
+Epoch 87/200
+199/199 - 0s - loss: 0.2118 - accuracy: 0.9132 - 198ms/epoch - 997us/step
+Epoch 88/200
+199/199 - 0s - loss: 0.2122 - accuracy: 0.9141 - 201ms/epoch - 1ms/step
+Epoch 89/200
+199/199 - 0s - loss: 0.2093 - accuracy: 0.9147 - 198ms/epoch - 993us/step
+Epoch 90/200
+199/199 - 0s - loss: 0.2093 - accuracy: 0.9153 - 200ms/epoch - 1ms/step
+Epoch 91/200
+199/199 - 0s - loss: 0.2089 - accuracy: 0.9154 - 197ms/epoch - 990us/step
+Epoch 92/200
+199/199 - 0s - loss: 0.2089 - accuracy: 0.9143 - 202ms/epoch - 1ms/step
+Epoch 93/200
+199/199 - 0s - loss: 0.2088 - accuracy: 0.9149 - 209ms/epoch - 1ms/step
+Epoch 94/200
+199/199 - 0s - loss: 0.2063 - accuracy: 0.9166 - 203ms/epoch - 1ms/step
+Epoch 95/200
+199/199 - 0s - loss: 0.2056 - accuracy: 0.9170 - 200ms/epoch - 1ms/step
+Epoch 96/200
+199/199 - 0s - loss: 0.2074 - accuracy: 0.9169 - 203ms/epoch - 1ms/step
+Epoch 97/200
+199/199 - 0s - loss: 0.2087 - accuracy: 0.9171 - 197ms/epoch - 991us/step
+Epoch 98/200
+199/199 - 0s - loss: 0.2065 - accuracy: 0.9159 - 201ms/epoch - 1ms/step
+Epoch 99/200
+199/199 - 0s - loss: 0.2038 - accuracy: 0.9182 - 197ms/epoch - 991us/step
+Epoch 100/200
+199/199 - 0s - loss: 0.2049 - accuracy: 0.9167 - 199ms/epoch - 1ms/step
+Epoch 101/200
+199/199 - 0s - loss: 0.2062 - accuracy: 0.9152 - 199ms/epoch - 1ms/step
+Epoch 102/200
+199/199 - 0s - loss: 0.2054 - accuracy: 0.9177 - 203ms/epoch - 1ms/step
+Epoch 103/200
+199/199 - 0s - loss: 0.2063 - accuracy: 0.9166 - 203ms/epoch - 1ms/step
+Epoch 104/200
+199/199 - 0s - loss: 0.2047 - accuracy: 0.9170 - 202ms/epoch - 1ms/step
+Epoch 105/200
+199/199 - 0s - loss: 0.2052 - accuracy: 0.9175 - 199ms/epoch - 1ms/step
+Epoch 106/200
+199/199 - 0s - loss: 0.2077 - accuracy: 0.9161 - 203ms/epoch - 1ms/step
+Epoch 107/200
+199/199 - 0s - loss: 0.2037 - accuracy: 0.9193 - 198ms/epoch - 995us/step
+Epoch 108/200
+199/199 - 0s - loss: 0.2053 - accuracy: 0.9176 - 200ms/epoch - 1ms/step
+Epoch 109/200
+199/199 - 0s - loss: 0.2033 - accuracy: 0.9178 - 198ms/epoch - 997us/step
+Epoch 110/200
+199/199 - 0s - loss: 0.2046 - accuracy: 0.9156 - 201ms/epoch - 1ms/step
+Epoch 111/200
+199/199 - 0s - loss: 0.2047 - accuracy: 0.9162 - 200ms/epoch - 1ms/step
+Epoch 112/200
+199/199 - 0s - loss: 0.2035 - accuracy: 0.9190 - 201ms/epoch - 1ms/step
+Epoch 113/200
+199/199 - 0s - loss: 0.2042 - accuracy: 0.9179 - 201ms/epoch - 1ms/step
+Epoch 114/200
+199/199 - 0s - loss: 0.2021 - accuracy: 0.9181 - 203ms/epoch - 1ms/step
+Epoch 115/200
+199/199 - 0s - loss: 0.2010 - accuracy: 0.9188 - 199ms/epoch - 1ms/step
+Epoch 116/200
+199/199 - 0s - loss: 0.2012 - accuracy: 0.9191 - 202ms/epoch - 1ms/step
+Epoch 117/200
+199/199 - 0s - loss: 0.2013 - accuracy: 0.9187 - 196ms/epoch - 986us/step
+Epoch 118/200
+199/199 - 0s - loss: 0.2017 - accuracy: 0.9194 - 199ms/epoch - 1ms/step
+Epoch 119/200
+199/199 - 0s - loss: 0.2006 - accuracy: 0.9196 - 198ms/epoch - 994us/step
+Epoch 120/200
+199/199 - 0s - loss: 0.1976 - accuracy: 0.9200 - 200ms/epoch - 1ms/step
+Epoch 121/200
+199/199 - 0s - loss: 0.2011 - accuracy: 0.9178 - 200ms/epoch - 1ms/step
+Epoch 122/200
+199/199 - 0s - loss: 0.1996 - accuracy: 0.9195 - 202ms/epoch - 1ms/step
+Epoch 123/200
+199/199 - 0s - loss: 0.2007 - accuracy: 0.9210 - 200ms/epoch - 1ms/step
+Epoch 124/200
+199/199 - 0s - loss: 0.2001 - accuracy: 0.9207 - 204ms/epoch - 1ms/step
+Epoch 125/200
+199/199 - 0s - loss: 0.2004 - accuracy: 0.9196 - 200ms/epoch - 1ms/step
+Epoch 126/200
+199/199 - 0s - loss: 0.1993 - accuracy: 0.9215 - 202ms/epoch - 1ms/step
+Epoch 127/200
+199/199 - 0s - loss: 0.1990 - accuracy: 0.9199 - 197ms/epoch - 991us/step
+Epoch 128/200
+199/199 - 0s - loss: 0.1979 - accuracy: 0.9204 - 198ms/epoch - 996us/step
+Epoch 129/200
+199/199 - 0s - loss: 0.1981 - accuracy: 0.9216 - 197ms/epoch - 992us/step
+Epoch 130/200
+199/199 - 0s - loss: 0.1964 - accuracy: 0.9206 - 199ms/epoch - 998us/step
+Epoch 131/200
+199/199 - 0s - loss: 0.1970 - accuracy: 0.9201 - 198ms/epoch - 994us/step
+Epoch 132/200
+199/199 - 0s - loss: 0.1993 - accuracy: 0.9196 - 203ms/epoch - 1ms/step
+Epoch 133/200
+199/199 - 0s - loss: 0.1974 - accuracy: 0.9208 - 201ms/epoch - 1ms/step
+Epoch 134/200
+199/199 - 0s - loss: 0.1975 - accuracy: 0.9211 - 204ms/epoch - 1ms/step
+Epoch 135/200
+199/199 - 0s - loss: 0.1964 - accuracy: 0.9212 - 201ms/epoch - 1ms/step
+Epoch 136/200
+199/199 - 0s - loss: 0.1951 - accuracy: 0.9215 - 202ms/epoch - 1ms/step
+Epoch 137/200
+199/199 - 0s - loss: 0.1976 - accuracy: 0.9215 - 206ms/epoch - 1ms/step
+Epoch 138/200
+199/199 - 0s - loss: 0.1967 - accuracy: 0.9212 - 198ms/epoch - 996us/step
+Epoch 139/200
+199/199 - 0s - loss: 0.1961 - accuracy: 0.9229 - 197ms/epoch - 991us/step
+Epoch 140/200
+199/199 - 0s - loss: 0.1978 - accuracy: 0.9212 - 199ms/epoch - 1ms/step
+Epoch 141/200
+199/199 - 0s - loss: 0.1955 - accuracy: 0.9217 - 196ms/epoch - 987us/step
+Epoch 142/200
+199/199 - 0s - loss: 0.1964 - accuracy: 0.9224 - 203ms/epoch - 1ms/step
+Epoch 143/200
+199/199 - 0s - loss: 0.1948 - accuracy: 0.9234 - 200ms/epoch - 1ms/step
+Epoch 144/200
+199/199 - 0s - loss: 0.1962 - accuracy: 0.9222 - 205ms/epoch - 1ms/step
+Epoch 145/200
+199/199 - 0s - loss: 0.1946 - accuracy: 0.9226 - 202ms/epoch - 1ms/step
+Epoch 146/200
+199/199 - 0s - loss: 0.1949 - accuracy: 0.9228 - 202ms/epoch - 1ms/step
+Epoch 147/200
+199/199 - 0s - loss: 0.1934 - accuracy: 0.9223 - 197ms/epoch - 991us/step
+Epoch 148/200
+199/199 - 0s - loss: 0.1958 - accuracy: 0.9223 - 199ms/epoch - 1ms/step
+Epoch 149/200
+199/199 - 0s - loss: 0.1945 - accuracy: 0.9226 - 199ms/epoch - 1ms/step
+Epoch 150/200
+199/199 - 0s - loss: 0.1941 - accuracy: 0.9225 - 203ms/epoch - 1ms/step
+Epoch 151/200
+199/199 - 0s - loss: 0.1939 - accuracy: 0.9232 - 197ms/epoch - 989us/step
+Epoch 152/200
+199/199 - 0s - loss: 0.1948 - accuracy: 0.9214 - 203ms/epoch - 1ms/step
+Epoch 153/200
+199/199 - 0s - loss: 0.1934 - accuracy: 0.9231 - 201ms/epoch - 1ms/step
+Epoch 154/200
+199/199 - 0s - loss: 0.1965 - accuracy: 0.9218 - 202ms/epoch - 1ms/step
+Epoch 155/200
+199/199 - 0s - loss: 0.1937 - accuracy: 0.9224 - 201ms/epoch - 1ms/step
+Epoch 156/200
+199/199 - 0s - loss: 0.1938 - accuracy: 0.9215 - 202ms/epoch - 1ms/step
+Epoch 157/200
+199/199 - 0s - loss: 0.1931 - accuracy: 0.9232 - 198ms/epoch - 997us/step
+Epoch 158/200
+199/199 - 0s - loss: 0.1932 - accuracy: 0.9238 - 199ms/epoch - 999us/step
+Epoch 159/200
+199/199 - 0s - loss: 0.1936 - accuracy: 0.9224 - 197ms/epoch - 991us/step
+Epoch 160/200
+199/199 - 0s - loss: 0.1926 - accuracy: 0.9230 - 200ms/epoch - 1ms/step
+Epoch 161/200
+199/199 - 0s - loss: 0.1917 - accuracy: 0.9241 - 197ms/epoch - 990us/step
+Epoch 162/200
+199/199 - 0s - loss: 0.1926 - accuracy: 0.9239 - 204ms/epoch - 1ms/step
+Epoch 163/200
+199/199 - 0s - loss: 0.1926 - accuracy: 0.9229 - 199ms/epoch - 998us/step
+Epoch 164/200
+199/199 - 0s - loss: 0.1924 - accuracy: 0.9234 - 203ms/epoch - 1ms/step
+Epoch 165/200
+199/199 - 0s - loss: 0.1916 - accuracy: 0.9224 - 202ms/epoch - 1ms/step
+Epoch 166/200
+199/199 - 0s - loss: 0.1922 - accuracy: 0.9234 - 202ms/epoch - 1ms/step
+Epoch 167/200
+199/199 - 0s - loss: 0.1917 - accuracy: 0.9242 - 200ms/epoch - 1ms/step
+Epoch 168/200
+199/199 - 0s - loss: 0.1897 - accuracy: 0.9252 - 200ms/epoch - 1ms/step
+Epoch 169/200
+199/199 - 0s - loss: 0.1926 - accuracy: 0.9237 - 196ms/epoch - 986us/step
+Epoch 170/200
+199/199 - 0s - loss: 0.1913 - accuracy: 0.9251 - 200ms/epoch - 1ms/step
+Epoch 171/200
+199/199 - 0s - loss: 0.1904 - accuracy: 0.9249 - 198ms/epoch - 996us/step
+Epoch 172/200
+199/199 - 0s - loss: 0.1929 - accuracy: 0.9236 - 203ms/epoch - 1ms/step
+Epoch 173/200
+199/199 - 0s - loss: 0.1897 - accuracy: 0.9244 - 201ms/epoch - 1ms/step
+Epoch 174/200
+199/199 - 0s - loss: 0.1915 - accuracy: 0.9232 - 204ms/epoch - 1ms/step
+Epoch 175/200
+199/199 - 0s - loss: 0.1920 - accuracy: 0.9247 - 201ms/epoch - 1ms/step
+Epoch 176/200
+199/199 - 0s - loss: 0.1898 - accuracy: 0.9255 - 203ms/epoch - 1ms/step
+Epoch 177/200
+199/199 - 0s - loss: 0.1880 - accuracy: 0.9260 - 198ms/epoch - 997us/step
+Epoch 178/200
+199/199 - 0s - loss: 0.1913 - accuracy: 0.9235 - 199ms/epoch - 1ms/step
+Epoch 179/200
+199/199 - 0s - loss: 0.1909 - accuracy: 0.9248 - 197ms/epoch - 991us/step
+Epoch 180/200
+199/199 - 0s - loss: 0.1918 - accuracy: 0.9242 - 200ms/epoch - 1ms/step
+Epoch 181/200
+199/199 - 0s - loss: 0.1896 - accuracy: 0.9253 - 197ms/epoch - 990us/step
+Epoch 182/200
+199/199 - 0s - loss: 0.1883 - accuracy: 0.9267 - 204ms/epoch - 1ms/step
+Epoch 183/200
+199/199 - 0s - loss: 0.1890 - accuracy: 0.9261 - 200ms/epoch - 1ms/step
+Epoch 184/200
+199/199 - 0s - loss: 0.1903 - accuracy: 0.9250 - 202ms/epoch - 1ms/step
+Epoch 185/200
+199/199 - 0s - loss: 0.1894 - accuracy: 0.9250 - 201ms/epoch - 1ms/step
+Epoch 186/200
+199/199 - 0s - loss: 0.1918 - accuracy: 0.9232 - 200ms/epoch - 1ms/step
+Epoch 187/200
+199/199 - 0s - loss: 0.1893 - accuracy: 0.9257 - 198ms/epoch - 996us/step
+Epoch 188/200
+199/199 - 0s - loss: 0.1876 - accuracy: 0.9246 - 199ms/epoch - 998us/step
+Epoch 189/200
+199/199 - 0s - loss: 0.1889 - accuracy: 0.9262 - 196ms/epoch - 985us/step
+Epoch 190/200
+199/199 - 0s - loss: 0.1865 - accuracy: 0.9253 - 201ms/epoch - 1ms/step
+Epoch 191/200
+199/199 - 0s - loss: 0.1884 - accuracy: 0.9241 - 199ms/epoch - 998us/step
+Epoch 192/200
+199/199 - 0s - loss: 0.1899 - accuracy: 0.9238 - 201ms/epoch - 1ms/step
+Epoch 193/200
+199/199 - 0s - loss: 0.1904 - accuracy: 0.9266 - 201ms/epoch - 1ms/step
+Epoch 194/200
+199/199 - 0s - loss: 0.1880 - accuracy: 0.9260 - 202ms/epoch - 1ms/step
+Epoch 195/200
+199/199 - 0s - loss: 0.1870 - accuracy: 0.9264 - 201ms/epoch - 1ms/step
+Epoch 196/200
+199/199 - 0s - loss: 0.1878 - accuracy: 0.9258 - 200ms/epoch - 1ms/step
+Epoch 197/200
+199/199 - 0s - loss: 0.1889 - accuracy: 0.9257 - 197ms/epoch - 990us/step
+Epoch 198/200
+199/199 - 0s - loss: 0.1857 - accuracy: 0.9254 - 200ms/epoch - 1ms/step
+Epoch 199/200
+199/199 - 0s - loss: 0.1879 - accuracy: 0.9261 - 197ms/epoch - 991us/step
+Epoch 200/200
+199/199 - 0s - loss: 0.1853 - accuracy: 0.9267 - 202ms/epoch - 1ms/step
+
+
+# =================================================================================
+                         T R A I N I N G    R E S U L T S
+# =================================================================================
+
+
+Best training score (model history):  0.9267091751098633
+Minimum loss (model history):  0.18534736335277557
+
+
+# =================================================================================
+                         V A L I D A T I O N    R E S U L T S
+# =================================================================================
+
+
+Confusion Matrix: 
+[[2964  221]
+ [ 248 2915]]
+
+
+Classification Report: 
+              precision    recall  f1-score   support
+
+       noise       0.92      0.93      0.93      3185
+         hit       0.93      0.92      0.93      3163
+
+    accuracy                           0.93      6348
+   macro avg       0.93      0.93      0.93      6348
+weighted avg       0.93      0.93      0.93      6348
+
+
+
+Evaluation Matrics:
+Accuracy:  0.9261184334754944
+Loss:  0.18088051676750183
+
+
+Model Summary: 
+Model: "sequential_3"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dense_6 (Dense)             (None, 64)                4288      
+                                                                 
+ dropout_3 (Dropout)         (None, 64)                0         
+                                                                 
+ dense_7 (Dense)             (None, 1)                 65        
+                                                                 
+=================================================================
+Total params: 4,353
+Trainable params: 4,353
+Non-trainable params: 0
+_________________________________________________________________
+None
+Epoch 1/200
+199/199 - 1s - loss: 0.5858 - accuracy: 0.7129 - 528ms/epoch - 3ms/step
+Epoch 2/200
+199/199 - 0s - loss: 0.4670 - accuracy: 0.7948 - 202ms/epoch - 1ms/step
+Epoch 3/200
+199/199 - 0s - loss: 0.4280 - accuracy: 0.8209 - 203ms/epoch - 1ms/step
+Epoch 4/200
+199/199 - 0s - loss: 0.3971 - accuracy: 0.8391 - 216ms/epoch - 1ms/step
+Epoch 5/200
+199/199 - 0s - loss: 0.3734 - accuracy: 0.8508 - 203ms/epoch - 1ms/step
+Epoch 6/200
+199/199 - 0s - loss: 0.3576 - accuracy: 0.8575 - 207ms/epoch - 1ms/step
+Epoch 7/200
+199/199 - 0s - loss: 0.3417 - accuracy: 0.8642 - 203ms/epoch - 1ms/step
+Epoch 8/200
+199/199 - 0s - loss: 0.3280 - accuracy: 0.8690 - 205ms/epoch - 1ms/step
+Epoch 9/200
+199/199 - 0s - loss: 0.3174 - accuracy: 0.8716 - 204ms/epoch - 1ms/step
+Epoch 10/200
+199/199 - 0s - loss: 0.3127 - accuracy: 0.8750 - 203ms/epoch - 1ms/step
+Epoch 11/200
+199/199 - 0s - loss: 0.3065 - accuracy: 0.8772 - 200ms/epoch - 1ms/step
+Epoch 12/200
+199/199 - 0s - loss: 0.2956 - accuracy: 0.8797 - 202ms/epoch - 1ms/step
+Epoch 13/200
+199/199 - 0s - loss: 0.2959 - accuracy: 0.8788 - 200ms/epoch - 1ms/step
+Epoch 14/200
+199/199 - 0s - loss: 0.2865 - accuracy: 0.8837 - 204ms/epoch - 1ms/step
+Epoch 15/200
+199/199 - 0s - loss: 0.2832 - accuracy: 0.8832 - 203ms/epoch - 1ms/step
+Epoch 16/200
+199/199 - 0s - loss: 0.2813 - accuracy: 0.8847 - 206ms/epoch - 1ms/step
+Epoch 17/200
+199/199 - 0s - loss: 0.2783 - accuracy: 0.8859 - 204ms/epoch - 1ms/step
+Epoch 18/200
+199/199 - 0s - loss: 0.2733 - accuracy: 0.8871 - 206ms/epoch - 1ms/step
+Epoch 19/200
+199/199 - 0s - loss: 0.2724 - accuracy: 0.8887 - 204ms/epoch - 1ms/step
+Epoch 20/200
+199/199 - 0s - loss: 0.2690 - accuracy: 0.8881 - 202ms/epoch - 1ms/step
+Epoch 21/200
+199/199 - 0s - loss: 0.2665 - accuracy: 0.8888 - 201ms/epoch - 1ms/step
+Epoch 22/200
+199/199 - 0s - loss: 0.2649 - accuracy: 0.8907 - 201ms/epoch - 1ms/step
+Epoch 23/200
+199/199 - 0s - loss: 0.2630 - accuracy: 0.8904 - 199ms/epoch - 1000us/step
+Epoch 24/200
+199/199 - 0s - loss: 0.2598 - accuracy: 0.8927 - 203ms/epoch - 1ms/step
+Epoch 25/200
+199/199 - 0s - loss: 0.2600 - accuracy: 0.8919 - 202ms/epoch - 1ms/step
+Epoch 26/200
+199/199 - 0s - loss: 0.2587 - accuracy: 0.8931 - 207ms/epoch - 1ms/step
+Epoch 27/200
+199/199 - 0s - loss: 0.2563 - accuracy: 0.8932 - 204ms/epoch - 1ms/step
+Epoch 28/200
+199/199 - 0s - loss: 0.2568 - accuracy: 0.8954 - 205ms/epoch - 1ms/step
+Epoch 29/200
+199/199 - 0s - loss: 0.2536 - accuracy: 0.8961 - 204ms/epoch - 1ms/step
+Epoch 30/200
+199/199 - 0s - loss: 0.2539 - accuracy: 0.8961 - 203ms/epoch - 1ms/step
+Epoch 31/200
+199/199 - 0s - loss: 0.2493 - accuracy: 0.8980 - 201ms/epoch - 1ms/step
+Epoch 32/200
+199/199 - 0s - loss: 0.2496 - accuracy: 0.8976 - 203ms/epoch - 1ms/step
+Epoch 33/200
+199/199 - 0s - loss: 0.2479 - accuracy: 0.8984 - 199ms/epoch - 1ms/step
+Epoch 34/200
+199/199 - 0s - loss: 0.2460 - accuracy: 0.8973 - 202ms/epoch - 1ms/step
+Epoch 35/200
+199/199 - 0s - loss: 0.2465 - accuracy: 0.8980 - 202ms/epoch - 1ms/step
+Epoch 36/200
+199/199 - 0s - loss: 0.2442 - accuracy: 0.8976 - 207ms/epoch - 1ms/step
+Epoch 37/200
+199/199 - 0s - loss: 0.2432 - accuracy: 0.9018 - 204ms/epoch - 1ms/step
+Epoch 38/200
+199/199 - 0s - loss: 0.2435 - accuracy: 0.9004 - 206ms/epoch - 1ms/step
+Epoch 39/200
+199/199 - 0s - loss: 0.2399 - accuracy: 0.9023 - 204ms/epoch - 1ms/step
+Epoch 40/200
+199/199 - 0s - loss: 0.2384 - accuracy: 0.9027 - 201ms/epoch - 1ms/step
+Epoch 41/200
+199/199 - 0s - loss: 0.2391 - accuracy: 0.9000 - 200ms/epoch - 1ms/step
+Epoch 42/200
+199/199 - 0s - loss: 0.2359 - accuracy: 0.9034 - 202ms/epoch - 1ms/step
+Epoch 43/200
+199/199 - 0s - loss: 0.2350 - accuracy: 0.9032 - 199ms/epoch - 1ms/step
+Epoch 44/200
+199/199 - 0s - loss: 0.2386 - accuracy: 0.9017 - 202ms/epoch - 1ms/step
+Epoch 45/200
+199/199 - 0s - loss: 0.2365 - accuracy: 0.9025 - 202ms/epoch - 1ms/step
+Epoch 46/200
+199/199 - 0s - loss: 0.2329 - accuracy: 0.9041 - 207ms/epoch - 1ms/step
+Epoch 47/200
+199/199 - 0s - loss: 0.2325 - accuracy: 0.9039 - 203ms/epoch - 1ms/step
+Epoch 48/200
+199/199 - 0s - loss: 0.2330 - accuracy: 0.9051 - 206ms/epoch - 1ms/step
+Epoch 49/200
+199/199 - 0s - loss: 0.2316 - accuracy: 0.9048 - 204ms/epoch - 1ms/step
+Epoch 50/200
+199/199 - 0s - loss: 0.2318 - accuracy: 0.9037 - 202ms/epoch - 1ms/step
+Epoch 51/200
+199/199 - 0s - loss: 0.2330 - accuracy: 0.9057 - 200ms/epoch - 1ms/step
+Epoch 52/200
+199/199 - 0s - loss: 0.2284 - accuracy: 0.9075 - 202ms/epoch - 1ms/step
+Epoch 53/200
+199/199 - 0s - loss: 0.2291 - accuracy: 0.9064 - 199ms/epoch - 1ms/step
+Epoch 54/200
+199/199 - 0s - loss: 0.2303 - accuracy: 0.9045 - 203ms/epoch - 1ms/step
+Epoch 55/200
+199/199 - 0s - loss: 0.2267 - accuracy: 0.9076 - 207ms/epoch - 1ms/step
+Epoch 56/200
+199/199 - 0s - loss: 0.2270 - accuracy: 0.9060 - 207ms/epoch - 1ms/step
+Epoch 57/200
+199/199 - 0s - loss: 0.2248 - accuracy: 0.9074 - 203ms/epoch - 1ms/step
+Epoch 58/200
+199/199 - 0s - loss: 0.2271 - accuracy: 0.9067 - 206ms/epoch - 1ms/step
+Epoch 59/200
+199/199 - 0s - loss: 0.2258 - accuracy: 0.9089 - 203ms/epoch - 1ms/step
+Epoch 60/200
+199/199 - 0s - loss: 0.2257 - accuracy: 0.9093 - 203ms/epoch - 1ms/step
+Epoch 61/200
+199/199 - 0s - loss: 0.2250 - accuracy: 0.9091 - 202ms/epoch - 1ms/step
+Epoch 62/200
+199/199 - 0s - loss: 0.2232 - accuracy: 0.9103 - 202ms/epoch - 1ms/step
+Epoch 63/200
+199/199 - 0s - loss: 0.2228 - accuracy: 0.9097 - 199ms/epoch - 1ms/step
+Epoch 64/200
+199/199 - 0s - loss: 0.2203 - accuracy: 0.9103 - 208ms/epoch - 1ms/step
+Epoch 65/200
+199/199 - 0s - loss: 0.2226 - accuracy: 0.9094 - 204ms/epoch - 1ms/step
+Epoch 66/200
+199/199 - 0s - loss: 0.2204 - accuracy: 0.9103 - 207ms/epoch - 1ms/step
+Epoch 67/200
+199/199 - 0s - loss: 0.2211 - accuracy: 0.9102 - 204ms/epoch - 1ms/step
+Epoch 68/200
+199/199 - 0s - loss: 0.2198 - accuracy: 0.9115 - 206ms/epoch - 1ms/step
+Epoch 69/200
+199/199 - 0s - loss: 0.2213 - accuracy: 0.9110 - 202ms/epoch - 1ms/step
+Epoch 70/200
+199/199 - 0s - loss: 0.2201 - accuracy: 0.9106 - 202ms/epoch - 1ms/step
+Epoch 71/200
+199/199 - 0s - loss: 0.2167 - accuracy: 0.9107 - 201ms/epoch - 1ms/step
+Epoch 72/200
+199/199 - 0s - loss: 0.2181 - accuracy: 0.9112 - 203ms/epoch - 1ms/step
+Epoch 73/200
+199/199 - 0s - loss: 0.2182 - accuracy: 0.9130 - 201ms/epoch - 1ms/step
+Epoch 74/200
+199/199 - 0s - loss: 0.2156 - accuracy: 0.9138 - 208ms/epoch - 1ms/step
+Epoch 75/200
+199/199 - 0s - loss: 0.2146 - accuracy: 0.9132 - 204ms/epoch - 1ms/step
+Epoch 76/200
+199/199 - 0s - loss: 0.2166 - accuracy: 0.9125 - 205ms/epoch - 1ms/step
+Epoch 77/200
+199/199 - 0s - loss: 0.2136 - accuracy: 0.9130 - 202ms/epoch - 1ms/step
+Epoch 78/200
+199/199 - 0s - loss: 0.2158 - accuracy: 0.9132 - 205ms/epoch - 1ms/step
+Epoch 79/200
+199/199 - 0s - loss: 0.2137 - accuracy: 0.9138 - 200ms/epoch - 1ms/step
+Epoch 80/200
+199/199 - 0s - loss: 0.2143 - accuracy: 0.9120 - 203ms/epoch - 1ms/step
+Epoch 81/200
+199/199 - 0s - loss: 0.2122 - accuracy: 0.9136 - 202ms/epoch - 1ms/step
+Epoch 82/200
+199/199 - 0s - loss: 0.2122 - accuracy: 0.9145 - 202ms/epoch - 1ms/step
+Epoch 83/200
+199/199 - 0s - loss: 0.2127 - accuracy: 0.9129 - 198ms/epoch - 996us/step
+Epoch 84/200
+199/199 - 0s - loss: 0.2111 - accuracy: 0.9148 - 207ms/epoch - 1ms/step
+Epoch 85/200
+199/199 - 0s - loss: 0.2118 - accuracy: 0.9139 - 204ms/epoch - 1ms/step
+Epoch 86/200
+199/199 - 0s - loss: 0.2120 - accuracy: 0.9139 - 207ms/epoch - 1ms/step
+Epoch 87/200
+199/199 - 0s - loss: 0.2107 - accuracy: 0.9149 - 205ms/epoch - 1ms/step
+Epoch 88/200
+199/199 - 0s - loss: 0.2114 - accuracy: 0.9150 - 217ms/epoch - 1ms/step
+Epoch 89/200
+199/199 - 0s - loss: 0.2106 - accuracy: 0.9147 - 212ms/epoch - 1ms/step
+Epoch 90/200
+199/199 - 0s - loss: 0.2097 - accuracy: 0.9152 - 206ms/epoch - 1ms/step
+Epoch 91/200
+199/199 - 0s - loss: 0.2094 - accuracy: 0.9149 - 212ms/epoch - 1ms/step
+Epoch 92/200
+199/199 - 0s - loss: 0.2105 - accuracy: 0.9156 - 213ms/epoch - 1ms/step
+Epoch 93/200
+199/199 - 0s - loss: 0.2081 - accuracy: 0.9158 - 281ms/epoch - 1ms/step
+Epoch 94/200
+199/199 - 0s - loss: 0.2079 - accuracy: 0.9158 - 231ms/epoch - 1ms/step
+Epoch 95/200
+199/199 - 0s - loss: 0.2067 - accuracy: 0.9164 - 224ms/epoch - 1ms/step
+Epoch 96/200
+199/199 - 0s - loss: 0.2083 - accuracy: 0.9160 - 223ms/epoch - 1ms/step
+Epoch 97/200
+199/199 - 0s - loss: 0.2052 - accuracy: 0.9184 - 230ms/epoch - 1ms/step
+Epoch 98/200
+199/199 - 0s - loss: 0.2085 - accuracy: 0.9157 - 212ms/epoch - 1ms/step
+Epoch 99/200
+199/199 - 0s - loss: 0.2076 - accuracy: 0.9175 - 261ms/epoch - 1ms/step
+Epoch 100/200
+199/199 - 0s - loss: 0.2050 - accuracy: 0.9173 - 219ms/epoch - 1ms/step
+Epoch 101/200
+199/199 - 0s - loss: 0.2082 - accuracy: 0.9169 - 214ms/epoch - 1ms/step
+Epoch 102/200
+199/199 - 0s - loss: 0.2050 - accuracy: 0.9180 - 218ms/epoch - 1ms/step
+Epoch 103/200
+199/199 - 0s - loss: 0.2058 - accuracy: 0.9184 - 255ms/epoch - 1ms/step
+Epoch 104/200
+199/199 - 0s - loss: 0.2055 - accuracy: 0.9177 - 277ms/epoch - 1ms/step
+Epoch 105/200
+199/199 - 0s - loss: 0.2050 - accuracy: 0.9190 - 220ms/epoch - 1ms/step
+Epoch 106/200
+199/199 - 0s - loss: 0.2031 - accuracy: 0.9182 - 285ms/epoch - 1ms/step
+Epoch 107/200
+199/199 - 0s - loss: 0.2064 - accuracy: 0.9175 - 216ms/epoch - 1ms/step
+Epoch 108/200
+199/199 - 0s - loss: 0.2044 - accuracy: 0.9205 - 216ms/epoch - 1ms/step
+Epoch 109/200
+199/199 - 0s - loss: 0.2034 - accuracy: 0.9173 - 224ms/epoch - 1ms/step
+Epoch 110/200
+199/199 - 0s - loss: 0.2044 - accuracy: 0.9171 - 229ms/epoch - 1ms/step
+Epoch 111/200
+199/199 - 0s - loss: 0.2017 - accuracy: 0.9188 - 224ms/epoch - 1ms/step
+Epoch 112/200
+199/199 - 0s - loss: 0.2046 - accuracy: 0.9195 - 230ms/epoch - 1ms/step
+Epoch 113/200
+199/199 - 0s - loss: 0.2061 - accuracy: 0.9173 - 234ms/epoch - 1ms/step
+Epoch 114/200
+199/199 - 0s - loss: 0.2022 - accuracy: 0.9196 - 229ms/epoch - 1ms/step
+Epoch 115/200
+199/199 - 0s - loss: 0.2002 - accuracy: 0.9209 - 213ms/epoch - 1ms/step
+Epoch 116/200
+199/199 - 0s - loss: 0.2044 - accuracy: 0.9181 - 209ms/epoch - 1ms/step
+Epoch 117/200
+199/199 - 0s - loss: 0.2034 - accuracy: 0.9199 - 205ms/epoch - 1ms/step
+Epoch 118/200
+199/199 - 0s - loss: 0.2017 - accuracy: 0.9184 - 207ms/epoch - 1ms/step
+Epoch 119/200
+199/199 - 0s - loss: 0.2008 - accuracy: 0.9193 - 209ms/epoch - 1ms/step
+Epoch 120/200
+199/199 - 0s - loss: 0.2014 - accuracy: 0.9203 - 223ms/epoch - 1ms/step
+Epoch 121/200
+199/199 - 0s - loss: 0.2021 - accuracy: 0.9197 - 215ms/epoch - 1ms/step
+Epoch 122/200
+199/199 - 0s - loss: 0.2031 - accuracy: 0.9192 - 220ms/epoch - 1ms/step
+Epoch 123/200
+199/199 - 0s - loss: 0.1996 - accuracy: 0.9204 - 215ms/epoch - 1ms/step
+Epoch 124/200
+199/199 - 0s - loss: 0.1998 - accuracy: 0.9214 - 218ms/epoch - 1ms/step
+Epoch 125/200
+199/199 - 0s - loss: 0.1988 - accuracy: 0.9204 - 224ms/epoch - 1ms/step
+Epoch 126/200
+199/199 - 0s - loss: 0.1990 - accuracy: 0.9197 - 225ms/epoch - 1ms/step
+Epoch 127/200
+199/199 - 0s - loss: 0.2011 - accuracy: 0.9183 - 204ms/epoch - 1ms/step
+Epoch 128/200
+199/199 - 0s - loss: 0.1978 - accuracy: 0.9209 - 218ms/epoch - 1ms/step
+Epoch 129/200
+199/199 - 0s - loss: 0.1994 - accuracy: 0.9205 - 235ms/epoch - 1ms/step
+Epoch 130/200
+199/199 - 0s - loss: 0.1993 - accuracy: 0.9217 - 218ms/epoch - 1ms/step
+Epoch 131/200
+199/199 - 0s - loss: 0.1964 - accuracy: 0.9217 - 237ms/epoch - 1ms/step
+Epoch 132/200
+199/199 - 0s - loss: 0.1984 - accuracy: 0.9205 - 209ms/epoch - 1ms/step
+Epoch 133/200
+199/199 - 0s - loss: 0.1998 - accuracy: 0.9210 - 224ms/epoch - 1ms/step
+Epoch 134/200
+199/199 - 0s - loss: 0.1985 - accuracy: 0.9211 - 225ms/epoch - 1ms/step
+Epoch 135/200
+199/199 - 0s - loss: 0.1998 - accuracy: 0.9205 - 203ms/epoch - 1ms/step
+Epoch 136/200
+199/199 - 0s - loss: 0.1995 - accuracy: 0.9205 - 223ms/epoch - 1ms/step
+Epoch 137/200
+199/199 - 0s - loss: 0.1990 - accuracy: 0.9198 - 224ms/epoch - 1ms/step
+Epoch 138/200
+199/199 - 0s - loss: 0.1975 - accuracy: 0.9214 - 234ms/epoch - 1ms/step
+Epoch 139/200
+199/199 - 0s - loss: 0.1972 - accuracy: 0.9213 - 233ms/epoch - 1ms/step
+Epoch 140/200
+199/199 - 0s - loss: 0.1975 - accuracy: 0.9216 - 216ms/epoch - 1ms/step
+Epoch 141/200
+199/199 - 0s - loss: 0.1963 - accuracy: 0.9216 - 231ms/epoch - 1ms/step
+Epoch 142/200
+199/199 - 0s - loss: 0.1988 - accuracy: 0.9220 - 214ms/epoch - 1ms/step
+Epoch 143/200
+199/199 - 0s - loss: 0.1982 - accuracy: 0.9204 - 212ms/epoch - 1ms/step
+Epoch 144/200
+199/199 - 0s - loss: 0.1974 - accuracy: 0.9214 - 207ms/epoch - 1ms/step
+Epoch 145/200
+199/199 - 0s - loss: 0.1968 - accuracy: 0.9210 - 218ms/epoch - 1ms/step
+Epoch 146/200
+199/199 - 0s - loss: 0.1945 - accuracy: 0.9220 - 208ms/epoch - 1ms/step
+Epoch 147/200
+199/199 - 0s - loss: 0.1983 - accuracy: 0.9218 - 215ms/epoch - 1ms/step
+Epoch 148/200
+199/199 - 0s - loss: 0.1939 - accuracy: 0.9237 - 219ms/epoch - 1ms/step
+Epoch 149/200
+199/199 - 0s - loss: 0.1961 - accuracy: 0.9226 - 216ms/epoch - 1ms/step
+Epoch 150/200
+199/199 - 0s - loss: 0.1943 - accuracy: 0.9218 - 225ms/epoch - 1ms/step
+Epoch 151/200
+199/199 - 0s - loss: 0.1963 - accuracy: 0.9217 - 212ms/epoch - 1ms/step
+Epoch 152/200
+199/199 - 0s - loss: 0.1954 - accuracy: 0.9221 - 207ms/epoch - 1ms/step
+Epoch 153/200
+199/199 - 0s - loss: 0.1944 - accuracy: 0.9230 - 210ms/epoch - 1ms/step
+Epoch 154/200
+199/199 - 0s - loss: 0.1958 - accuracy: 0.9218 - 214ms/epoch - 1ms/step
+Epoch 155/200
+199/199 - 0s - loss: 0.1927 - accuracy: 0.9222 - 209ms/epoch - 1ms/step
+Epoch 156/200
+199/199 - 0s - loss: 0.1954 - accuracy: 0.9228 - 222ms/epoch - 1ms/step
+Epoch 157/200
+199/199 - 0s - loss: 0.1957 - accuracy: 0.9229 - 213ms/epoch - 1ms/step
+Epoch 158/200
+199/199 - 0s - loss: 0.1944 - accuracy: 0.9225 - 219ms/epoch - 1ms/step
+Epoch 159/200
+199/199 - 0s - loss: 0.1930 - accuracy: 0.9236 - 222ms/epoch - 1ms/step
+Epoch 160/200
+199/199 - 0s - loss: 0.1951 - accuracy: 0.9209 - 222ms/epoch - 1ms/step
+Epoch 161/200
+199/199 - 0s - loss: 0.1963 - accuracy: 0.9214 - 227ms/epoch - 1ms/step
+Epoch 162/200
+199/199 - 0s - loss: 0.1943 - accuracy: 0.9218 - 222ms/epoch - 1ms/step
+Epoch 163/200
+199/199 - 0s - loss: 0.1943 - accuracy: 0.9226 - 206ms/epoch - 1ms/step
+Epoch 164/200
+199/199 - 0s - loss: 0.1911 - accuracy: 0.9243 - 224ms/epoch - 1ms/step
+Epoch 165/200
+199/199 - 0s - loss: 0.1929 - accuracy: 0.9241 - 229ms/epoch - 1ms/step
+Epoch 166/200
+199/199 - 0s - loss: 0.1947 - accuracy: 0.9238 - 221ms/epoch - 1ms/step
+Epoch 167/200
+199/199 - 0s - loss: 0.1952 - accuracy: 0.9235 - 230ms/epoch - 1ms/step
+Epoch 168/200
+199/199 - 0s - loss: 0.1925 - accuracy: 0.9230 - 226ms/epoch - 1ms/step
+Epoch 169/200
+199/199 - 0s - loss: 0.1901 - accuracy: 0.9252 - 213ms/epoch - 1ms/step
+Epoch 170/200
+199/199 - 0s - loss: 0.1916 - accuracy: 0.9230 - 213ms/epoch - 1ms/step
+Epoch 171/200
+199/199 - 0s - loss: 0.1908 - accuracy: 0.9256 - 205ms/epoch - 1ms/step
+Epoch 172/200
+199/199 - 0s - loss: 0.1910 - accuracy: 0.9237 - 216ms/epoch - 1ms/step
+Epoch 173/200
+199/199 - 0s - loss: 0.1920 - accuracy: 0.9233 - 207ms/epoch - 1ms/step
+Epoch 174/200
+199/199 - 0s - loss: 0.1926 - accuracy: 0.9238 - 222ms/epoch - 1ms/step
+Epoch 175/200
+199/199 - 0s - loss: 0.1914 - accuracy: 0.9244 - 223ms/epoch - 1ms/step
+Epoch 176/200
+199/199 - 0s - loss: 0.1915 - accuracy: 0.9250 - 235ms/epoch - 1ms/step
+Epoch 177/200
+199/199 - 0s - loss: 0.1921 - accuracy: 0.9254 - 228ms/epoch - 1ms/step
+Epoch 178/200
+199/199 - 0s - loss: 0.1912 - accuracy: 0.9247 - 229ms/epoch - 1ms/step
+Epoch 179/200
+199/199 - 0s - loss: 0.1893 - accuracy: 0.9241 - 220ms/epoch - 1ms/step
+Epoch 180/200
+199/199 - 0s - loss: 0.1918 - accuracy: 0.9234 - 221ms/epoch - 1ms/step
+Epoch 181/200
+199/199 - 0s - loss: 0.1917 - accuracy: 0.9236 - 227ms/epoch - 1ms/step
+Epoch 182/200
+199/199 - 0s - loss: 0.1925 - accuracy: 0.9241 - 249ms/epoch - 1ms/step
+Epoch 183/200
+199/199 - 0s - loss: 0.1922 - accuracy: 0.9234 - 223ms/epoch - 1ms/step
+Epoch 184/200
+199/199 - 0s - loss: 0.1901 - accuracy: 0.9255 - 263ms/epoch - 1ms/step
+Epoch 185/200
+199/199 - 0s - loss: 0.1922 - accuracy: 0.9242 - 304ms/epoch - 2ms/step
+Epoch 186/200
+199/199 - 0s - loss: 0.1915 - accuracy: 0.9246 - 314ms/epoch - 2ms/step
+Epoch 187/200
+199/199 - 0s - loss: 0.1909 - accuracy: 0.9242 - 238ms/epoch - 1ms/step
+Epoch 188/200
+199/199 - 0s - loss: 0.1915 - accuracy: 0.9242 - 221ms/epoch - 1ms/step
+Epoch 189/200
+199/199 - 0s - loss: 0.1920 - accuracy: 0.9250 - 226ms/epoch - 1ms/step
+Epoch 190/200
+199/199 - 0s - loss: 0.1907 - accuracy: 0.9250 - 221ms/epoch - 1ms/step
+Epoch 191/200
+199/199 - 0s - loss: 0.1892 - accuracy: 0.9250 - 223ms/epoch - 1ms/step
+Epoch 192/200
+199/199 - 0s - loss: 0.1920 - accuracy: 0.9252 - 244ms/epoch - 1ms/step
+Epoch 193/200
+199/199 - 0s - loss: 0.1900 - accuracy: 0.9245 - 229ms/epoch - 1ms/step
+Epoch 194/200
+199/199 - 0s - loss: 0.1907 - accuracy: 0.9253 - 225ms/epoch - 1ms/step
+Epoch 195/200
+199/199 - 0s - loss: 0.1894 - accuracy: 0.9258 - 223ms/epoch - 1ms/step
+Epoch 196/200
+199/199 - 0s - loss: 0.1882 - accuracy: 0.9254 - 225ms/epoch - 1ms/step
+Epoch 197/200
+199/199 - 0s - loss: 0.1884 - accuracy: 0.9258 - 220ms/epoch - 1ms/step
+Epoch 198/200
+199/199 - 0s - loss: 0.1903 - accuracy: 0.9261 - 226ms/epoch - 1ms/step
+Epoch 199/200
+199/199 - 0s - loss: 0.1888 - accuracy: 0.9262 - 206ms/epoch - 1ms/step
+Epoch 200/200
+199/199 - 0s - loss: 0.1889 - accuracy: 0.9268 - 233ms/epoch - 1ms/step
+
+
+# =================================================================================
+                         T R A I N I N G    R E S U L T S
+# =================================================================================
+
+
+Best training score (model history):  0.9268273711204529
+Minimum loss (model history):  0.18819063901901245
+
+
+# =================================================================================
+                         V A L I D A T I O N    R E S U L T S
+# =================================================================================
+
+
+Confusion Matrix: 
+[[2960  225]
+ [ 232 2931]]
+
+
+Classification Report: 
+              precision    recall  f1-score   support
+
+       noise       0.93      0.93      0.93      3185
+         hit       0.93      0.93      0.93      3163
+
+    accuracy                           0.93      6348
+   macro avg       0.93      0.93      0.93      6348
+weighted avg       0.93      0.93      0.93      6348
+
+
+
+Evaluation Matrics:
+Accuracy:  0.9280087947845459
+Loss:  0.18126218020915985
+
+
+Model Summary: 
+Model: "sequential_4"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ dense_8 (Dense)             (None, 64)                4288      
+                                                                 
+ dropout_4 (Dropout)         (None, 64)                0         
+                                                                 
+ dense_9 (Dense)             (None, 1)                 65        
+                                                                 
+=================================================================
+Total params: 4,353
+Trainable params: 4,353
+Non-trainable params: 0
+_________________________________________________________________
+None
+Epoch 1/200
+199/199 - 1s - loss: 0.6331 - accuracy: 0.6855 - 542ms/epoch - 3ms/step
+Epoch 2/200
+199/199 - 0s - loss: 0.4961 - accuracy: 0.7797 - 224ms/epoch - 1ms/step
+Epoch 3/200
+199/199 - 0s - loss: 0.4462 - accuracy: 0.8093 - 199ms/epoch - 1ms/step
+Epoch 4/200
+199/199 - 0s - loss: 0.4120 - accuracy: 0.8279 - 227ms/epoch - 1ms/step
+Epoch 5/200
+199/199 - 0s - loss: 0.3857 - accuracy: 0.8416 - 213ms/epoch - 1ms/step
+Epoch 6/200
+199/199 - 0s - loss: 0.3669 - accuracy: 0.8502 - 212ms/epoch - 1ms/step
+Epoch 7/200
+199/199 - 0s - loss: 0.3491 - accuracy: 0.8552 - 202ms/epoch - 1ms/step
+Epoch 8/200
+199/199 - 0s - loss: 0.3342 - accuracy: 0.8606 - 212ms/epoch - 1ms/step
+Epoch 9/200
+199/199 - 0s - loss: 0.3254 - accuracy: 0.8662 - 218ms/epoch - 1ms/step
+Epoch 10/200
+199/199 - 0s - loss: 0.3154 - accuracy: 0.8685 - 205ms/epoch - 1ms/step
+Epoch 11/200
+199/199 - 0s - loss: 0.3106 - accuracy: 0.8706 - 198ms/epoch - 997us/step
+Epoch 12/200
+199/199 - 0s - loss: 0.3015 - accuracy: 0.8732 - 201ms/epoch - 1ms/step
+Epoch 13/200
+199/199 - 0s - loss: 0.2965 - accuracy: 0.8778 - 229ms/epoch - 1ms/step
+Epoch 14/200
+199/199 - 0s - loss: 0.2934 - accuracy: 0.8789 - 204ms/epoch - 1ms/step
+Epoch 15/200
+199/199 - 0s - loss: 0.2841 - accuracy: 0.8813 - 206ms/epoch - 1ms/step
+Epoch 16/200
+199/199 - 0s - loss: 0.2816 - accuracy: 0.8815 - 205ms/epoch - 1ms/step
+Epoch 17/200
+199/199 - 0s - loss: 0.2809 - accuracy: 0.8840 - 209ms/epoch - 1ms/step
+Epoch 18/200
+199/199 - 0s - loss: 0.2786 - accuracy: 0.8837 - 202ms/epoch - 1ms/step
+Epoch 19/200
+199/199 - 0s - loss: 0.2747 - accuracy: 0.8856 - 204ms/epoch - 1ms/step
+Epoch 20/200
+199/199 - 0s - loss: 0.2739 - accuracy: 0.8850 - 196ms/epoch - 986us/step
+Epoch 21/200
+199/199 - 0s - loss: 0.2732 - accuracy: 0.8871 - 203ms/epoch - 1ms/step
+Epoch 22/200
+199/199 - 0s - loss: 0.2677 - accuracy: 0.8895 - 197ms/epoch - 990us/step
+Epoch 23/200
+199/199 - 0s - loss: 0.2680 - accuracy: 0.8896 - 204ms/epoch - 1ms/step
+Epoch 24/200
+199/199 - 0s - loss: 0.2645 - accuracy: 0.8890 - 203ms/epoch - 1ms/step
+Epoch 25/200
+199/199 - 0s - loss: 0.2632 - accuracy: 0.8913 - 207ms/epoch - 1ms/step
+Epoch 26/200
+199/199 - 0s - loss: 0.2578 - accuracy: 0.8907 - 200ms/epoch - 1ms/step
+Epoch 27/200
+199/199 - 0s - loss: 0.2569 - accuracy: 0.8930 - 202ms/epoch - 1ms/step
+Epoch 28/200
+199/199 - 0s - loss: 0.2588 - accuracy: 0.8906 - 197ms/epoch - 991us/step
+Epoch 29/200
+199/199 - 0s - loss: 0.2560 - accuracy: 0.8942 - 201ms/epoch - 1ms/step
+Epoch 30/200
+199/199 - 0s - loss: 0.2534 - accuracy: 0.8938 - 209ms/epoch - 1ms/step
+Epoch 31/200
+199/199 - 0s - loss: 0.2553 - accuracy: 0.8923 - 210ms/epoch - 1ms/step
+Epoch 32/200
+199/199 - 0s - loss: 0.2520 - accuracy: 0.8936 - 214ms/epoch - 1ms/step
+Epoch 33/200
+199/199 - 0s - loss: 0.2509 - accuracy: 0.8954 - 216ms/epoch - 1ms/step
+Epoch 34/200
+199/199 - 0s - loss: 0.2495 - accuracy: 0.8945 - 210ms/epoch - 1ms/step
+Epoch 35/200
+199/199 - 0s - loss: 0.2506 - accuracy: 0.8959 - 219ms/epoch - 1ms/step
+Epoch 36/200
+199/199 - 0s - loss: 0.2490 - accuracy: 0.8954 - 215ms/epoch - 1ms/step
+Epoch 37/200
+199/199 - 0s - loss: 0.2469 - accuracy: 0.8971 - 222ms/epoch - 1ms/step
+Epoch 38/200
+199/199 - 0s - loss: 0.2450 - accuracy: 0.8976 - 210ms/epoch - 1ms/step
+Epoch 39/200
+199/199 - 0s - loss: 0.2450 - accuracy: 0.8977 - 208ms/epoch - 1ms/step
+Epoch 40/200
+199/199 - 0s - loss: 0.2436 - accuracy: 0.8968 - 211ms/epoch - 1ms/step
+Epoch 41/200
+199/199 - 0s - loss: 0.2407 - accuracy: 0.8980 - 213ms/epoch - 1ms/step
+Epoch 42/200
+199/199 - 0s - loss: 0.2409 - accuracy: 0.8987 - 209ms/epoch - 1ms/step
+Epoch 43/200
+199/199 - 0s - loss: 0.2421 - accuracy: 0.8978 - 214ms/epoch - 1ms/step
+Epoch 44/200
+199/199 - 0s - loss: 0.2388 - accuracy: 0.8993 - 206ms/epoch - 1ms/step
+Epoch 45/200
+199/199 - 0s - loss: 0.2379 - accuracy: 0.9003 - 202ms/epoch - 1ms/step
+Epoch 46/200
+199/199 - 0s - loss: 0.2373 - accuracy: 0.9017 - 229ms/epoch - 1ms/step
+Epoch 47/200
+199/199 - 0s - loss: 0.2362 - accuracy: 0.9012 - 199ms/epoch - 1ms/step
+Epoch 48/200
+199/199 - 0s - loss: 0.2333 - accuracy: 0.9016 - 206ms/epoch - 1ms/step
+Epoch 49/200
+199/199 - 0s - loss: 0.2360 - accuracy: 0.9013 - 211ms/epoch - 1ms/step
+Epoch 50/200
+199/199 - 0s - loss: 0.2332 - accuracy: 0.9024 - 210ms/epoch - 1ms/step
+Epoch 51/200
+199/199 - 0s - loss: 0.2337 - accuracy: 0.9027 - 201ms/epoch - 1ms/step
+Epoch 52/200
+199/199 - 0s - loss: 0.2325 - accuracy: 0.9028 - 215ms/epoch - 1ms/step
+Epoch 53/200
+199/199 - 0s - loss: 0.2314 - accuracy: 0.9036 - 215ms/epoch - 1ms/step
+Epoch 54/200
+199/199 - 0s - loss: 0.2308 - accuracy: 0.9038 - 218ms/epoch - 1ms/step
+Epoch 55/200
+199/199 - 0s - loss: 0.2297 - accuracy: 0.9030 - 200ms/epoch - 1ms/step
+Epoch 56/200
+199/199 - 0s - loss: 0.2285 - accuracy: 0.9028 - 207ms/epoch - 1ms/step
+Epoch 57/200
+199/199 - 0s - loss: 0.2279 - accuracy: 0.9052 - 221ms/epoch - 1ms/step
+Epoch 58/200
+199/199 - 0s - loss: 0.2272 - accuracy: 0.9039 - 208ms/epoch - 1ms/step
+Epoch 59/200
+199/199 - 0s - loss: 0.2285 - accuracy: 0.9053 - 200ms/epoch - 1ms/step
+Epoch 60/200
+199/199 - 0s - loss: 0.2289 - accuracy: 0.9037 - 223ms/epoch - 1ms/step
+Epoch 61/200
+199/199 - 0s - loss: 0.2272 - accuracy: 0.9064 - 217ms/epoch - 1ms/step
+Epoch 62/200
+199/199 - 0s - loss: 0.2252 - accuracy: 0.9073 - 216ms/epoch - 1ms/step
+Epoch 63/200
+199/199 - 0s - loss: 0.2275 - accuracy: 0.9067 - 213ms/epoch - 1ms/step
+Epoch 64/200
+199/199 - 0s - loss: 0.2220 - accuracy: 0.9073 - 201ms/epoch - 1ms/step
+Epoch 65/200
+199/199 - 0s - loss: 0.2228 - accuracy: 0.9084 - 207ms/epoch - 1ms/step
+Epoch 66/200
+199/199 - 0s - loss: 0.2225 - accuracy: 0.9087 - 213ms/epoch - 1ms/step
+Epoch 67/200
+199/199 - 0s - loss: 0.2238 - accuracy: 0.9080 - 207ms/epoch - 1ms/step
+Epoch 68/200
+199/199 - 0s - loss: 0.2249 - accuracy: 0.9072 - 200ms/epoch - 1ms/step
+Epoch 69/200
+199/199 - 0s - loss: 0.2197 - accuracy: 0.9086 - 223ms/epoch - 1ms/step
+Epoch 70/200
+199/199 - 0s - loss: 0.2201 - accuracy: 0.9084 - 209ms/epoch - 1ms/step
+Epoch 71/200
+199/199 - 0s - loss: 0.2207 - accuracy: 0.9074 - 211ms/epoch - 1ms/step
+Epoch 72/200
+199/199 - 0s - loss: 0.2208 - accuracy: 0.9082 - 202ms/epoch - 1ms/step
+Epoch 73/200
+199/199 - 0s - loss: 0.2194 - accuracy: 0.9090 - 214ms/epoch - 1ms/step
+Epoch 74/200
+199/199 - 0s - loss: 0.2177 - accuracy: 0.9085 - 218ms/epoch - 1ms/step
+Epoch 75/200
+199/199 - 0s - loss: 0.2190 - accuracy: 0.9095 - 212ms/epoch - 1ms/step
+Epoch 76/200
+199/199 - 0s - loss: 0.2183 - accuracy: 0.9100 - 215ms/epoch - 1ms/step
+Epoch 77/200
+199/199 - 0s - loss: 0.2161 - accuracy: 0.9096 - 204ms/epoch - 1ms/step
+Epoch 78/200
+199/199 - 0s - loss: 0.2184 - accuracy: 0.9102 - 206ms/epoch - 1ms/step
+Epoch 79/200
+199/199 - 0s - loss: 0.2181 - accuracy: 0.9088 - 207ms/epoch - 1ms/step
+Epoch 80/200
+199/199 - 0s - loss: 0.2136 - accuracy: 0.9126 - 204ms/epoch - 1ms/step
+Epoch 81/200
+199/199 - 0s - loss: 0.2157 - accuracy: 0.9110 - 213ms/epoch - 1ms/step
+Epoch 82/200
+199/199 - 0s - loss: 0.2147 - accuracy: 0.9109 - 215ms/epoch - 1ms/step
+Epoch 83/200
+199/199 - 0s - loss: 0.2143 - accuracy: 0.9117 - 207ms/epoch - 1ms/step
+Epoch 84/200
+199/199 - 0s - loss: 0.2150 - accuracy: 0.9115 - 217ms/epoch - 1ms/step
+Epoch 85/200
+199/199 - 0s - loss: 0.2134 - accuracy: 0.9108 - 221ms/epoch - 1ms/step
+Epoch 86/200
+199/199 - 0s - loss: 0.2145 - accuracy: 0.9117 - 215ms/epoch - 1ms/step
+Epoch 87/200
+199/199 - 0s - loss: 0.2127 - accuracy: 0.9117 - 214ms/epoch - 1ms/step
+Epoch 88/200
+199/199 - 0s - loss: 0.2112 - accuracy: 0.9130 - 207ms/epoch - 1ms/step
+Epoch 89/200
+199/199 - 0s - loss: 0.2106 - accuracy: 0.9139 - 214ms/epoch - 1ms/step
+Epoch 90/200
+199/199 - 0s - loss: 0.2139 - accuracy: 0.9135 - 213ms/epoch - 1ms/step
+Epoch 91/200
+199/199 - 0s - loss: 0.2106 - accuracy: 0.9141 - 204ms/epoch - 1ms/step
+Epoch 92/200
+199/199 - 0s - loss: 0.2115 - accuracy: 0.9125 - 209ms/epoch - 1ms/step
+Epoch 93/200
+199/199 - 0s - loss: 0.2094 - accuracy: 0.9132 - 201ms/epoch - 1ms/step
+Epoch 94/200
+199/199 - 0s - loss: 0.2110 - accuracy: 0.9143 - 204ms/epoch - 1ms/step
+Epoch 95/200
+199/199 - 0s - loss: 0.2091 - accuracy: 0.9159 - 202ms/epoch - 1ms/step
+Epoch 96/200
+199/199 - 0s - loss: 0.2099 - accuracy: 0.9149 - 198ms/epoch - 993us/step
+Epoch 97/200
+199/199 - 0s - loss: 0.2098 - accuracy: 0.9126 - 198ms/epoch - 997us/step
+Epoch 98/200
+199/199 - 0s - loss: 0.2115 - accuracy: 0.9153 - 220ms/epoch - 1ms/step
+Epoch 99/200
+199/199 - 0s - loss: 0.2078 - accuracy: 0.9172 - 205ms/epoch - 1ms/step
+Epoch 100/200
+199/199 - 0s - loss: 0.2100 - accuracy: 0.9144 - 206ms/epoch - 1ms/step
+Epoch 101/200
+199/199 - 0s - loss: 0.2093 - accuracy: 0.9157 - 203ms/epoch - 1ms/step
+Epoch 102/200
+199/199 - 0s - loss: 0.2076 - accuracy: 0.9152 - 208ms/epoch - 1ms/step
+Epoch 103/200
+199/199 - 0s - loss: 0.2081 - accuracy: 0.9164 - 201ms/epoch - 1ms/step
+Epoch 104/200
+199/199 - 0s - loss: 0.2073 - accuracy: 0.9148 - 202ms/epoch - 1ms/step
+Epoch 105/200
+199/199 - 0s - loss: 0.2062 - accuracy: 0.9171 - 221ms/epoch - 1ms/step
+Epoch 106/200
+199/199 - 0s - loss: 0.2070 - accuracy: 0.9154 - 220ms/epoch - 1ms/step
+Epoch 107/200
+199/199 - 0s - loss: 0.2064 - accuracy: 0.9173 - 202ms/epoch - 1ms/step
+Epoch 108/200
+199/199 - 0s - loss: 0.2034 - accuracy: 0.9180 - 202ms/epoch - 1ms/step
+Epoch 109/200
+199/199 - 0s - loss: 0.2063 - accuracy: 0.9158 - 218ms/epoch - 1ms/step
+Epoch 110/200
+199/199 - 0s - loss: 0.2079 - accuracy: 0.9165 - 210ms/epoch - 1ms/step
+Epoch 111/200
+199/199 - 0s - loss: 0.2047 - accuracy: 0.9172 - 214ms/epoch - 1ms/step
+Epoch 112/200
+199/199 - 0s - loss: 0.2052 - accuracy: 0.9192 - 209ms/epoch - 1ms/step
+Epoch 113/200
+199/199 - 0s - loss: 0.2036 - accuracy: 0.9174 - 201ms/epoch - 1ms/step
+Epoch 114/200
+199/199 - 0s - loss: 0.2057 - accuracy: 0.9172 - 219ms/epoch - 1ms/step
+Epoch 115/200
+199/199 - 0s - loss: 0.2038 - accuracy: 0.9166 - 209ms/epoch - 1ms/step
+Epoch 116/200
+199/199 - 0s - loss: 0.2018 - accuracy: 0.9201 - 203ms/epoch - 1ms/step
+Epoch 117/200
+199/199 - 0s - loss: 0.2003 - accuracy: 0.9199 - 202ms/epoch - 1ms/step
+Epoch 118/200
+199/199 - 0s - loss: 0.2022 - accuracy: 0.9194 - 229ms/epoch - 1ms/step
+Epoch 119/200
+199/199 - 0s - loss: 0.2018 - accuracy: 0.9202 - 215ms/epoch - 1ms/step
+Epoch 120/200
+199/199 - 0s - loss: 0.2044 - accuracy: 0.9185 - 233ms/epoch - 1ms/step
+Epoch 121/200
+199/199 - 0s - loss: 0.2014 - accuracy: 0.9191 - 242ms/epoch - 1ms/step
+Epoch 122/200
+199/199 - 0s - loss: 0.2015 - accuracy: 0.9198 - 222ms/epoch - 1ms/step
+Epoch 123/200
+199/199 - 0s - loss: 0.2002 - accuracy: 0.9196 - 238ms/epoch - 1ms/step
+Epoch 124/200
+199/199 - 0s - loss: 0.2012 - accuracy: 0.9197 - 215ms/epoch - 1ms/step
+Epoch 125/200
+199/199 - 0s - loss: 0.2025 - accuracy: 0.9191 - 216ms/epoch - 1ms/step
+Epoch 126/200
+199/199 - 0s - loss: 0.2005 - accuracy: 0.9200 - 216ms/epoch - 1ms/step
+Epoch 127/200
+199/199 - 0s - loss: 0.2024 - accuracy: 0.9188 - 219ms/epoch - 1ms/step
+Epoch 128/200
+199/199 - 0s - loss: 0.2011 - accuracy: 0.9186 - 213ms/epoch - 1ms/step
+Epoch 129/200
+199/199 - 0s - loss: 0.2007 - accuracy: 0.9190 - 218ms/epoch - 1ms/step
+Epoch 130/200
+199/199 - 0s - loss: 0.1981 - accuracy: 0.9215 - 210ms/epoch - 1ms/step
+Epoch 131/200
+199/199 - 0s - loss: 0.2000 - accuracy: 0.9206 - 220ms/epoch - 1ms/step
+Epoch 132/200
+199/199 - 0s - loss: 0.2002 - accuracy: 0.9211 - 201ms/epoch - 1ms/step
+Epoch 133/200
+199/199 - 0s - loss: 0.2007 - accuracy: 0.9201 - 201ms/epoch - 1ms/step
+Epoch 134/200
+199/199 - 0s - loss: 0.2024 - accuracy: 0.9202 - 200ms/epoch - 1ms/step
+Epoch 135/200
+199/199 - 0s - loss: 0.1984 - accuracy: 0.9215 - 200ms/epoch - 1ms/step
+Epoch 136/200
+199/199 - 0s - loss: 0.2008 - accuracy: 0.9216 - 200ms/epoch - 1ms/step
+Epoch 137/200
+199/199 - 0s - loss: 0.1969 - accuracy: 0.9217 - 206ms/epoch - 1ms/step
+Epoch 138/200
+199/199 - 0s - loss: 0.1984 - accuracy: 0.9198 - 206ms/epoch - 1ms/step
+Epoch 139/200
+199/199 - 0s - loss: 0.1973 - accuracy: 0.9213 - 206ms/epoch - 1ms/step
+Epoch 140/200
+199/199 - 0s - loss: 0.1990 - accuracy: 0.9211 - 205ms/epoch - 1ms/step
+Epoch 141/200
+199/199 - 0s - loss: 0.1980 - accuracy: 0.9207 - 202ms/epoch - 1ms/step
+Epoch 142/200
+199/199 - 0s - loss: 0.1970 - accuracy: 0.9227 - 197ms/epoch - 988us/step
+Epoch 143/200
+199/199 - 0s - loss: 0.1979 - accuracy: 0.9219 - 200ms/epoch - 1ms/step
+Epoch 144/200
+199/199 - 0s - loss: 0.1965 - accuracy: 0.9217 - 198ms/epoch - 995us/step
+Epoch 145/200
+199/199 - 0s - loss: 0.1969 - accuracy: 0.9217 - 203ms/epoch - 1ms/step
+Epoch 146/200
+199/199 - 0s - loss: 0.1961 - accuracy: 0.9213 - 201ms/epoch - 1ms/step
+Epoch 147/200
+199/199 - 0s - loss: 0.1954 - accuracy: 0.9243 - 207ms/epoch - 1ms/step
+Epoch 148/200
+199/199 - 0s - loss: 0.1946 - accuracy: 0.9231 - 221ms/epoch - 1ms/step
+Epoch 149/200
+199/199 - 0s - loss: 0.1957 - accuracy: 0.9207 - 221ms/epoch - 1ms/step
+Epoch 150/200
+199/199 - 0s - loss: 0.1945 - accuracy: 0.9224 - 224ms/epoch - 1ms/step
+Epoch 151/200
+199/199 - 0s - loss: 0.1965 - accuracy: 0.9215 - 234ms/epoch - 1ms/step
+Epoch 152/200
+199/199 - 0s - loss: 0.1949 - accuracy: 0.9223 - 227ms/epoch - 1ms/step
+Epoch 153/200
+199/199 - 0s - loss: 0.1957 - accuracy: 0.9228 - 256ms/epoch - 1ms/step
+Epoch 154/200
+199/199 - 0s - loss: 0.1943 - accuracy: 0.9230 - 273ms/epoch - 1ms/step
+Epoch 155/200
+199/199 - 0s - loss: 0.1932 - accuracy: 0.9233 - 269ms/epoch - 1ms/step
+Epoch 156/200
+199/199 - 0s - loss: 0.1955 - accuracy: 0.9224 - 242ms/epoch - 1ms/step
+Epoch 157/200
+199/199 - 0s - loss: 0.1942 - accuracy: 0.9237 - 223ms/epoch - 1ms/step
+Epoch 158/200
+199/199 - 0s - loss: 0.1941 - accuracy: 0.9232 - 216ms/epoch - 1ms/step
+Epoch 159/200
+199/199 - 0s - loss: 0.1939 - accuracy: 0.9236 - 205ms/epoch - 1ms/step
+Epoch 160/200
+199/199 - 0s - loss: 0.1942 - accuracy: 0.9240 - 219ms/epoch - 1ms/step
+Epoch 161/200
+199/199 - 0s - loss: 0.1946 - accuracy: 0.9234 - 217ms/epoch - 1ms/step
+Epoch 162/200
+199/199 - 0s - loss: 0.1948 - accuracy: 0.9240 - 210ms/epoch - 1ms/step
+Epoch 163/200
+199/199 - 0s - loss: 0.1954 - accuracy: 0.9214 - 213ms/epoch - 1ms/step
+Epoch 164/200
+199/199 - 0s - loss: 0.1928 - accuracy: 0.9250 - 254ms/epoch - 1ms/step
+Epoch 165/200
+199/199 - 0s - loss: 0.1921 - accuracy: 0.9252 - 266ms/epoch - 1ms/step
+Epoch 166/200
+199/199 - 0s - loss: 0.1952 - accuracy: 0.9213 - 244ms/epoch - 1ms/step
+Epoch 167/200
+199/199 - 0s - loss: 0.1923 - accuracy: 0.9251 - 216ms/epoch - 1ms/step
+Epoch 168/200
+199/199 - 0s - loss: 0.1922 - accuracy: 0.9258 - 206ms/epoch - 1ms/step
+Epoch 169/200
+199/199 - 0s - loss: 0.1931 - accuracy: 0.9241 - 211ms/epoch - 1ms/step
+Epoch 170/200
+199/199 - 0s - loss: 0.1928 - accuracy: 0.9274 - 218ms/epoch - 1ms/step
+Epoch 171/200
+199/199 - 0s - loss: 0.1919 - accuracy: 0.9244 - 224ms/epoch - 1ms/step
+Epoch 172/200
+199/199 - 0s - loss: 0.1913 - accuracy: 0.9240 - 227ms/epoch - 1ms/step
+Epoch 173/200
+199/199 - 0s - loss: 0.1922 - accuracy: 0.9249 - 230ms/epoch - 1ms/step
+Epoch 174/200
+199/199 - 0s - loss: 0.1909 - accuracy: 0.9238 - 224ms/epoch - 1ms/step
+Epoch 175/200
+199/199 - 0s - loss: 0.1912 - accuracy: 0.9256 - 209ms/epoch - 1ms/step
+Epoch 176/200
+199/199 - 0s - loss: 0.1893 - accuracy: 0.9262 - 213ms/epoch - 1ms/step
+Epoch 177/200
+199/199 - 0s - loss: 0.1902 - accuracy: 0.9250 - 208ms/epoch - 1ms/step
+Epoch 178/200
+199/199 - 0s - loss: 0.1919 - accuracy: 0.9227 - 204ms/epoch - 1ms/step
+Epoch 179/200
+199/199 - 0s - loss: 0.1893 - accuracy: 0.9258 - 202ms/epoch - 1ms/step
+Epoch 180/200
+199/199 - 0s - loss: 0.1904 - accuracy: 0.9254 - 213ms/epoch - 1ms/step
+Epoch 181/200
+199/199 - 0s - loss: 0.1890 - accuracy: 0.9249 - 214ms/epoch - 1ms/step
+Epoch 182/200
+199/199 - 0s - loss: 0.1904 - accuracy: 0.9253 - 214ms/epoch - 1ms/step
+Epoch 183/200
+199/199 - 0s - loss: 0.1876 - accuracy: 0.9246 - 204ms/epoch - 1ms/step
+Epoch 184/200
+199/199 - 0s - loss: 0.1882 - accuracy: 0.9263 - 209ms/epoch - 1ms/step
+Epoch 185/200
+199/199 - 0s - loss: 0.1886 - accuracy: 0.9257 - 208ms/epoch - 1ms/step
+Epoch 186/200
+199/199 - 0s - loss: 0.1914 - accuracy: 0.9252 - 209ms/epoch - 1ms/step
+Epoch 187/200
+199/199 - 0s - loss: 0.1912 - accuracy: 0.9249 - 203ms/epoch - 1ms/step
+Epoch 188/200
+199/199 - 0s - loss: 0.1901 - accuracy: 0.9259 - 204ms/epoch - 1ms/step
+Epoch 189/200
+199/199 - 0s - loss: 0.1897 - accuracy: 0.9256 - 206ms/epoch - 1ms/step
+Epoch 190/200
+199/199 - 0s - loss: 0.1904 - accuracy: 0.9247 - 206ms/epoch - 1ms/step
+Epoch 191/200
+199/199 - 0s - loss: 0.1897 - accuracy: 0.9247 - 208ms/epoch - 1ms/step
+Epoch 192/200
+199/199 - 0s - loss: 0.1893 - accuracy: 0.9240 - 209ms/epoch - 1ms/step
+Epoch 193/200
+199/199 - 0s - loss: 0.1877 - accuracy: 0.9249 - 207ms/epoch - 1ms/step
+Epoch 194/200
+199/199 - 0s - loss: 0.1899 - accuracy: 0.9263 - 211ms/epoch - 1ms/step
+Epoch 195/200
+199/199 - 0s - loss: 0.1888 - accuracy: 0.9256 - 215ms/epoch - 1ms/step
+Epoch 196/200
+199/199 - 0s - loss: 0.1893 - accuracy: 0.9257 - 206ms/epoch - 1ms/step
+Epoch 197/200
+199/199 - 0s - loss: 0.1901 - accuracy: 0.9255 - 221ms/epoch - 1ms/step
+Epoch 198/200
+199/199 - 0s - loss: 0.1870 - accuracy: 0.9265 - 205ms/epoch - 1ms/step
+Epoch 199/200
+199/199 - 0s - loss: 0.1883 - accuracy: 0.9238 - 203ms/epoch - 1ms/step
+Epoch 200/200
+199/199 - 0s - loss: 0.1863 - accuracy: 0.9261 - 205ms/epoch - 1ms/step
+
+
+# =================================================================================
+                         T R A I N I N G    R E S U L T S
+# =================================================================================
+
+
+Best training score (model history):  0.9273787140846252
+Minimum loss (model history):  0.18628625571727753
+
+
+# =================================================================================
+                         V A L I D A T I O N    R E S U L T S
+# =================================================================================
+
+
+Confusion Matrix: 
+[[2973  212]
+ [ 242 2921]]
+
+
+Classification Report: 
+              precision    recall  f1-score   support
+
+       noise       0.92      0.93      0.93      3185
+         hit       0.93      0.92      0.93      3163
+
+    accuracy                           0.93      6348
+   macro avg       0.93      0.93      0.93      6348
+weighted avg       0.93      0.93      0.93      6348
+
+
+
+Evaluation Matrics:
+Accuracy:  0.92848140001297
+Loss:  0.18126101791858673
+
+
+Average train accuracy: 92.71% (+/- 0.07%)
+Average train loss: 18.62% (+/- 0.14%)
+
+
+Average validation accuracy: 92.65% (+/- 0.16%)
+Average validation loss: 18.48% (+/- 0.45%)
+
+
+Processing time:  218.0 seconds
+
+Process finished with exit code 0
+
+
+
+
+# =================================================================================
+                         T E S T    R E S U L T S
+# =================================================================================
+(VIDEO 2): Model 4
+
+Confusion Matrix: 
+[[447 122]
+ [ 79 453]]
+
+
+Classification Report: 
+              precision    recall  f1-score   support
+
+       noise       0.85      0.79      0.82       569
+         hit       0.79      0.85      0.82       532
+
+    accuracy                           0.82      1101
+   macro avg       0.82      0.82      0.82      1101
+weighted avg       0.82      0.82      0.82      1101
+
+
+
+Evaluation Matrics:
+Accuracy:  0.8174387216567993
+Loss:  0.42765122652053833
+
+
+# =================================================================================
+                         T E S T    R E S U L T S
+# =================================================================================
+(VIDEO 4): Model 4
+
+Confusion Matrix: 
+[[753 218]
+ [135 684]]
+
+
+Classification Report: 
+              precision    recall  f1-score   support
+
+       noise       0.85      0.78      0.81       971
+         hit       0.76      0.84      0.79       819
+
+    accuracy                           0.80      1790
+   macro avg       0.80      0.81      0.80      1790
+weighted avg       0.81      0.80      0.80      1790
+
+
+
+Evaluation Matrics:
+Accuracy:  0.8027933239936829
+Loss:  0.5538527965545654
+
+
+
+
+# =================================================================================
+                         T E S T    R E S U L T S
+# =================================================================================
+(VIDEO 58): Model 4
+
+Confusion Matrix: 
+[[1351  400]
+ [  51  677]]
+
+
+Classification Report: 
+              precision    recall  f1-score   support
+
+       noise       0.96      0.77      0.86      1751
+         hit       0.63      0.93      0.75       728
+
+    accuracy                           0.82      2479
+   macro avg       0.80      0.85      0.80      2479
+weighted avg       0.87      0.82      0.83      2479
+
+
+
+Evaluation Matrics:
+Accuracy:  0.8180717825889587
+Loss:  0.4398914873600006
+
+
+
+
+# =================================================================================
+                         T E S T    R E S U L T S
+# =================================================================================
+(VIDEO 137): Model 4
+
+Confusion Matrix: 
+[[611 313]
+ [342 658]]
+
+
+Classification Report: 
+              precision    recall  f1-score   support
+
+       noise       0.64      0.66      0.65       924
+         hit       0.68      0.66      0.67      1000
+
+    accuracy                           0.66      1924
+   macro avg       0.66      0.66      0.66      1924
+weighted avg       0.66      0.66      0.66      1924
+
+
+
+Evaluation Matrics:
+Accuracy:  0.659563422203064
+Loss:  1.0359148979187012
+

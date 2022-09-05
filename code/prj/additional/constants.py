@@ -14,12 +14,18 @@ PERCENTAGE = 0.7
 LR = 0.001  # learning rate
 NR_EPOCHS = 200
 BATCH_SIZE = 128
-LOSS_FUNCTION = "binary_crossentropy" # "binary_crossentropy"
+LOSS_FUNCTION = "binary_crossentropy"  # "binary_crossentropy"
 DECISION_LIMIT = 0.5  # to decide whether it is a ball hit or noise
 NR_OF_INPUT_LAYER_NODES = NOG * NOF
+OUTPUT_ACTIVATION_FUNCTION = "sigmoid"
+HIDDEN_LAYERS_ACTIVATION_FUNCTION = "relu"
+
+# Cross validation
+NR_KFOLDS = 5
 
 # chose classifier / model on test process
-CHOSE_MODEL = 131
+EXPERIMENT = 20
+CHOSE_MODEL = 1
 
 # directories path
 AUDIOS_PATH = "../../data/audios"
@@ -40,7 +46,7 @@ LABELING_TEST_FILES_PATH = "dataset/data/labeling"
 
 
 # test video name
-TEST_VIDEO_NAME = "padel_58.mp4"
+TEST_VIDEO_NAME = "padel_137.mp4"
 MINI_CLIPS_VIDEO_NAME = "vid_" + datetime.today().strftime('%d_%m_%Y_%H_%M_%S')
 
 MINI_CLIPS_VIDEO_NAME_PATH = "mini_clips/" + MINI_CLIPS_VIDEO_NAME
