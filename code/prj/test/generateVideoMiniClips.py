@@ -20,8 +20,19 @@ import time
 from os.path import exists
 
 import operator
+import pickle
+
+from additional.constants import *
 
 import sklearn.preprocessing as pp
+
+
+# =================================================================================
+# Show info ...
+# =================================================================================
+
+print("\n\nChosen Experiment: ", EXPERIMENT)
+print("Samples per group: ", SPG)
 
 # =================================================================================
 # Iniciar contagem de tempo de processamento ...
@@ -54,15 +65,33 @@ X_non_scaled, Y = modelManipulator.get_features_and_label_values(dataset, debug=
 # Data pre-processing ...
 # =================================================================================
 
-scaler = pp.StandardScaler().fit(X_non_scaled)
+scaler = None
+if CV_MODE:
+    # get scaler from models constructed with CV
+    scaler = pickle.load(open("../" + MODEL_PATH + "/" + TRAINED_MODELS_PATH +
+                   '/exp_' + str(EXPERIMENT) + '/scaler_' + str(CHOSE_MODEL) + ".pkl", 'rb'))
+else:
+    # get scaler from models constructed with all dataset
+    scaler = pickle.load(open("../" + MODEL_PATH + "/" + TRAINED_MODELS_WITH_ALL_DATA_PATH +
+                              '/model_' + str(EXPERIMENT) + '/scaler_' + str(EXPERIMENT) + ".pkl", 'rb'))
+
+
 X = scaler.transform(X_non_scaled)
+
 
 # =================================================================================
 # Load model ...
 # =================================================================================
 
-model = load_model("../" + MODEL_PATH + "/" + TRAINED_MODELS_PATH +
-                   '/exp_' + str(EXPERIMENT) + '/model_' + str(CHOSE_MODEL))
+if CV_MODE:
+    # get model constructed using CV
+    model = load_model("../" + MODEL_PATH + "/" + TRAINED_MODELS_PATH +
+                       '/exp_' + str(EXPERIMENT) + '/model_' + str(CHOSE_MODEL))
+else:
+    # get model constructed using all dataset
+    model = load_model("../" + MODEL_PATH + "/" + TRAINED_MODELS_WITH_ALL_DATA_PATH +
+                       '/model_' + str(EXPERIMENT) + '/trained_model_' + str(EXPERIMENT))
+
 
 print("\n\nModel Summary: ")
 print(model.summary())

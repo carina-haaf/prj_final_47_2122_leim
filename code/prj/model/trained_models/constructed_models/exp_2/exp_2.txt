@@ -1,0 +1,79 @@
+
+(exp_2)
+
+Dados: Noise 15924; Hits: 15816         (EQUILIBRADO  1024)
+Pre-processamento: standard scaler
+
+
+
+# temporal hyper parameters
+NOG = 22  # number of groups
+SPG = 1024  # samples per group
+NOF = 3  # number of features
+NOSS = 1024  # number of shifted samples
+
+PERCENTAGE = 0.7
+
+# NN hyper parameters
+LR = 0.001  # learning rate
+NR_EPOCHS = 100
+BATCH_SIZE = 128
+LOSS_FUNCTION = "binary_crossentropy"  # "binary_crossentropy"
+DECISION_LIMIT = 0.5  # to decide whether it is a ball hit or noise
+NR_OF_INPUT_LAYER_NODES = NOG * NOF
+OUTPUT_ACTIVATION_FUNCTION = "sigmoid"
+HIDDEN_LAYERS_ACTIVATION_FUNCTION = "relu"
+
+# Cross validation
+NR_KFOLDS = 5
+
+
+
+
+# =================================================================================
+# Model construction ...
+# =================================================================================
+
+model = Sequential()
+model.add(Dense(64, input_shape=(NR_OF_INPUT_LAYER_NODES,),
+				kernel_regularizer=l1_l2(l1=1e-3, l2=1e-3),
+				activation=HIDDEN_LAYERS_ACTIVATION_FUNCTION))
+
+model.add(Dropout(0.4))
+
+model.add(Dense(32, activation="relu"))
+
+model.add(Dropout(0.2))
+model.add(Dense(1, activation=OUTPUT_ACTIVATION_FUNCTION))
+
+
+
+
+
+
+
+
+
+
+# =================================================================================
+                         T E S T    R E S U L T S
+# =================================================================================
+(VIDEO 2): Model 2
+
+
+
+
+# =================================================================================
+                         T E S T    R E S U L T S
+# =================================================================================
+(VIDEO 4): Model 2
+
+
+
+# =================================================================================
+                         T E S T    R E S U L T S
+# =================================================================================
+(VIDEO 58): Model 2
+
+
+

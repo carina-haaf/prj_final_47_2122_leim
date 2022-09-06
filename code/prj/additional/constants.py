@@ -2,17 +2,22 @@ from datetime import datetime
 
 # CONSTANTS
 
-# temporal hyper parameters
-NOG = 22  # number of groups
-SPG = 1024  # samples per group
-NOF = 3  # number of features
-NOSS = 1024  # number of shifted samples
+# chose classifier / model on test process
+EXPERIMENT = 4
+CHOSE_MODEL = 3  # para testar os modelos obtido da cross validation
+CV_MODE = False
 
-PERCENTAGE = 0.7
+
+# temporal hyper parameters
+NOG = 11  # number of groups
+SPG = 2048  # samples per group
+NOF = 3  # number of features
+NOSS = 2048  # number of shifted samples
+
 
 # NN hyper parameters
 LR = 0.001  # learning rate
-NR_EPOCHS = 200
+NR_EPOCHS = 100
 BATCH_SIZE = 128
 LOSS_FUNCTION = "binary_crossentropy"  # "binary_crossentropy"
 DECISION_LIMIT = 0.5  # to decide whether it is a ball hit or noise
@@ -20,18 +25,19 @@ NR_OF_INPUT_LAYER_NODES = NOG * NOF
 OUTPUT_ACTIVATION_FUNCTION = "sigmoid"
 HIDDEN_LAYERS_ACTIVATION_FUNCTION = "relu"
 
+
+
 # Cross validation
 NR_KFOLDS = 5
 
-# chose classifier / model on test process
-EXPERIMENT = 20
-CHOSE_MODEL = 1
 
 # directories path
 AUDIOS_PATH = "../../data/audios"
 VIDEOS_PATH = "../../data/videos"
 TRAINED_MODELS_PATH = "trained_models/constructed_models"
 TRAINED_MODELS_GRAPHS_PATH = "trained_models/models_graphs"
+TRAINED_MODELS_WITH_ALL_DATA_PATH = "trained_models/trained_models_with_all_data"
+
 TEST_VIDEO_PATH = "./test_videos"
 TEST_AUDIO_PATH = "./test_audios"
 TEST_DIR_PATH = "test"
