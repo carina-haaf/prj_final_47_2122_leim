@@ -129,6 +129,10 @@ body{
     padding: 4%;
 }
 
+.prob{
+    padding: 6%;
+}
+
 .start_time{
     padding: 7%;
     
@@ -139,6 +143,16 @@ body{
     font-size: 90%;
 }
 .end_time{
+    padding: 4%;
+    
+    color: black;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 90%;
+}
+
+.prob_{
     padding: 5%;
     
     color: black;
@@ -163,6 +177,12 @@ body{
     /* background-color: #ACA9A9;*/
     float: right;
     padding:1%;
+    
+}
+
+.sortButtn{
+    /* background-color: #ACA9A9;*/
+    margin: 1%;
     
 }
 

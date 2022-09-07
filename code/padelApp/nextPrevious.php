@@ -14,17 +14,29 @@ if(isset($_GET['next'])){
 if(isset($_GET['event'])){
     $event = $_GET[ "event" ];
 }
+if(isset($_GET['sorted'])){
+    $sorted = $_GET[ "sorted" ];
+}
 
+
+
+if($sorted == 'true') {$clips_info_file_name = $clips_info_sorted;}
+else {$clips_info_file_name = $clips_info_non_sorted;}
 
 if($event == "all"){
-    $result = getAllEventTypeClipInfo($directoryVideoPath, $next, $number);
+    $result = getAllEventTypeClipInfo($directoryVideoPath, $next, $number, $clips_info_file_name, $sorted);
+    
+    
 }
 else if ($event == "noise" || $event == "ball-hit"){
-    $result = getEventTypeClipInfo($directoryVideoPath, $next, $number, $event);
+    $clips_info_file_name = $clips_info_non_sorted;
+    $result = getEventTypeClipInfo($directoryVideoPath, $next, $number, $clips_info_file_name, $event);
 }
 else{
     echo "Invalid data!"; exit(0);
 }
 
 echo json_encode($result);
+
+
 

@@ -9,11 +9,11 @@ function getDirNumberOfFiles($directory){
 }
 
 
-function get($directoryVideoPath, $desiredType="all"){
+function get($directoryVideoPath, $clips_info_file_name, $sorted, $desiredType="all"){
     $result = array();
    
     // abrir o ficheiro
-    $pathToDataClassesFile = $directoryVideoPath . "/clips_info.txt";
+    $pathToDataClassesFile = $directoryVideoPath . "/" . $clips_info_file_name;
     $myfile = fopen($pathToDataClassesFile, "r") or die("Unable to open file!");
     
     //iterar sobre o ficheiro
@@ -25,7 +25,7 @@ function get($directoryVideoPath, $desiredType="all"){
         $info = explode(";", $line );
         if(isset($info[0]) && isset($info[3]) && isset($info[4]) && 
                 isset($info[5]) && isset($info[6]) && isset($info[0]) && 
-                isset($info[1])){
+                isset($info[1]) && isset($info[7])){
             $index = $info[0];
             $ini_idx = $info[1];
             $fin_idx = $info[2];
@@ -33,6 +33,7 @@ function get($directoryVideoPath, $desiredType="all"){
             $ini = $info[3];
             $fin = $info[4];
             $name = $info[6];
+            $prob = $info[7];
         }
         
         // caso se queira só os clips de uma classe não vale a pena
@@ -46,11 +47,12 @@ function get($directoryVideoPath, $desiredType="all"){
             'fin' => $fin,
             'ini_idx' => $ini_idx,
             'fin_idx' => $fin_idx,
-            'name' => $name);
+            'name' => $name,
+            'prob' => $prob);
     }
     fclose($myfile);
     
-    if($result){ sort($result); }
+    if($result && $sorted === 'true'){ sort($result); }
     
     return $result;
     
@@ -80,9 +82,9 @@ function getDataClasses($directoryVideoPath){
 }
    
 
-function getFirstClipName($directoryVideoPath){
+function getFirstClipName($directoryVideoPath, $clips_info_file_name){
     // abrir o ficheiro
-    $pathToDataClassesFile = $directoryVideoPath . "/clips_info.txt";
+    $pathToDataClassesFile = $directoryVideoPath . "/" . $clips_info_file_name;
     $myfile = fopen($pathToDataClassesFile, "r") or die("Unable to open file!");
     
     $line = fgets($myfile);
@@ -95,9 +97,9 @@ function getFirstClipName($directoryVideoPath){
     return $name;
 }
 
-function getFirstClipIniAndFin($directoryVideoPath){
+function getFirstClipIniAndFin($directoryVideoPath, $clips_info_file_name){
    
-    $pathToDataClassesFile = $directoryVideoPath . "/clips_info.txt";
+    $pathToDataClassesFile = $directoryVideoPath . "/". $clips_info_file_name;
     $myfile = fopen($pathToDataClassesFile, "r") or die("Unable to open file!");
     
     $line = fgets($myfile);
@@ -112,13 +114,23 @@ function getFirstClipIniAndFin($directoryVideoPath){
 }
 
 
-function getAllEventTypeClipInfo($directoryVideoPath, $next, $number){
-            
-    if($next == 'true') { $desiredClipNumber = 0 +$number + 1; }
-    else if($next == 'false') { $desiredClipNumber = 0 +$number - 1; } 
-    else { echo 'Invalid $next value!'; exit(0); }
+function getAllEventTypeClipInfo($directoryVideoPath, $next, $number, $clips_info_file_name, $sorted){
+    if($sorted == 'true'){
+        $desiredClipNumber = getClipIndexByNumber($directoryVideoPath, $clips_info_file_name, $number);
+        if($next == 'true') { $desiredClipNumber += 1; }
+        else if($next == 'false') { $desiredClipNumber -= 1; } 
         
-    $pathToDataClassesFile = $directoryVideoPath . "/clips_info.txt";
+    }
+    
+    else{
+        if($next == 'true') { $desiredClipNumber = 0 +$number + 1; }
+        else if($next == 'false') { $desiredClipNumber = 0 +$number - 1; } 
+        else { echo 'Invalid $next value!'; exit(0); }
+      
+    }
+    
+       
+    $pathToDataClassesFile = $directoryVideoPath . "/". $clips_info_file_name;
     $myfile = fopen($pathToDataClassesFile, "r") or die("Unable to open file!");
     
     while(!feof($myfile)) {
@@ -136,8 +148,9 @@ function getAllEventTypeClipInfo($directoryVideoPath, $next, $number){
             $fin = $info[4];
             $name = $info[6];
         }
-         
-        if( $index == $desiredClipNumber ){
+        
+        //echo $index ."  ".$desiredClipNumber. "<br>";
+        if( $index == $desiredClipNumber){
             $result[] = array(
             'index'=>$index, 
             'type'=> $type,
@@ -150,15 +163,44 @@ function getAllEventTypeClipInfo($directoryVideoPath, $next, $number){
         fclose($myfile);
         return $result;
         }
+        
+        
     }
     fclose($myfile);
     
     return array();
 }
 
+function getClipIndexByNumber($directoryVideoPath, $clips_info_file_name, $number){
+    $pathToDataClassesFile = $directoryVideoPath . "/". $clips_info_file_name;
+    $myfile = fopen($pathToDataClassesFile, "r") or die("Unable to open file!");
+       
+    
+    while(!feof($myfile)) {
+        $line = fgets($myfile);
 
-function getEventTypeClipInfo($directoryVideoPath, $next, $number, $desiredType="all"){ 
-    $pathToDataClassesFile = $directoryVideoPath . "/clips_info.txt";
+        $info = explode(";", $line );
+        if(isset($info[0])&& isset($info[6])){
+            $index = $info[0];
+            $name = $info[6];
+             
+            $current_clip_nr = explode("_", $name )[1];
+            if($current_clip_nr == $number){
+                fclose($myfile);
+                return $index;
+            }
+            
+        } 
+    }
+    
+    fclose($myfile);
+    return -1;
+}
+
+
+function getEventTypeClipInfo($directoryVideoPath, $next, $number, $clips_info_file_name, $desiredType="all"){ 
+    $pathToDataClassesFile = $directoryVideoPath . "/" . $clips_info_file_name;
+    
     $myfile = fopen($pathToDataClassesFile, "r") or die("Unable to open file!");
     $result = array();
     
@@ -203,7 +245,6 @@ function getEventTypeClipInfo($directoryVideoPath, $next, $number, $desiredType=
                 'ini_idx' => $ini_idx,
                 'fin_idx' => $fin_idx,
                 'name' => $name);
-           
         }
     }
     
@@ -218,8 +259,8 @@ function getEventTypeClipInfo($directoryVideoPath, $next, $number, $desiredType=
 }
 
 
-function getNumberOfExamples($directoryVideoPath){
-    $pathToDataClassesFile = $directoryVideoPath . "/clips_info.txt";
+function getNumberOfExamples($directoryVideoPath, $clips_info_file_name){
+    $pathToDataClassesFile = $directoryVideoPath . "/" . $clips_info_file_name;
     $myfile = fopen($pathToDataClassesFile, "r") or die("Unable to open file!");
     
     $numberOfExamples = 0;
@@ -235,8 +276,8 @@ function getNumberOfExamples($directoryVideoPath){
 }
 
 
-function isRegistered($directoryVideoPath, $index, $type){
-    $pathToDataClassesFile = $directoryVideoPath . "/clips_info.txt";
+function isRegistered($directoryVideoPath, $index, $type, $clips_info_file_name){
+    $pathToDataClassesFile = $directoryVideoPath . "/". $clips_info_file_name;
     $myfile = fopen($pathToDataClassesFile, "r") or die("Unable to open file!");
     
     //iterar sobre o ficheiro
@@ -257,6 +298,7 @@ function isRegistered($directoryVideoPath, $index, $type){
     return false;
     
 }
+
 
 
 

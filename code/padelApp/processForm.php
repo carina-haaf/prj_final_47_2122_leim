@@ -34,7 +34,9 @@
     
     $flags[] = FILTER_NULL_ON_FAILURE;
     
-    $numberOfExamples = getNumberOfExamples($directoryVideoPath);
+    if($sorted == 'true') {$clips_info_file_name = $clips_info_sorted;}
+    else {$clips_info_file_name = $clips_info_non_sorted;}
+    $numberOfExamples = getNumberOfExamples($directoryVideoPath, $clips_info_file_name);
     
     //phpinfo(); // para alterar o número de váriáveis enviadas para o servidor a cada pedido
     
@@ -56,7 +58,7 @@
         $ini_idx = $lineInfo[2];
         $fin_idx = $lineInfo[3];
         
-        if(!isRegistered($directoryVideoPath, $index, $type)){
+        if(!isRegistered($directoryVideoPath, $index, $type, $clips_info_file_name)){
             fwrite($file, $ini_fin ."\n");
             $writedContent[] = $ini_fin;
         }

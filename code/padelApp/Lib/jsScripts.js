@@ -24,6 +24,10 @@ function SelectEventsOnChange(theSelect, dirVidpath){
     selectedClass = theSelect.value;
     dirVideoPath = dirVidpath;
     
+    if(selectedClass != "all"){
+        document.getElementById("sortButtn").value = "Sort by probability";
+    }
+    
     
     var args = "class="+selectedClass;
     
@@ -57,10 +61,12 @@ function SelectEventsHandleReply(){
             var fin = currentClip.fin;
             var ini_idx = currentClip.ini_idx;
             var fin_idx = currentClip.fin_idx;
+            var prob = currentClip.prob;
             
             // div para o select
             var newDiv = document.createElement("DIV");
-            newDiv.setAttribute("id", "div_" + value);
+            var clipNumber = name.split("_")[1];
+            newDiv.setAttribute("id", "div_" + clipNumber);
             newDiv.setAttribute("class", "eventDivs"); 
              
             // criar um select com o tipo de evento
@@ -76,10 +82,13 @@ function SelectEventsHandleReply(){
             hidden.setAttribute("id", "hidden"+value);
             // colocar as options dentro do select
             insertOptions(newSelect, value, option);
+            
+            
+            
 
             // colocar botão de SelectEvent
             var playbttn = document.createElement("BUTTON");
-            var text = document.createTextNode("Select Event");
+            var text = document.createTextNode("Select");
             playbttn.appendChild(text);
             playbttn.type="button";
             playbttn.id = value;
@@ -105,11 +114,22 @@ function SelectEventsHandleReply(){
             iniText.setAttribute("class", "start");
             finText.setAttribute("class", "end");
             
+            
+            //colocar probabilidade
+            var probTextNode = document.createTextNode(prob.substring(0, 5)); 
+            var probText = document.createElement("TEXT");
+            probText.appendChild(probTextNode);
+            
+            probText.setAttribute("class", "prob");
+            
+            
+            
             // adicionar os elementos ao container
             newDiv.appendChild(hidden);
             newDiv.appendChild(newSelect);
             newDiv.appendChild(iniText);
             newDiv.appendChild(finText);
+            newDiv.appendChild(probText);
             newDiv.appendChild(playbttn);
             
             container.appendChild(newDiv);
@@ -127,6 +147,8 @@ function SelectEventsHandleReply(){
 
             SetEventPeriod(ini, fin); 
             LoadNewVideo(name);
+            
+            //console.log(currentClip + " " + name + " " + ini + " " + fin );
         }
     }
 }
@@ -163,6 +185,8 @@ function LoadNewVideo(clipName){
 
 
 function LoadVideo(directoryVideoPath, clipName){
+   
+   console.log("clipName: " + clipName);
     
     var container = document.getElementById("videoDiv");
     
@@ -184,10 +208,9 @@ function LoadVideo(directoryVideoPath, clipName){
     video.appendChild(source);
     container.appendChild(video);  
     
-    
-    
     // colocar background do div de outra cor
     var selectedVideoDiv = document.getElementById("div_" + clipNumber);
+    
     if(selectedVideoDiv !== null){
         selectedVideoDiv.style.backgroundColor = "#C6ECC4";
         selectedVideoDiv.scrollIntoView({behavior: "smooth"});
@@ -238,19 +261,37 @@ function insertOptions(selectElement, value, option){
 
 function SelectAllEvents(directoryVideoPath){
     
+    // colocar "all" no filtro (para o caso de este método estar
+    // a ser invocado a partir do botão "Sort by probability")
+    document.getElementById("classSelect").value = 'all';
+    
+    
     dirVideoPath = directoryVideoPath;
    
     // The new option
     selectedClass = "all";
 
-    var args = "class="+selectedClass;
-    
-    //alert(selectedClass);
+    var args = "class="+selectedClass+"&sorted=" + sorted;
+    //alert(args);
     // With HTTP GET method
     xmlHttp = GetXmlHttpObject();
     xmlHttp.open("GET", "get.php?" + args, true);
     xmlHttp.onreadystatechange=SelectEventsHandleReply;
     xmlHttp.send(null);
+}
+
+function SortEvents(sortButtonObject){
+    sorted=!sorted;
+    
+    if(sorted)
+        sortButtonObject.value = "Sort by time";
+    else
+        sortButtonObject.value = "Sort by probability";
+    
+    // alert(sorted);
+    // console.log("sorted: " + sorted);
+    
+    
 }
 
 function LoadClasses(classesArray){
@@ -278,7 +319,7 @@ function GetNextClip(directoryVideoPath, number){
     dirVideoPath = directoryVideoPath;
     
     var eventType = document.getElementById("classSelect").value;
-    var args = "currentClipNumber="+number+"&next=true&event="+eventType;
+    var args = "currentClipNumber="+number+"&next=true&event="+eventType+"&sorted="+sorted;
     
     xmlHttp = GetXmlHttpObject();
     xmlHttp.open("GET", "nextPrevious.php?" + args, true);
@@ -290,7 +331,7 @@ function GetPreviousClip(directoryVideoPath, number){
     dirVideoPath = directoryVideoPath;
     
     var eventType = document.getElementById("classSelect").value;
-    var args = "currentClipNumber="+number+"&next=false&event="+eventType;
+    var args = "currentClipNumber="+number+"&next=false&event="+eventType+"&sorted="+sorted;
     
     xmlHttp = GetXmlHttpObject();
     xmlHttp.open("GET", "nextPrevious.php?" + args, true);
@@ -328,3 +369,7 @@ function UpdateHidden(index, ini_idx, fin_idx){
     hidden.setAttribute("value", selectedEvent + "_" +ini_idx + "_" + fin_idx);
 
 }
+
+
+
+

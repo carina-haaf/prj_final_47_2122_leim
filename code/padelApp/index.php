@@ -3,13 +3,26 @@
 <?php 
 
 include_once './Lib/lib.php';
-include './Lib/constants.php';
+include_once './Lib/constants.php';
+
+$clips_info_filename = $clips_info_non_sorted;
 
 $classes = getDataClasses($directoryVideoPath);
-$firstClipName = getFirstClipName($directoryVideoPath);
-$firstIniAndFin = getFirstClipIniAndFin($directoryVideoPath);
-$numberOfExamples = getNumberOfExamples($directoryVideoPath);
+$firstClipName = getFirstClipName($directoryVideoPath, $clips_info_filename);
+$firstIniAndFin = getFirstClipIniAndFin($directoryVideoPath, $clips_info_filename);
+$numberOfExamples = getNumberOfExamples($directoryVideoPath, $clips_info_filename);
 $currentVideoName = $videoName;
+
+
+# debug...
+/*
+$sorted = "false";
+echo "$clips_info_filename: ".$clips_info_filename . "<br><br>";
+echo "$classes: ". print_r($classes) . "<br><br>";
+echo "firstClipName: ".$firstClipName  . "<br><br>";
+
+echo "firstIniAndFin: ". print_r($firstIniAndFin)  . "<br><br>";
+*/
 
 ?>
 
@@ -24,12 +37,22 @@ $currentVideoName = $videoName;
         <script type="text/javascript" src="Lib/jsScripts.js">
         </script>
         
+        <script>
+            let sorted = false;
+        
+        </script>
+        
         <link rel="shortcut icon" href="#">
+       
     </head>
     
     <body onload='SelectAllEvents("<?php echo $directoryVideoPath; ?>"); 
         LoadClasses(<?php echo json_encode($classes); ?>); 
         LoadVideo(<?php echo json_encode($directoryVideoPath); ?>, <?php echo json_encode($firstClipName); ?>); '>
+        
+        
+      
+        
         
         <!-- hidden element -->
         <input id="nrOfEvents" type="hidden" value="<?php echo $numberOfExamples; ?>" >
@@ -75,14 +98,19 @@ $currentVideoName = $videoName;
                             
                             <text class="start_time">Start Time</text>
                             <text class="end_time">End Time</text>
+                            <text class="prob_">Prob.(%)</text>
                         </div>
                         
                         
                         <div id = "selectsContainer" class="selectsContainer">
                         </div>
                         
+                        
                         <div id = "bottomDiv" class="bottomDiv">
                     
+                            <input type='button' id='sortButtn'
+                                class='sortButtn' value='Sort by probability'
+                                onClick='SortEvents(this); SelectAllEvents("<?php echo $directoryVideoPath; ?>");'>
                             <div class="buttonDiv">
                                 <input class="formButton" type="submit" name="Submit" value="Submit">
                                 <input class="formButton" type="reset" name="Reset" value="Reset">
