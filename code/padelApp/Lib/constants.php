@@ -1,7 +1,9 @@
 
 <?php
 $videoName = "vid_07_09_2022_05_05_46";
+
 $directoryVideoPath = "videos/" . $videoName;
+$videosDirPath = "videos";
 $classesFilesPath = $directoryVideoPath . "/dataset/dataset_classes.txt";
 $userAnalysisDirPath = $directoryVideoPath . "/userAnalysis";
 

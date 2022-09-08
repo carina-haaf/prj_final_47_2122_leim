@@ -1,5 +1,18 @@
 <?php
 
+function getVideoDirNames($videoDirPath){
+    $files = scandir($videoDirPath);    
+    
+    for($i = 0; $i < count($files); $i++){
+        if($files[$i] !== "." && $files[$i] !== ".."){
+            $array[] = $files[$i];
+        }
+    }
+    return $array;
+    
+}
+
+
 
 function getDirNumberOfFiles($directory){
     
@@ -58,14 +71,6 @@ function get($directoryVideoPath, $clips_info_file_name, $sorted, $desiredType="
     
 }
 
-
-function getVideoClass($videoName){
-    
-}
-
-function getVideoNumber($videoName){
-    
-}
 
 function getDataClasses($directoryVideoPath){
     

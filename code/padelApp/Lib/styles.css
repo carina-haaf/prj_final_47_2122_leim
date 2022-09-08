@@ -6,6 +6,33 @@
 */
 
 
+.availableVideos{
+    padding: 1%;
+    margin-left: 5%;
+    
+    
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    
+    color: black;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 80%;
+    
+}
+
+.availableVideos:hover{
+     background: #C6ECC4;
+}
+
+.noVideosWarning{
+    padding: 1%;
+    margin-left: 5%;
+}
+
+
+
 body{
     background-color: #F1EBEB;
 }
