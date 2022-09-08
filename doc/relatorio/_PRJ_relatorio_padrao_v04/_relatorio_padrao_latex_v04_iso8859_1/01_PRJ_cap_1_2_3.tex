@@ -55,11 +55,11 @@ Proporcionar de uma aplicação \textit{web} que permite aumentar o \textit{datase
 
 
 %%________________________________________________________________________
-\section{Validação e Testes}
-\label{sec:validacaoetestes}
+%\section{Validação e Testes}
+%\label{sec:validacaoetestes}
 %%________________________________________________________________________
 
-(A alterar depois de fazer o capítulo de validação e testes)
+%(A alterar depois de fazer o capítulo de validação e testes)
 
 %%Validação e testes sobre o classificador: avaliação do classificador (validação cruzada). Validação e testes sobre a ferramenta final (testes de usabilidade). Falar um pouco sobre os resultados obtidos em termos de percentagens e a forma como o sistema se comporta face a novos dados de input. Fazer uma apreciação global dos resultados alcançados (como está no Resumo e Abstract).
 
@@ -633,13 +633,21 @@ A construção do classificador envolve também a escolha dos hiper-parâmetros que 
 \label{sec:criacaodaapp}
 %%________________________________________________________________________
 
-Esta sub-secção faz uma descrição da aborgem adotada para construir a aplicação que deve mostrar os resultados obtidos pelo classificador.
+Esta sub-secção faz uma descrição da arquitetura e o \textit{design} da aplicação que deve mostrar os resultados obtidos pelo classificador.
 
-\paragraph{\textbf{Estrutura da Aplicação}} \hspace{0pt} \\
+\paragraph{\textbf{Arquitetura da Aplicação \textit{Web}}} \hspace{0pt} \\
 
 \noindent
-A aplicação \textit{web} será desenvolvida utilizando a linguagem PHP. Esta linguagem é bastante útil porque é executada do lado do servidor e permite de forma flexível criar interação com o utilizador através de páginas HTML dinâmicas. No lado do cliente será utilizada a linguagem Javascript. (REFERIR QUE SÃO FEITOS PEDIDOS GET EPOST AO SERVIDOR) e que são realizados pedidos AJAX e que o AJAX é útil para não ter de fazer refresh na página toda, só pequenas porções da página. 
+A aplicação divide-se em três componentes: cliente, servidor e dados. A estrutura da aplicação \textit{web} encontra-se na figura \ref{fig:webapparchitecture}. Estas componentes serão todas integradas na mesma máquina para efeitos de simplificação.
 
+A aplicação em desenvolvimento faz uso da linguagem PHP. Esta linguagem é executada no lado do servidor e permite criar interação com o utilizador através de páginas HTML dinâmicas. No lado do cliente será utilizada a linguagem \textit{Javascript} e AJAX através dos quais serão utilizados os métodos GET e POST para receber ou enviar dados para o servidor \cite{w3schools_ajax_2022}.  
+
+\begin{figure}[h]
+   \centering
+   \includegraphics[width=12cm]{./app_structure}
+\caption{Estrutura da aplicação \textit{web}.}
+\label{fig:webapparchitecture}
+\end{figure}
 
 
 \paragraph{\textbf{\textit{Design} da Aplicação}} \hspace{0pt} \\
@@ -648,23 +656,24 @@ A aplicação \textit{web} será desenvolvida utilizando a linguagem PHP. Esta ling
 A aplicação \textit{web} desenvolvida tem duas páginas: página (1) que permite escolher o vídeo sobre o qual se pretende visualizar os resultados; página (2) que permite visualizar os resultados devolvidos pelo classificador (para um determinado vídeo).
 O \textit{design} destas páginas encontra-se nas figuras \ref{fig:paginaweb1} e \ref{fig:paginaweb2}. Todo o processamento efetuado sobre o áudio é realizado antes de apresentar os resultados nesta aplicação.
 
-Para efeitos de seimplificação, a página 1 terá um lista de vídeos que já foram classificados. Pelo que o utilizador deve escolher um vídeo. Ao selecionar um vídeo é redirecionado para a página 2, onde pode selecionar os vários eventos (à esquerda) e visualizá-los (à direita).
+Para simplificar, a página 1 terá um lista de vídeos que já foram classificados. Ao selecionar um vídeo é redirecionado para a página 2, que permite analisar os vários \textit{clips} constituintes do vídeo selecionado. 
+
 
 \begin{figure}[h]
    \centering
-   \includegraphics[width=12cm]{./mockup_pagina_web_1}
+   \includegraphics[width=11cm]{./mockup_pagina_web_1}
 \caption{\textit{Design} desejado da página \textit{web} 1.}
 \label{fig:paginaweb1}
 \end{figure}
 
+Os clips são resultado do processo de deslizamento da janela ao longo do vídeo (de teste) a classificar. Desta forma, cada \textit{clip} tem a duração de 0.5 segundos.
+Através do botão \aspas{\textit{select}} é possível selecionar um \textit{clip} (à esquerda) e visualizá-lo (à direita).
+Ainda na página 2 o utilizador pode validar os resultados devolvidos pelo classificador alterando o tipo de evento (entre \aspas{\textit{ball-hit}} e \aspas{\textit{noise}}) na primeira coluna. É ainda possível ordenar e visualizar os eventos por probabilidade de serem batida de bola (na ordem decrescente).
 
 \begin{figure}[h]
    \centering
-   \includegraphics[width=12cm]{./mockup_pagina_web_2}
+   \includegraphics[width=14cm]{./mockup_pagina_web}
 \caption{\textit{Design} desejado da página \textit{web} 2.}
 \label{fig:paginaweb2}
 \end{figure}
-
-
-
 

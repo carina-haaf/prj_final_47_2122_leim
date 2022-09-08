@@ -163,12 +163,6 @@ Nyuytiymbiy, K. (2021).
 \newblock {\em Medium. https://towardsdatascience.
   com/parameters-and-hyperparameters-aa609601a9ac (April 22, 2021)}.
 
-\bibitem[Orange3, 2022]{orange3_2022_neuralnetwork}
-Orange3 (visitado em Ago, 2022).
-\newblock Neural network.
-\newblock
-  \url{https://orange3.readthedocs.io/projects/orange-visual-programming/en/latest/widgets/model/neuralnetwork.html}.
-
 \bibitem[Pierre, 2021]{builtin_2021}
 Pierre, S. (2021).
 \newblock A guide to regularization in python.
@@ -211,5 +205,10 @@ Semmlow, J. (2012).
 Tennisnerd (2015).
 \newblock What is padel tennis?
 \newblock \url{https://tennisnerd.net/padel/what-is-padel-tennis/15893}.
+
+\bibitem[W3schools, 2022]{w3schools_ajax_2022}
+W3schools (visitado em Set, 2022).
+\newblock What is ajax?
+\newblock \url{https://www.w3schools.com/whatis/whatis_ajax.asp}.
 
 \end{thebibliography}

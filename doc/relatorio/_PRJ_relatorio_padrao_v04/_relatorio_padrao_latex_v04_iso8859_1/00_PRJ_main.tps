@@ -12,13 +12,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=928
-NormalPos.bottom=665
+NormalPos.bottom=573
 Class=BibTeXView
 Document=Xbib.bib
 
 [Frame0_View0,0]
-TopLine=673
-Cursor=20383
+TopLine=689
+Cursor=20398
 
 [Frame1]
 Flags=0
@@ -30,13 +30,13 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=928
-NormalPos.bottom=665
+NormalPos.bottom=573
 Class=LaTeXView
 Document=01_PRJ_cap_4_5_6.tex
 
 [Frame1_View0,0]
-TopLine=200
-Cursor=9401
+TopLine=135
+Cursor=6309
 
 [Frame2]
 Flags=0
@@ -48,15 +48,18 @@ MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=32
 NormalPos.right=928
-NormalPos.bottom=665
+NormalPos.bottom=573
 Class=LaTeXView
-Document=00_PRJ_main.tex
+Document=01_PRJ_cap_1_2_3.tex
 
 [Frame2_View0,0]
-TopLine=102
-Cursor=3536
+TopLine=605
+Cursor=28119
 
 [SessionInfo]
 FrameCount=3
 ActiveFrame=1
+
+[Bookmarks]
+01_PRJ_cap_4_5_6.tex=277 
 
