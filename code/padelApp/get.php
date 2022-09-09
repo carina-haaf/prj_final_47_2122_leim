@@ -15,6 +15,12 @@ if(isset($_GET['sorted'])){
 //$class= "all";
 //$sorted = "true";
 
+if ( !isset($_SESSION) ) {
+    session_start();
+}
+
+$directoryVideoPath = "videos/" . $_SESSION["video_name"];
+
 
 if($sorted == 'true') {$clips_info_file_name = $clips_info_sorted;}
 else {$clips_info_file_name = $clips_info_non_sorted;}

@@ -6,9 +6,9 @@
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         
-        <link REL="stylesheet" TYPE="text/css" href="Lib/jsScripts.js">
+        <link REL="stylesheet" TYPE="text/css" href="Lib/styles.css">
         
-        <link rel="shortcut icon" href="#">
+        <link rel="shortcut icon" href="">
     </head>
 
     <body>  
@@ -30,6 +30,14 @@
       echo "Invalid HTTP method (" . $method . ")";
       exit();
     }
+    
+    
+    if ( !isset($_SESSION) ) {
+        session_start();
+    }
+
+    $directoryVideoPath = "videos/" . $_SESSION["video_name"];
+    $userAnalysisDirPath = $directoryVideoPath . "/userAnalysis";
 
     
     $flags[] = FILTER_NULL_ON_FAILURE;
@@ -72,7 +80,7 @@
     }
     
     else{
-        echo "<p>Registered changes</p>";
+        echo "<p class='title'>Registered changes</p>";
         echo "<div class='userChangesDiv'>";
         for($i = 0; $i < $numberLinesWrited; $i++){
             echo "<p class='registedLine'>" . $writedContent[$i] . "</p>";

@@ -45,6 +45,8 @@ function SelectEventsHandleReply(){
     if( xmlHttp.readyState === 4 ) {
 
         var clips = JSON.parse( xmlHttp.responseText );
+        
+        //console.log (clips);
 
         // eliminar os elementos filhos no container
         var container = document.getElementById("selectsContainer");

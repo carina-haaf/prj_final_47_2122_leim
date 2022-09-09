@@ -2,6 +2,10 @@
 
 <?php 
 
+if ( !isset($_SESSION) ) {
+    session_start();
+}
+
 include_once './Lib/lib.php';
 include_once './Lib/constants.php';
 
@@ -11,7 +15,7 @@ if(isset($_GET['video'])){
     $videoName = $_GET[ "video" ];
 }
 
-
+$_SESSION["video_name"] = $videoName;
 $directoryVideoPath = "videos/" . $videoName;
 
 $classes = getDataClasses($directoryVideoPath);
