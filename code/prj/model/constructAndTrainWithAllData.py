@@ -57,13 +57,15 @@ pickle.dump(scaler, open(TRAINED_MODELS_WITH_ALL_DATA_PATH + "/scaler_" + str(EX
 # Model construction ...
 # =================================================================================
 
+
+
 model = Sequential()
 model.add(Dense(64, input_shape=(NR_OF_INPUT_LAYER_NODES,),
-				kernel_regularizer=l2(1e-5),
-				activation=HIDDEN_LAYERS_ACTIVATION_FUNCTION))
+			activation=HIDDEN_LAYERS_ACTIVATION_FUNCTION))
+
+model.add(Dropout(0.4))
 
 model.add(Dense(1, activation=OUTPUT_ACTIVATION_FUNCTION))
-
 
 
 # =================================================================================

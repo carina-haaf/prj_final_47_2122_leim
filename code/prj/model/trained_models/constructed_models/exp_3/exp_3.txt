@@ -13,6 +13,8 @@ SPG = 2048  # samples per group
 NOF = 3  # number of features
 NOSS = 2048  # number of shifted samples
 
+PERCENTAGE = 0.7
+
 
 # NN hyper parameters
 LR = 0.001  # learning rate

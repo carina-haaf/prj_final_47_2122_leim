@@ -1,0 +1,2 @@
+clips_info.txt file format:
+indice_do_clip;amostra_inicial;amostra_final;tempo_inicial,tempo_final;tipo_de_evento;nome_clip;probabilidade_associada_ah_detecao_do_evento

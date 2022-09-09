@@ -22,29 +22,14 @@ from os.path import exists
 import operator
 import pickle
 
-from additional.constants import *
-
-import sklearn.preprocessing as pp
-
 
 # =================================================================================
-# Show info ...
+# Auxiliary method ...
 # =================================================================================
-
-print("\n\nChosen Experiment: ", EXPERIMENT)
-print("Samples per group: ", SPG)
-
-# =================================================================================
-# Iniciar contagem de tempo de processamento ...
-# =================================================================================
-
-start = time.time()
-print("The program is running...")
-
 
 def organize_info(info_array):
     string = ""
-    size = len(info)
+    size = len(info_array)
 
     for i in range(size):
         if i == size - 1:
@@ -53,13 +38,30 @@ def organize_info(info_array):
             string += str(info_array[i]) + ";"
     return string
 
+
+# =================================================================================
+# Show info ...
+# =================================================================================
+
+print("\n\nChosen Experiment: ", EXPERIMENT)
+print("Samples per group: ", SPG)
+print("\n\n\n")
+
+# =================================================================================
+# Initiate time counter ...
+# =================================================================================
+
+start = time.time()
+print("The program is running...")
+
+
 # =================================================================================
 # Load dataset ...
 # =================================================================================
 
-
 dataset = read_csv(TEST_DATASET_PATH, header=None)
 X_non_scaled, Y = modelManipulator.get_features_and_label_values(dataset, debug=True)
+
 
 # =================================================================================
 # Data pre-processing ...
@@ -69,12 +71,11 @@ scaler = None
 if CV_MODE:
     # get scaler from models constructed with CV
     scaler = pickle.load(open("../" + MODEL_PATH + "/" + TRAINED_MODELS_PATH +
-                   '/exp_' + str(EXPERIMENT) + '/scaler_' + str(CHOSE_MODEL) + ".pkl", 'rb'))
+                              '/exp_' + str(EXPERIMENT) + '/scaler_' + str(CHOSE_MODEL) + ".pkl", 'rb'))
 else:
     # get scaler from models constructed with all dataset
     scaler = pickle.load(open("../" + MODEL_PATH + "/" + TRAINED_MODELS_WITH_ALL_DATA_PATH +
                               '/model_' + str(EXPERIMENT) + '/scaler_' + str(EXPERIMENT) + ".pkl", 'rb'))
-
 
 X = scaler.transform(X_non_scaled)
 
@@ -92,7 +93,6 @@ else:
     model = load_model("../" + MODEL_PATH + "/" + TRAINED_MODELS_WITH_ALL_DATA_PATH +
                        '/model_' + str(EXPERIMENT) + '/trained_model_' + str(EXPERIMENT))
 
-
 print("\n\nModel Summary: ")
 print(model.summary())
 
@@ -100,10 +100,12 @@ print(model.summary())
 # =================================================================================
 # Events Classification Results ...
 # =================================================================================
+
 y_predict_ini = model.predict(X)
 print(np.unique(y_predict_ini))
 y_predict = np.where(y_predict_ini > DECISION_LIMIT, 1, 0)
 # print(np.unique(y_predict))
+
 
 print("\n\n# =================================================================================")
 print("                         T E S T    R E S U L T S")
@@ -130,7 +132,7 @@ if file_exists:
     print("The mini clips video file you trying to create "
           "already exists.\nChange the 'MINI_CLIPS_VIDEO_NAME' variable"
           "'additional.constants.py' file. ")
-    # exit(0)
+    exit(0)
 
 
 # create directories
@@ -144,8 +146,8 @@ directoryManipulator.create_dir(MINI_CLIPS_VIDEO_NAME_PATH + "/userAnalysis")
 File.remove_file(MINI_CLIPS_INFO_PATH_TO_REMOVE)  # remove clips_info.txt file
 infoFile = File(MINI_CLIPS_INFO_PATH_TO_CREATE)  # create new clips_info.txt file
 # create and write on dataset_classes.txt file
-File.remove_file(MINI_CLIPS_INFO_NON_SORTED_PATH_TO_REMOVE)  # remove clips_info.txt file
-infoFileNonSorted = File(MINI_CLIPS_INFO_NON_SORTED_PATH_TO_CREATE)  # create new clips_info.txt file
+File.remove_file(MINI_CLIPS_INFO_NON_SORTED_PATH_TO_REMOVE)  # remove clips_info_non_sorted.txt file
+infoFileNonSorted = File(MINI_CLIPS_INFO_NON_SORTED_PATH_TO_CREATE)  # create new clips_info_non_sorted.txt file
 
 # create and write on dataset_classes.txt file
 File.remove_file(DATASET_CLASSES_PATH_TO_REMOVE)  # remove dataset_classes.txt file
@@ -156,11 +158,11 @@ dataset_classes_file.write(["ball-hit;noise"])
 File.remove_file(README_TO_REMOVE)  # remove readme.txt file
 readme_file = File(README_TO_CREATE)  # create new readme.txt file
 readme_file.write(["clips_info.txt file format:\nindice_do_clip;amostra_inicial;amostra_final;"
-                   "tempo_inicial,tempo_final;tipo_batida;nome_clip;probabilidade"])
+                   "tempo_inicial,tempo_final;tipo_de_evento;nome_clip;probabilidade_associada_ah_detecao_do_evento"])
 
 
 # =================================================================================
-# # sort mini clips by prob on y predicted array ...
+# # generate mini clips ...
 # =================================================================================
 
 nog = NOG  # number of groups
@@ -179,25 +181,27 @@ for j in range(y_predict.shape[0]):
 
     event_type = "ball-hit" if y_predict[j] == 1 else "noise"
 
+    newclip = mp.VideoFileClip("../test/test_videos/" + TEST_VIDEO_NAME).subclip(ini, final)
+    newclip_event_type = "ball_hit" if event_type == "ball-hit" else "noise"
+    newclip_name = "clip_" + str(j) + "_" + newclip_event_type + ".mp4"
+    newclip.write_videofile("mini_clips/" + video_clip_name + "/clips" + "/" + newclip_name)
+
     prob = str(y_predict_ini[j]).split("[")[1].split("]")[0]
-    info = ini_idx, final_idx, ini, final, event_type, prob
+    info = ini_idx, final_idx, ini, final, event_type, newclip_name, prob
     data = organize_info(info)
     D[data] = y_predict_ini[j]
 
-    newclip_event_type = "ball_hit" if event_type == "ball-hit" else "noise"
-    newclip_name = "clip_" + str(j) + "_" + newclip_event_type + ".mp4"
-
     fileLine = j, ini_idx, final_idx, ini, final, event_type, newclip_name, prob
+    print(fileLine)
     fileLineData = organize_info(fileLine)
     infoFileNonSorted.write([fileLineData])
 
 
+# =================================================================================
+# # write clips info sorted by probability on clips_info.txt file ...
+# =================================================================================
+
 sorted_dict = dict(sorted(D.items(), key=operator.itemgetter(1), reverse=True))
-
-
-# =================================================================================
-# # generate mini clips ...
-# =================================================================================
 
 index = 0
 for k in sorted_dict:
@@ -210,15 +214,14 @@ for k in sorted_dict:
     ini = splited_info[2]
     final = splited_info[3]
     event_type = splited_info[4]
-    prob = splited_info[5]
+    new_clip_name = splited_info[5]
+    prob = splited_info[6]
     prob = prob.replace("\n", "")
 
-    # newclip = mp.VideoFileClip("../test/test_videos/" + TEST_VIDEO_NAME).subclip(ini, final)
-    newclip_event_type = "ball_hit" if event_type == "ball-hit" else "noise"
-    newclip_name = "clip_" + str(index) + "_" + newclip_event_type + ".mp4"
-    # newclip.write_videofile("mini_clips/" + video_clip_name + "/clips" + "/" + newclip_name)
+    newclip_name = new_clip_name
 
     info = index, ini_idx, final_idx, ini, final, event_type, newclip_name, prob
+    print(info)
     data = organize_info(info)
     infoFile.write([data])
 
@@ -233,8 +236,14 @@ print(lines)
 # Terminar contagem de tempo de processamento ...
 # =================================================================================
 
-
 end = time.time()
 #  dif = (end - start)/60
 dif = end - start
 print('Processing time: ', np.round_(dif, 0), "seconds")
+
+
+from sklearn.metrics import ConfusionMatrixDisplay
+import matplotlib.pyplot as plt
+ConfusionMatrixDisplay.from_predictions(Y, y_predict, cmap=plt.cm.Blues)
+plt.show()
+

@@ -65,7 +65,6 @@ for train_index, test_index in tt_split_indexes.split(X, Y):
     # =================================================================================
     # kernel_regularizer=l2(1e-3), kernel_regularizer=l1_l2(l1=1e-3, l2=1e-3),
 
-
     model = Sequential()
     model.add(Dense(256, input_shape=(NR_OF_INPUT_LAYER_NODES,),
                     kernel_regularizer=l2(l2=1e-5),
@@ -74,6 +73,7 @@ for train_index, test_index in tt_split_indexes.split(X, Y):
     model.add(Dropout(0.45))
 
     model.add(Dense(1, activation=OUTPUT_ACTIVATION_FUNCTION))
+
 
 
     # =================================================================================

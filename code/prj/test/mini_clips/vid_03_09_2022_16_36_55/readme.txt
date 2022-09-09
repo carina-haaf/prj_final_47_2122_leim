@@ -1,2 +1,0 @@
-clips_info.txt file format:
-indice_do_clip;amostra_inicial;amostra_final;tempo_inicial,tempo_final;tipo_batida;nome_clip;probabilidade
