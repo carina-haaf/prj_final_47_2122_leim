@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.7.22)  8 SEP 2022 01:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.7.22)  9 SEP 2022 10:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -575,7 +575,7 @@ Package hyperref Info: Link coloring OFF on input line 139.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<./fig_logo_ISEL.png, id=183, 464.4552pt x 456.7464pt>
+<./fig_logo_ISEL.png, id=187, 464.4552pt x 456.7464pt>
 File: ./fig_logo_ISEL.png Graphic file (type png)
 <use ./fig_logo_ISEL.png>
 Package pdftex.def Info: ./fig_logo_ISEL.png  used on input line 145.
@@ -620,33 +620,31 @@ l.47 \myPrefaceChapter{Abstract}
 ]) [5]
 \openout2 = `./00c_PRJ_dedicatoria.aux'.
 
- (00c_PRJ_dedicatoria.tex [6
+ (00c_PRJ_dedicatoria.tex) [6
 
 
 
 
-]) [7] [8
 
 
-
-] (00_PRJ_main.toc [9])
+] (00_PRJ_main.toc [7])
 \tf@toc=\write4
 \openout4 = `00_PRJ_main.toc'.
 
- [10]
+ [8]
 (00_PRJ_main.lot)
 \tf@lot=\write5
 \openout5 = `00_PRJ_main.lot'.
 
- [11
+ [9
 
-] [12
+] [10
 
 ] (00_PRJ_main.lof)
 \tf@lof=\write6
 \openout6 = `00_PRJ_main.lof'.
 
- [13] [14
+ [11] [12
 
 ] (01_PRJ_cap_1_2_3.tex
 Cap\'{\i }tulo 1.
@@ -663,25 +661,25 @@ Overfull \hbox (2.5099pt too wide) in paragraph at lines 78--79
 ]
 Cap\'{\i }tulo 2.
 
-Overfull \hbox (7.8191pt too wide) in paragraph at lines 126--127
+Overfull \hbox (7.8191pt too wide) in paragraph at lines 127--128
 \OT1/cmr/m/n/12 tra-gem e ^^Se dado em se-gun-dos(s). O in-verso deste va-lor c
 or-res-ponde ^^Ra frequ^encia
  []
 
 [5]
-<./audio_features.png, id=402, 462.528pt x 346.896pt>
+<./audio_features.png, id=404, 462.528pt x 346.896pt>
 File: ./audio_features.png Graphic file (type png)
 <use ./audio_features.png>
-Package pdftex.def Info: ./audio_features.png  used on input line 162.
+Package pdftex.def Info: ./audio_features.png  used on input line 163.
 (pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
  [6] [7 <./audio_features.png>] [8]
-<./NN.png, id=436, 344.487pt x 249.3315pt>
+<./NN.png, id=439, 344.487pt x 249.3315pt>
 File: ./NN.png Graphic file (type png)
 <use ./NN.png>
-Package pdftex.def Info: ./NN.png  used on input line 236.
+Package pdftex.def Info: ./NN.png  used on input line 237.
 (pdftex.def)             Requested size: 227.62204pt x 164.7457pt.
 
-Overfull \hbox (17.7166pt too wide) in paragraph at lines 241--242
+Overfull \hbox (17.7166pt too wide) in paragraph at lines 242--243
 \OT1/cmr/m/n/12 de-fi-ni-dos com o ob-je-tivo de ob-ter o me-lhor clas-si-fi-ca
 -dor poss^^S^^Pvel [[]]. 
  []
@@ -692,22 +690,22 @@ Overfull \hbox (17.7166pt too wide) in paragraph at lines 241--242
 Cap\'{\i }tulo 3.
 [15] [16]
 Cap\'{\i }tulo 4.
-<./system_scheme.png, id=517, 681.747pt x 221.02576pt>
+<./system_scheme.png, id=519, 681.747pt x 221.02576pt>
 File: ./system_scheme.png Graphic file (type png)
 <use ./system_scheme.png>
-Package pdftex.def Info: ./system_scheme.png  used on input line 389.
+Package pdftex.def Info: ./system_scheme.png  used on input line 390.
 (pdftex.def)             Requested size: 341.43306pt x 110.69809pt.
 [17
 
  <./system_scheme.png>] [18] [19
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 561--562
+Underfull \hbox (badness 10000) in paragraph at lines 562--563
 
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 594--595
+Underfull \hbox (badness 10000) in paragraph at lines 595--596
 
  []
 
@@ -715,46 +713,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 594--595
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [21]
-Overfull \hbox (15.10422pt too wide) in paragraph at lines 628--629
+Overfull \hbox (15.10422pt too wide) in paragraph at lines 629--630
 []\OT1/cmr/m/n/12 A cons-tru^^Xc~ao do clas-si-fi-ca-dor en-volve tamb^^Sem a e
 s-co-lha dos hiper-par^ametros
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 638--639
+Underfull \hbox (badness 10000) in paragraph at lines 639--640
 
  []
 
-<./app_structure.png, id=564, 584.1825pt x 228.25275pt>
+<./app_structure.png, id=570, 584.1825pt x 228.25275pt>
 File: ./app_structure.png Graphic file (type png)
 <use ./app_structure.png>
-Package pdftex.def Info: ./app_structure.png  used on input line 647.
+Package pdftex.def Info: ./app_structure.png  used on input line 648.
 (pdftex.def)             Requested size: 341.43306pt x 133.41063pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 653--654
+Underfull \hbox (badness 10000) in paragraph at lines 654--655
 
  []
 
 [22]
-<./mockup_pagina_web_1.png, id=574, 320.397pt x 178.86826pt>
+<./mockup_pagina_web_1.png, id=581, 320.397pt x 178.86826pt>
 File: ./mockup_pagina_web_1.png Graphic file (type png)
 <use ./mockup_pagina_web_1.png>
-Package pdftex.def Info: ./mockup_pagina_web_1.png  used on input line 664.
+Package pdftex.def Info: ./mockup_pagina_web_1.png  used on input line 665.
 (pdftex.def)             Requested size: 312.9803pt x 174.73836pt.
 
 Underfull \vbox (badness 1502) has occurred while \output is active []
 
  [23 <./app_structure.png> <./mockup_pagina_web_1.png>]
-<./mockup_pagina_web.png, id=582, 1008.76875pt x 543.83176pt>
+<./mockup_pagina_web.png, id=592, 1008.76875pt x 543.83176pt>
 File: ./mockup_pagina_web.png Graphic file (type png)
 <use ./mockup_pagina_web.png>
-Package pdftex.def Info: ./mockup_pagina_web.png  used on input line 675.
+Package pdftex.def Info: ./mockup_pagina_web.png  used on input line 679.
 (pdftex.def)             Requested size: 398.33858pt x 214.74895pt.
 
-Overfull \hbox (8.33858pt too wide) in paragraph at lines 675--676
+Overfull \hbox (8.33858pt too wide) in paragraph at lines 679--680
  [][] 
  []
 
@@ -763,7 +761,7 @@ Cap\'{\i }tulo 5.
 [25
 
 ]
-<./construct_dataset_scheme.png, id=598, 797.98125pt x 319.1925pt>
+<./construct_dataset_scheme.png, id=608, 797.98125pt x 319.1925pt>
 File: ./construct_dataset_scheme.png Graphic file (type png)
 <use ./construct_dataset_scheme.png>
 Package pdftex.def Info: ./construct_dataset_scheme.png  used on input line 58.
@@ -774,14 +772,14 @@ Overfull \hbox (8.33858pt too wide) in paragraph at lines 58--59
  [][] 
  []
 
-<./model_construction_scheme_v4.png, id=601, 731.1315pt x 180.07275pt>
+<./model_construction_scheme_v4.png, id=611, 731.1315pt x 180.07275pt>
 File: ./model_construction_scheme_v4.png Graphic file (type png)
 <use ./model_construction_scheme_v4.png>
 Package pdftex.def Info: ./model_construction_scheme_v4.png  used on input line
  74.
 (pdftex.def)             Requested size: 341.43306pt x 84.09291pt.
 [26 <./construct_dataset_scheme.png>]
-<./odm_results_v2.png, id=611, 397.485pt x 158.994pt>
+<./odm_results_v2.png, id=621, 397.485pt x 158.994pt>
 File: ./odm_results_v2.png Graphic file (type png)
 <use ./odm_results_v2.png>
 Package pdftex.def Info: ./odm_results_v2.png  used on input line 96.
@@ -792,74 +790,95 @@ Overfull \hbox (0.78607pt too wide) in paragraph at lines 116--117
 cmr/m/it/12 even-tLength\OT1/cmr/m/n/12 ) e n^^Sumero
  []
 
-<./web_app_construction_scheme.png, id=622, 669.702pt x 161.403pt>
+<./web_app_construction_scheme.png, id=632, 669.702pt x 161.403pt>
 File: ./web_app_construction_scheme.png Graphic file (type png)
 <use ./web_app_construction_scheme.png>
 Package pdftex.def Info: ./web_app_construction_scheme.png  used on input line 
-139.
+138.
 (pdftex.def)             Requested size: 341.43306pt x 82.28734pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [28]
-<./app_web_project_sctruture.png, id=630, 187.902pt x 301.125pt>
+<./app_web_project_sctruture.png, id=641, 187.902pt x 301.125pt>
 File: ./app_web_project_sctruture.png Graphic file (type png)
 <use ./app_web_project_sctruture.png>
-Package pdftex.def Info: ./app_web_project_sctruture.png  used on input line 14
-9.
+Package pdftex.def Info: ./app_web_project_sctruture.png  used on input line 15
+0.
 (pdftex.def)             Requested size: 142.26378pt x 227.99814pt.
  [29 <./web_app_construction_scheme.png> <./app_web_project_sctruture.png>] [30
 
 ]
 Cap\'{\i }tulo 6.
-
-Overfull \hbox (8.33954pt too wide) in paragraph at lines 182--219
+[31]
+Overfull \hbox (8.33954pt too wide) in paragraph at lines 203--240
  [] 
  []
 
-[31]
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Overfull \hbox (17.29439pt too wide) in paragraph at lines 303--304
+\OT1/cmr/m/n/12 Para ve-ri-fi-car a ca-pa-ci-dade de ge-ne-ra-li-zar do clas-si
+-fi-ca-dor es-co-lhido, etiquetaram-
+ []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Underfull \vbox (badness 1565) has occurred while \output is active []
 
-[32] [33] [34
+ [32]
+[33]
+<./model_12_test_videos_A_B_C_cm.png, id=673, 694.9965pt x 220.4235pt>
+File: ./model_12_test_videos_A_B_C_cm.png Graphic file (type png)
+<use ./model_12_test_videos_A_B_C_cm.png>
+Package pdftex.def Info: ./model_12_test_videos_A_B_C_cm.png  used on input lin
+e 312.
+(pdftex.def)             Requested size: 369.88582pt x 117.31494pt.
+ [34 <./model_12_test_videos_A_B_C_cm.png>]
+<./inteface_page_2.png, id=682, 455.90324pt x 453.49425pt>
+File: ./inteface_page_2.png Graphic file (type png)
+<use ./inteface_page_2.png>
+Package pdftex.def Info: ./inteface_page_2.png  used on input line 346.
+(pdftex.def)             Requested size: 369.88582pt x 367.9511pt.
+ [35 <./inteface_page_2.png>]
+[36
 
 ]
 Cap\'{\i }tulo 7.
-) (02_PRJ_cap_apendice.tex [35] [36
 
-]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [37])
+(02_PRJ_cap_apendice.tex [38]
 Ap\^endice A.
-[37] [38
+[39
+
+] [40
 
 ]
 Ap\^endice B.
-<./padel_court.png, id=678, 459.96844pt x 347.04657pt>
+<./padel_court.png, id=710, 459.96844pt x 347.04657pt>
 File: ./padel_court.png Graphic file (type png)
 <use ./padel_court.png>
-Package pdftex.def Info: ./padel_court.png  used on input line 43.
+Package pdftex.def Info: ./padel_court.png  used on input line 30.
 (pdftex.def)             Requested size: 284.52756pt x 214.69005pt.
-<./positives_evaluation_0_5_1024.png, id=681, 375.20175pt x 215.00325pt>
+<./positives_evaluation_0_5_1024.png, id=713, 375.20175pt x 215.00325pt>
 File: ./positives_evaluation_0_5_1024.png Graphic file (type png)
 <use ./positives_evaluation_0_5_1024.png>
 Package pdftex.def Info: ./positives_evaluation_0_5_1024.png  used on input lin
-e 50.
+e 37.
 (pdftex.def)             Requested size: 341.43306pt x 195.65652pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./negatives_evaluation_0_5_1024.png, id=682, 379.4175pt x 216.20775pt>
+<./negatives_evaluation_0_5_1024.png, id=714, 379.4175pt x 216.20775pt>
 File: ./negatives_evaluation_0_5_1024.png Graphic file (type png)
 <use ./negatives_evaluation_0_5_1024.png>
 Package pdftex.def Info: ./negatives_evaluation_0_5_1024.png  used on input lin
-e 57.
+e 44.
 (pdftex.def)             Requested size: 341.43306pt x 194.56537pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [39 <./padel_court.png>] [40 <./positives_evaluation_0_5_1024.png> <./negativ
+) [41 <./padel_court.png>] [42 <./positives_evaluation_0_5_1024.png> <./negativ
 es_evaluation_0_5_1024.png>] (00_PRJ_main.bbl
 Underfull \hbox (badness 2080) in paragraph at lines 19--23
 []\OT1/cmr/m/n/12 Baptista, B. (2019).  Ma-chine le-ar-ning sem c^^Sodigo.
@@ -871,7 +890,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--23
 -[]sem-[]c % C3 %
  []
 
-[41
+[43
 
 
 ]
@@ -915,7 +934,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 115--119
  03 % 3A _ Signal _
  []
 
-[42]
+[44]
 Underfull \hbox (badness 1215) in paragraph at lines 126--130
 []\OT1/cmr/m/n/12 MachineLearning (2017).  Har-mo-nic precision-
  []
@@ -954,36 +973,109 @@ Underfull \hbox (badness 7869) in paragraph at lines 161--165
 \OT1/cmr/m/it/12 Me-
  []
 
-[43]) [44] (00_PRJ_main.aux (00a_PRJ_resumo_abstract.aux)
+[45]) [46] (00_PRJ_main.aux (00a_PRJ_resumo_abstract.aux)
 (00b_PRJ_agradecimentos.aux) (00c_PRJ_dedicatoria.aux))
-Package rerunfilecheck Info: File `00_PRJ_main.out' has not changed.
-(rerunfilecheck)             Checksum: 39F9A139DE2A6A18297503509E6D7F56;7310.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `00_PRJ_main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `00_PRJ_main.out':
+(rerunfilecheck)             Before: D343A842FB14E96EE59C620D4F73F077;7433
+(rerunfilecheck)             After:  17F93D1BC8CBBDDC0EDE0B8574095CEF;7432.
  ) 
 Here is how much of TeX's memory you used:
- 14764 strings out of 478338
- 247022 string characters out of 2843735
- 635392 words of memory out of 3000000
- 32756 multiletter control sequences out of 15000+600000
+ 14808 strings out of 478338
+ 248076 string characters out of 2843735
+ 633809 words of memory out of 3000000
+ 32780 multiletter control sequences out of 15000+600000
  478378 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,17n,77p,746b,573s stack positions out of 10000i,1000n,20000p,200000b,80000s
- <C:\Users\carin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
-1200.pk><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmbx12.pf
-b><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><D
-:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><D:/ise
-l/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/isel/LEIM
-/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/isel/LEIM/PRJ_2
-122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><D:/isel/LEIM/PRJ_2122SV/L
-aTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fo
-nts/type1/public/amsfonts/cm/cmr8.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type
-1/public/amsfonts/cm/cmsl12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/ams
-fonts/cm/cmsy8.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/c
-m/cmti12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmtt
-12.pfb>
-Output written on 00_PRJ_main.pdf (60 pages, 973377 bytes).
+
+pdfTeX warning (dest): name{figure.caption.43} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.38} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.35} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.32} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.30} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.25} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.23} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.21} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.18} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.13} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.39} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.37} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.19} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.16} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{appendix*.44} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{chapter*.10} has been referenced but does not exist
+, replaced by a fixed one
+
+ <C:\Users\carin\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm12
+00.pk><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+<D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><D:/
+isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><D:/isel/
+LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/isel/LEIM/P
+RJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/isel/LEIM/PRJ_212
+2SV/LaTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><D:/isel/LEIM/PRJ_2122SV/LaT
+eX/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/font
+s/type1/public/amsfonts/cm/cmr8.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/
+public/amsfonts/cm/cmsl12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfo
+nts/cm/cmsy8.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/
+cmti12.pfb><D:/isel/LEIM/PRJ_2122SV/LaTeX/fonts/type1/public/amsfonts/cm/cmtt12
+.pfb>
+Output written on 00_PRJ_main.pdf (60 pages, 1315499 bytes).
 PDF statistics:
- 842 PDF objects out of 1000 (max. 8388607)
- 183 named destinations out of 1000 (max. 500000)
- 436 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 878 PDF objects out of 1000 (max. 8388607)
+ 201 named destinations out of 1000 (max. 500000)
+ 454 words of extra memory for PDF output out of 10000 (max. 10000000)
 

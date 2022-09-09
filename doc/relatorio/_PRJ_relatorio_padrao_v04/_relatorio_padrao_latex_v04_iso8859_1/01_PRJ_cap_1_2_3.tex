@@ -78,10 +78,10 @@ O relatório está organizado da seguinte forma:
 O Capítulo 1 introduz a necessidade do uso da aprendizagem automática para reconhecer batidas de bola em vídeos de treinos de padel, enuncia os principais contributos da aplicação em desenvolvimento, e realiza uma apreciação global dos resultados obtidos.
 
 \item
-O Capítulo 2 faz referência a trabalhos relacionados com o trabalho corrente. Estes trabalhos foram sendo analisados durante o desenvolvimento do trabalho e baseiam-se também no uso de técnicas de aprendizagem automática para reconhecer eventos em modalidades desportivas.
+O Capítulo 2 introduz os conceitos nos quais o trabalho em desenvolvimento se baseia: conceitos sobre processamento de sinal e de aprendizagem automática.
 
 \item
-O Capítulo 3 introduz alguns conceitos nos quais o trabalho em desenvolvimento se baseia: conceitos sobre processamento de sinal e de aprendizagem automática.
+O Capítulo 3 faz referência a trabalhos relacionados com o trabalho corrente. Estes trabalhos foram sendo analisados durante o desenvolvimento do trabalho e baseiam-se também no uso de técnicas de aprendizagem automática para reconhecer eventos em modalidades desportivas.
 
 \item
 O Capítulo 4 visa apresentar uma análise geral dos requisitos do sistema e a abordagem utilizada para satisfazer esses requisitos.
@@ -90,10 +90,11 @@ O Capítulo 4 visa apresentar uma análise geral dos requisitos do sistema e a abo
 O Capítulo 5 descreve todo o processo de concretização da solução abordada no capítulo anterior.
 
 \item
-(Falar do capítulo 6)
+O Capítulo 6 apresenta os resultados obtidos da implementação da solução adotada para construir o classificador. Neste capítulo é escolhido o modelo (final) que produz os melhores resultados na deteção de batidas de bola. 
 
 \item
-(Falar do capítulo 7)  
+O Capítulo 7 apresenta uma análise geral de todo o trabalho realizado e descreve quais os objetivos a realizar num trabalho futuro. 
+
 \end{itemize}
 
 
@@ -645,7 +646,7 @@ A aplicação em desenvolvimento faz uso da linguagem PHP. Esta linguagem é execut
 \begin{figure}[h]
    \centering
    \includegraphics[width=12cm]{./app_structure}
-\caption{Estrutura da aplicação \textit{web}.}
+\caption{A da aplicação \textit{web}.}
 \label{fig:webapparchitecture}
 \end{figure}
 
@@ -666,9 +667,12 @@ Para simplificar, a página 1 terá um lista de vídeos que já foram classificados.
 \label{fig:paginaweb1}
 \end{figure}
 
-Os clips são resultado do processo de deslizamento da janela ao longo do vídeo (de teste) a classificar. Desta forma, cada \textit{clip} tem a duração de 0.5 segundos.
+Os \textit{clips} são resultado do processo de deslizamento da janela ao longo do vídeo (de teste) a classificar. Desta forma, cada \textit{clip} tem a duração de 0.5 segundos.
 Através do botão \aspas{\textit{select}} é possível selecionar um \textit{clip} (à esquerda) e visualizá-lo (à direita).
-Ainda na página 2 o utilizador pode validar os resultados devolvidos pelo classificador alterando o tipo de evento (entre \aspas{\textit{ball-hit}} e \aspas{\textit{noise}}) na primeira coluna. É ainda possível ordenar e visualizar os eventos por probabilidade de serem batida de bola (na ordem decrescente).
+Ainda na página 2 o utilizador pode validar os resultados devolvidos pelo classificador alterando o tipo de evento (entre \aspas{\textit{ball-hit}} e \aspas{\textit{noise}}) na primeira coluna. É ainda possível ordenar e visualizar os eventos por probabilidade de serem batida de bola (na ordem decrescente) clicando no botão \aspas{\textit{Sort by probability}}. 
+
+O botão \aspas{\textit{Submit}} permite enviar as alterações realizadas ao servidor através de um pedido do tipo \textit{POST}. As alterações submetidas são guardadas em ficheiros de texto (.txt) e contêm informação acerca do tipo de evento escolhido pelo utilizador e as amostras inicial e final respetivas.
+Estas informações são posteriormente utilizadas para aumentar o \textit{dataset} e consequentemente melhorar a qualidade do modelo. Esta abordagem é bastante útil na anotação de eventos para vídeos não anotados.
 
 \begin{figure}[h]
    \centering

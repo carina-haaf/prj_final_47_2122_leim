@@ -1,27 +1,29 @@
 \babel@toc {portuguese}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Caracter\IeC {\'\i }sticas (cima e meio) e \'audio (baixo) correspondente.\relax }}{7}{figure.caption.11}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Representa\c c\~ao t\IeC {\'\i }pica de uma rede neuronal.\relax }}{9}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Caracter\IeC {\'\i }sticas (cima e meio) e \'audio (baixo) correspondente.\relax }}{7}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Representa\c c\~ao t\IeC {\'\i }pica de uma rede neuronal.\relax }}{9}{figure.caption.11}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Sistema de anota\c c\~ao de eventos desejado.\relax }}{17}{figure.caption.13}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Matriz de caracter\IeC {\'\i }sticas.\relax }}{20}{figure.caption.18}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Vetor de classes.\relax }}{21}{figure.caption.21}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Matriz de caracter\IeC {\'\i }sticas.\relax }}{22}{figure.caption.23}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Estrutura da aplica\c c\~ao \textit {web}.\relax }}{23}{figure.caption.25}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces \textit {Design} desejado da p\'agina \textit {web} 1.\relax }}{23}{figure.caption.27}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces \textit {Design} desejado da p\'agina \textit {web} 2.\relax }}{24}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Sistema de anota\c c\~ao de eventos desejado.\relax }}{17}{figure.caption.12}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Matriz de caracter\IeC {\'\i }sticas.\relax }}{20}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Vetor de classes.\relax }}{21}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Matriz de caracter\IeC {\'\i }sticas.\relax }}{22}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces A da aplica\c c\~ao \textit {web}.\relax }}{23}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces \textit {Design} desejado da p\'agina \textit {web} 1.\relax }}{23}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces \textit {Design} desejado da p\'agina \textit {web} 2.\relax }}{24}{figure.caption.27}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Processo detalhado de constru\c c\~ao do \textit {dataset}.\relax }}{26}{figure.caption.29}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Processo de constru\c c\~ao do classificador.\relax }}{27}{figure.caption.30}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Resultados (independentes das classes) da aplica\c c\~ao de v\'arios algoritmos aos dados.\relax }}{27}{figure.caption.32}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Processo de desenvolvimento da applica\c c\~ao \textit {web}.\relax }}{29}{figure.caption.34}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Estrututa do projeto correspondente \`a aplica\c c\~ao \textit {web} no IDE Netbeans.\relax }}{29}{figure.caption.35}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Processo detalhado de constru\c c\~ao do \textit {dataset}.\relax }}{26}{figure.caption.28}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Processo de constru\c c\~ao do classificador.\relax }}{27}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Resultados (independentes das classes) da aplica\c c\~ao de v\'arios algoritmos aos dados.\relax }}{27}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Processo de desenvolvimento da applica\c c\~ao \textit {web}.\relax }}{29}{figure.caption.33}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Estrututa do projeto correspondente \`a aplica\c c\~ao \textit {web} no IDE Netbeans.\relax }}{29}{figure.caption.34}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Matrizes de confus\~ao resultantes da classifica\c c\~ao dos v\IeC {\'\i }deos A (esquerda), B (meio) e C (direita).\relax }}{34}{figure.caption.37}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Interface da p\'agina 2 da aplica\c c\~ao \textit {web}.\relax }}{35}{figure.caption.39}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Descri\c c\~ao pormenorizada do campo de padel. \cite {tennisnerd_padel_2019}\relax }}{39}{figure.caption.39}%
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Resultados da aplica\c c\~ao de v\'arios algoritmos aos dados para a classe dos positivos.\relax }}{40}{figure.caption.40}%
-\contentsline {figure}{\numberline {B.3}{\ignorespaces Resultados da aplica\c c\~ao de v\'arios algoritmos aos dados para a classe dos negativos.\relax }}{40}{figure.caption.41}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Descri\c c\~ao pormenorizada do campo de padel. \cite {tennisnerd_padel_2019}\relax }}{41}{figure.caption.40}%
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Resultados da aplica\c c\~ao de v\'arios algoritmos aos dados para a classe dos positivos.\relax }}{42}{figure.caption.41}%
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Resultados da aplica\c c\~ao de v\'arios algoritmos aos dados para a classe dos negativos.\relax }}{42}{figure.caption.42}%

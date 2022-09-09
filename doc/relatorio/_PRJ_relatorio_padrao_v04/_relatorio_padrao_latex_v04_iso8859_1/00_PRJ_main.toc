@@ -2,9 +2,9 @@
 \contentsline {chapter}{Resumo}{i}{chapter*.4}%
 \contentsline {chapter}{Abstract}{iii}{chapter*.5}%
 \contentsline {chapter}{Agradecimentos}{v}{chapter*.6}%
-\contentsline {chapter}{\'Indice}{ix}{chapter*.8}%
-\contentsline {chapter}{Lista de Tabelas}{xi}{chapter*.9}%
-\contentsline {chapter}{Lista de Figuras}{xiii}{chapter*.10}%
+\contentsline {chapter}{\'Indice}{vii}{chapter*.7}%
+\contentsline {chapter}{Lista de Tabelas}{ix}{chapter*.8}%
+\contentsline {chapter}{Lista de Figuras}{xi}{chapter*.9}%
 \contentsline {chapter}{\numberline {1}Introdu\c c\~ao}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Motiva\c c\~ao}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Principais Contributos}{2}{section.1.2}%
@@ -29,25 +29,26 @@
 \contentsline {section}{\numberline {4.2}Requisitos}{17}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Abordagem}{19}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Constru\c c\~ao do \textit {Dataset}}{19}{subsection.4.3.1}%
-\contentsline {paragraph}{\textbf {Obten\c c\~ao da matriz de caracter\IeC {\'\i }sticas -- \textit {X}}}{19}{section*.17}%
-\contentsline {paragraph}{\textbf {Obten\c c\~ao do vetor de classes -- \textit {y}}}{20}{section*.20}%
-\contentsline {paragraph}{\textbf {Cria\c c\~ao do \textit {dataset}}}{21}{section*.22}%
+\contentsline {paragraph}{\textbf {Obten\c c\~ao da matriz de caracter\IeC {\'\i }sticas -- \textit {X}}}{19}{section*.16}%
+\contentsline {paragraph}{\textbf {Obten\c c\~ao do vetor de classes -- \textit {y}}}{20}{section*.19}%
+\contentsline {paragraph}{\textbf {Cria\c c\~ao do \textit {dataset}}}{21}{section*.21}%
 \contentsline {subsection}{\numberline {4.3.2}Constru\c c\~ao do Classificador}{22}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}Desenvolvimento da Aplica\c c\~ao \textit {Web}}{22}{subsection.4.3.3}%
-\contentsline {paragraph}{\textbf {Arquitetura da Aplica\c c\~ao \textit {Web}}}{22}{section*.24}%
-\contentsline {paragraph}{\textbf {\textit {Design} da Aplica\c c\~ao}}{23}{section*.26}%
+\contentsline {paragraph}{\textbf {Arquitetura da Aplica\c c\~ao \textit {Web}}}{22}{section*.23}%
+\contentsline {paragraph}{\textbf {\textit {Design} da Aplica\c c\~ao}}{23}{section*.25}%
 \contentsline {chapter}{\numberline {5}Implementa\c c\~ao do Modelo}{25}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Constru\c c\~ao do \textit {Dataset}}{25}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Constru\c c\~ao do Classificador}{26}{section.5.2}%
-\contentsline {paragraph}{\textbf {Escolha do modelo}}{27}{section*.31}%
-\contentsline {paragraph}{\textbf {Defini\c c\~ao dos Hiper-par\^ametros e Treino do Modelo}}{28}{section*.33}%
+\contentsline {paragraph}{\textbf {Escolha do modelo}}{27}{section*.30}%
+\contentsline {paragraph}{\textbf {Defini\c c\~ao dos Hiper-par\^ametros e Treino do Modelo}}{28}{section*.32}%
 \contentsline {section}{\numberline {5.3}Desenvolvimento da Aplica\c c\~ao \textit {web}}{28}{section.5.3}%
 \contentsline {chapter}{\numberline {6}Valida\c c\~ao e Testes}{31}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Defini\c c\~ao dos Hiper-par\^ametros}{31}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Classifica\c c\~ao de V\IeC {\'\i }deos Novos}{32}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Anota\c c\~ao e Melhoria do \textit {Dataset}}{32}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Modelo Final}{32}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Conclus\~oes e Trabalho Futuro}{35}{chapter.7}%
-\contentsline {chapter}{\numberline {A}Um Detalhe Adicional}{37}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Outro Detalhe Adicional}{39}{appendix.B}%
-\contentsline {chapter}{Bibliografia}{41}{appendix*.42}%
+\contentsline {section}{\numberline {6.2}Classifica\c c\~ao de V\IeC {\'\i }deos Novos}{34}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Anota\c c\~ao e Melhoria do \textit {Dataset}}{35}{section.6.3}%
+\contentsline {chapter}{\numberline {7}Conclus\~oes e Trabalho Futuro}{37}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Conclus\~oes}{37}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Trabalho Futuro}{38}{section.7.2}%
+\contentsline {chapter}{\numberline {A}Um Detalhe Adicional}{39}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Outro Detalhe Adicional}{41}{appendix.B}%
+\contentsline {chapter}{Bibliografia}{43}{appendix*.43}%
